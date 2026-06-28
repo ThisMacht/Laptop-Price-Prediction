@@ -1,0 +1,87 @@
+feature,importance,model_name,target_used,importance_type,abs_importance
+ram_gb,6.040329440871013,Lasso_target,price,coefficient,6.040329440871013
+memory_storage_score,-5.107774667212116,Lasso_target,price,coefficient,5.107774667212116
+storage_gb,5.083489231776762,Lasso_target,price,coefficient,5.083489231776762
+cpu_family_ord_filled,4.131775066570837,Lasso_target,price,coefficient,4.131775066570837
+cpu_family_group_Intel Core i,-3.7464143494699202,Lasso_target,price,coefficient,3.7464143494699202
+warranty_active,-3.4188474046762547,Lasso_target,price,coefficient,3.4188474046762547
+no_info_cpu_tier,2.9403312765721243,Lasso_target,price,coefficient,2.9403312765721243
+cpu_tier_encoded,2.681543241230175,Lasso_target,price,coefficient,2.681543241230175
+cpu_family_group_AMD Ryzen,-2.2268150649468397,Lasso_target,price,coefficient,2.2268150649468397
+ram_storage_balance,2.1311033527593444,Lasso_target,price,coefficient,2.1311033527593444
+warranty_expired,-2.064966502649796,Lasso_target,price,coefficient,2.064966502649796
+gpu_tier_ord_filled,2.059125134830044,Lasso_target,price,coefficient,2.059125134830044
+ram_storage_product_scaled,-1.7037492916367847,Lasso_target,price,coefficient,1.7037492916367847
+warranty_not_activated,1.6804036290961142,Lasso_target,price,coefficient,1.6804036290961142
+storage_missing,-1.5466364290419723,Lasso_target,price,coefficient,1.5466364290419723
+condition_score,1.4737006528357717,Lasso_target,price,coefficient,1.4737006528357717
+cpu_amd_generation_ord,-1.3032810675174422,Lasso_target,price,coefficient,1.3032810675174422
+storage_ssd,1.104955878587997,Lasso_target,price,coefficient,1.104955878587997
+cpu_intel_generation_ord,-1.0798304306931816,Lasso_target,price,coefficient,1.0798304306931816
+no_info_storage,1.032763128283013,Lasso_target,price,coefficient,1.032763128283013
+cpu_suffix_power_ord_filled,1.0146314802508287,Lasso_target,price,coefficient,1.0146314802508287
+brand_segment_premium,0.9393039183760648,Lasso_target,price,coefficient,0.9393039183760648
+model_MacBook Air M1,-0.7285897230988287,Lasso_target,price,coefficient,0.7285897230988287
+cpu_brand_Apple,0.6094428511932003,Lasso_target,price,coefficient,0.6094428511932003
+no_info_gpu,0.5659760743194052,Lasso_target,price,coefficient,0.5659760743194052
+model_MacBook Pro,-0.5370068571987229,Lasso_target,price,coefficient,0.5370068571987229
+no_info_cpu_brand,-0.5169415432244479,Lasso_target,price,coefficient,0.5169415432244479
+model_MacBook Pro M1,-0.5093319376182533,Lasso_target,price,coefficient,0.5093319376182533
+cpu_family_group_Intel Core Ultra,-0.49561579207967504,Lasso_target,price,coefficient,0.49561579207967504
+storage_hdd,-0.48679070369661487,Lasso_target,price,coefficient,0.48679070369661487
+cpu_brand_Intel,-0.42453382780458715,Lasso_target,price,coefficient,0.42453382780458715
+model_Legion 5,0.40860972167677595,Lasso_target,price,coefficient,0.40860972167677595
+brand_LG,0.40429483566681806,Lasso_target,price,coefficient,0.40429483566681806
+cpu_family_group_Intel Low End,-0.3952430687069203,Lasso_target,price,coefficient,0.3952430687069203
+model_MacBook Air M2,-0.3788913632524773,Lasso_target,price,coefficient,0.3788913632524773
+ram_missing,-0.3283697025463171,Lasso_target,price,coefficient,0.3283697025463171
+model_MacBook Air,-0.3197641088699039,Lasso_target,price,coefficient,0.3197641088699039
+brand_Acer,-0.29696818229192545,Lasso_target,price,coefficient,0.29696818229192545
+screen_missing,-0.29288834737878244,Lasso_target,price,coefficient,0.29288834737878244
+is_mid_memory_storage,-0.2856815431655814,Lasso_target,price,coefficient,0.2856815431655814
+brand_segment_rare,-0.27095549107758204,Lasso_target,price,coefficient,0.27095549107758204
+brand_Dell,-0.2688543170953472,Lasso_target,price,coefficient,0.2688543170953472
+brand_Lenovo,-0.2682163723814707,Lasso_target,price,coefficient,0.2682163723814707
+model_Legion,0.2527121898861233,Lasso_target,price,coefficient,0.2527121898861233
+model_XPS 13,0.23372508227201208,Lasso_target,price,coefficient,0.23372508227201208
+model_Precision,-0.20472268889582212,Lasso_target,price,coefficient,0.20472268889582212
+cpu_apple_core_spec,-0.20085336314110808,Lasso_target,price,coefficient,0.20085336314110808
+model_MacBook Pro M2,-0.19655437685661387,Lasso_target,price,coefficient,0.19655437685661387
+brand_ASUS,0.18138413491768848,Lasso_target,price,coefficient,0.18138413491768848
+model_ROG Strix,-0.18059418638386995,Lasso_target,price,coefficient,0.18059418638386995
+model_Gaming Thin GF,-0.170765798889811,Lasso_target,price,coefficient,0.170765798889811
+is_entry_memory_storage,0.16670511759610437,Lasso_target,price,coefficient,0.16670511759610437
+cpu_brand_AMD,0.15706840022005517,Lasso_target,price,coefficient,0.15706840022005517
+model_TUF Gaming,-0.1523480569873754,Lasso_target,price,coefficient,0.1523480569873754
+model_Macbook air m4,-0.15135855021658975,Lasso_target,price,coefficient,0.15135855021658975
+brand_MSI,0.1438786265728055,Lasso_target,price,coefficient,0.1438786265728055
+model_ThinkPad X1 Carbon,0.1302548264984136,Lasso_target,price,coefficient,0.1302548264984136
+model_IdeaPad,0.12784637385460682,Lasso_target,price,coefficient,0.12784637385460682
+model_Nitro 5,0.1167151221046341,Lasso_target,price,coefficient,0.1167151221046341
+model_Latitude E Series,-0.11450348217748171,Lasso_target,price,coefficient,0.11450348217748171
+brand_HP,0.09642942143418677,Lasso_target,price,coefficient,0.09642942143418677
+no_info_model,0.09220009487861447,Lasso_target,price,coefficient,0.09220009487861447
+model_Aspire,0.09128194046326042,Lasso_target,price,coefficient,0.09128194046326042
+model_Latitude,0.08842612495244292,Lasso_target,price,coefficient,0.08842612495244292
+screen_size_inch,0.08528516547956003,Lasso_target,price,coefficient,0.08528516547956003
+model_X Series,-0.07665939472668172,Lasso_target,price,coefficient,0.07665939472668172
+model_Vivobook 15,0.07116506774185749,Lasso_target,price,coefficient,0.07116506774185749
+cpu_brand_Qualcomm,0.060462979753308735,Lasso_target,price,coefficient,0.060462979753308735
+model_Vostro,0.05676515842267064,Lasso_target,price,coefficient,0.05676515842267064
+brand_Microsoft,0.051412544323287054,Lasso_target,price,coefficient,0.051412544323287054
+model_ProBook,-0.03844638949928174,Lasso_target,price,coefficient,0.03844638949928174
+model_Inspiron,0.03597207981814291,Lasso_target,price,coefficient,0.03597207981814291
+model_Elitebook 800,-0.026346783086525785,Lasso_target,price,coefficient,0.026346783086525785
+model_TUF Gaming F15,-0.02601969326857154,Lasso_target,price,coefficient,0.02601969326857154
+model_ThinkPad,-0.024701342132662063,Lasso_target,price,coefficient,0.024701342132662063
+model_Elitebook,0.022030814443248028,Lasso_target,price,coefficient,0.022030814443248028
+model_Latitude 14 7000,0.01888584123998489,Lasso_target,price,coefficient,0.01888584123998489
+brand_is_rare,-2.058747831497062e-06,Lasso_target,price,coefficient,2.058747831497062e-06
+model_Pavilion 15,-0.0,Lasso_target,price,coefficient,0.0
+cpu_family_group_Apple Silicon,0.0,Lasso_target,price,coefficient,0.0
+no_info_brand,-0.0,Lasso_target,price,coefficient,0.0
+model_is_rare,-0.0,Lasso_target,price,coefficient,0.0
+is_premium_memory_storage,-0.0,Lasso_target,price,coefficient,0.0
+brand_segment_business,-0.0,Lasso_target,price,coefficient,0.0
+brand_segment_gaming_value,0.0,Lasso_target,price,coefficient,0.0
+brand_Apple,0.0,Lasso_target,price,coefficient,0.0

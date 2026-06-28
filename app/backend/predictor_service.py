@@ -1,0 +1,330 @@
+from __future__ import annotations
+
+import json
+import os
+import re
+from pathlib import Path
+from typing import Any
+
+import requests
+
+
+from dotenv import load_dotenv
+
+
+from src.encoder import LaptopFeatureEncoder
+from src.encoder.encoder_validation import validate_input_rows
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+MODEL_PATH = PROJECT_ROOT / "models" / "final_laptop_price_model_full_data.joblib"
+
+RAW_LAPTOP_FIELDS = [
+    "brand",
+    "model",
+    "ram_gb",
+    "storage_gb",
+    "storage_type",
+    "screen_size_inch",
+    "cpu_text",
+    "cpu_brand",
+    "cpu_family",
+    "cpu_generation",
+    "cpu_suffix",
+    "gpu_text",
+    "condition",
+    "warranty_status",
+]
+
+DETAILED_EXTRACTION_PROMPT = """
+You are a strict laptop-specification extraction assistant for a production laptop price prediction system.
+
+Your only job is to convert free-form user text into one JSON object that can be passed to
+src.encoder.LaptopFeatureEncoder. The encoder will create all final 86 numeric model features later.
+Do not output final engineered features such as brand_Dell, model_Inspiron, storage_ssd,
+condition_score, cpu_tier_encoded, gpu_tier_ord_filled, warranty_active, no_info_*,
+ram_storage_product_scaled, or any other one-hot/ordinal/interaction feature.
+
+Return exactly these raw encoder input fields and no extra fields:
+brand, model, ram_gb, storage_gb, storage_type, screen_size_inch,
+cpu_text, cpu_brand, cpu_family, cpu_generation, cpu_suffix,
+gpu_text, condition, warranty_status.
+
+General JSON rules:
+- Return only valid JSON. No markdown, no comments, no explanation.
+- Use JSON null for missing/unstated/unparseable values. Do not use "Other", "orther",
+  "N/A", empty strings, NaN, or guessed placeholders.
+- Do not invent specs. If the user does not state a value and it cannot be directly inferred from
+  a stated model/CPU/storage phrase, use null.
+- Numeric fields must be JSON numbers, not strings:
+  ram_gb, storage_gb, screen_size_inch, cpu_generation.
+
+Capacity and screen parsing:
+- ram_gb: parse RAM capacity into GB. Examples: "8GB RAM" -> 8, "16 gb" -> 16,
+  "32GB DDR5" -> 32. Ignore RAM type.
+- storage_gb: parse total storage capacity into GB. Use 1TB = 1024GB, 2TB = 2048GB.
+  Examples: "512GB SSD" -> 512, "1TB NVMe" -> 1024, "256GB SSD + 1TB HDD" -> 1280.
+- storage_type: extract technology only. Use values such as "SSD", "HDD", "NVMe SSD",
+  "SSD + HDD". If storage capacity is present but technology is absent, storage_gb is a number
+  and storage_type is null.
+- screen_size_inch: parse screen size in inches, e.g. "13.3 inch" -> 13.3,
+  "14-inch" -> 14, "15.6\"" -> 15.6.
+
+Brand parsing:
+- Canonical common brands: ASUS, Acer, Apple, Dell, HP, LG, Lenovo, MSI, Microsoft.
+- Preserve rare/unseen brands if explicitly stated, such as Gigabyte, Sony, Toshiba.
+- Normalize aliases: "hewlett packard" -> "HP"; "surface" as a brand hint -> "Microsoft";
+  "micro star" -> "MSI".
+- If no brand is stated, brand must be null.
+
+Model/series parsing:
+- Extract the laptop series/model line, not the whole product title when a cleaner series exists.
+- Prefer canonical model strings when clearly present:
+  Aspire, Elitebook, Elitebook 800, Gaming Thin GF, IdeaPad, Inspiron, Latitude,
+  Latitude 14 7000, Latitude E Series, Legion, Legion 5, MacBook Air, MacBook Air M1,
+  MacBook Air M2, MacBook Pro, MacBook Pro M1, MacBook Pro M2, Macbook air m4,
+  Nitro 5, Pavilion 15, Precision, ProBook, ROG Strix, TUF Gaming, TUF Gaming F15,
+  ThinkPad, ThinkPad X1 Carbon, Vivobook 15, Vostro, X Series, XPS 13.
+- If user states an unsupported but real model, preserve it as raw model. Do not use "Other".
+- If model is not stated, model must be null.
+
+CPU parsing:
+- cpu_text: keep the most complete CPU phrase available, e.g. "Intel Core i5-1235U",
+  "AMD Ryzen 7 7840HS", "Apple M2", "Snapdragon X Elite".
+- cpu_brand: Intel, AMD, Apple, Qualcomm, or null.
+- cpu_family examples: Intel Core i3/i5/i7/i9; Intel Core Ultra 5/7/9; Intel Celeron;
+  Intel Pentium; Intel N-Series; AMD Ryzen 3/5/7/9; AMD Ryzen AI;
+  Apple M1/M2/M3/M4/M5; Snapdragon X Plus; Snapdragon X Elite.
+- cpu_generation: infer only when clear. Examples: i5-1235U -> 12, i9-13900HX -> 13,
+  Ryzen 5 5500U -> 5, Ryzen 7 7840HS -> 7, Apple M2 -> 2. Otherwise null.
+- cpu_suffix: extract U, P, H, HS, HX, HK, HQ, G7, G4, G1, G, K, Y, M when present.
+
+GPU parsing:
+- gpu_text: preserve useful GPU text. Examples: "integrated", "Intel Iris Xe", "Intel UHD",
+  "AMD Radeon Graphics", "Apple GPU", "GTX 1650", "RTX 3050", "RTX 4060".
+- If no GPU information is stated, gpu_text must be null.
+
+Condition parsing:
+- Output one of these raw condition values when possible:
+  "new", "moi", "unknown", "unknow", "like new", "da mua", "good", "used",
+  "da su dung chua sua chua", "repaired", "da sua chua",
+  "da su dung qua sua chua", "fair", "poor".
+- The encoder condition_score scale is:
+  new/moi/unknown/unknow -> 3;
+  like new/da mua/98%/99%/used/good/da su dung chua sua chua -> 2;
+  repaired/da sua chua/da su dung qua sua chua/fair/poor -> 1.
+- Vietnamese mapping:
+  "moi", "may moi", "new", "nguyen seal", "chua dung" -> "new";
+  "unknown", "unknow", "khong ro tinh trang", "khong biet tinh trang" -> "unknown";
+  "nhu moi", "like new", "da mua", "moi mua", "98%", "99%" -> "like new" or "da mua";
+  "da su dung chua sua chua", "used, not repaired", "used good" -> "da su dung chua sua chua";
+  "da su dung qua sua chua", "repaired", "da sua", "qua sua chua" -> "da su dung qua sua chua";
+  poor/fair words map to "poor"/"fair" and are treated as score 1.
+- If condition is not stated, use null.
+
+Warranty parsing:
+- Output one of: "active", "expired", "not activated",
+  "con bao hanh", "het bao hanh", "chua kich hoat", or null.
+- Map "con bao hanh", "manufacturer warranty", "warranty active" -> "active".
+- Map "het bao hanh", "no warranty", "expired warranty" -> "expired".
+- Map "chua kich hoat", "not activated", "not active" -> "not activated".
+- If warranty information is absent, use null.
+""".strip()
+
+
+def load_environment() -> None:
+    if load_dotenv is not None:
+        load_dotenv(PROJECT_ROOT / "app/backend/.env")
+
+
+def raw_laptop_json_schema() -> dict[str, Any]:
+    return {
+        "type": "object",
+        "additionalProperties": False,
+        "properties": {
+            "brand": {"type": ["string", "null"]},
+            "model": {"type": ["string", "null"]},
+            "ram_gb": {"type": ["number", "null"]},
+            "storage_gb": {"type": ["number", "null"]},
+            "storage_type": {"type": ["string", "null"]},
+            "screen_size_inch": {"type": ["number", "null"]},
+            "cpu_text": {"type": ["string", "null"]},
+            "cpu_brand": {"type": ["string", "null"]},
+            "cpu_family": {"type": ["string", "null"]},
+            "cpu_generation": {"type": ["integer", "null"]},
+            "cpu_suffix": {"type": ["string", "null"]},
+            "gpu_text": {"type": ["string", "null"]},
+            "condition": {"type": ["string", "null"]},
+            "warranty_status": {"type": ["string", "null"]},
+        },
+        "required": RAW_LAPTOP_FIELDS,
+    }
+
+
+def gemini_response_schema() -> dict[str, Any]:
+    """Schema format accepted by Gemini generationConfig.responseSchema."""
+    string_or_null = {"type": "STRING", "nullable": True}
+    number_or_null = {"type": "NUMBER", "nullable": True}
+    integer_or_null = {"type": "INTEGER", "nullable": True}
+
+    return {
+        "type": "OBJECT",
+        "properties": {
+            "brand": string_or_null,
+            "model": string_or_null,
+            "ram_gb": number_or_null,
+            "storage_gb": number_or_null,
+            "storage_type": string_or_null,
+            "screen_size_inch": number_or_null,
+            "cpu_text": string_or_null,
+            "cpu_brand": string_or_null,
+            "cpu_family": string_or_null,
+            "cpu_generation": integer_or_null,
+            "cpu_suffix": string_or_null,
+            "gpu_text": string_or_null,
+            "condition": string_or_null,
+            "warranty_status": string_or_null,
+        },
+        "required": RAW_LAPTOP_FIELDS,
+        "propertyOrdering": RAW_LAPTOP_FIELDS,
+    }
+
+
+def call_gemini_json_api(user_input: str, api_key: str) -> dict[str, Any]:
+    model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+    payload = {
+        "systemInstruction": {
+            "parts": [{"text": DETAILED_EXTRACTION_PROMPT}],
+        },
+        "contents": [
+            {
+                "role": "user",
+                "parts": [{"text": user_input}],
+            }
+        ],
+        "generationConfig": {
+            "temperature": 0,
+            "responseMimeType": "application/json",
+            "responseSchema": gemini_response_schema(),
+        },
+    }
+    response = requests.post(
+        f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+        params={"key": api_key},
+        headers={"Content-Type": "application/json"},
+        json=payload,
+        timeout=60,
+    )
+    response.raise_for_status()
+    return response.json()
+
+
+def gemini_content_text(response_data: dict[str, Any]) -> str:
+    candidates = response_data.get("candidates") or []
+    if not candidates:
+        raise ValueError("Gemini response did not include any candidates.")
+
+    parts = candidates[0].get("content", {}).get("parts") or []
+    text_parts = [part.get("text", "") for part in parts if isinstance(part, dict)]
+    raw_content = "".join(text_parts).strip()
+    if not raw_content:
+        raise ValueError("Gemini response candidate did not include JSON text.")
+    return raw_content
+
+
+def parse_llm_json_content(raw_content: str) -> dict[str, Any]:
+    try:
+        parsed = json.loads(raw_content)
+    except json.JSONDecodeError:
+        match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", raw_content, flags=re.DOTALL)
+        if not match:
+            raise
+        parsed = json.loads(match.group(1))
+
+    if not isinstance(parsed, dict):
+        raise TypeError(f"Expected a JSON object, got {type(parsed).__name__}.")
+    return parsed
+
+
+def validate_encoder_ready_json(raw_features: dict[str, Any]) -> None:
+    if not isinstance(raw_features, dict):
+        raise TypeError(f"LLM output must be a dict, got {type(raw_features).__name__}.")
+
+    missing_fields = [field for field in RAW_LAPTOP_FIELDS if field not in raw_features]
+    extra_fields = [field for field in raw_features if field not in RAW_LAPTOP_FIELDS]
+    if missing_fields:
+        raise ValueError(f"LLM output is missing required encoder fields: {missing_fields}")
+    if extra_fields:
+        raise ValueError(f"LLM output contains unsupported encoder fields: {extra_fields}")
+
+    validate_input_rows([raw_features])
+
+
+def extract_laptop_features(user_input: str, api_key: str) -> dict[str, Any]:
+    response_data = call_gemini_json_api(user_input, api_key)
+    raw_content = gemini_content_text(response_data)
+    raw_features = parse_llm_json_content(raw_content)
+    validate_encoder_ready_json(raw_features)
+    return raw_features
+
+
+def normalize_manual_features(raw_features: dict[str, Any]) -> dict[str, Any]:
+    return {field: raw_features.get(field) for field in RAW_LAPTOP_FIELDS}
+
+
+def encode_features(raw_features: dict[str, Any]) -> tuple[dict[str, float | int], list[str]]:
+    encoder = LaptopFeatureEncoder()
+    encoded_frame = encoder.encode_one(raw_features)
+    row = encoded_frame.iloc[0].to_dict()
+    active = [
+        name
+        for name, value in row.items()
+        if value not in (0, 0.0) and not name.endswith("_missing")
+    ]
+    return row, active[:32]
+
+
+def predict_price(raw_features: dict[str, Any]) -> float:
+    import joblib
+
+    encoder = LaptopFeatureEncoder()
+    model = joblib.load(MODEL_PATH)
+    encoded = encoder.encode_one(raw_features)
+    return float(model.predict(encoded)[0])
+
+
+def predict_from_text(description: str) -> dict[str, Any]:
+    load_environment()
+    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key:
+        raise RuntimeError("GEMINI_API_KEY is not configured.")
+    raw_features = extract_laptop_features(description, api_key)
+    encoded_features, active_features = encode_features(raw_features)
+    prediction = predict_price(raw_features)
+    return {
+        "raw_features": raw_features,
+        "encoded_features": encoded_features,
+        "active_features": active_features,
+        "predicted_price": prediction,
+        "validation": [
+            "LLM JSON passed encoder_validation.py input checks.",
+            "Encoded output matches the final 86-feature model schema.",
+        ],
+    }
+
+
+def predict_from_raw(raw_features: dict[str, Any]) -> dict[str, Any]:
+    raw_features = normalize_manual_features(raw_features)
+    validate_encoder_ready_json(raw_features)
+    encoded_features, active_features = encode_features(raw_features)
+    prediction = predict_price(raw_features)
+    return {
+        "raw_features": raw_features,
+        "encoded_features": encoded_features,
+        "active_features": active_features,
+        "predicted_price": prediction,
+        "validation": [
+            "Manual JSON passed encoder_validation.py input checks.",
+            "Encoded output matches the final 86-feature model schema.",
+        ],
+    }

@@ -1,0 +1,25 @@
+{
+  "model_file": "Y:\\Python\\Laptop-Price-Prediction\\artifacts\\final_model_evaluation\\models\\final_laptop_price_model.joblib",
+  "model_label": "CatBoost_tuned",
+  "target": "target_price",
+  "prediction_unit": "same_unit_as_target_price",
+  "n_features": 86,
+  "feature_order_file": "Y:\\Python\\Laptop-Price-Prediction\\artifacts\\final_model_evaluation\\models\\final_laptop_price_feature_schema.json",
+  "created_at": "2026-05-28T18:53:47",
+  "source_notebook": "14_final_model_evaluation.ipynb",
+  "selection_basis": "keep_kfold_selected_model",
+  "decision_reason": "Selected model is not best on holdout RMSE, but the gap is within tolerance. Keep KFold-selected model because it is more stable across folds.",
+  "kfold_selected_model": "CatBoost_tuned",
+  "best_holdout_model": "LightGBM_baseline",
+  "recommended_final_model": "CatBoost_tuned",
+  "holdout_metrics": {
+    "mae": 3.372625966955601,
+    "rmse": 5.912733148042646,
+    "r2": 0.8494928344487745,
+    "mape_pct": 32.25401622283682,
+    "median_ae": 1.942894396058339,
+    "max_error": 56.17132184801251,
+    "mean_residual": -0.06439613719291565,
+    "median_residual": -0.24896027981353686
+  }
+}

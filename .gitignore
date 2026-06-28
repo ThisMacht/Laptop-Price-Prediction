@@ -1,0 +1,96 @@
+# ===============================
+# Python
+# ===============================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# ===============================
+# Jupyter Notebook
+# ===============================
+.ipynb_checkpoints/
+
+# ===============================
+# Environment files
+# ===============================
+.env
+.env.*
+!.env.example
+
+# ===============================
+# Data (raw / processed / external only)
+# ===============================
+# data/
+
+# data/synthetic/*
+# !data/synthetic/.gitkeep
+
+# ===============================
+# Figures (optional)
+# ===============================
+figures/*
+!figures/.gitkeep
+
+# ===============================
+# IDE / Editor
+# ===============================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===============================
+# OS files
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+# Logs
+# ===============================
+*.log
+
+# ===============================
+# Pytest / Coverage
+# ===============================
+.pytest_cache/
+.coverage
+htmlcov/
+
+GEMINI.md
+
+test.*
+plots/*
+*.png
+artifacts/modeling_level/feature_importance/
+artifacts/modeling_level/model_diagnostics/
+artifacts/modeling_level/plots/
+artifacts/modeling_level/predictions/
+artifacts/modeling_level/target_comparison/
+artifacts/modeling_level/models/
+artifacts/modeling_numeric/feature_importance/
+artifacts/modeling_numeric/model_diagnostics/
+artifacts/modeling_numeric/plots/
+artifacts/modeling_numeric/predictions/
+artifacts/modeling_numeric/target_comparison/
+artifacts/modeling_numeric/models/
+artifacts/modeling_final/feature_importance/
+artifacts/modeling_final/model_diagnostics/
+artifacts/modeling_final/plots/
+artifacts/modeling_final/predictions/
+artifacts/modeling_final/target_comparison/
+artifacts/modeling_final/models/
+
+catboost_info/
+feature_selection/

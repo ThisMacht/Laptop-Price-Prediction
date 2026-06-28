@@ -1,0 +1,12 @@
+api:
+  base_url: https://gateway.chotot.com/v1/public/ad-listing
+  headers:
+    user_agent: Mozilla/5.0
+  params:
+    cg: 8020
+    limit: 20
+pipeline:
+  data_output: data/raw/chotot_laptop_data.csv
+  delay_between_requests: 0.1
+  total_pages: 300
+  'delay_between_details': 0.1

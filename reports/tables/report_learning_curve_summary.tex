@@ -1,0 +1,24 @@
+\begin{table}[H]
+\centering
+\caption{Learning curve RMSE theo kích thước train}
+\label{tab:learning-curve-summary}
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{0.92}
+\begin{tabular}{lrrrr}
+\toprule
+Model & Train size & Train RMSE & Valid RMSE & Gap \\
+\midrule
+CatBoost\_tuned & 933 & 1.864 & 6.534 & 4.671 \\
+CatBoost\_tuned & 1867 & 2.382 & 5.795 & 3.413 \\
+CatBoost\_tuned & 2800 & 2.596 & 5.447 & 2.852 \\
+CatBoost\_tuned & 3734 & 2.831 & 5.365 & 2.534 \\
+CatBoost\_tuned & 4668 & 3.042 & 5.243 & 2.201 \\
+LightGBM\_baseline & 933 & 3.256 & 6.983 & 3.727 \\
+LightGBM\_baseline & 1867 & 3.457 & 6.071 & 2.614 \\
+LightGBM\_baseline & 2800 & 3.303 & 5.688 & 2.385 \\
+LightGBM\_baseline & 3734 & 3.418 & 5.540 & 2.122 \\
+LightGBM\_baseline & 4668 & 3.507 & 5.476 & 1.970 \\
+\bottomrule
+\end{tabular}
+\end{table}

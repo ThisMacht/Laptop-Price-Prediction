@@ -1,0 +1,17 @@
+\begin{table}[H]
+\centering
+\caption{Cách chia dữ liệu dùng trong đánh giá cuối}
+\label{tab:split-summary}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrr}
+\toprule
+Tập dữ liệu & Số mẫu & Tỷ lệ & Vai trò \\
+\midrule
+Train/CV & 5836 & 80.0\% & Huấn luyện và Stratified KFold \\
+Holdout test & 1460 & 20.0\% & Đánh giá độc lập cuối cùng \\
+Production retrain & 7296 & 100.0\% & Huấn luyện lại mô hình triển khai \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

@@ -1,0 +1,18 @@
+\begin{table}[H]
+\centering
+\caption{Kết quả baseline và tuned cho LightGBM/CatBoost trên holdout}
+\label{tab:tuned-comparison}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+Model & Phiên bản & MAE & RMSE & R2 & MAPE & Median AE \\
+\midrule
+LightGBM & baseline & 3.367 & 5.785 & 0.856 & 31.90\% & 1.918 \\
+CatBoost & baseline & 3.474 & 5.819 & 0.854 & 33.51\% & 2.058 \\
+LightGBM & tuned & 3.370 & 5.842 & 0.853 & 31.67\% & 1.874 \\
+CatBoost & tuned & 3.373 & 5.913 & 0.849 & 32.25\% & 1.943 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

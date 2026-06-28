@@ -1,0 +1,86 @@
+﻿section,metric,value
+shape,row_count_before,5866
+shape,row_count_after,5866
+shape,column_count_before,15
+shape,column_count_after,60
+duplicates,full_duplicate_removed,0
+duplicates,url_duplicate_removed,0
+price,price_missing_flagged,1
+price,price_outlier_flagged,167
+specs,ram_suspicious_flagged,23
+specs,storage_missing_all_flagged,342
+specs,screen_missing_flagged,1037
+specs,potential_dedicated_gpu_flagged,40
+condition,new_low_price_flagged,25
+condition,repair_mismatch_flagged,27
+missing_before_after,Bộ vi xử lý,"{""before"": 249, ""after"": 249}"
+missing_before_after,Card màn hình,"{""before"": 1421, ""after"": 1421}"
+missing_before_after,Chính sách bảo hành,"{""before"": 0, ""after"": 0}"
+missing_before_after,Dòng máy,"{""before"": 0, ""after"": 0}"
+missing_before_after,Hãng,"{""before"": 0, ""after"": 0}"
+missing_before_after,Kích cỡ màn hình,"{""before"": 1037, ""after"": 1037}"
+missing_before_after,Loại ổ cứng,"{""before"": 726, ""after"": 726}"
+missing_before_after,RAM,"{""before"": 239, ""after"": 239}"
+missing_before_after,Thông tin sử dụng,"{""before"": 0, ""after"": null}"
+missing_before_after,Tình trạng,"{""before"": 0, ""after"": 0}"
+missing_before_after,Xuất xứ,"{""before"": 0, ""after"": 0}"
+missing_before_after,_price,"{""before"": null, ""after"": 1}"
+missing_before_after,_ram_gb,"{""before"": null, ""after"": 239}"
+missing_before_after,_ram_gb_filled,"{""before"": null, ""after"": 192}"
+missing_before_after,_screen_size_inch,"{""before"": null, ""after"": 1037}"
+missing_before_after,_screen_size_inch_filled,"{""before"": null, ""after"": 998}"
+missing_before_after,_storage_gb,"{""before"": null, ""after"": 470}"
+missing_before_after,_storage_gb_filled,"{""before"": null, ""after"": 434}"
+missing_before_after,_title_cpu,"{""before"": null, ""after"": 0}"
+missing_before_after,_title_ram_gb,"{""before"": null, ""after"": 1621}"
+missing_before_after,_title_screen_size_inch,"{""before"": null, ""after"": 4111}"
+missing_before_after,_title_storage_gb,"{""before"": null, ""after"": 2730}"
+missing_before_after,brand_clean,"{""before"": null, ""after"": 0}"
+missing_before_after,brand_from_title,"{""before"": null, ""after"": 0}"
+missing_before_after,brand_grouped,"{""before"": null, ""after"": 0}"
+missing_before_after,brand_is_rare,"{""before"": null, ""after"": 0}"
+missing_before_after,brand_mismatch_title,"{""before"": null, ""after"": 0}"
+missing_before_after,condition_clean,"{""before"": null, ""after"": 0}"
+missing_before_after,condition_warranty_inconsistent,"{""before"": null, ""after"": 0}"
+missing_before_after,cpu_brand,"{""before"": null, ""after"": 0}"
+missing_before_after,cpu_missing,"{""before"": null, ""after"": 0}"
+missing_before_after,cpu_tier,"{""before"": null, ""after"": 0}"
+missing_before_after,gpu_missing,"{""before"": null, ""after"": 0}"
+missing_before_after,gpu_tier,"{""before"": null, ""after"": 0}"
+missing_before_after,has_warranty,"{""before"": null, ""after"": 0}"
+missing_before_after,is_price_missing,"{""before"": null, ""after"": 0}"
+missing_before_after,is_price_outlier,"{""before"": null, ""after"": 0}"
+missing_before_after,model_clean,"{""before"": null, ""after"": 0}"
+missing_before_after,model_from_title,"{""before"": null, ""after"": 0}"
+missing_before_after,model_grouped,"{""before"": null, ""after"": 0}"
+missing_before_after,model_is_rare,"{""before"": null, ""after"": 0}"
+missing_before_after,model_recovered,"{""before"": null, ""after"": 0}"
+missing_before_after,new_low_price,"{""before"": null, ""after"": 0}"
+missing_before_after,origin_clean,"{""before"": null, ""after"": 0}"
+missing_before_after,origin_missing_or_unknown,"{""before"": null, ""after"": 0}"
+missing_before_after,potential_dedicated_gpu,"{""before"": null, ""after"": 0}"
+missing_before_after,price,"{""before"": 1, ""after"": 1}"
+missing_before_after,price_segment,"{""before"": null, ""after"": 1}"
+missing_before_after,ram_missing,"{""before"": null, ""after"": 0}"
+missing_before_after,ram_suspicious,"{""before"": null, ""after"": 0}"
+missing_before_after,repair_mismatch,"{""before"": null, ""after"": 0}"
+missing_before_after,screen_missing,"{""before"": null, ""after"": 0}"
+missing_before_after,storage_capacity_missing,"{""before"": null, ""after"": 0}"
+missing_before_after,storage_missing_all,"{""before"": null, ""after"": 0}"
+missing_before_after,storage_type_clean,"{""before"": null, ""after"": 0}"
+missing_before_after,title,"{""before"": 0, ""after"": 0}"
+missing_before_after,url,"{""before"": 0, ""after"": 0}"
+missing_before_after,warranty_months,"{""before"": null, ""after"": 3392}"
+missing_before_after,warranty_status,"{""before"": null, ""after"": 0}"
+missing_before_after,was_storage_type_imputed,"{""before"": null, ""after"": 0}"
+missing_before_after,Ổ cứng,"{""before"": 470, ""after"": 470}"
+issue_status,needs_manual_review,41
+issue_status,resolved,29
+issue_status,partially_resolved,26
+distribution,brand_grouped,"[{""value"": ""Dell"", ""count"": 1837}, {""value"": ""Apple"", ""count"": 918}, {""value"": ""Lenovo"", ""count"": 800}, {""value"": ""HP"", ""count"": 704}, {""value"": ""ASUS"", ""count"": 625}, {""value"": ""Acer"", ""count"": 365}, {""value"": ""MSI"", ""count"": 192}, {""value"": ""Microsoft"", ""count"": 178}, {""value"": ""Hãng khác"", ""count"": 91}, {""value"": ""Other"", ""count"": 86}]"
+distribution,_ram_gb_filled,"[{""value"": ""8.0"", ""count"": 2467}, {""value"": ""16.0"", ""count"": 2379}, {""value"": ""4.0"", ""count"": 394}, {""value"": ""32.0"", ""count"": 320}, {""value"": ""nan"", ""count"": 192}, {""value"": ""6.0"", ""count"": 35}, {""value"": ""2.0"", ""count"": 25}, {""value"": ""64.0"", ""count"": 16}, {""value"": ""24.0"", ""count"": 9}, {""value"": ""1.0"", ""count"": 7}]"
+distribution,_storage_gb_filled,"[{""value"": ""256.0"", ""count"": 2161}, {""value"": ""512.0"", ""count"": 1870}, {""value"": ""127.0"", ""count"": 478}, {""value"": ""nan"", ""count"": 434}, {""value"": ""1024.0"", ""count"": 377}, {""value"": ""128.0"", ""count"": 225}, {""value"": ""500.0"", ""count"": 127}, {""value"": ""250.0"", ""count"": 122}, {""value"": ""320.0"", ""count"": 20}, {""value"": ""1025.0"", ""count"": 20}]"
+distribution,cpu_tier,"[{""value"": ""Mid"", ""count"": 2831}, {""value"": ""Upper-mid"", ""count"": 1892}, {""value"": ""Entry"", ""count"": 388}, {""value"": ""Other"", ""count"": 258}, {""value"": ""Missing"", ""count"": 218}, {""value"": ""High"", ""count"": 204}, {""value"": ""Low"", ""count"": 75}]"
+distribution,condition_clean,"[{""value"": ""Đã sử dụng (chưa sửa chữa)"", ""count"": 5594}, {""value"": ""Mới"", ""count"": 182}, {""value"": ""Đã sử dụng (qua sửa chữa)"", ""count"": 90}]"
+distribution,origin_clean,"[{""value"": ""Unknown"", ""count"": 3536}, {""value"": ""Mỹ"", ""count"": 1101}, {""value"": ""Việt Nam"", ""count"": 556}, {""value"": ""Nhật Bản"", ""count"": 388}, {""value"": ""Other"", ""count"": 114}, {""value"": ""Trung Quốc"", ""count"": 94}, {""value"": ""Đài Loan"", ""count"": 61}, {""value"": ""Hàn Quốc"", ""count"": 13}, {""value"": ""Thái Lan"", ""count"": 2}, {""value"": ""Đức"", ""count"": 1}]"
+distribution,_price,"{""count"": 5865.0, ""mean"": 9915058.347826088, ""std"": 8364111.030393903, ""min"": 6500.0, ""1%"": 600000.0, ""5%"": 1500000.0, ""25%"": 4500000.0, ""50%"": 7600000.0, ""75%"": 12990000.0, ""95%"": 25972000.000000015, ""99%"": 39643999.999999866, ""max"": 99900000.0}"

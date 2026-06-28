@@ -1,0 +1,22 @@
+\begin{table}[H]
+\centering
+\caption{So sánh các mô hình trong thí nghiệm modeling final}
+\label{tab:model-comparison}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+Model & Loại & Target & MAE & RMSE & R2 & MAPE \\
+\midrule
+CatBoost & gradient\_boosting & target\_price & 3.282 & 5.314 & 0.894 & 28.97\% \\
+LightGBM & gradient\_boosting & target\_price & 3.228 & 5.360 & 0.892 & 27.42\% \\
+LightGBM & gradient\_boosting & log\_target\_price & 3.192 & 5.407 & 0.890 & 25.28\% \\
+Random Forest & tree\_ensemble & target\_price & 3.377 & 5.660 & 0.880 & 29.11\% \\
+CatBoost & gradient\_boosting & log\_target\_price & 3.264 & 5.699 & 0.878 & 25.32\% \\
+Random Forest & tree\_ensemble & log\_target\_price & 3.331 & 5.727 & 0.877 & 26.76\% \\
+Extra Trees & tree\_ensemble & target\_price & 3.539 & 6.099 & 0.860 & 30.12\% \\
+Extra Trees & tree\_ensemble & log\_target\_price & 3.513 & 6.123 & 0.859 & 28.70\% \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

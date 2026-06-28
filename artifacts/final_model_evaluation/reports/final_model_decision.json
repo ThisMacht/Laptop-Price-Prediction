@@ -1,0 +1,11 @@
+{
+  "kfold_selected_model": "CatBoost_tuned",
+  "best_holdout_model": "LightGBM_baseline",
+  "recommended_final_model": "CatBoost_tuned",
+  "decision_status": "keep_kfold_selected_model",
+  "decision_reason": "Selected model is not best on holdout RMSE, but the gap is within tolerance. Keep KFold-selected model because it is more stable across folds.",
+  "holdout_rmse_tolerance_pct": 3.0,
+  "selected_holdout_rmse": 5.912733148042646,
+  "best_holdout_rmse": 5.7848789171213095,
+  "rmse_gap_pct": 2.210145324613979
+}

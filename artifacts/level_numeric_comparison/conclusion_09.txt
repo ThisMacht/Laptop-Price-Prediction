@@ -1,0 +1,32 @@
+Final Recommendation
+====================
+
+Primary candidate:
+  Model: LightGBM
+  Feature representation: numeric
+  Target: target_price
+  Evaluation scale: target_price
+  MAE: 3.2246
+  RMSE: 5.3365
+  R2: 0.8930
+
+Recommended fine-tuning candidates:
+  1. LightGBM + target_price      [Primary candidate]
+  2. LightGBM + log_target_price  [MAE/MAPE alternative]
+  3. CatBoost + target_price      [Secondary boosting baseline]
+  4. CatBoost + log_target_price  [Target-strategy check]
+
+Decision:
+  target_price is selected as the primary target because it provides
+  better balanced performance on the original price scale. log_target_price
+  is retained as a secondary candidate because it may slightly improve MAE/MAPE.
+
+Notebook 10 handoff:
+  Start with LightGBM + target_price on numeric feature representation.
+  Then compare against LightGBM + log_target_price, CatBoost + target_price,
+  and CatBoost + log_target_price using the same split or cross-validation.
+
+Next step:
+  Tune LightGBM + target_price first, then compare against the secondary candidates
+  using cross-validation and residual analysis by price_range, brand, CPU tier,
+  GPU type, condition, and warranty.

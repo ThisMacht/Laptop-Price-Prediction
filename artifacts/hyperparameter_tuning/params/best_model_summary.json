@@ -1,0 +1,8 @@
+{
+  "best_model_name": "LightGBM",
+  "best_version": "baseline",
+  "best_rmse": 5.7848789171213095,
+  "best_mae": 3.3665951590801564,
+  "best_r2": 0.8559314565739385,
+  "best_mape_pct": 31.900376065081794
+}

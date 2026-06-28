@@ -1,0 +1,13 @@
+Check,Status,Detail
+Metrics file,PASS,Y:\Python\Laptop-Price-Prediction\artifacts\modeling_numeric\metrics\model_metrics.csv
+Predictions file,PASS,Y:\Python\Laptop-Price-Prediction\artifacts\modeling_numeric\predictions\test_predictions.csv
+Original numeric dataset,PASS,Y:\Python\Laptop-Price-Prediction\data\processed\laptop_processed_numeric.csv
+metrics_df required columns,PASS,all present
+Actual target column,PASS,y_true_price
+df_orig required columns,PASS,all present
+Prediction column naming pattern,PASS,all prediction columns match
+Available requested model-target combinations,PASS,"LightGBM + target_price, LightGBM + log_target_price, CatBoost + target_price, CatBoost + log_target_price"
+Duplicated rows after feature merge,PASS,duplicate rows=0
+Missing values in key columns,PASS,none
+Actual target values positive,PASS,non-positive rows=0
+Predicted values positive,WARN,{'pred_LightGBM_target_price': 1}

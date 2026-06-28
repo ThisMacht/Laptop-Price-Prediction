@@ -1,0 +1,87 @@
+feature,importance,model_name,target_used,importance_type,abs_importance
+model_is_rare,-4995484847548.375,Linear Regression_log_target,price,coefficient,4995484847548.375
+no_info_model,-4457425326304.746,Linear Regression_log_target,price,coefficient,4457425326304.746
+no_info_brand,3572728319968.896,Linear Regression_log_target,price,coefficient,3572728319968.896
+brand_Dell,3180038717159.2837,Linear Regression_log_target,price,coefficient,3180038717159.2837
+brand_is_rare,2505858560032.183,Linear Regression_log_target,price,coefficient,2505858560032.183
+brand_Lenovo,2499463572024.7476,Linear Regression_log_target,price,coefficient,2499463572024.7476
+brand_Apple,2469004286720.8228,Linear Regression_log_target,price,coefficient,2469004286720.8228
+brand_HP,2379988334219.875,Linear Regression_log_target,price,coefficient,2379988334219.875
+brand_ASUS,2316650200459.774,Linear Regression_log_target,price,coefficient,2316650200459.774
+gpu_type_Missing_Info,-2141404024286.6155,Linear Regression_log_target,price,coefficient,2141404024286.6155
+brand_Other,-2135526639677.7615,Linear Regression_log_target,price,coefficient,2135526639677.7615
+brand_Acer,1786139524344.6997,Linear Regression_log_target,price,coefficient,1786139524344.6997
+model_Latitude,-1742490985780.1719,Linear Regression_log_target,price,coefficient,1742490985780.1719
+model_MacBook Pro,-1600361718188.3503,Linear Regression_log_target,price,coefficient,1600361718188.3503
+no_info_cpu_brand,1467438440807.931,Linear Regression_log_target,price,coefficient,1467438440807.931
+brand_MSI,1456593384975.718,Linear Regression_log_target,price,coefficient,1456593384975.718
+no_info_gpu,1448821554159.3308,Linear Regression_log_target,price,coefficient,1448821554159.3308
+brand_Microsoft,1319872761725.0393,Linear Regression_log_target,price,coefficient,1319872761725.0393
+cpu_brand_Other,-1297477975193.2427,Linear Regression_log_target,price,coefficient,1297477975193.2427
+model_Precision,-1242534155569.1577,Linear Regression_log_target,price,coefficient,1242534155569.1577
+model_MacBook Air,-1221901772543.315,Linear Regression_log_target,price,coefficient,1221901772543.315
+model_Inspiron,-1175098868803.954,Linear Regression_log_target,price,coefficient,1175098868803.954
+brand_Sony,-916654757649.3602,Linear Regression_log_target,price,coefficient,916654757649.3602
+model_ThinkPad,-901813196184.885,Linear Regression_log_target,price,coefficient,901813196184.885
+brand_Toshiba,-880844973413.0393,Linear Regression_log_target,price,coefficient,880844973413.0393
+model_MacBook Pro M1,-866416100934.304,Linear Regression_log_target,price,coefficient,866416100934.304
+model_Nitro 5,-860367552425.2076,Linear Regression_log_target,price,coefficient,860367552425.2076
+brand_LG,-843489946865.5867,Linear Regression_log_target,price,coefficient,843489946865.5867
+model_ProBook,-841948165501.2957,Linear Regression_log_target,price,coefficient,841948165501.2957
+model_Elitebook,-835713770876.627,Linear Regression_log_target,price,coefficient,835713770876.627
+model_MacBook Air M1,-810274028298.4788,Linear Regression_log_target,price,coefficient,810274028298.4788
+gpu_type_Integrated,-788379428703.7761,Linear Regression_log_target,price,coefficient,788379428703.7761
+model_Vostro,766419985963.0876,Linear Regression_log_target,price,coefficient,766419985963.0876
+model_Latitude 14 7000,704999545471.3707,Linear Regression_log_target,price,coefficient,704999545471.3707
+gpu_type_Dedicated,-684547369258.3604,Linear Regression_log_target,price,coefficient,684547369258.3604
+model_Legion 5,683254111105.9575,Linear Regression_log_target,price,coefficient,683254111105.9575
+model_Other,680839578094.8362,Linear Regression_log_target,price,coefficient,680839578094.8362
+model_ThinkPad X1 Carbon,660769590311.5249,Linear Regression_log_target,price,coefficient,660769590311.5249
+model_Latitude E Series,653097387374.0414,Linear Regression_log_target,price,coefficient,653097387374.0414
+brand_Gigabyte,-648897540246.2473,Linear Regression_log_target,price,coefficient,648897540246.2473
+model_Macbook air m4,604963681556.4185,Linear Regression_log_target,price,coefficient,604963681556.4185
+model_XPS 13,596553654717.7046,Linear Regression_log_target,price,coefficient,596553654717.7046
+model_MacBook Air M2,588020377492.1948,Linear Regression_log_target,price,coefficient,588020377492.1948
+model_TUF Gaming,579358403899.9163,Linear Regression_log_target,price,coefficient,579358403899.9163
+model_Pavilion 15,579358403899.9133,Linear Regression_log_target,price,coefficient,579358403899.9133
+model_X Series,579358403899.8843,Linear Regression_log_target,price,coefficient,579358403899.8843
+model_TUF Gaming F15,552539332758.8572,Linear Regression_log_target,price,coefficient,552539332758.8572
+model_Vivobook 15,543299077678.49194,Linear Regression_log_target,price,coefficient,543299077678.49194
+model_Elitebook 800,543299077678.4866,Linear Regression_log_target,price,coefficient,543299077678.4866
+model_Gaming Thin GF,543299077678.4861,Linear Regression_log_target,price,coefficient,543299077678.4861
+model_Aspire,514563285801.0456,Linear Regression_log_target,price,coefficient,514563285801.0456
+model_MacBook Pro M2,494461497110.4983,Linear Regression_log_target,price,coefficient,494461497110.4983
+model_IdeaPad,494461497110.47784,Linear Regression_log_target,price,coefficient,494461497110.47784
+model_ROG Strix,473492288102.3916,Linear Regression_log_target,price,coefficient,473492288102.3916
+model_Legion,440139542987.7466,Linear Regression_log_target,price,coefficient,440139542987.7466
+cpu_brand_Intel,356075390955.9619,Linear Regression_log_target,price,coefficient,356075390955.9619
+cpu_brand_AMD,264914775328.83087,Linear Regression_log_target,price,coefficient,264914775328.83087
+cpu_brand_Apple,220556203022.12793,Linear Regression_log_target,price,coefficient,220556203022.12793
+gpu_type_Apple SoC,-184696839366.9845,Linear Regression_log_target,price,coefficient,184696839366.9845
+cpu_brand_Qualcomm,45943876669.62402,Linear Regression_log_target,price,coefficient,45943876669.62402
+cpu_brand_Microsoft SQ,15778917606.675964,Linear Regression_log_target,price,coefficient,15778917606.675964
+no_info_cpu_tier,0.22241716210649007,Linear Regression_log_target,price,coefficient,0.22241716210649007
+condition_score,0.20542577036328122,Linear Regression_log_target,price,coefficient,0.20542577036328122
+cpu_family_ord_filled,0.189453125,Linear Regression_log_target,price,coefficient,0.189453125
+cpu_tier_encoded,0.1775337960736897,Linear Regression_log_target,price,coefficient,0.1775337960736897
+ram_gb,0.17003862368818531,Linear Regression_log_target,price,coefficient,0.17003862368818531
+warranty_encoded,0.16321355090574874,Linear Regression_log_target,price,coefficient,0.16321355090574874
+cpu_family_group_Intel Core i,-0.1552734375,Linear Regression_log_target,price,coefficient,0.1552734375
+screen_size_inch,0.12111022720811401,Linear Regression_log_target,price,coefficient,0.12111022720811401
+gpu_tier_ord_filled,-0.118896484375,Linear Regression_log_target,price,coefficient,0.118896484375
+no_info_storage,0.10857419013004826,Linear Regression_log_target,price,coefficient,0.10857419013004826
+cpu_family_group_AMD Ryzen,-0.10528564453125,Linear Regression_log_target,price,coefficient,0.10528564453125
+storage_ssd,0.1035649444695898,Linear Regression_log_target,price,coefficient,0.1035649444695898
+storage_gb,0.10030221197640446,Linear Regression_log_target,price,coefficient,0.10030221197640446
+cpu_intel_generation_ord,0.0751953125,Linear Regression_log_target,price,coefficient,0.0751953125
+screen_missing,0.054752411043562266,Linear Regression_log_target,price,coefficient,0.054752411043562266
+cpu_family_group_Intel Core Ultra,-0.04638671875,Linear Regression_log_target,price,coefficient,0.04638671875
+ram_missing,0.02355007699808266,Linear Regression_log_target,price,coefficient,0.02355007699808266
+cpu_family_group_Intel Low End,-0.023193359375,Linear Regression_log_target,price,coefficient,0.023193359375
+cpu_amd_generation_ord,-0.02197265625,Linear Regression_log_target,price,coefficient,0.02197265625
+cpu_apple_core_spec,-0.016845703125,Linear Regression_log_target,price,coefficient,0.016845703125
+cpu_family_group_Apple Silicon,0.01025390625,Linear Regression_log_target,price,coefficient,0.01025390625
+cpu_qualcomm_snapdragon_spec,-0.00732421875,Linear Regression_log_target,price,coefficient,0.00732421875
+storage_missing,-0.0033509363568057227,Linear Regression_log_target,price,coefficient,0.0033509363568057227
+storage_hdd,0.002507531057040116,Linear Regression_log_target,price,coefficient,0.002507531057040116
+cpu_suffix_power_ord_filled,-0.00146484375,Linear Regression_log_target,price,coefficient,0.00146484375

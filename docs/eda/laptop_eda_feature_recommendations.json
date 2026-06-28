@@ -1,0 +1,157 @@
+{
+  "label_columns": [
+    "target_price",
+    "log_target_price"
+  ],
+  "recommended_target_strategy": {
+    "keep_both_raw_and_log_target": true,
+    "compare_raw_vs_log_models": true,
+    "main_baseline_likely_uses_log_target": true,
+    "reason": "Raw target is right-skewed or has a high p95/median ratio."
+  },
+  "recommended_split_strategy": {
+    "primary": "Stratified split by source + price_bin if feasible.",
+    "fallback": "Stratify by source.",
+    "reporting": "Report metrics overall and by source."
+  },
+  "recommended_numeric_features": [
+    "ram_gb",
+    "storage_gb",
+    "screen_size_inch",
+    "warranty_months"
+  ],
+  "recommended_engineered_numeric_features_for_next_notebook": [
+    "log_storage_gb",
+    "ram_storage_ratio",
+    "ram_x_storage",
+    "screen_x_ram",
+    "storage_per_ram"
+  ],
+  "recommended_categorical_features": [
+    "brand_grouped",
+    "model_grouped",
+    "cpu_brand",
+    "cpu_tier",
+    "gpu_tier",
+    "storage_type_clean",
+    "condition_clean",
+    "warranty_status",
+    "origin_clean"
+  ],
+  "recommended_boolean_features": [
+    "brand_is_rare",
+    "model_is_rare",
+    "ram_missing",
+    "storage_missing",
+    "screen_missing",
+    "cpu_missing",
+    "gpu_missing",
+    "ram_suspicious",
+    "storage_suspicious",
+    "screen_suspicious",
+    "potential_dedicated_gpu",
+    "repair_mismatch",
+    "is_soft_duplicate_spec"
+  ],
+  "audit_or_exclude_columns": [
+    "is_cross_source_soft_duplicate",
+    "log_target_price",
+    "merged_row_id",
+    "merged_spec_key",
+    "source",
+    "source_row_id",
+    "target_price",
+    "target_price_is_outlier",
+    "target_price_missing",
+    "target_price_source",
+    "title",
+    "url"
+  ],
+  "price_derived_or_sensitive_flags_to_exclude_from_baseline": [
+    "flag_price_spread_warn",
+    "flag_price_spread_critical",
+    "price_spread_clean_pct"
+  ],
+  "preprocessing_recommendation": {
+    "numeric": "Median imputation + StandardScaler.",
+    "categorical": "Unknown imputation + OneHotEncoder(handle_unknown='ignore').",
+    "boolean": "Fill missing with False or most_frequent, then convert to int.",
+    "high_cardinality_categorical": "Use grouped columns first; avoid raw model/brand columns unless controlled."
+  },
+  "source_bias_recommendation": {
+    "baseline_feature_policy": "Do not include source in baseline feature set.",
+    "evaluation": "Always evaluate metrics by source.",
+    "later_experiment": "Run a source-included experiment to compare performance and source bias."
+  },
+  "eda_evidence": {
+    "rows_by_source": {
+      "chotot": 5698,
+      "websach": 4382
+    },
+    "median_target_price_by_source": {
+      "chotot": 7890000.0,
+      "websach": 21195000.0
+    },
+    "raw_target_skew": 2.7457222862215875,
+    "p95_median_ratio": 3.3698792503148383,
+    "highest_missing_like_columns": {
+      "origin_clean": 0.7717261904761905,
+      "warranty_months": 0.7573412698412698,
+      "model_is_rare": 0.43472222222222223,
+      "url": 0.43472222222222223,
+      "title": 0.43472222222222223,
+      "model_clean": 0.43472222222222223,
+      "model_grouped": 0.43472222222222223,
+      "condition_clean": 0.43472222222222223,
+      "warranty_status": 0.43472222222222223,
+      "gpu_tier": 0.1501984126984127
+    },
+    "duplicate_summary": {
+      "soft_duplicate_rows": 2514,
+      "cross_source_soft_duplicate_rows": 0,
+      "unique_duplicated_spec_keys": 1530,
+      "cross_source_overlapped_spec_keys": 0
+    }
+  },
+  "baseline_feature_list": [
+    "ram_gb",
+    "storage_gb",
+    "screen_size_inch",
+    "warranty_months",
+    "brand_grouped",
+    "model_grouped",
+    "cpu_brand",
+    "cpu_tier",
+    "gpu_tier",
+    "storage_type_clean",
+    "condition_clean",
+    "warranty_status",
+    "origin_clean",
+    "brand_is_rare",
+    "model_is_rare",
+    "ram_missing",
+    "storage_missing",
+    "screen_missing",
+    "cpu_missing",
+    "gpu_missing",
+    "ram_suspicious",
+    "storage_suspicious",
+    "screen_suspicious",
+    "potential_dedicated_gpu",
+    "repair_mismatch",
+    "is_soft_duplicate_spec"
+  ],
+  "baseline_leakage_sanity_check": {
+    "baseline_feature_count": 26,
+    "forbidden_hits": [],
+    "missing_cols": []
+  },
+  "feature_coverage_low_coverage_flags": [
+    "origin_clean",
+    "warranty_months",
+    "model_grouped",
+    "condition_clean",
+    "warranty_status",
+    "model_is_rare"
+  ]
+}

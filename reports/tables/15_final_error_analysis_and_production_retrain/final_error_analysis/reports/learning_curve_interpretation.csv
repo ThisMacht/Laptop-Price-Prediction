@@ -1,0 +1,3 @@
+model_label,first_valid_rmse,last_valid_rmse,valid_rmse_improvement,valid_rmse_improvement_pct,final_train_rmse,final_valid_rmse,final_generalization_gap,fit_status,data_status
+CatBoost_tuned,6.534291197480495,5.243179689969891,1.291111507510604,19.75901392347549,3.0417697386588864,5.243179689969891,2.201409951311004,possible_overfitting,more_data_may_help
+LightGBM_baseline,6.983258571607273,5.476342534005852,1.506916037601421,21.57898096066902,3.506771548415956,5.476342534005852,1.969570985589896,possible_overfitting,more_data_may_help

@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laptop Price Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header id="top" class="hero-section">
+        <div class="hero-topline">
+          <a class="brand-lockup" href="#top" aria-label="Laptop Price Studio">
+            <span>LP</span>
+            <strong>Price Studio</strong>
+          </a>
+          <div class="nav-status">
+            <span id="healthStatus">Đang kiểm tra</span>
+          </div>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">Gemini 2.5 Flash · Encoder · CatBoost</p>
+          <h1>
+            Nhập cấu hình
+            nhận giá dự đoán.
+          </h1>
+          <div class="hero-actions">
+            <a class="primary-link" href="#input">Bắt đầu nhập</a>
+            <button class="secondary-link" id="fillExample" type="button">Điền mẫu</button>
+          </div>
+        </div>
+      </header>
+
+      <section id="input" class="studio-grid">
+        <form id="predictForm" class="input-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Đầu vào</p>
+              <h2>Chọn cách nhập thông tin máy.</h2>
+            </div>
+            <div class="mode-toggle" role="radiogroup" aria-label="Chế độ dự đoán">
+              <label>
+                <input type="radio" name="mode" value="text" checked />
+                <span>LLM</span>
+              </label>
+              <label>
+                <input type="radio" name="mode" value="manual" />
+                <span>Thủ công</span>
+              </label>
+            </div>
+          </div>
+
+          <label class="field wide text-mode-only">
+            <span>Mô tả tự nhiên</span>
+            <textarea
+              id="description"
+              rows="6"
+              placeholder="Dell Inspiron 15, Intel Core i5-1235U, RAM 16GB, SSD 512GB, màn 15.6 inch, card Intel Integrated, đã sử dụng chưa sửa chữa, hết bảo hành"
+            ></textarea>
+          </label>
+
+          <div class="field-grid manual-mode-only">
+            <label class="field">
+              <span>Hãng</span>
+              <input id="brand" placeholder="Dell" />
+            </label>
+            <label class="field">
+              <span>Dòng máy</span>
+              <input id="model" placeholder="Inspiron" />
+            </label>
+            <label class="field">
+              <span>RAM (GB)</span>
+              <input id="ram_gb" type="number" min="0" max="512" step="1" placeholder="16" />
+            </label>
+            <label class="field">
+              <span>Ổ cứng (GB)</span>
+              <input id="storage_gb" type="number" min="0" max="100000" step="1" placeholder="512" />
+            </label>
+            <label class="field">
+              <span>Loại ổ cứng</span>
+              <select id="storage_type">
+                <option value="">Không rõ</option>
+                <option>SSD</option>
+                <option>NVMe SSD</option>
+                <option>HDD</option>
+                <option>SSD + HDD</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Màn hình (inch)</span>
+              <input id="screen_size_inch" type="number" min="0" max="30" step="0.1" placeholder="15.6" />
+            </label>
+            <label class="field wide">
+              <span>CPU</span>
+              <input id="cpu_text" placeholder="Intel Core i5-1235U" />
+            </label>
+            <label class="field">
+              <span>CPU brand</span>
+              <select id="cpu_brand">
+                <option value="">Tự parse / Không rõ</option>
+                <option>Intel</option>
+                <option>AMD</option>
+                <option>Apple</option>
+                <option>Qualcomm</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>CPU family</span>
+              <input id="cpu_family" placeholder="Intel Core i5" />
+            </label>
+            <label class="field">
+              <span>Đời CPU</span>
+              <input id="cpu_generation" type="number" min="0" step="1" placeholder="12" />
+            </label>
+            <label class="field">
+              <span>CPU suffix</span>
+              <input id="cpu_suffix" placeholder="U" />
+            </label>
+            <label class="field wide">
+              <span>GPU</span>
+              <input id="gpu_text" placeholder="integrated hoặc RTX 4060" />
+            </label>
+            <label class="field">
+              <span>Tình trạng</span>
+              <select id="condition">
+                <option value="">Không nhập</option>
+                <option value="new">Mới</option>
+                <option value="like new">Like new</option>
+                <option value="good">Đã dùng, chưa sửa</option>
+                <option value="da su dung qua sua chua">Đã qua sửa chữa</option>
+                <option value="fair">Fair</option>
+                <option value="poor">Poor</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Bảo hành</span>
+              <select id="warranty_status">
+                <option value="">Không rõ</option>
+                <option value="active">Còn bảo hành</option>
+                <option value="expired">Hết bảo hành</option>
+                <option value="not activated">Chưa kích hoạt</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="actions">
+            <button class="primary-button" type="submit">Dự đoán giá</button>
+            <button class="ghost-button" type="button" id="clearForm">Xóa form</button>
+          </div>
+        </form>
+
+        <aside id="result" class="result-panel">
+          <div class="result-head">
+            <span>Kết quả</span>
+            <strong id="runState">Chưa chạy</strong>
+          </div>
+            <div class="price-box">
+              <span>Giá dự đoán</span>
+              <strong id="predictedPrice">--</strong>
+            </div>
+          <div class="validation-box">
+            <h3>Trạng thái xử lý</h3>
+            <ul id="validationList">
+              <li>Chờ dữ liệu đầu vào.</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <section class="interest-grid" aria-label="Luồng xử lý">
+        <article class="process-card process-wide">
+          <div>
+            <h2>Một luồng nhập liệu, hai cách kiểm soát.</h2>
+            <p>LLM trích xuất raw JSON từ mô tả; nhập thủ công bỏ qua API ngoài và chạy thẳng encoder local.</p>
+          </div>
+        </article>
+        <article class="process-card">
+          <h3>Kiểm tra</h3>
+          <p>Hệ thống kiểm tra các giá trị quan trọng như RAM, ổ cứng và kích thước màn hình.</p>
+        </article>
+        <article class="process-card">
+          <h3>Chuẩn hóa</h3>
+          <p>Thông tin máy được chuyển về dạng mà model dự đoán giá có thể đọc được.</p>
+        </article>
+        <article class="process-card">
+          <h3>Dự đoán</h3>
+          <p>Model trả về giá tham khảo dựa trên cấu hình và tình trạng máy.</p>
+        </article>
+      </section>
+
+      <section class="accordion-band" aria-label="Các tín hiệu chính">
+        <article class="accordion-item active">
+          <div>
+            <h3>RAM · Storage</h3>
+            <p>Dung lượng được chuẩn hóa về GB trước khi tính interaction.</p>
+          </div>
+        </article>
+        <article class="accordion-item">
+          <div>
+            <h3>CPU · GPU</h3>
+            <p>Text phần cứng được parse thành brand, family, generation, suffix và tier.</p>
+          </div>
+        </article>
+        <article class="accordion-item">
+          <div>
+            <h3>Tình trạng</h3>
+            <p>New và unknown được đưa về score 3; like new và máy tốt về score 2.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="reveal-section">
+        <p class="scrub-text">
+          Giá dự đoán là mức tham khảo theo dữ liệu huấn luyện; hãy đối chiếu thêm ngoại hình, pin, bảo hành và độ uy tín người bán trước khi quyết định.
+        </p>
+      </section>
+
+      <footer class="footer-cta">
+        <p>Mode LLM cần GEMINI_API_KEY. Mode thủ công không gọi API ngoài.</p>
+        <a href="#input">Quay lại nhập liệu</a>
+      </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="./app.js?v=20260601-health-fallback"></script>
+  </body>
+</html>

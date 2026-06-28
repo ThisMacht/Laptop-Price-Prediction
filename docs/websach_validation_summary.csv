@@ -1,0 +1,20 @@
+﻿check_name,status,severity,affected_rows,notes
+required schema columns present,PASS,blocking,0,"Available required columns: ['price_median', 'brand_clean', 'ram_gb_clean', 'storage_gb_clean', 'screen_size_clean']"
+target column exists,PASS,blocking,0,target_col=price_median
+missing target in modeling-ready data,PASS,blocking,0,modeling_ready must contain zero missing price_median rows.
+target leakage in feature columns,PASS,blocking,0,Target is excluded from feature_cols.
+direct price leakage in feature columns,PASS,blocking,0,Overlap: []
+metadata leakage in feature columns,PASS,blocking,0,Overlap: []
+duplicate unique product/url if uniqueness is expected,PASS,blocking,0,"Checked duplicate rows using ['product_id']. Soft duplicate/spec repeats are reviewed separately, not dropped automatically."
+impossible RAM values not handled,PASS,blocking,0,"1 rows are out of suggested range and unflagged, so they were quarantined before modeling."
+impossible storage values not handled,PASS,blocking,0,"1 rows are out of suggested range and unflagged, so they were quarantined before modeling."
+impossible screen size values not handled,PASS,blocking,0,"5 rows are out of suggested range and unflagged, so they were quarantined before modeling."
+missing target quarantined,PASS,non_blocking,0,"cleaned_full may contain missing target, but 0 rows are quarantined and excluded from modeling_ready."
+high price spread,WARN,non_blocking,583,Price spread is QC-only and excluded from feature_cols.
+critical price spread,WARN,non_blocking,142,Critical price spread rows are retained for audit; not dropped from modeling by default.
+soft duplicate groups,WARN,non_blocking,2516,Use spec_key-aware splitting or duplicate-aware evaluation downstream.
+low-count brand/model/category interaction cells,WARN,non_blocking,323,Rare cells should be grouped/regularized in feature engineering.
+model/category parsed as unknown/other,WARN,non_blocking,757,Unknown/Other parsed categories are allowed but should be encoded explicitly.
+manual review rows,WARN,non_blocking,34,Manual review issues remain in action plan; samples are exported.
+partial action plan rows,WARN,non_blocking,11,Partially resolved issues remain documented in action plan.
+shop/source price nulls caused by domain or relative outlier rules,WARN,non_blocking,57,Cell-level price nulling is retained in cleaned_full; rows are modeled if target and valid price source remain.

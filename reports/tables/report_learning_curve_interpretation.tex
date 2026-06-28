@@ -1,0 +1,16 @@
+\begin{table}[H]
+\centering
+\caption{Diễn giải learning curve}
+\label{tab:learning-curve-interpretation}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{0.92}
+\begin{tabular}{lrrrrr}
+\toprule
+Model & Valid RMSE đầu & Valid RMSE cuối & Cải thiện & Gap cuối & Trạng thái \\
+\midrule
+CatBoost\_tuned & 6.534 & 5.243 & 19.76\% & 2.201 & possible\_overfitting \\
+LightGBM\_baseline & 6.983 & 5.476 & 21.58\% & 1.970 & possible\_overfitting \\
+\bottomrule
+\end{tabular}
+\end{table}

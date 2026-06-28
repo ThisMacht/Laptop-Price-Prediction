@@ -1,0 +1,271 @@
+{
+  "config": {
+    "raw_path": "Y:\\Python\\Laptop-Price-Prediction\\data\\raw\\chotot_laptop_data.csv",
+    "issues_path": "Y:\\Python\\Laptop-Price-Prediction\\docs\\chotot_issues_list.csv",
+    "output_dir": "Y:\\Python\\Laptop-Price-Prediction\\data\\intern",
+    "cleaned_path": "Y:\\Python\\Laptop-Price-Prediction\\data\\intern\\chotot_cleaned.csv",
+    "report_path": "Y:\\Python\\Laptop-Price-Prediction\\docs\\chotot_cleaning_report.csv",
+    "issue_action_plan_path": "Y:\\Python\\Laptop-Price-Prediction\\docs\\chotot_issue_action_plan.csv",
+    "log_path": "Y:\\Python\\Laptop-Price-Prediction\\docs\\chotot_cleaning_log.json",
+    "price_min": 1000000,
+    "price_max": 60000000,
+    "rare_count_threshold": 30,
+    "valid_ram_levels": [
+      2,
+      4,
+      6,
+      8,
+      12,
+      16,
+      24,
+      32,
+      36,
+      48,
+      64
+    ],
+    "title_valid_ram_levels": [
+      2,
+      4,
+      6,
+      8,
+      12,
+      16,
+      24,
+      32,
+      36,
+      48,
+      64,
+      96,
+      128
+    ],
+    "screen_min": 8,
+    "screen_max": 22,
+    "price_bins": [
+      0,
+      5000000,
+      10000000,
+      20000000,
+      Infinity
+    ],
+    "price_labels": [
+      "low",
+      "mid",
+      "high",
+      "premium"
+    ],
+    "drop_columns": [
+      "Thông tin sử dụng"
+    ],
+    "brand_aliases": {
+      "ASUS": [
+        "asus",
+        "vivobook",
+        "zenbook",
+        "rog",
+        "tuf"
+      ],
+      "Dell": [
+        "dell",
+        "latitude",
+        "inspiron",
+        "xps",
+        "vostro",
+        "precision"
+      ],
+      "HP": [
+        "hp",
+        "hewlett",
+        "elitebook",
+        "probook",
+        "envy",
+        "pavilion"
+      ],
+      "Lenovo": [
+        "lenovo",
+        "thinkpad",
+        "ideapad",
+        "legion",
+        "yoga",
+        "loq"
+      ],
+      "Acer": [
+        "acer",
+        "aspire",
+        "swift",
+        "nitro",
+        "predator"
+      ],
+      "MSI": [
+        "msi",
+        "stealth",
+        "modern",
+        "prestige",
+        "katana"
+      ],
+      "Apple": [
+        "apple",
+        "macbook",
+        "mac book"
+      ],
+      "Microsoft": [
+        "microsoft",
+        "surface"
+      ],
+      "Razer": [
+        "razer",
+        "blade"
+      ],
+      "Gigabyte": [
+        "gigabyte",
+        "aorus"
+      ],
+      "LG": [
+        "lg",
+        "gram"
+      ],
+      "Huawei": [
+        "huawei",
+        "matebook"
+      ],
+      "Xiaomi": [
+        "xiaomi",
+        "redmibook",
+        "mi notebook"
+      ],
+      "Samsung": [
+        "samsung",
+        "galaxy book"
+      ],
+      "Sony": [
+        "sony",
+        "vaio"
+      ],
+      "Toshiba": [
+        "toshiba",
+        "dynabook"
+      ],
+      "Panasonic": [
+        "panasonic",
+        "toughbook"
+      ],
+      "Honor": [
+        "honor",
+        "magicbook"
+      ]
+    },
+    "model_recovery_keywords": {
+      "Latitude": [
+        "latitude"
+      ],
+      "ThinkPad": [
+        "thinkpad"
+      ],
+      "MacBook Pro": [
+        "macbook pro",
+        "mac book pro"
+      ],
+      "MacBook Air": [
+        "macbook air",
+        "mac book air"
+      ],
+      "Inspiron": [
+        "inspiron"
+      ],
+      "Precision": [
+        "precision"
+      ],
+      "EliteBook": [
+        "elitebook"
+      ],
+      "ProBook": [
+        "probook"
+      ],
+      "Pavilion": [
+        "pavilion"
+      ],
+      "XPS": [
+        "xps"
+      ],
+      "Legion": [
+        "legion"
+      ],
+      "IdeaPad": [
+        "ideapad"
+      ],
+      "Yoga": [
+        "yoga"
+      ],
+      "ROG": [
+        "rog"
+      ],
+      "TUF Gaming": [
+        "tuf"
+      ],
+      "Nitro": [
+        "nitro"
+      ],
+      "Aspire": [
+        "aspire"
+      ],
+      "Swift": [
+        "swift"
+      ],
+      "Surface": [
+        "surface"
+      ],
+      "Victus": [
+        "victus"
+      ],
+      "Omen": [
+        "omen"
+      ],
+      "VivoBook": [
+        "vivobook"
+      ],
+      "ZenBook": [
+        "zenbook"
+      ],
+      "LOQ": [
+        "loq"
+      ]
+    }
+  },
+  "raw_shape": [
+    5866,
+    15
+  ],
+  "cleaned_shape": [
+    5866,
+    60
+  ],
+  "duplicate_log": {
+    "full_duplicate_removed": 0,
+    "url_duplicate_removed": 0
+  },
+  "validation": {
+    "no_duplicate_url": true,
+    "price_numeric": true,
+    "invalid_price_flagged": true,
+    "ram_numeric": true,
+    "storage_numeric": true,
+    "screen_numeric": true,
+    "brand_normalized": true,
+    "model_normalized": true,
+    "usage_info_dropped": true,
+    "all_issues_have_actions": true
+  },
+  "issue_status_counts": {
+    "needs_manual_review": 41,
+    "resolved": 29,
+    "partially_resolved": 26
+  },
+  "important_rule_counts": {
+    "price_missing": 1,
+    "price_outlier": 167,
+    "ram_suspicious": 23,
+    "potential_dedicated_gpu": 40,
+    "storage_type_imputed": 11,
+    "new_low_price": 25,
+    "repair_mismatch": 27
+  }
+}

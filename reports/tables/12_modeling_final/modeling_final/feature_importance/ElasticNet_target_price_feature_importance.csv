@@ -1,0 +1,87 @@
+feature,importance,model_name,target_used,importance_type,abs_importance
+ram_gb,5.928796257695254,ElasticNet_target,price,coefficient,5.928796257695254
+storage_gb,5.004395830635172,ElasticNet_target,price,coefficient,5.004395830635172
+memory_storage_score,-4.819735328042355,ElasticNet_target,price,coefficient,4.819735328042355
+cpu_family_ord_filled,4.06386821664532,ElasticNet_target,price,coefficient,4.06386821664532
+cpu_family_group_Intel Core i,-3.6825321621240126,ElasticNet_target,price,coefficient,3.6825321621240126
+warranty_not_activated,3.098274443317597,ElasticNet_target,price,coefficient,3.098274443317597
+no_info_cpu_tier,2.9459364515635964,ElasticNet_target,price,coefficient,2.9459364515635964
+cpu_tier_encoded,2.6907615593234215,ElasticNet_target,price,coefficient,2.6907615593234215
+cpu_family_group_AMD Ryzen,-2.189920305419235,ElasticNet_target,price,coefficient,2.189920305419235
+gpu_tier_ord_filled,2.0630198369586523,ElasticNet_target,price,coefficient,2.0630198369586523
+ram_storage_balance,2.058824374714448,ElasticNet_target,price,coefficient,2.058824374714448
+warranty_active,-1.8922039583440815,ElasticNet_target,price,coefficient,1.8922039583440815
+ram_storage_product_scaled,-1.6058630134654273,ElasticNet_target,price,coefficient,1.6058630134654273
+condition_score,1.4772049962144915,ElasticNet_target,price,coefficient,1.4772049962144915
+storage_missing,-1.4132394958576253,ElasticNet_target,price,coefficient,1.4132394958576253
+cpu_amd_generation_ord,-1.2990150603884894,ElasticNet_target,price,coefficient,1.2990150603884894
+warranty_expired,-1.2814396536022759,ElasticNet_target,price,coefficient,1.2814396536022759
+storage_ssd,1.0979515758782334,ElasticNet_target,price,coefficient,1.0979515758782334
+cpu_intel_generation_ord,-1.0709265297383233,ElasticNet_target,price,coefficient,1.0709265297383233
+no_info_storage,1.0261939897108499,ElasticNet_target,price,coefficient,1.0261939897108499
+cpu_suffix_power_ord_filled,1.0196975226294247,ElasticNet_target,price,coefficient,1.0196975226294247
+brand_segment_premium,0.7817960486581097,ElasticNet_target,price,coefficient,0.7817960486581097
+model_MacBook Air M1,-0.7178581329391123,ElasticNet_target,price,coefficient,0.7178581329391123
+cpu_brand_Apple,0.612365206597115,ElasticNet_target,price,coefficient,0.612365206597115
+no_info_gpu,0.5707839294689045,ElasticNet_target,price,coefficient,0.5707839294689045
+no_info_cpu_brand,-0.5072169114551627,ElasticNet_target,price,coefficient,0.5072169114551627
+model_MacBook Pro,-0.5051687182697305,ElasticNet_target,price,coefficient,0.5051687182697305
+model_MacBook Pro M1,-0.49754228077933543,ElasticNet_target,price,coefficient,0.49754228077933543
+storage_hdd,-0.4805726982489079,ElasticNet_target,price,coefficient,0.4805726982489079
+cpu_family_group_Intel Core Ultra,-0.47390172570831546,ElasticNet_target,price,coefficient,0.47390172570831546
+brand_LG,0.4297803290903201,ElasticNet_target,price,coefficient,0.4297803290903201
+model_Legion 5,0.42566442561903006,ElasticNet_target,price,coefficient,0.42566442561903006
+cpu_brand_Intel,-0.40883300518005444,ElasticNet_target,price,coefficient,0.40883300518005444
+cpu_family_group_Intel Low End,-0.3824356898131853,ElasticNet_target,price,coefficient,0.3824356898131853
+model_MacBook Air M2,-0.3683672835667407,ElasticNet_target,price,coefficient,0.3683672835667407
+brand_Acer,-0.2994272736498856,ElasticNet_target,price,coefficient,0.2994272736498856
+screen_missing,-0.2989410300565718,ElasticNet_target,price,coefficient,0.2989410300565718
+model_MacBook Air,-0.2914603161272657,ElasticNet_target,price,coefficient,0.2914603161272657
+is_mid_memory_storage,-0.2806365834301688,ElasticNet_target,price,coefficient,0.2806365834301688
+ram_missing,-0.26685051897734663,ElasticNet_target,price,coefficient,0.26685051897734663
+model_Legion,0.26310858675331356,ElasticNet_target,price,coefficient,0.26310858675331356
+model_XPS 13,0.24721029364633143,ElasticNet_target,price,coefficient,0.24721029364633143
+brand_Lenovo,-0.21655965351425238,ElasticNet_target,price,coefficient,0.21655965351425238
+brand_Dell,-0.20404654936237893,ElasticNet_target,price,coefficient,0.20404654936237893
+is_entry_memory_storage,0.19826877434325607,ElasticNet_target,price,coefficient,0.19826877434325607
+cpu_apple_core_spec,-0.19555265090463836,ElasticNet_target,price,coefficient,0.19555265090463836
+model_MacBook Pro M2,-0.1880633076700589,ElasticNet_target,price,coefficient,0.1880633076700589
+brand_ASUS,0.18315275853289736,ElasticNet_target,price,coefficient,0.18315275853289736
+no_info_model,0.17748795752141328,ElasticNet_target,price,coefficient,0.17748795752141328
+model_Precision,-0.1756496775015643,ElasticNet_target,price,coefficient,0.1756496775015643
+model_ROG Strix,-0.1704501160782337,ElasticNet_target,price,coefficient,0.1704501160782337
+cpu_brand_AMD,0.16605907984577462,ElasticNet_target,price,coefficient,0.16605907984577462
+model_Gaming Thin GF,-0.15940832976517624,ElasticNet_target,price,coefficient,0.15940832976517624
+brand_HP,0.1477784910100065,ElasticNet_target,price,coefficient,0.1477784910100065
+brand_MSI,0.14524582451486098,ElasticNet_target,price,coefficient,0.14524582451486098
+model_ThinkPad X1 Carbon,0.14520294637428435,ElasticNet_target,price,coefficient,0.14520294637428435
+brand_Apple,0.14271697607594616,ElasticNet_target,price,coefficient,0.14271697607594616
+brand_segment_rare,-0.14242498435241327,ElasticNet_target,price,coefficient,0.14242498435241327
+model_TUF Gaming,-0.1406117532495148,ElasticNet_target,price,coefficient,0.1406117532495148
+model_IdeaPad,0.14019796524619335,ElasticNet_target,price,coefficient,0.14019796524619335
+model_Macbook air m4,-0.1377627418197046,ElasticNet_target,price,coefficient,0.1377627418197046
+model_Nitro 5,0.1363918630216688,ElasticNet_target,price,coefficient,0.1363918630216688
+brand_is_rare,-0.1293506668110489,ElasticNet_target,price,coefficient,0.1293506668110489
+model_Latitude,0.12667802533329806,ElasticNet_target,price,coefficient,0.12667802533329806
+brand_Microsoft,0.1266735715308916,ElasticNet_target,price,coefficient,0.1266735715308916
+model_Aspire,0.10446613274764747,ElasticNet_target,price,coefficient,0.10446613274764747
+model_Latitude E Series,-0.09938301832851267,ElasticNet_target,price,coefficient,0.09938301832851267
+model_Vivobook 15,0.08248218571164077,ElasticNet_target,price,coefficient,0.08248218571164077
+screen_size_inch,0.07961450144398252,ElasticNet_target,price,coefficient,0.07961450144398252
+brand_segment_business,-0.07804431030509533,ElasticNet_target,price,coefficient,0.07804431030509533
+model_Vostro,0.07457428142444894,ElasticNet_target,price,coefficient,0.07457428142444894
+cpu_brand_Qualcomm,0.06356828576885892,ElasticNet_target,price,coefficient,0.06356828576885892
+model_X Series,-0.06326012725700043,ElasticNet_target,price,coefficient,0.06326012725700043
+model_Inspiron,0.0632154367872391,ElasticNet_target,price,coefficient,0.0632154367872391
+cpu_family_group_Apple Silicon,0.04931243371776772,ElasticNet_target,price,coefficient,0.04931243371776772
+model_Elitebook,0.04017006661751369,ElasticNet_target,price,coefficient,0.04017006661751369
+model_Latitude 14 7000,0.035549999612669185,ElasticNet_target,price,coefficient,0.035549999612669185
+is_premium_memory_storage,0.027961156765719388,ElasticNet_target,price,coefficient,0.027961156765719388
+model_ProBook,-0.01994460609707642,ElasticNet_target,price,coefficient,0.01994460609707642
+model_Elitebook 800,-0.014994346387248279,ElasticNet_target,price,coefficient,0.014994346387248279
+model_TUF Gaming F15,-0.014897583242384048,ElasticNet_target,price,coefficient,0.014897583242384048
+model_Pavilion 15,0.012539912338111239,ElasticNet_target,price,coefficient,0.012539912338111239
+model_ThinkPad,-0.005081275922314866,ElasticNet_target,price,coefficient,0.005081275922314866
+no_info_brand,-3.7281486468244383e-07,ElasticNet_target,price,coefficient,3.7281486468244383e-07
+model_is_rare,0.0,ElasticNet_target,price,coefficient,0.0
+brand_segment_gaming_value,0.0,ElasticNet_target,price,coefficient,0.0

@@ -1,0 +1,2 @@
+model_label,highest_error_price_segment,highest_segment_rmse,mean_residual,underprediction_count,overprediction_count,learning_curve_fit_status,learning_curve_data_status
+CatBoost_tuned,Q5_high,11.26771162245175,-0.06439613719291566,665,795,possible_overfitting,more_data_may_help

@@ -1,0 +1,87 @@
+feature,importance,model_name,target_used,importance_type,abs_importance
+storage_level,1303,LightGBM_log_target,price,feature_importance,1303
+ram_level,1157,LightGBM_log_target,price,feature_importance,1157
+cpu_tier_encoded,1071,LightGBM_log_target,price,feature_importance,1071
+cpu_family_ord_filled,943,LightGBM_log_target,price,feature_importance,943
+cpu_intel_generation_ord,823,LightGBM_log_target,price,feature_importance,823
+screen_size_level,729,LightGBM_log_target,price,feature_importance,729
+gpu_tier_ord_filled,590,LightGBM_log_target,price,feature_importance,590
+cpu_suffix_power_ord_filled,440,LightGBM_log_target,price,feature_importance,440
+brand_Dell,429,LightGBM_log_target,price,feature_importance,429
+no_info_model,429,LightGBM_log_target,price,feature_importance,429
+no_info_gpu,415,LightGBM_log_target,price,feature_importance,415
+condition_score,383,LightGBM_log_target,price,feature_importance,383
+screen_missing,338,LightGBM_log_target,price,feature_importance,338
+brand_Lenovo,332,LightGBM_log_target,price,feature_importance,332
+gpu_type_Integrated,326,LightGBM_log_target,price,feature_importance,326
+warranty_encoded,325,LightGBM_log_target,price,feature_importance,325
+brand_ASUS,260,LightGBM_log_target,price,feature_importance,260
+cpu_brand_Intel,254,LightGBM_log_target,price,feature_importance,254
+cpu_amd_generation_ord,231,LightGBM_log_target,price,feature_importance,231
+cpu_family_group_Intel Core i,226,LightGBM_log_target,price,feature_importance,226
+brand_HP,223,LightGBM_log_target,price,feature_importance,223
+brand_Apple,214,LightGBM_log_target,price,feature_importance,214
+storage_ssd,211,LightGBM_log_target,price,feature_importance,211
+storage_missing,206,LightGBM_log_target,price,feature_importance,206
+no_info_cpu_tier,170,LightGBM_log_target,price,feature_importance,170
+ram_missing,165,LightGBM_log_target,price,feature_importance,165
+cpu_brand_Apple,142,LightGBM_log_target,price,feature_importance,142
+model_is_rare,139,LightGBM_log_target,price,feature_importance,139
+cpu_brand_AMD,135,LightGBM_log_target,price,feature_importance,135
+cpu_family_group_Intel Core Ultra,129,LightGBM_log_target,price,feature_importance,129
+no_info_brand,128,LightGBM_log_target,price,feature_importance,128
+no_info_storage,121,LightGBM_log_target,price,feature_importance,121
+brand_Acer,116,LightGBM_log_target,price,feature_importance,116
+brand_Microsoft,110,LightGBM_log_target,price,feature_importance,110
+model_XPS 13,101,LightGBM_log_target,price,feature_importance,101
+brand_MSI,100,LightGBM_log_target,price,feature_importance,100
+model_MacBook Pro,97,LightGBM_log_target,price,feature_importance,97
+storage_hdd,92,LightGBM_log_target,price,feature_importance,92
+brand_LG,82,LightGBM_log_target,price,feature_importance,82
+brand_is_rare,80,LightGBM_log_target,price,feature_importance,80
+model_Nitro 5,78,LightGBM_log_target,price,feature_importance,78
+model_TUF Gaming F15,75,LightGBM_log_target,price,feature_importance,75
+model_Latitude E Series,72,LightGBM_log_target,price,feature_importance,72
+model_MacBook Air,70,LightGBM_log_target,price,feature_importance,70
+no_info_cpu_brand,69,LightGBM_log_target,price,feature_importance,69
+model_Vostro,62,LightGBM_log_target,price,feature_importance,62
+model_X Series,61,LightGBM_log_target,price,feature_importance,61
+model_Precision,54,LightGBM_log_target,price,feature_importance,54
+model_ThinkPad,51,LightGBM_log_target,price,feature_importance,51
+model_Inspiron,49,LightGBM_log_target,price,feature_importance,49
+model_Elitebook,46,LightGBM_log_target,price,feature_importance,46
+cpu_family_group_Apple Silicon,44,LightGBM_log_target,price,feature_importance,44
+model_Legion 5,44,LightGBM_log_target,price,feature_importance,44
+model_ProBook,43,LightGBM_log_target,price,feature_importance,43
+model_Gaming Thin GF,42,LightGBM_log_target,price,feature_importance,42
+model_MacBook Pro M1,39,LightGBM_log_target,price,feature_importance,39
+brand_Sony,38,LightGBM_log_target,price,feature_importance,38
+model_MacBook Air M1,35,LightGBM_log_target,price,feature_importance,35
+model_Macbook air m4,30,LightGBM_log_target,price,feature_importance,30
+model_ROG Strix,29,LightGBM_log_target,price,feature_importance,29
+cpu_family_group_AMD Ryzen,28,LightGBM_log_target,price,feature_importance,28
+model_IdeaPad,27,LightGBM_log_target,price,feature_importance,27
+model_TUF Gaming,22,LightGBM_log_target,price,feature_importance,22
+model_ThinkPad X1 Carbon,17,LightGBM_log_target,price,feature_importance,17
+model_MacBook Pro M2,17,LightGBM_log_target,price,feature_importance,17
+model_Latitude,17,LightGBM_log_target,price,feature_importance,17
+cpu_apple_core_spec,15,LightGBM_log_target,price,feature_importance,15
+cpu_family_group_Intel Low End,15,LightGBM_log_target,price,feature_importance,15
+model_MacBook Air M2,14,LightGBM_log_target,price,feature_importance,14
+model_Aspire,11,LightGBM_log_target,price,feature_importance,11
+model_Elitebook 800,8,LightGBM_log_target,price,feature_importance,8
+model_Vivobook 15,5,LightGBM_log_target,price,feature_importance,5
+model_Latitude 14 7000,5,LightGBM_log_target,price,feature_importance,5
+model_Pavilion 15,3,LightGBM_log_target,price,feature_importance,3
+model_Other,0,LightGBM_log_target,price,feature_importance,0
+cpu_brand_Qualcomm,0,LightGBM_log_target,price,feature_importance,0
+cpu_brand_Other,0,LightGBM_log_target,price,feature_importance,0
+brand_Toshiba,0,LightGBM_log_target,price,feature_importance,0
+model_Legion,0,LightGBM_log_target,price,feature_importance,0
+cpu_brand_Microsoft SQ,0,LightGBM_log_target,price,feature_importance,0
+cpu_qualcomm_snapdragon_spec,0,LightGBM_log_target,price,feature_importance,0
+brand_Other,0,LightGBM_log_target,price,feature_importance,0
+brand_Gigabyte,0,LightGBM_log_target,price,feature_importance,0
+gpu_type_Apple SoC,0,LightGBM_log_target,price,feature_importance,0
+gpu_type_Dedicated,0,LightGBM_log_target,price,feature_importance,0
+gpu_type_Missing_Info,0,LightGBM_log_target,price,feature_importance,0

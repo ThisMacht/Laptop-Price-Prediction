@@ -1,0 +1,26 @@
+pipeline:
+  start_page: 1
+  end_page: 31
+  links_output: "data/raw/websosanh_product_links.txt"
+  data_output: "data/raw/laptop_features.csv"
+  delay_between_requests: 0.7
+  chunk_size: 100
+  
+  # Select which brands to crawl. Set to 'all' or provide a list like: ['hp', 'asus', 'lenovo']
+  brands: 'all'
+
+api:
+  base_url: "https://websosanh.vn"
+  search_endpoint: "https://websosanh.vn/search-api/get-search-product"
+  compare_endpoint: "https://websosanh.vn/compare-api/get-compare-normal-merchant"
+  timeout_seconds: 15
+  
+  headers:
+    accept_json: "application/json, text/plain, */*"
+    accept_html: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"
+    accept_language: "vi,en-US;q=0.9,en;q=0.8"
+    user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0"
+
+  payload:
+    category_id: 18
+    num_row: 40

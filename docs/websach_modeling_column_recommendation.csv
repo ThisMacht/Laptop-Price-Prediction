@@ -1,0 +1,65 @@
+﻿category,column,recommendation
+target,price_median,Target label for model training.
+feature_candidate,brand_clean,Model-safe tabular feature after train-split-safe encoding/imputation.
+feature_candidate,brand_grouped,Model-safe tabular feature after train-split-safe encoding/imputation.
+feature_candidate,ram_gb_clean,Model-safe tabular feature after train-split-safe encoding/imputation.
+feature_candidate,ram_tier_clean,Model-safe tabular feature after train-split-safe encoding/imputation.
+feature_candidate,ram_type_clean,Model-safe tabular feature after train-split-safe encoding/imputation.
+feature_candidate,storage_gb_clean,Model-safe tabular feature after train-split-safe encoding/imputation.
+feature_candidate,storage_type_clean,Model-safe tabular feature after train-split-safe encoding/imputation.
+feature_candidate,storage_tier_clean,Model-safe tabular feature after train-split-safe encoding/imputation.
+feature_candidate,screen_size_clean,Model-safe tabular feature after train-split-safe encoding/imputation.
+feature_candidate,screen_size_group,Model-safe tabular feature after train-split-safe encoding/imputation.
+feature_candidate,cpu_brand,Model-safe tabular feature after train-split-safe encoding/imputation.
+feature_candidate,cpu_tier,Model-safe tabular feature after train-split-safe encoding/imputation.
+feature_candidate,cpu_model_clean,Model-safe tabular feature after train-split-safe encoding/imputation.
+feature_candidate,gpu_brand,Model-safe tabular feature after train-split-safe encoding/imputation.
+feature_candidate,gpu_tier_v2,Model-safe tabular feature after train-split-safe encoding/imputation.
+feature_candidate,high_end_config_flag,Model-safe tabular feature after train-split-safe encoding/imputation.
+leakage_excluded,flag_price_spread_critical,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,flag_price_spread_warn,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,log_price_median,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,n_prices_clean,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,n_prices_raw,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,price_max_clean,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,price_median,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,price_min_clean,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,price_row_median_domain,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,price_spread_clean_pct,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,shop_1_price,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,shop_1_price_clean,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,shop_1_price_domain,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,shop_2_price,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,shop_2_price_clean,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,shop_2_price_domain,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,shop_3_price,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,shop_3_price_clean,"Excluded because it is target, direct price, or price-derived QC leakage."
+leakage_excluded,shop_3_price_domain,"Excluded because it is target, direct price, or price-derived QC leakage."
+metadata_excluded,product_id,Excluded because it is metadata/audit identity/source information.
+metadata_excluded,shop_1_name,Excluded because it is metadata/audit identity/source information.
+metadata_excluded,shop_2_name,Excluded because it is metadata/audit identity/source information.
+metadata_excluded,shop_3_name,Excluded because it is metadata/audit identity/source information.
+metadata_excluded,spec_key,Excluded because it is metadata/audit identity/source information.
+qc_only_excluded,brand_is_rare,"Excluded because it is QC-only/audit-only, not a product-spec predictor."
+qc_only_excluded,is_soft_duplicate_spec,"Excluded because it is QC-only/audit-only, not a product-spec predictor."
+qc_only_excluded,low_count_brand_screen_cell,"Excluded because it is QC-only/audit-only, not a product-spec predictor."
+qc_only_excluded,low_count_cpu_ram_cell,"Excluded because it is QC-only/audit-only, not a product-spec predictor."
+qc_only_excluded,low_count_gpu_ram_cell,"Excluded because it is QC-only/audit-only, not a product-spec predictor."
+qc_only_excluded,ram_capacity_outlier,"Excluded because it is QC-only/audit-only, not a product-spec predictor."
+qc_only_excluded,screen_size_outlier,"Excluded because it is QC-only/audit-only, not a product-spec predictor."
+qc_only_excluded,shop_1_price_domain_outlier,"Excluded because it is QC-only/audit-only, not a product-spec predictor."
+qc_only_excluded,shop_1_price_relative_outlier,"Excluded because it is QC-only/audit-only, not a product-spec predictor."
+qc_only_excluded,shop_2_price_domain_outlier,"Excluded because it is QC-only/audit-only, not a product-spec predictor."
+qc_only_excluded,shop_2_price_relative_outlier,"Excluded because it is QC-only/audit-only, not a product-spec predictor."
+qc_only_excluded,shop_3_price_domain_outlier,"Excluded because it is QC-only/audit-only, not a product-spec predictor."
+qc_only_excluded,shop_3_price_relative_outlier,"Excluded because it is QC-only/audit-only, not a product-spec predictor."
+qc_only_excluded,storage_gb_outlier,"Excluded because it is QC-only/audit-only, not a product-spec predictor."
+raw_text_excluded,Công nghệ CPU,"Excluded because raw/free-text fields should be vectorized intentionally, not fed directly into tabular modeling."
+raw_text_excluded,Dung lượng RAM,"Excluded because raw/free-text fields should be vectorized intentionally, not fed directly into tabular modeling."
+raw_text_excluded,Dung lượng ổ cứng (GB),"Excluded because raw/free-text fields should be vectorized intentionally, not fed directly into tabular modeling."
+raw_text_excluded,Hãng sản xuất,"Excluded because raw/free-text fields should be vectorized intentionally, not fed directly into tabular modeling."
+raw_text_excluded,Kích thước (inch),"Excluded because raw/free-text fields should be vectorized intentionally, not fed directly into tabular modeling."
+raw_text_excluded,Loại CPU,"Excluded because raw/free-text fields should be vectorized intentionally, not fed directly into tabular modeling."
+raw_text_excluded,Loại RAM,"Excluded because raw/free-text fields should be vectorized intentionally, not fed directly into tabular modeling."
+raw_text_excluded,Loại ổ cứng,"Excluded because raw/free-text fields should be vectorized intentionally, not fed directly into tabular modeling."
+raw_text_excluded,Đồ họa đã làm sạch,"Excluded because raw/free-text fields should be vectorized intentionally, not fed directly into tabular modeling."

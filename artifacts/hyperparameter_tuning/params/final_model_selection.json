@@ -1,0 +1,16 @@
+{
+  "selected_model_name": "CatBoost",
+  "selected_version": "tuned",
+  "selection_basis": "Stratified KFold mean RMSE",
+  "mean_rmse": 5.2255906785150135,
+  "std_rmse": 0.26300133206309273,
+  "mean_mae": 3.183990923288797,
+  "std_mae": 0.1136997060615585,
+  "mean_mape_pct": 30.672717590462526,
+  "std_mape_pct": 0.9688276776978106,
+  "candidate_status": "primary_candidate",
+  "reason": "Best mean RMSE across Stratified KFold and stable fold-to-fold performance.",
+  "selected_model_path": "Y:\\Python\\Laptop-Price-Prediction\\artifacts\\hyperparameter_tuning\\models\\selected_final_candidate_model.pkl",
+  "cv_data_scope": "training_set_only",
+  "holdout_usage": "independent_sanity_check"
+}

@@ -1,0 +1,13 @@
+requests==2.31.0
+beautifulsoup4==4.14.3
+pandas==2.2.2
+PyYAML==6.0.3
+missingno==0.5.2
+matplotlib==3.8.4
+seaborn==0.13.2
+scikit-learn==1.4.2
+lightgbm==4.5.0
+catboost==1.2.8
+shap==0.47.2
+pytest==7.2.0
+dotenv

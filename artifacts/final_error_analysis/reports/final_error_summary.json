@@ -1,0 +1,10 @@
+{
+  "model_label": "CatBoost_tuned",
+  "highest_error_price_segment": "Q5_high",
+  "highest_segment_rmse": 11.26771162245175,
+  "mean_residual": -0.06439613719291566,
+  "underprediction_count": 665,
+  "overprediction_count": 795,
+  "learning_curve_fit_status": "possible_overfitting",
+  "learning_curve_data_status": "more_data_may_help"
+}

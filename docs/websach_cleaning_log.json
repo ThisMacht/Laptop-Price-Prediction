@@ -1,0 +1,67 @@
+{
+  "config": {
+    "raw_path": "Y:\\Python\\Laptop-Price-Prediction\\data\\raw\\clean_laptop_features.csv",
+    "issues_path": "Y:\\Python\\Laptop-Price-Prediction\\docs\\websach_issues_list.csv",
+    "output_dir": "Y:\\Python\\Laptop-Price-Prediction\\data\\intern",
+    "cleaned_path": "Y:\\Python\\Laptop-Price-Prediction\\data\\intern\\websach_cleaned.csv",
+    "report_path": "Y:\\Python\\Laptop-Price-Prediction\\docs\\websach_cleaning_report.csv",
+    "issue_action_plan_path": "Y:\\Python\\Laptop-Price-Prediction\\docs\\websach_issue_action_plan.csv",
+    "log_path": "Y:\\Python\\Laptop-Price-Prediction\\docs\\websach_cleaning_log.json",
+    "price_cols": [
+      "shop_1_price",
+      "shop_2_price",
+      "shop_3_price"
+    ],
+    "shop_name_cols": [
+      "shop_1_name",
+      "shop_2_name",
+      "shop_3_name"
+    ],
+    "price_min": 3000000,
+    "price_max": 200000000,
+    "relative_low_factor": 0.5,
+    "relative_high_factor": 2.0,
+    "price_spread_warn": 0.3,
+    "price_spread_critical": 0.5,
+    "screen_min": 0,
+    "screen_max": 25,
+    "rare_count_threshold": 30,
+    "min_brand_screen_cell_n": 10,
+    "min_interaction_cell_n": 20
+  },
+  "raw_shape": [
+    4384,
+    15
+  ],
+  "cleaned_shape": [
+    4384,
+    67
+  ],
+  "duplicate_log": {
+    "full_duplicate_removed": 0
+  },
+  "validation": {
+    "price_median_numeric": true,
+    "price_median_not_missing": true,
+    "domain_prices_in_range": true,
+    "screen_range_valid_or_missing": true,
+    "ram_range_valid_or_missing": true,
+    "storage_positive_or_missing": true,
+    "unknown_categories_available": true,
+    "all_issues_have_actions": true
+  },
+  "issue_status_counts": {
+    "needs_manual_review": 34,
+    "resolved": 12,
+    "partially_resolved": 11
+  },
+  "important_rule_counts": {
+    "domain_price_cells_nulled": 4,
+    "relative_price_cells_nulled": 53,
+    "price_spread_warn_rows": 583,
+    "price_spread_critical_rows": 142,
+    "screen_size_outlier_nulled": 85,
+    "ram_capacity_outlier_nulled": 2,
+    "soft_duplicate_spec_rows": 2516
+  }
+}

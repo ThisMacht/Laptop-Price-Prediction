@@ -1,0 +1,11 @@
+{
+  "model_file": "Y:\\Python\\Laptop-Price-Prediction\\artifacts\\final_model_evaluation\\models\\selected_evaluation_model.joblib",
+  "model_label": "CatBoost_tuned",
+  "training_scope": "train_split_80_percent",
+  "usage": "holdout_evaluation_only",
+  "not_for_final_web_deployment": true,
+  "target": "target_price",
+  "n_features": 86,
+  "source_notebook": "14_final_model_evaluation.ipynb",
+  "next_step": "Notebook 15 should retrain this selected model configuration on 100% of the dataset and export the true production model to root/models/."
+}

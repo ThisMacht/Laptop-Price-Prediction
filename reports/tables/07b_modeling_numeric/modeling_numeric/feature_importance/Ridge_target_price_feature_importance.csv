@@ -1,0 +1,87 @@
+feature,importance,model_name,target_used,importance_type,abs_importance
+gpu_tier_ord_filled,4.569148254353607,Ridge_target,price,coefficient,4.569148254353607
+ram_gb,4.446076379737675,Ridge_target,price,coefficient,4.446076379737675
+cpu_family_ord_filled,4.012172655631273,Ridge_target,price,coefficient,4.012172655631273
+storage_gb,3.984313367888987,Ridge_target,price,coefficient,3.984313367888987
+cpu_family_group_Intel Core i,-3.508938172917132,Ridge_target,price,coefficient,3.508938172917132
+condition_score,2.611571608006773,Ridge_target,price,coefficient,2.611571608006773
+no_info_cpu_tier,2.4693322462531078,Ridge_target,price,coefficient,2.4693322462531078
+cpu_tier_encoded,2.1961040046495794,Ridge_target,price,coefficient,2.1961040046495794
+cpu_family_group_AMD Ryzen,-2.046413282898126,Ridge_target,price,coefficient,2.046413282898126
+gpu_type_Dedicated,-1.7583905821096042,Ridge_target,price,coefficient,1.7583905821096042
+warranty_encoded,1.5295938954317987,Ridge_target,price,coefficient,1.5295938954317987
+storage_ssd,1.2520751596763415,Ridge_target,price,coefficient,1.2520751596763415
+no_info_storage,1.146794251484826,Ridge_target,price,coefficient,1.146794251484826
+cpu_suffix_power_ord_filled,1.0508727689090014,Ridge_target,price,coefficient,1.0508727689090014
+gpu_type_Missing_Info,0.9789963163272638,Ridge_target,price,coefficient,0.9789963163272638
+no_info_gpu,0.9789963163271926,Ridge_target,price,coefficient,0.9789963163271926
+ram_missing,0.8188686120957659,Ridge_target,price,coefficient,0.8188686120957659
+screen_missing,-0.7718196807448687,Ridge_target,price,coefficient,0.7718196807448687
+storage_missing,0.7689059373832542,Ridge_target,price,coefficient,0.7689059373832542
+brand_Apple,0.6976403655438407,Ridge_target,price,coefficient,0.6976403655438407
+cpu_intel_generation_ord,0.6663202522073057,Ridge_target,price,coefficient,0.6663202522073057
+cpu_brand_Apple,0.6561238075439235,Ridge_target,price,coefficient,0.6561238075439235
+model_MacBook Air M1,-0.6177206772159478,Ridge_target,price,coefficient,0.6177206772159478
+cpu_family_group_Intel Core Ultra,-0.5876435540878491,Ridge_target,price,coefficient,0.5876435540878491
+gpu_type_Integrated,0.584638375170672,Ridge_target,price,coefficient,0.584638375170672
+model_Legion 5,0.5065591119508852,Ridge_target,price,coefficient,0.5065591119508852
+cpu_brand_Qualcomm,0.48533757802610406,Ridge_target,price,coefficient,0.48533757802610406
+cpu_amd_generation_ord,-0.48121534669239013,Ridge_target,price,coefficient,0.48121534669239013
+model_MacBook Pro,-0.4417151979124002,Ridge_target,price,coefficient,0.4417151979124002
+cpu_brand_Intel,-0.4328737324018009,Ridge_target,price,coefficient,0.4328737324018009
+brand_LG,0.42409345367188556,Ridge_target,price,coefficient,0.42409345367188556
+brand_Lenovo,-0.4091018518068029,Ridge_target,price,coefficient,0.4091018518068029
+model_MacBook Pro M1,-0.4064854684091867,Ridge_target,price,coefficient,0.4064854684091867
+brand_Dell,-0.4053876073432802,Ridge_target,price,coefficient,0.4053876073432802
+brand_Microsoft,0.4030373212341695,Ridge_target,price,coefficient,0.4030373212341695
+screen_size_inch,-0.361680455052007,Ridge_target,price,coefficient,0.361680455052007
+gpu_type_Apple SoC,0.35056957181478743,Ridge_target,price,coefficient,0.35056957181478743
+model_MacBook Air M2,-0.33102420980132713,Ridge_target,price,coefficient,0.33102420980132713
+brand_Acer,-0.32803024007427944,Ridge_target,price,coefficient,0.32803024007427944
+brand_Gigabyte,-0.31730972729658696,Ridge_target,price,coefficient,0.31730972729658696
+model_Legion,0.29650286224569905,Ridge_target,price,coefficient,0.29650286224569905
+model_Macbook air m4,-0.2351803672284575,Ridge_target,price,coefficient,0.2351803672284575
+no_info_model,0.2256057821300161,Ridge_target,price,coefficient,0.2256057821300161
+model_Other,0.2256057821290769,Ridge_target,price,coefficient,0.2256057821290769
+cpu_brand_Other,-0.22457743766274474,Ridge_target,price,coefficient,0.22457743766274474
+no_info_cpu_brand,-0.22457743766154398,Ridge_target,price,coefficient,0.22457743766154398
+cpu_qualcomm_snapdragon_spec,-0.22348689645426112,Ridge_target,price,coefficient,0.22348689645426112
+model_XPS 13,0.2108252205157829,Ridge_target,price,coefficient,0.2108252205157829
+brand_ASUS,0.18843633890825073,Ridge_target,price,coefficient,0.18843633890825073
+model_Nitro 5,0.1872745299351579,Ridge_target,price,coefficient,0.1872745299351579
+model_IdeaPad,0.16700362432806498,Ridge_target,price,coefficient,0.16700362432806498
+model_MacBook Pro M2,-0.16246380850155967,Ridge_target,price,coefficient,0.16246380850155967
+model_Latitude,0.15849508881417487,Ridge_target,price,coefficient,0.15849508881417487
+brand_MSI,0.15561542910868362,Ridge_target,price,coefficient,0.15561542910868362
+model_MacBook Air,-0.13912150843726326,Ridge_target,price,coefficient,0.13912150843726326
+model_Inspiron,0.13823073147432985,Ridge_target,price,coefficient,0.13823073147432985
+model_Gaming Thin GF,-0.13573325511726608,Ridge_target,price,coefficient,0.13573325511726608
+model_Aspire,0.13400470103647394,Ridge_target,price,coefficient,0.13400470103647394
+brand_Sony,-0.12951103739921788,Ridge_target,price,coefficient,0.12951103739921788
+model_ROG Strix,-0.12385307961463489,Ridge_target,price,coefficient,0.12385307961463489
+model_ThinkPad X1 Carbon,0.12166050672896077,Ridge_target,price,coefficient,0.12166050672896077
+cpu_brand_Microsoft SQ,0.11920593018103695,Ridge_target,price,coefficient,0.11920593018103695
+model_TUF Gaming,-0.11820163706190749,Ridge_target,price,coefficient,0.11820163706190749
+model_Vostro,0.11017548460676597,Ridge_target,price,coefficient,0.11017548460676597
+cpu_family_group_Intel Low End,-0.1007000522689771,Ridge_target,price,coefficient,0.1007000522689771
+storage_hdd,-0.09477340033799302,Ridge_target,price,coefficient,0.09477340033799302
+cpu_apple_core_spec,0.09389190689606107,Ridge_target,price,coefficient,0.09389190689606107
+cpu_brand_AMD,0.08838149276679107,Ridge_target,price,coefficient,0.08838149276679107
+model_is_rare,0.08736908315613826,Ridge_target,price,coefficient,0.08736908315613826
+cpu_family_group_Apple Silicon,-0.07770422295932615,Ridge_target,price,coefficient,0.07770422295932615
+model_Precision,-0.06987819147841023,Ridge_target,price,coefficient,0.06987819147841023
+brand_Toshiba,-0.06842213082013598,Ridge_target,price,coefficient,0.06842213082013598
+model_Elitebook,0.06761692844220557,Ridge_target,price,coefficient,0.06761692844220557
+model_X Series,-0.06615503766474416,Ridge_target,price,coefficient,0.06615503766474416
+model_ProBook,0.05741440119762133,Ridge_target,price,coefficient,0.05741440119762133
+model_Latitude E Series,-0.04549096923792421,Ridge_target,price,coefficient,0.04549096923792421
+model_ThinkPad,0.04339219525678563,Ridge_target,price,coefficient,0.04339219525678563
+model_Latitude 14 7000,-0.026742750075218827,Ridge_target,price,coefficient,0.026742750075218827
+brand_Other,0.022528872211203973,Ridge_target,price,coefficient,0.022528872211203973
+no_info_brand,0.022528872210253136,Ridge_target,price,coefficient,0.022528872210253136
+brand_is_rare,-0.016476448884583505,Ridge_target,price,coefficient,0.016476448884583505
+brand_HP,-0.016098104387190153,Ridge_target,price,coefficient,0.016098104387190153
+model_Elitebook 800,-0.013459702306294126,Ridge_target,price,coefficient,0.013459702306294126
+model_Pavilion 15,0.012177321012300726,Ridge_target,price,coefficient,0.012177321012300726
+model_TUF Gaming F15,0.006780452223624697,Ridge_target,price,coefficient,0.006780452223624697
+model_Vivobook 15,-0.00268464319399637,Ridge_target,price,coefficient,0.00268464319399637

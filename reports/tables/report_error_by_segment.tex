@@ -1,0 +1,19 @@
+\begin{table}[H]
+\centering
+\caption{Lỗi của CatBoost\_tuned theo phân khúc giá}
+\label{tab:error-by-segment}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+Segment & N & Mean price & MAE & RMSE & MAPE & Mean residual \\
+\midrule
+Q1\_low & 292 & 3.084 & 1.826 & 2.805 & 69.82\% & -1.509 \\
+Q2 & 292 & 6.367 & 1.722 & 2.575 & 27.49\% & -0.882 \\
+Q3 & 293 & 10.447 & 2.706 & 3.927 & 26.27\% & -0.478 \\
+Q4 & 291 & 16.706 & 3.043 & 4.234 & 18.33\% & -0.101 \\
+Q5\_high & 292 & 38.018 & 7.567 & 11.268 & 19.33\% & 2.649 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

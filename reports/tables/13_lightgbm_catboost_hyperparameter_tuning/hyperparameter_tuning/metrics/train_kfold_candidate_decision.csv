@@ -1,0 +1,5 @@
+model_name,version,mean_rmse,std_rmse,mean_mae,std_mae,mean_mape_pct,std_mape_pct,candidate_status,reason
+CatBoost,tuned,5.2255906785150135,0.26300133206309273,3.183990923288797,0.1136997060615585,30.672717590462526,0.9688276776978106,primary_candidate,Best mean RMSE across Stratified KFold and stable fold-to-fold performance.
+LightGBM,tuned,5.3649213250919905,0.22571701449223763,3.2573947380848636,0.08137355299239102,30.751778157920178,1.1667818057851531,secondary_candidate,"Not the best by KFold mean RMSE, but remains useful as a comparison candidate."
+CatBoost,baseline,5.408551291742523,0.2736180873476929,3.3317731630491267,0.14957864368520557,32.35313205309869,1.42725361527213,secondary_candidate,"Not the best by KFold mean RMSE, but remains useful as a comparison candidate."
+LightGBM,baseline,5.478385932478458,0.3049912649757892,3.2949036430212404,0.12871350641424542,30.991299272785728,1.2114647606789612,secondary_candidate,"Not the best by KFold mean RMSE, but remains useful as a comparison candidate."

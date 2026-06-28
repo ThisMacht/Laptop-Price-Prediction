@@ -1,0 +1,87 @@
+feature,importance,model_name,target_used,importance_type,abs_importance
+memory_storage_score,0.7182464844965241,Ridge_log_target,price,coefficient,0.7182464844965241
+storage_missing,0.39494880702529916,Ridge_log_target,price,coefficient,0.39494880702529916
+warranty_not_activated,0.28551082628706986,Ridge_log_target,price,coefficient,0.28551082628706986
+ram_missing,0.19972600986376998,Ridge_log_target,price,coefficient,0.19972600986376998
+warranty_active,-0.19755803401665284,Ridge_log_target,price,coefficient,0.19755803401665284
+cpu_family_ord_filled,0.16620848964720758,Ridge_log_target,price,coefficient,0.16620848964720758
+cpu_intel_generation_ord,-0.15699873456680472,Ridge_log_target,price,coefficient,0.15699873456680472
+no_info_cpu_tier,0.1471163615777592,Ridge_log_target,price,coefficient,0.1471163615777592
+warranty_expired,-0.13760220907682105,Ridge_log_target,price,coefficient,0.13760220907682105
+cpu_family_group_Intel Core i,-0.13702243866946517,Ridge_log_target,price,coefficient,0.13702243866946517
+cpu_amd_generation_ord,-0.13536160057829164,Ridge_log_target,price,coefficient,0.13536160057829164
+cpu_brand_AMD,0.11563223361189826,Ridge_log_target,price,coefficient,0.11563223361189826
+condition_score,0.11206617328995619,Ridge_log_target,price,coefficient,0.11206617328995619
+cpu_apple_core_spec,-0.10733187081046758,Ridge_log_target,price,coefficient,0.10733187081046758
+no_info_storage,0.10607416857048983,Ridge_log_target,price,coefficient,0.10607416857048983
+cpu_brand_Apple,0.10576181279770346,Ridge_log_target,price,coefficient,0.10576181279770346
+cpu_tier_encoded,0.10238522913997496,Ridge_log_target,price,coefficient,0.10238522913997496
+storage_ssd,0.09944658999609804,Ridge_log_target,price,coefficient,0.09944658999609804
+cpu_family_group_AMD Ryzen,-0.09510227027037563,Ridge_log_target,price,coefficient,0.09510227027037563
+gpu_tier_ord_filled,0.09022733276107184,Ridge_log_target,price,coefficient,0.09022733276107184
+ram_gb,-0.08714336217663078,Ridge_log_target,price,coefficient,0.08714336217663078
+cpu_brand_Intel,0.08194408149906396,Ridge_log_target,price,coefficient,0.08194408149906396
+screen_size_inch,0.07700069338470375,Ridge_log_target,price,coefficient,0.07700069338470375
+ram_storage_balance,0.05255929260683613,Ridge_log_target,price,coefficient,0.05255929260683613
+cpu_suffix_power_ord_filled,-0.03559195512938121,Ridge_log_target,price,coefficient,0.03559195512938121
+cpu_family_group_Intel Low End,-0.03479764224854208,Ridge_log_target,price,coefficient,0.03479764224854208
+model_Latitude E Series,-0.03274803991591169,Ridge_log_target,price,coefficient,0.03274803991591169
+storage_gb,-0.02898416004758249,Ridge_log_target,price,coefficient,0.02898416004758249
+brand_LG,0.028745822431336193,Ridge_log_target,price,coefficient,0.028745822431336193
+cpu_family_group_Intel Core Ultra,-0.027997968284197677,Ridge_log_target,price,coefficient,0.027997968284197677
+screen_missing,0.0279168438161562,Ridge_log_target,price,coefficient,0.0279168438161562
+brand_segment_premium,0.02758842709616639,Ridge_log_target,price,coefficient,0.02758842709616639
+model_Legion 5,0.027460068046430922,Ridge_log_target,price,coefficient,0.027460068046430922
+brand_Microsoft,0.023281510246236026,Ridge_log_target,price,coefficient,0.023281510246236026
+model_XPS 13,0.02222357932634816,Ridge_log_target,price,coefficient,0.02222357932634816
+brand_Acer,-0.02200667082641351,Ridge_log_target,price,coefficient,0.02200667082641351
+brand_is_rare,-0.02169134798758295,Ridge_log_target,price,coefficient,0.02169134798758295
+brand_segment_rare,-0.02169134798740951,Ridge_log_target,price,coefficient,0.02169134798740951
+is_premium_memory_storage,-0.02051331719652019,Ridge_log_target,price,coefficient,0.02051331719652019
+model_Nitro 5,0.020271148060668338,Ridge_log_target,price,coefficient,0.020271148060668338
+cpu_family_group_Apple Silicon,0.020126617270868247,Ridge_log_target,price,coefficient,0.020126617270868247
+model_X Series,-0.017869527235714142,Ridge_log_target,price,coefficient,0.017869527235714142
+model_Legion,0.015458371474397563,Ridge_log_target,price,coefficient,0.015458371474397563
+model_MacBook Pro,-0.01459610810258363,Ridge_log_target,price,coefficient,0.01459610810258363
+brand_Dell,-0.013787408761261066,Ridge_log_target,price,coefficient,0.013787408761261066
+cpu_brand_Qualcomm,-0.013731742337515115,Ridge_log_target,price,coefficient,0.013731742337515115
+brand_Apple,0.012978089610585658,Ridge_log_target,price,coefficient,0.012978089610585658
+model_ThinkPad,-0.010818154098451842,Ridge_log_target,price,coefficient,0.010818154098451842
+model_Inspiron,-0.009952717495522064,Ridge_log_target,price,coefficient,0.009952717495522064
+storage_hdd,-0.009864251585359628,Ridge_log_target,price,coefficient,0.009864251585359628
+model_ThinkPad X1 Carbon,0.009137155355424765,Ridge_log_target,price,coefficient,0.009137155355424765
+model_TUF Gaming F15,0.00903259735013007,Ridge_log_target,price,coefficient,0.00903259735013007
+model_ProBook,-0.008402110345552473,Ridge_log_target,price,coefficient,0.008402110345552473
+brand_segment_business,-0.008286690177753,Ridge_log_target,price,coefficient,0.008286690177753
+model_MacBook Air,-0.008125668399419703,Ridge_log_target,price,coefficient,0.008125668399419703
+model_MacBook Pro M2,0.008067977200431436,Ridge_log_target,price,coefficient,0.008067977200431436
+model_MacBook Air M2,0.008050272362898831,Ridge_log_target,price,coefficient,0.008050272362898831
+model_Precision,0.007663104140474654,Ridge_log_target,price,coefficient,0.007663104140474654
+no_info_gpu,0.007497176329674346,Ridge_log_target,price,coefficient,0.007497176329674346
+model_MacBook Air M1,-0.007148959180155989,Ridge_log_target,price,coefficient,0.007148959180155989
+model_is_rare,0.006953906392989256,Ridge_log_target,price,coefficient,0.006953906392989256
+model_Vostro,-0.006953140391793074,Ridge_log_target,price,coefficient,0.006953140391793074
+is_entry_memory_storage,-0.006609194667751098,Ridge_log_target,price,coefficient,0.006609194667751098
+brand_ASUS,0.005835906244572175,Ridge_log_target,price,coefficient,0.005835906244572175
+brand_segment_gaming_value,-0.005821343054242141,Ridge_log_target,price,coefficient,0.005821343054242141
+brand_MSI,0.005687602188513734,Ridge_log_target,price,coefficient,0.005687602188513734
+model_Macbook air m4,0.005552652844121034,Ridge_log_target,price,coefficient,0.005552652844121034
+model_IdeaPad,-0.005353783058593086,Ridge_log_target,price,coefficient,0.005353783058593086
+brand_HP,0.005181940763633115,Ridge_log_target,price,coefficient,0.005181940763633115
+model_Aspire,-0.004505474721434881,Ridge_log_target,price,coefficient,0.004505474721434881
+model_ROG Strix,-0.004201531025784893,Ridge_log_target,price,coefficient,0.004201531025784893
+model_Latitude,0.003987583188913219,Ridge_log_target,price,coefficient,0.003987583188913219
+no_info_cpu_brand,0.0033778007412477835,Ridge_log_target,price,coefficient,0.0033778007412477835
+no_info_model,0.003260347037049693,Ridge_log_target,price,coefficient,0.003260347037049693
+model_MacBook Pro M1,0.003120840240821056,Ridge_log_target,price,coefficient,0.003120840240821056
+model_TUF Gaming,-0.003085139025746029,Ridge_log_target,price,coefficient,0.003085139025746029
+model_Vivobook 15,0.0029529434770348166,Ridge_log_target,price,coefficient,0.0029529434770348166
+model_Pavilion 15,-0.002560127255510255,Ridge_log_target,price,coefficient,0.002560127255510255
+is_mid_memory_storage,-0.002499421001928554,Ridge_log_target,price,coefficient,0.002499421001928554
+ram_storage_product_scaled,0.002191623653858468,Ridge_log_target,price,coefficient,0.002191623653858468
+no_info_brand,0.0019875687469073392,Ridge_log_target,price,coefficient,0.0019875687469073392
+model_Latitude 14 7000,0.001661199727772547,Ridge_log_target,price,coefficient,0.001661199727772547
+model_Elitebook,0.0013314349392852442,Ridge_log_target,price,coefficient,0.0013314349392852442
+model_Gaming Thin GF,-0.00106615239073015,Ridge_log_target,price,coefficient,0.00106615239073015
+brand_Lenovo,0.0007894608565060761,Ridge_log_target,price,coefficient,0.0007894608565060761
+model_Elitebook 800,0.0006205702538595303,Ridge_log_target,price,coefficient,0.0006205702538595303

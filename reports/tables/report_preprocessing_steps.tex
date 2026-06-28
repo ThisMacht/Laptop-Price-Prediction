@@ -1,0 +1,20 @@
+\begin{table}[H]
+\centering
+\caption{Các bước tiền xử lý và feature engineering chính}
+\label{tab:preprocessing-steps}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{ll}
+\toprule
+Nhóm bước & Mô tả \\
+\midrule
+Chuẩn hóa kiểu dữ liệu & Chuyển RAM, storage, kích thước màn hình và giá về dạng số \\
+Xử lý thiếu & Tạo cờ missing/no-info cho brand, model, CPU, GPU, RAM, storage và màn hình \\
+Mã hóa phân loại & One-hot brand, model, CPU brand/family, warranty và brand segment \\
+Trích xuất cấu hình & Tách CPU tier, GPU tier, loại storage SSD/HDD và thế hệ CPU \\
+Feature engineering & Tạo ram\_storage\_product\_scaled, ram\_storage\_balance và memory\_storage\_score \\
+Target transformation & So sánh target\_price với log\_target\_price, sau đó chọn target\_price cho mô hình cuối \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

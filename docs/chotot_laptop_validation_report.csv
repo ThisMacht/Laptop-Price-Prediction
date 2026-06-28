@@ -1,0 +1,18 @@
+﻿check_name,status,severity,affected_rows,notes
+required_schema_columns_present,PASS,blocking,0,Required columns are available.
+missing_target_in_modeling_ready_data,PASS,blocking,0,Rows with missing _price are quarantined before modeling.
+target_leakage_in_feature_columns,PASS,blocking,0,"Target, raw price, and price-derived QC columns are excluded from feature_cols."
+duplicate_url_expected_unique,PASS,blocking,0,URL is present and unique.
+impossible_ram_values_after_qc,PASS,blocking,0,Every parsed numeric RAM feature should be NaN or within 2-128GB after QC.
+suspicious_ram_not_numeric_feature,PASS,blocking,0,Rows flagged ram_suspicious must not retain parsed numeric RAM values in modeling features.
+impossible_storage_values_flagged_or_absent,PASS,blocking,0,Storage values should be positive and within a practical laptop range unless separately quarantined/flagged.
+impossible_screen_values_flagged_or_absent,PASS,blocking,0,Screen size should be within 8-22 inches unless separately quarantined/flagged.
+missing_target_rows_quarantined,WARN,non_blocking,1,Rows are preserved in quarantine and excluded from modeling-ready export.
+price_outlier_qc_only,WARN,non_blocking,167,Kept for QC/reporting; rows are not dropped solely for this warning.
+new_low_price_qc_only,WARN,non_blocking,25,Kept for QC/reporting; rows are not dropped solely for this warning.
+repair_mismatch_flag,WARN,non_blocking,27,Kept for QC/reporting; rows are not dropped solely for this warning.
+potential_dedicated_gpu_flag,WARN,non_blocking,40,Kept for QC/reporting; rows are not dropped solely for this warning.
+storage_type_imputed_flag,WARN,non_blocking,11,Kept for QC/reporting; rows are not dropped solely for this warning.
+ram_suspicious_flagged_and_nullified,WARN,non_blocking,23,Kept for QC/reporting; rows are not dropped solely for this warning.
+model_parsed_as_dong_khac,WARN,non_blocking,904,Kept for QC/reporting; rows are not dropped solely for this warning.
+issue_action_plan_manual_or_partial_items,WARN,non_blocking,67,Manual review items=41; partially resolved items=26. Treat as documentation/feature-engineering follow-up unless tied to a blocking check above.

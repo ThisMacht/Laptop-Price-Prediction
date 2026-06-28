@@ -1,0 +1,36 @@
+{
+  "model_file": "Y:\\Python\\Laptop-Price-Prediction\\models\\final_laptop_price_model.joblib",
+  "archived_full_data_model_file": "Y:\\Python\\Laptop-Price-Prediction\\models\\final_laptop_price_model_full_data.joblib",
+  "model_label": "CatBoost_tuned",
+  "target": "target_price",
+  "prediction_unit": "same_unit_as_target_price",
+  "training_scope": "full_dataset_100_percent",
+  "n_training_samples": 7296,
+  "n_features": 86,
+  "feature_order_file": "Y:\\Python\\Laptop-Price-Prediction\\models\\final_laptop_price_feature_schema.json",
+  "created_at": "2026-06-01T12:24:13",
+  "source_notebook": "15_final_error_analysis_and_production_retrain.ipynb",
+  "evaluation_reference": "notebook_13_kfold_and_notebook_14_holdout",
+  "warning": "This production model is retrained on 100% of labeled data. Its reported evaluation metrics come from notebook 13 KFold selection and notebook 14 holdout evaluation, not from a new holdout after full-data retraining.",
+  "final_decision": {
+    "kfold_selected_model": "CatBoost_tuned",
+    "best_holdout_model": "LightGBM_baseline",
+    "recommended_final_model": "CatBoost_tuned",
+    "decision_status": "keep_kfold_selected_model",
+    "decision_reason": "Selected model is not best on holdout RMSE, but the gap is within tolerance. Keep KFold-selected model because it is more stable across folds.",
+    "holdout_rmse_tolerance_pct": 3.0,
+    "selected_holdout_rmse": 5.912733148042646,
+    "best_holdout_rmse": 5.7848789171213095,
+    "rmse_gap_pct": 2.210145324613979
+  },
+  "final_error_summary": {
+    "model_label": "CatBoost_tuned",
+    "highest_error_price_segment": "Q5_high",
+    "highest_segment_rmse": 11.26771162245175,
+    "mean_residual": -0.06439613719291566,
+    "underprediction_count": 665,
+    "overprediction_count": 795,
+    "learning_curve_fit_status": "possible_overfitting",
+    "learning_curve_data_status": "more_data_may_help"
+  }
+}

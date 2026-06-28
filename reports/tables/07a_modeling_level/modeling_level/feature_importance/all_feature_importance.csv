@@ -1,0 +1,1377 @@
+feature,importance,model_name,target_used,importance_type,abs_importance
+model_Other,-33035707337253.016,Linear Regression_target,price,coefficient,33035707337253.016
+brand_Other,29386902384745.203,Linear Regression_target,price,coefficient,29386902384745.203
+no_info_model,27162430656232.9,Linear Regression_target,price,coefficient,27162430656232.9
+no_info_brand,-21717150220862.414,Linear Regression_target,price,coefficient,21717150220862.414
+brand_Dell,16970554075070.078,Linear Regression_target,price,coefficient,16970554075070.078
+gpu_type_Missing_Info,15950199166624.639,Linear Regression_target,price,coefficient,15950199166624.639
+no_info_gpu,-15799407609468.67,Linear Regression_target,price,coefficient,15799407609468.67
+no_info_cpu_brand,-15795496773649.746,Linear Regression_target,price,coefficient,15795496773649.746
+brand_Lenovo,13338605432327.613,Linear Regression_target,price,coefficient,13338605432327.613
+brand_Apple,13176056798706.715,Linear Regression_target,price,coefficient,13176056798706.715
+brand_HP,12701015401471.234,Linear Regression_target,price,coefficient,12701015401471.234
+brand_ASUS,12363005924357.361,Linear Regression_target,price,coefficient,12363005924357.361
+model_is_rare,-11351483929282.828,Linear Regression_target,price,coefficient,11351483929282.828
+cpu_brand_Other,10964776933228.822,Linear Regression_target,price,coefficient,10964776933228.822
+cpu_brand_Intel,-10120591571427.826,Linear Regression_target,price,coefficient,10120591571427.826
+brand_Acer,9531889413783.355,Linear Regression_target,price,coefficient,9531889413783.355
+brand_MSI,7773237687874.123,Linear Regression_target,price,coefficient,7773237687874.123
+cpu_brand_AMD,-7529569047557.173,Linear Regression_target,price,coefficient,7529569047557.173
+brand_Microsoft,7043616152911.744,Linear Regression_target,price,coefficient,7043616152911.744
+cpu_brand_Apple,-6268782696097.465,Linear Regression_target,price,coefficient,6268782696097.465
+brand_Sony,5225811114303.466,Linear Regression_target,price,coefficient,5225811114303.466
+brand_Toshiba,5021661005550.67,Linear Regression_target,price,coefficient,5021661005550.67
+brand_is_rare,-4827826561434.945,Linear Regression_target,price,coefficient,4827826561434.945
+brand_LG,4808701533866.009,Linear Regression_target,price,coefficient,4808701533866.009
+brand_Gigabyte,3699338218195.2554,Linear Regression_target,price,coefficient,3699338218195.2554
+model_Latitude,-2709889925979.1914,Linear Regression_target,price,coefficient,2709889925979.1914
+model_MacBook Pro,-2488853103650.7354,Linear Regression_target,price,coefficient,2488853103650.7354
+model_Vostro,2303812382649.3,Linear Regression_target,price,coefficient,2303812382649.3
+model_Latitude 14 7000,2119186232569.252,Linear Regression_target,price,coefficient,2119186232569.252
+model_Legion 5,2053820764713.2285,Linear Regression_target,price,coefficient,2053820764713.2285
+model_ThinkPad X1 Carbon,1986233647501.748,Linear Regression_target,price,coefficient,1986233647501.748
+model_Latitude E Series,1963171466904.6812,Linear Regression_target,price,coefficient,1963171466904.6812
+model_Precision,-1932366260910.543,Linear Regression_target,price,coefficient,1932366260910.543
+model_MacBook Air,-1900279158384.6597,Linear Regression_target,price,coefficient,1900279158384.6597
+model_Inspiron,-1827492143481.8145,Linear Regression_target,price,coefficient,1827492143481.8145
+model_Macbook air m4,1818484442144.4683,Linear Regression_target,price,coefficient,1818484442144.4683
+model_XPS 13,1793204407275.8574,Linear Regression_target,price,coefficient,1793204407275.8574
+model_MacBook Air M2,1767553889156.4395,Linear Regression_target,price,coefficient,1767553889156.4395
+model_Pavilion 15,1741516517499.5142,Linear Regression_target,price,coefficient,1741516517499.5142
+model_X Series,1741516517499.5015,Linear Regression_target,price,coefficient,1741516517499.5015
+model_TUF Gaming,1741516517499.3965,Linear Regression_target,price,coefficient,1741516517499.3965
+model_TUF Gaming F15,1660900002641.379,Linear Regression_target,price,coefficient,1660900002641.379
+model_Elitebook 800,1633124351610.7988,Linear Regression_target,price,coefficient,1633124351610.7988
+model_Vivobook 15,1633124351610.7305,Linear Regression_target,price,coefficient,1633124351610.7305
+model_Gaming Thin GF,1633124351610.58,Linear Regression_target,price,coefficient,1633124351610.58
+model_Aspire,1546746289497.6116,Linear Regression_target,price,coefficient,1546746289497.6116
+model_IdeaPad,1486321521685.1426,Linear Regression_target,price,coefficient,1486321521685.1426
+model_MacBook Pro M2,1486321521684.751,Linear Regression_target,price,coefficient,1486321521684.751
+model_ROG Strix,1423289340567.3735,Linear Regression_target,price,coefficient,1423289340567.3735
+model_ThinkPad,-1402483292825.9668,Linear Regression_target,price,coefficient,1402483292825.9668
+model_MacBook Pro M1,-1347434381462.5312,Linear Regression_target,price,coefficient,1347434381462.5312
+model_Nitro 5,-1338027790090.6997,Linear Regression_target,price,coefficient,1338027790090.6997
+model_Legion,1323032994702.8857,Linear Regression_target,price,coefficient,1323032994702.8857
+model_ProBook,-1309382298392.1914,Linear Regression_target,price,coefficient,1309382298392.1914
+cpu_brand_Qualcomm,-1305844837332.2344,Linear Regression_target,price,coefficient,1305844837332.2344
+model_Elitebook,-1299686682560.7715,Linear Regression_target,price,coefficient,1299686682560.7715
+model_MacBook Air M1,-1260123262896.9365,Linear Regression_target,price,coefficient,1260123262896.9365
+cpu_brand_Microsoft SQ,-448478003794.6177,Linear Regression_target,price,coefficient,448478003794.6177
+gpu_type_Integrated,171648817013.81738,Linear Regression_target,price,coefficient,171648817013.81738
+gpu_type_Dedicated,149042125962.4961,Linear Regression_target,price,coefficient,149042125962.4961
+gpu_type_Apple SoC,40212863031.78711,Linear Regression_target,price,coefficient,40212863031.78711
+gpu_tier_ord_filled,8.072265625,Linear Regression_target,price,coefficient,8.072265625
+cpu_family_ord_filled,4.056640625,Linear Regression_target,price,coefficient,4.056640625
+ram_level,4.053741455078125,Linear Regression_target,price,coefficient,4.053741455078125
+storage_level,3.63616943359375,Linear Regression_target,price,coefficient,3.63616943359375
+cpu_family_group_Intel Core i,-3.5419921875,Linear Regression_target,price,coefficient,3.5419921875
+no_info_cpu_tier,3.1785736083984375,Linear Regression_target,price,coefficient,3.1785736083984375
+cpu_tier_encoded,2.7899351119995117,Linear Regression_target,price,coefficient,2.7899351119995117
+condition_score,2.7041263580322266,Linear Regression_target,price,coefficient,2.7041263580322266
+ram_missing,2.0517578125,Linear Regression_target,price,coefficient,2.0517578125
+cpu_family_group_AMD Ryzen,-1.984375,Linear Regression_target,price,coefficient,1.984375
+storage_missing,1.7152099609375,Linear Regression_target,price,coefficient,1.7152099609375
+warranty_encoded,1.524850845336914,Linear Regression_target,price,coefficient,1.524850845336914
+cpu_suffix_power_ord_filled,1.158203125,Linear Regression_target,price,coefficient,1.158203125
+storage_ssd,0.7388267517089844,Linear Regression_target,price,coefficient,0.7388267517089844
+cpu_amd_generation_ord,-0.7294921875,Linear Regression_target,price,coefficient,0.7294921875
+no_info_storage,0.7127227783203125,Linear Regression_target,price,coefficient,0.7127227783203125
+cpu_apple_core_spec,0.68359375,Linear Regression_target,price,coefficient,0.68359375
+cpu_intel_generation_ord,0.326171875,Linear Regression_target,price,coefficient,0.326171875
+cpu_qualcomm_snapdragon_spec,-0.24609375,Linear Regression_target,price,coefficient,0.24609375
+screen_missing,-0.2281494140625,Linear Regression_target,price,coefficient,0.2281494140625
+cpu_family_group_Intel Low End,0.18359375,Linear Regression_target,price,coefficient,0.18359375
+screen_size_level,0.16518402099609375,Linear Regression_target,price,coefficient,0.16518402099609375
+cpu_family_group_Intel Core Ultra,-0.11572265625,Linear Regression_target,price,coefficient,0.11572265625
+storage_hdd,-0.07242584228515625,Linear Regression_target,price,coefficient,0.07242584228515625
+cpu_family_group_Apple Silicon,0.052734375,Linear Regression_target,price,coefficient,0.052734375
+no_info_gpu,2059239597957.1409,Linear Regression_log_target,price,coefficient,2059239597957.1409
+gpu_type_Integrated,1739694032370.1963,Linear Regression_log_target,price,coefficient,1739694032370.1963
+gpu_type_Dedicated,1510570836598.198,Linear Regression_log_target,price,coefficient,1510570836598.198
+brand_Dell,1460087923013.539,Linear Regression_log_target,price,coefficient,1460087923013.539
+brand_Other,1180688328992.5374,Linear Regression_log_target,price,coefficient,1180688328992.5374
+brand_Lenovo,1147607592270.3313,Linear Regression_log_target,price,coefficient,1147607592270.3313
+brand_Apple,1133622468637.781,Linear Regression_log_target,price,coefficient,1133622468637.781
+brand_HP,1092751545745.8843,Linear Regression_log_target,price,coefficient,1092751545745.8843
+brand_ASUS,1063670376491.4612,Linear Regression_log_target,price,coefficient,1063670376491.4612
+brand_Acer,820090879472.8347,Linear Regression_log_target,price,coefficient,820090879472.8347
+brand_MSI,668782552447.7555,Linear Regression_log_target,price,coefficient,668782552447.7555
+cpu_brand_Intel,638510464984.242,Linear Regression_log_target,price,coefficient,638510464984.242
+model_Other,625848234682.9,Linear Regression_log_target,price,coefficient,625848234682.9
+brand_Microsoft,606008432825.2509,Linear Regression_log_target,price,coefficient,606008432825.2509
+gpu_type_Missing_Info,-530937937187.6137,Linear Regression_log_target,price,coefficient,530937937187.6137
+no_info_brand,-520809313996.6313,Linear Regression_log_target,price,coefficient,520809313996.6313
+cpu_brand_AMD,475042254176.1654,Linear Regression_log_target,price,coefficient,475042254176.1654
+gpu_type_Apple SoC,407565161577.845,Linear Regression_log_target,price,coefficient,407565161577.845
+cpu_brand_Apple,395498951412.2649,Linear Regression_log_target,price,coefficient,395498951412.2649
+model_Latitude,290205453263.09045,Linear Regression_log_target,price,coefficient,290205453263.09045
+cpu_brand_Other,284434631643.7009,Linear Regression_log_target,price,coefficient,284434631643.7009
+model_MacBook Pro,266534347438.1116,Linear Regression_log_target,price,coefficient,266534347438.1116
+model_is_rare,-212245614243.04773,Linear Regression_log_target,price,coefficient,212245614243.04773
+model_Precision,206939485342.81335,Linear Regression_log_target,price,coefficient,206939485342.81335
+model_MacBook Air,203503237972.32993,Linear Regression_log_target,price,coefficient,203503237972.32993
+model_Vostro,196439873942.59537,Linear Regression_log_target,price,coefficient,196439873942.59537
+model_Inspiron,195708386805.50198,Linear Regression_log_target,price,coefficient,195708386805.50198
+brand_Sony,189834838919.89127,Linear Regression_log_target,price,coefficient,189834838919.89127
+brand_Toshiba,182418802985.39816,Linear Regression_log_target,price,coefficient,182418802985.39816
+model_Latitude 14 7000,180697299624.7752,Linear Regression_log_target,price,coefficient,180697299624.7752
+model_Legion 5,175123762316.52466,Linear Regression_log_target,price,coefficient,175123762316.52466
+brand_LG,174682754720.47986,Linear Regression_log_target,price,coefficient,174682754720.47986
+model_ThinkPad X1 Carbon,169360790954.3167,Linear Regression_log_target,price,coefficient,169360790954.3167
+model_Latitude E Series,167394340958.8461,Linear Regression_log_target,price,coefficient,167394340958.8461
+model_Macbook air m4,155057268235.8498,Linear Regression_log_target,price,coefficient,155057268235.8498
+model_XPS 13,152901707782.96887,Linear Regression_log_target,price,coefficient,152901707782.96887
+model_MacBook Air M2,150714557221.6521,Linear Regression_log_target,price,coefficient,150714557221.6521
+model_ThinkPad,150193664984.88538,Linear Regression_log_target,price,coefficient,150193664984.88538
+model_Pavilion 15,148494420701.55597,Linear Regression_log_target,price,coefficient,148494420701.55597
+model_TUF Gaming,148494420701.555,Linear Regression_log_target,price,coefficient,148494420701.555
+model_X Series,148494420701.5346,Linear Regression_log_target,price,coefficient,148494420701.5346
+model_MacBook Pro M1,144298409195.78445,Linear Regression_log_target,price,coefficient,144298409195.78445
+model_Nitro 5,143291045728.2265,Linear Regression_log_target,price,coefficient,143291045728.2265
+model_TUF Gaming F15,141620467711.43396,Linear Regression_log_target,price,coefficient,141620467711.43396
+model_ProBook,140223364704.47272,Linear Regression_log_target,price,coefficient,140223364704.47272
+model_Vivobook 15,139252112793.19873,Linear Regression_log_target,price,coefficient,139252112793.19873
+model_Elitebook 800,139252112793.19708,Linear Regression_log_target,price,coefficient,139252112793.19708
+model_Gaming Thin GF,139252112793.19632,Linear Regression_log_target,price,coefficient,139252112793.19632
+model_Elitebook,139185049251.12683,Linear Regression_log_target,price,coefficient,139185049251.12683
+model_MacBook Air M1,134948153860.52582,Linear Regression_log_target,price,coefficient,134948153860.52582
+brand_Gigabyte,134383593168.77872,Linear Regression_log_target,price,coefficient,134383593168.77872
+model_Aspire,131886888193.84686,Linear Regression_log_target,price,coefficient,131886888193.84686
+model_MacBook Pro M2,126734631064.9791,Linear Regression_log_target,price,coefficient,126734631064.9791
+model_IdeaPad,126734631064.96725,Linear Regression_log_target,price,coefficient,126734631064.96725
+model_ROG Strix,121360046829.6054,Linear Regression_log_target,price,coefficient,121360046829.6054
+model_Legion,112811458371.65025,Linear Regression_log_target,price,coefficient,112811458371.65025
+cpu_brand_Qualcomm,82386053067.95137,Linear Regression_log_target,price,coefficient,82386053067.95137
+brand_is_rare,51940699279.13773,Linear Regression_log_target,price,coefficient,51940699279.13773
+cpu_brand_Microsoft SQ,28294581074.359436,Linear Regression_log_target,price,coefficient,28294581074.359436
+no_info_cpu_brand,20336601316.95823,Linear Regression_log_target,price,coefficient,20336601316.95823
+no_info_model,3128206394.9174395,Linear Regression_log_target,price,coefficient,3128206394.9174395
+ram_level,0.261712908744812,Linear Regression_log_target,price,coefficient,0.261712908744812
+storage_level,0.22965973615646362,Linear Regression_log_target,price,coefficient,0.22965973615646362
+condition_score,0.20468181371688843,Linear Regression_log_target,price,coefficient,0.20468181371688843
+cpu_family_ord_filled,0.162353515625,Linear Regression_log_target,price,coefficient,0.162353515625
+warranty_encoded,0.15890856087207794,Linear Regression_log_target,price,coefficient,0.15890856087207794
+no_info_cpu_tier,0.13326334953308105,Linear Regression_log_target,price,coefficient,0.13326334953308105
+cpu_family_group_Intel Core i,-0.128265380859375,Linear Regression_log_target,price,coefficient,0.128265380859375
+ram_missing,0.12322235107421875,Linear Regression_log_target,price,coefficient,0.12322235107421875
+storage_missing,0.0984959602355957,Linear Regression_log_target,price,coefficient,0.0984959602355957
+cpu_tier_encoded,0.09789076447486877,Linear Regression_log_target,price,coefficient,0.09789076447486877
+cpu_family_group_AMD Ryzen,-0.087890625,Linear Regression_log_target,price,coefficient,0.087890625
+no_info_storage,0.04885634779930115,Linear Regression_log_target,price,coefficient,0.04885634779930115
+screen_missing,-0.04712200164794922,Linear Regression_log_target,price,coefficient,0.04712200164794922
+cpu_family_group_Intel Core Ultra,-0.0435791015625,Linear Regression_log_target,price,coefficient,0.0435791015625
+storage_ssd,0.039827942848205566,Linear Regression_log_target,price,coefficient,0.039827942848205566
+cpu_amd_generation_ord,-0.0379638671875,Linear Regression_log_target,price,coefficient,0.0379638671875
+cpu_intel_generation_ord,0.0379638671875,Linear Regression_log_target,price,coefficient,0.0379638671875
+storage_hdd,-0.029886633157730103,Linear Regression_log_target,price,coefficient,0.029886633157730103
+cpu_family_group_Intel Low End,-0.0159912109375,Linear Regression_log_target,price,coefficient,0.0159912109375
+gpu_tier_ord_filled,-0.015625,Linear Regression_log_target,price,coefficient,0.015625
+cpu_family_group_Apple Silicon,0.012298583984375,Linear Regression_log_target,price,coefficient,0.012298583984375
+cpu_apple_core_spec,-0.00689697265625,Linear Regression_log_target,price,coefficient,0.00689697265625
+cpu_qualcomm_snapdragon_spec,-0.004150390625,Linear Regression_log_target,price,coefficient,0.004150390625
+cpu_suffix_power_ord_filled,-0.001953125,Linear Regression_log_target,price,coefficient,0.001953125
+screen_size_level,0.001759350299835205,Linear Regression_log_target,price,coefficient,0.001759350299835205
+gpu_tier_ord_filled,8.008070054330403,Ridge_target,price,coefficient,8.008070054330403
+ram_level,4.044594849772892,Ridge_target,price,coefficient,4.044594849772892
+cpu_family_ord_filled,4.033795202935354,Ridge_target,price,coefficient,4.033795202935354
+gpu_type_Dedicated,-3.7899448636842052,Ridge_target,price,coefficient,3.7899448636842052
+storage_level,3.637176921456151,Ridge_target,price,coefficient,3.637176921456151
+cpu_family_group_Intel Core i,-3.539308398156107,Ridge_target,price,coefficient,3.539308398156107
+no_info_cpu_tier,3.2016123300569346,Ridge_target,price,coefficient,3.2016123300569346
+cpu_tier_encoded,2.8123604626776215,Ridge_target,price,coefficient,2.8123604626776215
+condition_score,2.6911893008057337,Ridge_target,price,coefficient,2.6911893008057337
+ram_missing,2.1347149326790387,Ridge_target,price,coefficient,2.1347149326790387
+cpu_family_group_AMD Ryzen,-1.9718610495981932,Ridge_target,price,coefficient,1.9718610495981932
+no_info_gpu,1.9673411905173819,Ridge_target,price,coefficient,1.9673411905173819
+gpu_type_Missing_Info,1.9673411905137894,Ridge_target,price,coefficient,1.9673411905137894
+storage_missing,1.6651878454442763,Ridge_target,price,coefficient,1.6651878454442763
+warranty_encoded,1.5169405083208434,Ridge_target,price,coefficient,1.5169405083208434
+gpu_type_Integrated,1.4760790271997533,Ridge_target,price,coefficient,1.4760790271997533
+cpu_suffix_power_ord_filled,1.1822662768687837,Ridge_target,price,coefficient,1.1822662768687837
+storage_ssd,0.7352944815142052,Ridge_target,price,coefficient,0.7352944815142052
+cpu_amd_generation_ord,-0.7304342120741306,Ridge_target,price,coefficient,0.7304342120741306
+no_info_storage,0.7083706852875521,Ridge_target,price,coefficient,0.7083706852875521
+cpu_apple_core_spec,0.6952249966717688,Ridge_target,price,coefficient,0.6952249966717688
+model_MacBook Air M1,-0.6542081345302354,Ridge_target,price,coefficient,0.6542081345302354
+brand_Apple,0.6243765761977614,Ridge_target,price,coefficient,0.6243765761977614
+model_Legion 5,0.5733354785648583,Ridge_target,price,coefficient,0.5733354785648583
+cpu_brand_Apple,0.5598005256916369,Ridge_target,price,coefficient,0.5598005256916369
+model_MacBook Pro,-0.5072522967810393,Ridge_target,price,coefficient,0.5072522967810393
+cpu_brand_Qualcomm,0.5004991575997824,Ridge_target,price,coefficient,0.5004991575997824
+brand_Dell,-0.48372636684075604,Ridge_target,price,coefficient,0.48372636684075604
+brand_Lenovo,-0.4691763985550897,Ridge_target,price,coefficient,0.4691763985550897
+brand_Microsoft,0.43062888559039264,Ridge_target,price,coefficient,0.43062888559039264
+brand_Gigabyte,-0.4279940733104461,Ridge_target,price,coefficient,0.4279940733104461
+brand_MSI,0.4057378178119045,Ridge_target,price,coefficient,0.4057378178119045
+gpu_type_Apple SoC,0.36893118913114603,Ridge_target,price,coefficient,0.36893118913114603
+model_MacBook Pro M1,-0.35164851604778774,Ridge_target,price,coefficient,0.35164851604778774
+cpu_intel_generation_ord,0.3453849334429364,Ridge_target,price,coefficient,0.3453849334429364
+brand_LG,0.3433270218651656,Ridge_target,price,coefficient,0.3433270218651656
+model_MacBook Air M2,-0.33811925763026224,Ridge_target,price,coefficient,0.33811925763026224
+model_Legion,0.3019707062612091,Ridge_target,price,coefficient,0.3019707062612091
+model_Macbook air m4,-0.2883015212117693,Ridge_target,price,coefficient,0.2883015212117693
+screen_missing,-0.27842695716604837,Ridge_target,price,coefficient,0.27842695716604837
+brand_Acer,-0.26333560153931024,Ridge_target,price,coefficient,0.26333560153931024
+no_info_cpu_brand,-0.2599445249987521,Ridge_target,price,coefficient,0.2599445249987521
+cpu_brand_Other,-0.2599445249973174,Ridge_target,price,coefficient,0.2599445249973174
+cpu_brand_Intel,-0.2524628253443588,Ridge_target,price,coefficient,0.2524628253443588
+brand_ASUS,0.25137460157710495,Ridge_target,price,coefficient,0.25137460157710495
+cpu_qualcomm_snapdragon_spec,-0.2512836234592833,Ridge_target,price,coefficient,0.2512836234592833
+model_Gaming Thin GF,-0.24764335078883631,Ridge_target,price,coefficient,0.24764335078883631
+model_Other,0.23398523824298942,Ridge_target,price,coefficient,0.23398523824298942
+no_info_model,0.2339852382429013,Ridge_target,price,coefficient,0.2339852382429013
+model_IdeaPad,0.2280437626616159,Ridge_target,price,coefficient,0.2280437626616159
+cpu_family_group_Intel Low End,0.18886400374951937,Ridge_target,price,coefficient,0.18886400374951937
+model_XPS 13,0.1887459913054135,Ridge_target,price,coefficient,0.1887459913054135
+model_Inspiron,0.18646073600538524,Ridge_target,price,coefficient,0.18646073600538524
+model_Aspire,0.16845746862155267,Ridge_target,price,coefficient,0.16845746862155267
+screen_size_level,0.16622524133238975,Ridge_target,price,coefficient,0.16622524133238975
+model_MacBook Pro M2,-0.13977693952080472,Ridge_target,price,coefficient,0.13977693952080472
+model_TUF Gaming,-0.13905620113243852,Ridge_target,price,coefficient,0.13905620113243852
+model_Vostro,0.1386749937769063,Ridge_target,price,coefficient,0.1386749937769063
+model_ROG Strix,-0.1365147482090266,Ridge_target,price,coefficient,0.1365147482090266
+cpu_family_group_Apple Silicon,0.1295844154106676,Ridge_target,price,coefficient,0.1295844154106676
+model_Nitro 5,0.12264514818773017,Ridge_target,price,coefficient,0.12264514818773017
+model_Latitude,0.12178726067575683,Ridge_target,price,coefficient,0.12178726067575683
+model_Precision,-0.12096626674891175,Ridge_target,price,coefficient,0.12096626674891175
+cpu_brand_Microsoft SQ,0.11802354943937196,Ridge_target,price,coefficient,0.11802354943937196
+cpu_family_group_Intel Core Ultra,-0.11372427093374289,Ridge_target,price,coefficient,0.11372427093374289
+model_Vivobook 15,-0.09463075068738835,Ridge_target,price,coefficient,0.09463075068738835
+model_ProBook,0.09203757704551081,Ridge_target,price,coefficient,0.09203757704551081
+model_ThinkPad X1 Carbon,0.08516205785282445,Ridge_target,price,coefficient,0.08516205785282445
+storage_hdd,-0.08381724273258889,Ridge_target,price,coefficient,0.08381724273258889
+brand_Sony,-0.07265417067983923,Ridge_target,price,coefficient,0.07265417067983923
+model_is_rare,0.06835714392050567,Ridge_target,price,coefficient,0.06835714392050567
+model_Latitude 14 7000,-0.06288135689021486,Ridge_target,price,coefficient,0.06288135689021486
+brand_HP,-0.060666171747682754,Ridge_target,price,coefficient,0.060666171747682754
+model_Elitebook,0.05477539457261443,Ridge_target,price,coefficient,0.05477539457261443
+cpu_brand_AMD,-0.05378538084226718,Ridge_target,price,coefficient,0.05378538084226718
+brand_Other,0.05033502530640935,Ridge_target,price,coefficient,0.05033502530640935
+no_info_brand,0.050335025305417586,Ridge_target,price,coefficient,0.050335025305417586
+model_ThinkPad,0.0431191542478511,Ridge_target,price,coefficient,0.0431191542478511
+brand_is_rare,-0.03495265802722417,Ridge_target,price,coefficient,0.03495265802722417
+model_MacBook Air,0.033980760079092974,Ridge_target,price,coefficient,0.033980760079092974
+model_Elitebook 800,-0.028255136544497385,Ridge_target,price,coefficient,0.028255136544497385
+model_TUF Gaming F15,-0.024325685260498355,Ridge_target,price,coefficient,0.024325685260498355
+model_Latitude E Series,0.016961994817423467,Ridge_target,price,coefficient,0.016961994817423467
+model_Pavilion 15,0.005107698151316821,Ridge_target,price,coefficient,0.005107698151316821
+model_X Series,0.0037308555214636383,Ridge_target,price,coefficient,0.0037308555214636383
+brand_Toshiba,-0.0032986623706049655,Ridge_target,price,coefficient,0.0032986623706049655
+ram_level,0.2602441867447525,Ridge_log_target,price,coefficient,0.2602441867447525
+storage_level,0.23011356417634468,Ridge_log_target,price,coefficient,0.23011356417634468
+condition_score,0.2045742436415947,Ridge_log_target,price,coefficient,0.2045742436415947
+cpu_family_ord_filled,0.16329103825437669,Ridge_log_target,price,coefficient,0.16329103825437669
+warranty_encoded,0.15827983372968818,Ridge_log_target,price,coefficient,0.15827983372968818
+no_info_cpu_tier,0.1319117244844051,Ridge_log_target,price,coefficient,0.1319117244844051
+cpu_family_group_Intel Core i,-0.1284474948463677,Ridge_log_target,price,coefficient,0.1284474948463677
+ram_missing,0.12843428747748986,Ridge_log_target,price,coefficient,0.12843428747748986
+cpu_tier_encoded,0.09681064663425942,Ridge_log_target,price,coefficient,0.09681064663425942
+storage_missing,0.0942876689961773,Ridge_log_target,price,coefficient,0.0942876689961773
+cpu_family_group_AMD Ryzen,-0.08761507279900936,Ridge_log_target,price,coefficient,0.08761507279900936
+gpu_type_Dedicated,0.0669915114189485,Ridge_log_target,price,coefficient,0.0669915114189485
+screen_missing,-0.051772596343308434,Ridge_log_target,price,coefficient,0.051772596343308434
+brand_Apple,0.05177150010235977,Ridge_log_target,price,coefficient,0.05177150010235977
+no_info_storage,0.04848741221428191,Ridge_log_target,price,coefficient,0.04848741221428191
+gpu_type_Apple SoC,-0.04733210168376121,Ridge_log_target,price,coefficient,0.04733210168376121
+cpu_family_group_Intel Core Ultra,-0.04386308667974512,Ridge_log_target,price,coefficient,0.04386308667974512
+cpu_intel_generation_ord,0.03944729890782153,Ridge_log_target,price,coefficient,0.03944729890782153
+cpu_brand_Apple,0.03880679030346638,Ridge_log_target,price,coefficient,0.03880679030346638
+cpu_amd_generation_ord,-0.038176808292812454,Ridge_log_target,price,coefficient,0.038176808292812454
+storage_ssd,0.03816188549724629,Ridge_log_target,price,coefficient,0.03816188549724629
+cpu_brand_Intel,-0.03714253850581391,Ridge_log_target,price,coefficient,0.03714253850581391
+brand_Microsoft,0.035143883334565106,Ridge_log_target,price,coefficient,0.035143883334565106
+model_Latitude E Series,-0.03483413418594815,Ridge_log_target,price,coefficient,0.03483413418594815
+cpu_brand_AMD,0.032110554703689544,Ridge_log_target,price,coefficient,0.032110554703689544
+storage_hdd,-0.031504522314021295,Ridge_log_target,price,coefficient,0.031504522314021295
+model_Legion 5,0.02886340240105851,Ridge_log_target,price,coefficient,0.02886340240105851
+brand_Dell,-0.026015913934969864,Ridge_log_target,price,coefficient,0.026015913934969864
+gpu_type_Integrated,-0.02542860819878168,Ridge_log_target,price,coefficient,0.02542860819878168
+no_info_gpu,-0.024645991563386906,Ridge_log_target,price,coefficient,0.024645991563386906
+gpu_type_Missing_Info,-0.024645991563018884,Ridge_log_target,price,coefficient,0.024645991563018884
+brand_Acer,-0.02455869632306961,Ridge_log_target,price,coefficient,0.02455869632306961
+no_info_cpu_brand,-0.024431442870257596,Ridge_log_target,price,coefficient,0.024431442870257596
+cpu_brand_Other,-0.02443144287004149,Ridge_log_target,price,coefficient,0.02443144287004149
+brand_Sony,-0.024136816721788325,Ridge_log_target,price,coefficient,0.024136816721788325
+model_XPS 13,0.022646826799510415,Ridge_log_target,price,coefficient,0.022646826799510415
+model_X Series,-0.02187666076123327,Ridge_log_target,price,coefficient,0.02187666076123327
+brand_LG,0.020761680664237833,Ridge_log_target,price,coefficient,0.020761680664237833
+gpu_tier_ord_filled,-0.020249132974948538,Ridge_log_target,price,coefficient,0.020249132974948538
+model_Nitro 5,0.018967929553811696,Ridge_log_target,price,coefficient,0.018967929553811696
+model_Legion,0.01763525765972176,Ridge_log_target,price,coefficient,0.01763525765972176
+brand_Toshiba,-0.016172447169755945,Ridge_log_target,price,coefficient,0.016172447169755945
+model_MacBook Pro,-0.016132051506177043,Ridge_log_target,price,coefficient,0.016132051506177043
+model_MacBook Air,-0.015752267861619,Ridge_log_target,price,coefficient,0.015752267861619
+cpu_family_group_Intel Low End,-0.0152985654225782,Ridge_log_target,price,coefficient,0.0152985654225782
+cpu_family_group_Apple Silicon,0.014038888846626563,Ridge_log_target,price,coefficient,0.014038888846626563
+model_ThinkPad X1 Carbon,0.013369779324465881,Ridge_log_target,price,coefficient,0.013369779324465881
+brand_is_rare,-0.012793975463648695,Ridge_log_target,price,coefficient,0.012793975463648695
+model_Precision,0.012467095585798635,Ridge_log_target,price,coefficient,0.012467095585798635
+model_Inspiron,-0.012046374331899251,Ridge_log_target,price,coefficient,0.012046374331899251
+brand_Lenovo,-0.011690766691588748,Ridge_log_target,price,coefficient,0.011690766691588748
+model_TUF Gaming F15,0.01052162437381797,Ridge_log_target,price,coefficient,0.01052162437381797
+model_MacBook Air M1,-0.010450879852128472,Ridge_log_target,price,coefficient,0.010450879852128472
+model_ProBook,-0.008093356176934756,Ridge_log_target,price,coefficient,0.008093356176934756
+model_ThinkPad,-0.0076633704414910565,Ridge_log_target,price,coefficient,0.0076633704414910565
+cpu_apple_core_spec,-0.007370885106670338,Ridge_log_target,price,coefficient,0.007370885106670338
+model_Vostro,-0.007154660104210895,Ridge_log_target,price,coefficient,0.007154660104210895
+model_Aspire,-0.006366345281353722,Ridge_log_target,price,coefficient,0.006366345281353722
+model_is_rare,0.006346856419357584,Ridge_log_target,price,coefficient,0.006346856419357584
+no_info_model,0.006313738272510602,Ridge_log_target,price,coefficient,0.006313738272510602
+model_Other,0.006313738272427481,Ridge_log_target,price,coefficient,0.006313738272427481
+model_IdeaPad,-0.006186811962093225,Ridge_log_target,price,coefficient,0.006186811962093225
+model_MacBook Pro M2,0.005845538631561178,Ridge_log_target,price,coefficient,0.005845538631561178
+model_MacBook Air M2,0.005626849605375926,Ridge_log_target,price,coefficient,0.005626849605375926
+cpu_brand_Qualcomm,0.0053705784030551994,Ridge_log_target,price,coefficient,0.0053705784030551994
+model_Latitude,0.004906330141028704,Ridge_log_target,price,coefficient,0.004906330141028704
+brand_HP,-0.0046421075322778125,Ridge_log_target,price,coefficient,0.0046421075322778125
+cpu_qualcomm_snapdragon_spec,-0.0044003920236762,Ridge_log_target,price,coefficient,0.0044003920236762
+cpu_brand_Microsoft SQ,0.004153607327981893,Ridge_log_target,price,coefficient,0.004153607327981893
+model_TUF Gaming,-0.0038535891330967694,Ridge_log_target,price,coefficient,0.0038535891330967694
+brand_Gigabyte,-0.003449816106833655,Ridge_log_target,price,coefficient,0.003449816106833655
+screen_size_level,0.0027458824473880115,Ridge_log_target,price,coefficient,0.0027458824473880115
+model_Latitude 14 7000,0.0023900905241304774,Ridge_log_target,price,coefficient,0.0023900905241304774
+model_Elitebook,0.002358581862850627,Ridge_log_target,price,coefficient,0.002358581862850627
+model_Vivobook 15,0.0022580163605257606,Ridge_log_target,price,coefficient,0.0022580163605257606
+model_Macbook air m4,0.0021665224703264134,Ridge_log_target,price,coefficient,0.0021665224703264134
+brand_Other,0.0018453782856723538,Ridge_log_target,price,coefficient,0.0018453782856723538
+no_info_brand,0.0018453782856444518,Ridge_log_target,price,coefficient,0.0018453782856444518
+model_Elitebook 800,0.0015477678929854074,Ridge_log_target,price,coefficient,0.0015477678929854074
+model_ROG Strix,-0.0015142732759108686,Ridge_log_target,price,coefficient,0.0015142732759108686
+model_Pavilion 15,-0.001504211217447998,Ridge_log_target,price,coefficient,0.001504211217447998
+cpu_suffix_power_ord_filled,-0.0011882267101466213,Ridge_log_target,price,coefficient,0.0011882267101466213
+brand_MSI,0.00114157548104494,Ridge_log_target,price,coefficient,0.00114157548104494
+model_MacBook Pro M1,-0.0009157945883019862,Ridge_log_target,price,coefficient,0.0009157945883019862
+model_Gaming Thin GF,-0.0003055970244376092,Ridge_log_target,price,coefficient,0.0003055970244376092
+brand_ASUS,-0.0003003410378118975,Ridge_log_target,price,coefficient,0.0003003410378118975
+gpu_tier_ord_filled,8.012704409250096,Lasso_target,price,coefficient,8.012704409250096
+gpu_type_Dedicated,-5.07425790572338,Lasso_target,price,coefficient,5.07425790572338
+ram_level,4.045661517537654,Lasso_target,price,coefficient,4.045661517537654
+cpu_family_ord_filled,4.028391314785309,Lasso_target,price,coefficient,4.028391314785309
+storage_level,3.638112272372881,Lasso_target,price,coefficient,3.638112272372881
+cpu_family_group_Intel Core i,-3.5340670800262113,Lasso_target,price,coefficient,3.5340670800262113
+no_info_cpu_tier,3.198519306582645,Lasso_target,price,coefficient,3.198519306582645
+cpu_tier_encoded,2.8107920371893034,Lasso_target,price,coefficient,2.8107920371893034
+condition_score,2.695280220658194,Lasso_target,price,coefficient,2.695280220658194
+gpu_type_Missing_Info,2.638505421233731,Lasso_target,price,coefficient,2.638505421233731
+ram_missing,2.1347660149893937,Lasso_target,price,coefficient,2.1347660149893937
+cpu_family_group_AMD Ryzen,-1.9664630249064108,Lasso_target,price,coefficient,1.9664630249064108
+storage_missing,1.6650498664302371,Lasso_target,price,coefficient,1.6650498664302371
+warranty_encoded,1.5169405699441947,Lasso_target,price,coefficient,1.5169405699441947
+cpu_suffix_power_ord_filled,1.1814184396391696,Lasso_target,price,coefficient,1.1814184396391696
+cpu_amd_generation_ord,-0.7305839733759285,Lasso_target,price,coefficient,0.7305839733759285
+storage_ssd,0.7077717227286773,Lasso_target,price,coefficient,0.7077717227286773
+cpu_apple_core_spec,0.6969613852962696,Lasso_target,price,coefficient,0.6969613852962696
+model_MacBook Air M1,-0.6938261534792135,Lasso_target,price,coefficient,0.6938261534792135
+no_info_storage,0.6831669035680167,Lasso_target,price,coefficient,0.6831669035680167
+brand_Apple,0.6697144258136254,Lasso_target,price,coefficient,0.6697144258136254
+cpu_brand_Apple,0.6573881020369746,Lasso_target,price,coefficient,0.6573881020369746
+model_MacBook Pro,-0.587256959322773,Lasso_target,price,coefficient,0.587256959322773
+model_Legion 5,0.555565172322405,Lasso_target,price,coefficient,0.555565172322405
+cpu_brand_Qualcomm,0.516878330214561,Lasso_target,price,coefficient,0.516878330214561
+brand_Microsoft,0.4631000973218905,Lasso_target,price,coefficient,0.4631000973218905
+brand_MSI,0.44163714051959807,Lasso_target,price,coefficient,0.44163714051959807
+brand_Gigabyte,-0.43229274344170343,Lasso_target,price,coefficient,0.43229274344170343
+brand_Lenovo,-0.40430482328270384,Lasso_target,price,coefficient,0.40430482328270384
+brand_Dell,-0.4007139321781499,Lasso_target,price,coefficient,0.4007139321781499
+model_MacBook Pro M1,-0.3939302493032102,Lasso_target,price,coefficient,0.3939302493032102
+model_MacBook Air M2,-0.3473530647970947,Lasso_target,price,coefficient,0.3473530647970947
+cpu_intel_generation_ord,0.34027395229294655,Lasso_target,price,coefficient,0.34027395229294655
+brand_LG,0.33594493511374274,Lasso_target,price,coefficient,0.33594493511374274
+brand_ASUS,0.307860702799801,Lasso_target,price,coefficient,0.307860702799801
+model_Macbook air m4,-0.2977919877644097,Lasso_target,price,coefficient,0.2977919877644097
+model_Legion,0.28996059061443286,Lasso_target,price,coefficient,0.28996059061443286
+screen_missing,-0.2780998506712414,Lasso_target,price,coefficient,0.2780998506712414
+cpu_brand_Other,-0.27360832485382747,Lasso_target,price,coefficient,0.27360832485382747
+model_Gaming Thin GF,-0.2598893502141105,Lasso_target,price,coefficient,0.2598893502141105
+cpu_qualcomm_snapdragon_spec,-0.24838331965996788,Lasso_target,price,coefficient,0.24838331965996788
+no_info_model,0.24709502544477308,Lasso_target,price,coefficient,0.24709502544477308
+brand_Acer,-0.21598977323594049,Lasso_target,price,coefficient,0.21598977323594049
+model_IdeaPad,0.21450211126895274,Lasso_target,price,coefficient,0.21450211126895274
+model_Precision,-0.19136060821748002,Lasso_target,price,coefficient,0.19136060821748002
+cpu_family_group_Intel Low End,0.18700935016489553,Lasso_target,price,coefficient,0.18700935016489553
+model_XPS 13,0.17249818235815528,Lasso_target,price,coefficient,0.17249818235815528
+no_info_cpu_brand,-0.17048579878959053,Lasso_target,price,coefficient,0.17048579878959053
+screen_size_level,0.1643302493632505,Lasso_target,price,coefficient,0.1643302493632505
+model_Aspire,0.1541244260101278,Lasso_target,price,coefficient,0.1541244260101278
+model_TUF Gaming,-0.15182324743384634,Lasso_target,price,coefficient,0.15182324743384634
+model_MacBook Pro M2,-0.14741770478808425,Lasso_target,price,coefficient,0.14741770478808425
+model_ROG Strix,-0.14671366022182827,Lasso_target,price,coefficient,0.14671366022182827
+brand_Other,0.1362913787695736,Lasso_target,price,coefficient,0.1362913787695736
+cpu_family_group_Apple Silicon,0.12714730879874445,Lasso_target,price,coefficient,0.12714730879874445
+cpu_brand_Microsoft SQ,0.1238691734772492,Lasso_target,price,coefficient,0.1238691734772492
+model_Vostro,0.11796224685122296,Lasso_target,price,coefficient,0.11796224685122296
+model_Inspiron,0.1176720502704251,Lasso_target,price,coefficient,0.1176720502704251
+cpu_family_group_Intel Core Ultra,-0.11002342179244196,Lasso_target,price,coefficient,0.11002342179244196
+model_Vivobook 15,-0.1064816711954866,Lasso_target,price,coefficient,0.1064816711954866
+cpu_brand_Intel,-0.10027265017047071,Lasso_target,price,coefficient,0.10027265017047071
+storage_hdd,-0.09573754643210484,Lasso_target,price,coefficient,0.09573754643210484
+model_Latitude 14 7000,-0.080058903441115,Lasso_target,price,coefficient,0.080058903441115
+brand_Sony,-0.07907713434033255,Lasso_target,price,coefficient,0.07907713434033255
+model_Nitro 5,0.07181038885362839,Lasso_target,price,coefficient,0.07181038885362839
+model_ThinkPad X1 Carbon,0.06722093493512105,Lasso_target,price,coefficient,0.06722093493512105
+cpu_brand_AMD,0.055305482459824806,Lasso_target,price,coefficient,0.055305482459824806
+model_ProBook,0.043113290954540806,Lasso_target,price,coefficient,0.043113290954540806
+model_Elitebook 800,-0.04085057560114216,Lasso_target,price,coefficient,0.04085057560114216
+model_TUF Gaming F15,-0.03667889951271274,Lasso_target,price,coefficient,0.03667889951271274
+model_MacBook Air,-0.026938479429964822,Lasso_target,price,coefficient,0.026938479429964822
+gpu_type_Apple SoC,0.025615867539203658,Lasso_target,price,coefficient,0.025615867539203658
+model_Latitude,0.020207692131813625,Lasso_target,price,coefficient,0.020207692131813625
+model_is_rare,-0.014113424791259955,Lasso_target,price,coefficient,0.014113424791259955
+brand_Toshiba,-0.009432949118104321,Lasso_target,price,coefficient,0.009432949118104321
+model_X Series,-0.009255337796644628,Lasso_target,price,coefficient,0.009255337796644628
+model_Pavilion 15,-0.00832809177383836,Lasso_target,price,coefficient,0.00832809177383836
+model_ThinkPad,-0.00781355779781846,Lasso_target,price,coefficient,0.00781355779781846
+model_Other,0.006053065891240281,Lasso_target,price,coefficient,0.006053065891240281
+model_Elitebook,0.006046979167617979,Lasso_target,price,coefficient,0.006046979167617979
+no_info_gpu,1.4149907918053977e-05,Lasso_target,price,coefficient,1.4149907918053977e-05
+model_Latitude E Series,0.0,Lasso_target,price,coefficient,0.0
+brand_HP,-0.0,Lasso_target,price,coefficient,0.0
+no_info_brand,0.0,Lasso_target,price,coefficient,0.0
+gpu_type_Integrated,-0.0,Lasso_target,price,coefficient,0.0
+brand_is_rare,-0.0,Lasso_target,price,coefficient,0.0
+ram_level,0.26156031427845366,Lasso_log_target,price,coefficient,0.26156031427845366
+storage_level,0.230867216087868,Lasso_log_target,price,coefficient,0.230867216087868
+condition_score,0.2048269714694265,Lasso_log_target,price,coefficient,0.2048269714694265
+warranty_encoded,0.15515464676134808,Lasso_log_target,price,coefficient,0.15515464676134808
+no_info_cpu_tier,0.13621595392158525,Lasso_log_target,price,coefficient,0.13621595392158525
+ram_missing,0.12845540410265274,Lasso_log_target,price,coefficient,0.12845540410265274
+cpu_family_ord_filled,0.12363030483346184,Lasso_log_target,price,coefficient,0.12363030483346184
+cpu_tier_encoded,0.1050982900406033,Lasso_log_target,price,coefficient,0.1050982900406033
+storage_missing,0.09315014373290752,Lasso_log_target,price,coefficient,0.09315014373290752
+cpu_family_group_Intel Core i,-0.08985291821618821,Lasso_log_target,price,coefficient,0.08985291821618821
+gpu_type_Dedicated,0.07416870097305933,Lasso_log_target,price,coefficient,0.07416870097305933
+cpu_brand_Intel,-0.06331733373588318,Lasso_log_target,price,coefficient,0.06331733373588318
+cpu_family_group_AMD Ryzen,-0.06297906445637683,Lasso_log_target,price,coefficient,0.06297906445637683
+screen_missing,-0.05159496676962656,Lasso_log_target,price,coefficient,0.05159496676962656
+storage_hdd,-0.04485795159255502,Lasso_log_target,price,coefficient,0.04485795159255502
+brand_Apple,0.04194155394289328,Lasso_log_target,price,coefficient,0.04194155394289328
+gpu_type_Apple SoC,-0.0395838580694433,Lasso_log_target,price,coefficient,0.0395838580694433
+no_info_cpu_brand,-0.037501204327010505,Lasso_log_target,price,coefficient,0.037501204327010505
+cpu_amd_generation_ord,-0.03706561099287311,Lasso_log_target,price,coefficient,0.03706561099287311
+cpu_intel_generation_ord,0.037021123257663234,Lasso_log_target,price,coefficient,0.037021123257663234
+brand_Microsoft,0.036854671166752014,Lasso_log_target,price,coefficient,0.036854671166752014
+cpu_family_group_Apple Silicon,0.03629707542541557,Lasso_log_target,price,coefficient,0.03629707542541557
+model_Latitude E Series,-0.034225577968666106,Lasso_log_target,price,coefficient,0.034225577968666106
+brand_Sony,-0.029233728759111753,Lasso_log_target,price,coefficient,0.029233728759111753
+model_Legion 5,0.02883606233030408,Lasso_log_target,price,coefficient,0.02883606233030408
+cpu_family_group_Intel Core Ultra,-0.02828990740292681,Lasso_log_target,price,coefficient,0.02828990740292681
+cpu_brand_Apple,0.022729885514624022,Lasso_log_target,price,coefficient,0.022729885514624022
+brand_Toshiba,-0.021297417868026216,Lasso_log_target,price,coefficient,0.021297417868026216
+model_XPS 13,0.021284929123901185,Lasso_log_target,price,coefficient,0.021284929123901185
+no_info_storage,0.020967083209127744,Lasso_log_target,price,coefficient,0.020967083209127744
+model_X Series,-0.020862507222733105,Lasso_log_target,price,coefficient,0.020862507222733105
+cpu_brand_Other,-0.02024162380622769,Lasso_log_target,price,coefficient,0.02024162380622769
+brand_Acer,-0.019839491175059395,Lasso_log_target,price,coefficient,0.019839491175059395
+no_info_gpu,-0.0184051009996184,Lasso_log_target,price,coefficient,0.0184051009996184
+brand_Dell,-0.018131714222208183,Lasso_log_target,price,coefficient,0.018131714222208183
+model_Legion,0.016765331337577936,Lasso_log_target,price,coefficient,0.016765331337577936
+model_Nitro 5,0.015606856358589164,Lasso_log_target,price,coefficient,0.015606856358589164
+brand_LG,0.014753522735223571,Lasso_log_target,price,coefficient,0.014753522735223571
+model_Inspiron,-0.01456364127692724,Lasso_log_target,price,coefficient,0.01456364127692724
+model_ThinkPad X1 Carbon,0.011948891265000764,Lasso_log_target,price,coefficient,0.011948891265000764
+model_MacBook Pro,-0.011080127838009768,Lasso_log_target,price,coefficient,0.011080127838009768
+model_MacBook Air,-0.010804761299855142,Lasso_log_target,price,coefficient,0.010804761299855142
+cpu_family_group_Intel Low End,-0.009946861412239319,Lasso_log_target,price,coefficient,0.009946861412239319
+model_TUF Gaming F15,0.009756405171918843,Lasso_log_target,price,coefficient,0.009756405171918843
+model_ThinkPad,-0.009257499072058546,Lasso_log_target,price,coefficient,0.009257499072058546
+model_ProBook,-0.009226430272976633,Lasso_log_target,price,coefficient,0.009226430272976633
+model_MacBook Air M1,-0.009184196777986197,Lasso_log_target,price,coefficient,0.009184196777986197
+model_Precision,0.009118415008491145,Lasso_log_target,price,coefficient,0.009118415008491145
+storage_ssd,0.00827367808995198,Lasso_log_target,price,coefficient,0.00827367808995198
+model_MacBook Air M2,0.00814542521427907,Lasso_log_target,price,coefficient,0.00814542521427907
+cpu_brand_AMD,0.007621177787985279,Lasso_log_target,price,coefficient,0.007621177787985279
+model_MacBook Pro M2,0.007521288598160881,Lasso_log_target,price,coefficient,0.007521288598160881
+brand_Gigabyte,-0.0073272687018028524,Lasso_log_target,price,coefficient,0.0073272687018028524
+model_Vostro,-0.006590422545078478,Lasso_log_target,price,coefficient,0.006590422545078478
+model_Macbook air m4,0.006313462054130638,Lasso_log_target,price,coefficient,0.006313462054130638
+brand_Other,0.006000624135667478,Lasso_log_target,price,coefficient,0.006000624135667478
+model_IdeaPad,-0.005618253768791023,Lasso_log_target,price,coefficient,0.005618253768791023
+model_Aspire,-0.005605119509686996,Lasso_log_target,price,coefficient,0.005605119509686996
+brand_Lenovo,-0.005523319955646512,Lasso_log_target,price,coefficient,0.005523319955646512
+model_Other,0.0040113245332588175,Lasso_log_target,price,coefficient,0.0040113245332588175
+brand_MSI,0.0034253240294168635,Lasso_log_target,price,coefficient,0.0034253240294168635
+brand_ASUS,0.00340433601116217,Lasso_log_target,price,coefficient,0.00340433601116217
+cpu_apple_core_spec,-0.0031871913742906603,Lasso_log_target,price,coefficient,0.0031871913742906603
+cpu_brand_Microsoft SQ,0.002309476907253846,Lasso_log_target,price,coefficient,0.002309476907253846
+model_TUF Gaming,-0.0023068268407473356,Lasso_log_target,price,coefficient,0.0023068268407473356
+cpu_qualcomm_snapdragon_spec,-0.002000070871804876,Lasso_log_target,price,coefficient,0.002000070871804876
+screen_size_level,0.0016768185372379755,Lasso_log_target,price,coefficient,0.0016768185372379755
+model_Latitude 14 7000,0.001261536968067771,Lasso_log_target,price,coefficient,0.001261536968067771
+model_Vivobook 15,0.00120915811909546,Lasso_log_target,price,coefficient,0.00120915811909546
+model_Elitebook 800,0.0007862423688939073,Lasso_log_target,price,coefficient,0.0007862423688939073
+model_Pavilion 15,-0.0005072726770891608,Lasso_log_target,price,coefficient,0.0005072726770891608
+no_info_brand,2.2402501077790605e-05,Lasso_log_target,price,coefficient,2.2402501077790605e-05
+gpu_tier_ord_filled,-0.0,Lasso_log_target,price,coefficient,0.0
+gpu_type_Integrated,0.0,Lasso_log_target,price,coefficient,0.0
+cpu_suffix_power_ord_filled,-0.0,Lasso_log_target,price,coefficient,0.0
+brand_is_rare,-0.0,Lasso_log_target,price,coefficient,0.0
+cpu_brand_Qualcomm,0.0,Lasso_log_target,price,coefficient,0.0
+model_ROG Strix,-0.0,Lasso_log_target,price,coefficient,0.0
+model_MacBook Pro M1,-0.0,Lasso_log_target,price,coefficient,0.0
+model_is_rare,0.0,Lasso_log_target,price,coefficient,0.0
+model_Latitude,-0.0,Lasso_log_target,price,coefficient,0.0
+model_Gaming Thin GF,0.0,Lasso_log_target,price,coefficient,0.0
+model_Elitebook,0.0,Lasso_log_target,price,coefficient,0.0
+brand_HP,-0.0,Lasso_log_target,price,coefficient,0.0
+no_info_model,0.0,Lasso_log_target,price,coefficient,0.0
+gpu_type_Missing_Info,-0.0,Lasso_log_target,price,coefficient,0.0
+gpu_tier_ord_filled,7.9100397239073015,ElasticNet_target,price,coefficient,7.9100397239073015
+gpu_type_Dedicated,-4.207265871782987,ElasticNet_target,price,coefficient,4.207265871782987
+ram_level,4.044282670016057,ElasticNet_target,price,coefficient,4.044282670016057
+cpu_family_ord_filled,3.9736347661837703,ElasticNet_target,price,coefficient,3.9736347661837703
+storage_level,3.636909722608513,ElasticNet_target,price,coefficient,3.636909722608513
+cpu_family_group_Intel Core i,-3.484220243504898,ElasticNet_target,price,coefficient,3.484220243504898
+no_info_cpu_tier,3.210902134518854,ElasticNet_target,price,coefficient,3.210902134518854
+cpu_tier_encoded,2.82754949542796,ElasticNet_target,price,coefficient,2.82754949542796
+condition_score,2.6853184080264336,ElasticNet_target,price,coefficient,2.6853184080264336
+ram_missing,2.1333510551380663,ElasticNet_target,price,coefficient,2.1333510551380663
+cpu_family_group_AMD Ryzen,-1.938401799583732,ElasticNet_target,price,coefficient,1.938401799583732
+no_info_gpu,1.700263904401345,ElasticNet_target,price,coefficient,1.700263904401345
+gpu_type_Missing_Info,1.6977321788435675,ElasticNet_target,price,coefficient,1.6977321788435675
+storage_missing,1.6640072599505134,ElasticNet_target,price,coefficient,1.6640072599505134
+warranty_encoded,1.5114614676904443,ElasticNet_target,price,coefficient,1.5114614676904443
+cpu_suffix_power_ord_filled,1.2021290789557884,ElasticNet_target,price,coefficient,1.2021290789557884
+gpu_type_Integrated,0.9022148982375492,ElasticNet_target,price,coefficient,0.9022148982375492
+cpu_amd_generation_ord,-0.7227629756423277,ElasticNet_target,price,coefficient,0.7227629756423277
+storage_ssd,0.7030811602110566,ElasticNet_target,price,coefficient,0.7030811602110566
+cpu_apple_core_spec,0.6973675580770385,ElasticNet_target,price,coefficient,0.6973675580770385
+model_MacBook Air M1,-0.6927893775792314,ElasticNet_target,price,coefficient,0.6927893775792314
+no_info_storage,0.6796893029009388,ElasticNet_target,price,coefficient,0.6796893029009388
+brand_Apple,0.677639541059415,ElasticNet_target,price,coefficient,0.677639541059415
+cpu_brand_Apple,0.6027598302339422,ElasticNet_target,price,coefficient,0.6027598302339422
+model_MacBook Pro,-0.5778343639835238,ElasticNet_target,price,coefficient,0.5778343639835238
+model_Legion 5,0.5570815955424473,ElasticNet_target,price,coefficient,0.5570815955424473
+cpu_brand_Qualcomm,0.5105816430403587,ElasticNet_target,price,coefficient,0.5105816430403587
+brand_Microsoft,0.46324313716931814,ElasticNet_target,price,coefficient,0.46324313716931814
+brand_MSI,0.4431539718071798,ElasticNet_target,price,coefficient,0.4431539718071798
+brand_Gigabyte,-0.42638975588190936,ElasticNet_target,price,coefficient,0.42638975588190936
+brand_Lenovo,-0.4055886608776555,ElasticNet_target,price,coefficient,0.4055886608776555
+brand_Dell,-0.4023438378788111,ElasticNet_target,price,coefficient,0.4023438378788111
+model_MacBook Pro M1,-0.3932850112726089,ElasticNet_target,price,coefficient,0.3932850112726089
+cpu_intel_generation_ord,0.3524352973542,ElasticNet_target,price,coefficient,0.3524352973542
+model_MacBook Air M2,-0.34760759418265275,ElasticNet_target,price,coefficient,0.34760759418265275
+brand_LG,0.33987803507579795,ElasticNet_target,price,coefficient,0.33987803507579795
+brand_ASUS,0.3087726948836304,ElasticNet_target,price,coefficient,0.3087726948836304
+model_Macbook air m4,-0.29543869459234784,ElasticNet_target,price,coefficient,0.29543869459234784
+model_Legion,0.29076870005501404,ElasticNet_target,price,coefficient,0.29076870005501404
+screen_missing,-0.2792078897893928,ElasticNet_target,price,coefficient,0.2792078897893928
+model_Gaming Thin GF,-0.26061669112559294,ElasticNet_target,price,coefficient,0.26061669112559294
+cpu_brand_Other,-0.24947813640714517,ElasticNet_target,price,coefficient,0.24947813640714517
+cpu_qualcomm_snapdragon_spec,-0.24944827390572485,ElasticNet_target,price,coefficient,0.24944827390572485
+gpu_type_Apple SoC,0.24942007562054838,ElasticNet_target,price,coefficient,0.24942007562054838
+no_info_cpu_brand,-0.22862487139760324,ElasticNet_target,price,coefficient,0.22862487139760324
+brand_Acer,-0.21722861433309476,ElasticNet_target,price,coefficient,0.21722861433309476
+model_IdeaPad,0.21650753244286616,ElasticNet_target,price,coefficient,0.21650753244286616
+cpu_family_group_Intel Low End,0.19707911875243325,ElasticNet_target,price,coefficient,0.19707911875243325
+model_Precision,-0.18138374914693298,ElasticNet_target,price,coefficient,0.18138374914693298
+model_XPS 13,0.17548625578649069,ElasticNet_target,price,coefficient,0.17548625578649069
+cpu_brand_Intel,-0.17363289322432418,ElasticNet_target,price,coefficient,0.17363289322432418
+cpu_family_group_Apple Silicon,0.17027718644572165,ElasticNet_target,price,coefficient,0.17027718644572165
+screen_size_level,0.1624619469919641,ElasticNet_target,price,coefficient,0.1624619469919641
+model_Aspire,0.15653804707043026,ElasticNet_target,price,coefficient,0.15653804707043026
+model_TUF Gaming,-0.15207541243076436,ElasticNet_target,price,coefficient,0.15207541243076436
+model_MacBook Pro M2,-0.1480163112803197,ElasticNet_target,price,coefficient,0.1480163112803197
+model_Other,0.1476414854385098,ElasticNet_target,price,coefficient,0.1476414854385098
+model_ROG Strix,-0.14686274928150708,ElasticNet_target,price,coefficient,0.14686274928150708
+no_info_model,0.1382743849486816,ElasticNet_target,price,coefficient,0.1382743849486816
+model_Inspiron,0.1287896351870047,ElasticNet_target,price,coefficient,0.1287896351870047
+cpu_brand_Microsoft SQ,0.12176967505525893,ElasticNet_target,price,coefficient,0.12176967505525893
+model_Vostro,0.12152710985880141,ElasticNet_target,price,coefficient,0.12152710985880141
+model_Vivobook 15,-0.10503613978254904,ElasticNet_target,price,coefficient,0.10503613978254904
+storage_hdd,-0.1001812294281466,ElasticNet_target,price,coefficient,0.1001812294281466
+cpu_family_group_Intel Core Ultra,-0.09183988913690373,ElasticNet_target,price,coefficient,0.09183988913690373
+model_Nitro 5,0.07814348092486775,ElasticNet_target,price,coefficient,0.07814348092486775
+model_Latitude 14 7000,-0.07697880570077985,ElasticNet_target,price,coefficient,0.07697880570077985
+brand_Sony,-0.07412675519213445,ElasticNet_target,price,coefficient,0.07412675519213445
+model_ThinkPad X1 Carbon,0.07043891121087678,ElasticNet_target,price,coefficient,0.07043891121087678
+brand_Other,0.06848108196850197,ElasticNet_target,price,coefficient,0.06848108196850197
+no_info_brand,0.06794588431730252,ElasticNet_target,price,coefficient,0.06794588431730252
+model_ProBook,0.0513299772775938,ElasticNet_target,price,coefficient,0.0513299772775938
+model_Elitebook 800,-0.03887992625036991,ElasticNet_target,price,coefficient,0.03887992625036991
+model_Latitude,0.03790534993594429,ElasticNet_target,price,coefficient,0.03790534993594429
+model_TUF Gaming F15,-0.03717313459580746,ElasticNet_target,price,coefficient,0.03717313459580746
+model_MacBook Air,-0.019038065392682872,ElasticNet_target,price,coefficient,0.019038065392682872
+model_Elitebook,0.014523277682267488,ElasticNet_target,price,coefficient,0.014523277682267488
+brand_is_rare,-0.008987665847730083,ElasticNet_target,price,coefficient,0.008987665847730083
+model_X Series,-0.008038458012499018,ElasticNet_target,price,coefficient,0.008038458012499018
+model_Pavilion 15,-0.00666087949785245,ElasticNet_target,price,coefficient,0.00666087949785245
+brand_Toshiba,-0.004726573655268392,ElasticNet_target,price,coefficient,0.004726573655268392
+model_Latitude E Series,0.002249565076104176,ElasticNet_target,price,coefficient,0.002249565076104176
+cpu_brand_AMD,0.0,ElasticNet_target,price,coefficient,0.0
+model_ThinkPad,-0.0,ElasticNet_target,price,coefficient,0.0
+model_is_rare,-0.0,ElasticNet_target,price,coefficient,0.0
+brand_HP,-0.0,ElasticNet_target,price,coefficient,0.0
+ram_level,0.2607234928491626,ElasticNet_log_target,price,coefficient,0.2607234928491626
+storage_level,0.23039707591026135,ElasticNet_log_target,price,coefficient,0.23039707591026135
+condition_score,0.2046111601650684,ElasticNet_log_target,price,coefficient,0.2046111601650684
+warranty_encoded,0.15673556819811832,ElasticNet_log_target,price,coefficient,0.15673556819811832
+cpu_family_ord_filled,0.14032124906884713,ElasticNet_log_target,price,coefficient,0.14032124906884713
+no_info_cpu_tier,0.13428771013821877,ElasticNet_log_target,price,coefficient,0.13428771013821877
+ram_missing,0.12833878517770997,ElasticNet_log_target,price,coefficient,0.12833878517770997
+cpu_family_group_Intel Core i,-0.10604308859883155,ElasticNet_log_target,price,coefficient,0.10604308859883155
+cpu_tier_encoded,0.10116783394332865,ElasticNet_log_target,price,coefficient,0.10116783394332865
+storage_missing,0.09357092665380073,ElasticNet_log_target,price,coefficient,0.09357092665380073
+gpu_type_Dedicated,0.07435719656978204,ElasticNet_log_target,price,coefficient,0.07435719656978204
+cpu_family_group_AMD Ryzen,-0.07359118642588307,ElasticNet_log_target,price,coefficient,0.07359118642588307
+screen_missing,-0.05168082776781509,ElasticNet_log_target,price,coefficient,0.05168082776781509
+brand_Apple,0.04895815312871954,ElasticNet_log_target,price,coefficient,0.04895815312871954
+cpu_brand_Intel,-0.04524375556962867,ElasticNet_log_target,price,coefficient,0.04524375556962867
+gpu_type_Apple SoC,-0.04129201028285045,ElasticNet_log_target,price,coefficient,0.04129201028285045
+cpu_amd_generation_ord,-0.038471784345401,ElasticNet_log_target,price,coefficient,0.038471784345401
+storage_hdd,-0.03799197136790929,ElasticNet_log_target,price,coefficient,0.03799197136790929
+brand_Microsoft,0.03733242113558018,ElasticNet_log_target,price,coefficient,0.03733242113558018
+no_info_cpu_brand,-0.036797752953535344,ElasticNet_log_target,price,coefficient,0.036797752953535344
+cpu_intel_generation_ord,0.03677228687164548,ElasticNet_log_target,price,coefficient,0.03677228687164548
+no_info_storage,0.03497790419598286,ElasticNet_log_target,price,coefficient,0.03497790419598286
+cpu_family_group_Intel Core Ultra,-0.03487508165308772,ElasticNet_log_target,price,coefficient,0.03487508165308772
+model_Latitude E Series,-0.03460733170391144,ElasticNet_log_target,price,coefficient,0.03460733170391144
+cpu_brand_Apple,0.03395478364585321,ElasticNet_log_target,price,coefficient,0.03395478364585321
+model_Legion 5,0.029013592018298846,ElasticNet_log_target,price,coefficient,0.029013592018298846
+cpu_family_group_Apple Silicon,0.02688157235140502,ElasticNet_log_target,price,coefficient,0.02688157235140502
+brand_LG,0.024606274662785223,ElasticNet_log_target,price,coefficient,0.024606274662785223
+cpu_brand_AMD,0.023632397043085625,ElasticNet_log_target,price,coefficient,0.023632397043085625
+storage_ssd,0.02354413689855172,ElasticNet_log_target,price,coefficient,0.02354413689855172
+model_XPS 13,0.02187849393172508,ElasticNet_log_target,price,coefficient,0.02187849393172508
+model_X Series,-0.021422894580751497,ElasticNet_log_target,price,coefficient,0.021422894580751497
+brand_Acer,-0.02055350031508925,ElasticNet_log_target,price,coefficient,0.02055350031508925
+brand_Sony,-0.01940413215510911,ElasticNet_log_target,price,coefficient,0.01940413215510911
+no_info_gpu,-0.019131309406124463,ElasticNet_log_target,price,coefficient,0.019131309406124463
+brand_Dell,-0.018900121617971083,ElasticNet_log_target,price,coefficient,0.018900121617971083
+brand_is_rare,-0.018720077321607298,ElasticNet_log_target,price,coefficient,0.018720077321607298
+model_Legion,0.017272335755204076,ElasticNet_log_target,price,coefficient,0.017272335755204076
+model_Nitro 5,0.016356242714093326,ElasticNet_log_target,price,coefficient,0.016356242714093326
+model_MacBook Pro,-0.015569329134565175,ElasticNet_log_target,price,coefficient,0.015569329134565175
+model_Inspiron,-0.014870219313255351,ElasticNet_log_target,price,coefficient,0.014870219313255351
+model_MacBook Air,-0.01477608081711135,ElasticNet_log_target,price,coefficient,0.01477608081711135
+cpu_brand_Other,-0.014111147567952531,ElasticNet_log_target,price,coefficient,0.014111147567952531
+model_ThinkPad X1 Carbon,0.012594884537171893,ElasticNet_log_target,price,coefficient,0.012594884537171893
+cpu_family_group_Intel Low End,-0.01241604521875029,ElasticNet_log_target,price,coefficient,0.01241604521875029
+brand_Toshiba,-0.01177076192929882,ElasticNet_log_target,price,coefficient,0.01177076192929882
+model_MacBook Air M1,-0.010985686402027614,ElasticNet_log_target,price,coefficient,0.010985686402027614
+model_TUF Gaming F15,0.010231028092949533,ElasticNet_log_target,price,coefficient,0.010231028092949533
+model_ProBook,-0.009841900201469274,ElasticNet_log_target,price,coefficient,0.009841900201469274
+model_ThinkPad,-0.009655768899449468,ElasticNet_log_target,price,coefficient,0.009655768899449468
+model_Precision,0.009464232582311254,ElasticNet_log_target,price,coefficient,0.009464232582311254
+model_Vostro,-0.006976852924723666,ElasticNet_log_target,price,coefficient,0.006976852924723666
+model_MacBook Air M2,0.006903296516801731,ElasticNet_log_target,price,coefficient,0.006903296516801731
+model_MacBook Pro M2,0.0066938444883150264,ElasticNet_log_target,price,coefficient,0.0066938444883150264
+brand_Other,0.006189776020561545,ElasticNet_log_target,price,coefficient,0.006189776020561545
+brand_Lenovo,-0.006160728085987933,ElasticNet_log_target,price,coefficient,0.006160728085987933
+model_Aspire,-0.005990416391312553,ElasticNet_log_target,price,coefficient,0.005990416391312553
+model_IdeaPad,-0.005975378459174177,ElasticNet_log_target,price,coefficient,0.005975378459174177
+cpu_apple_core_spec,-0.005120313288680631,ElasticNet_log_target,price,coefficient,0.005120313288680631
+model_Macbook air m4,0.004393672280053226,ElasticNet_log_target,price,coefficient,0.004393672280053226
+brand_ASUS,0.003752533492418496,ElasticNet_log_target,price,coefficient,0.003752533492418496
+brand_MSI,0.003566467502229667,ElasticNet_log_target,price,coefficient,0.003566467502229667
+cpu_brand_Microsoft SQ,0.003432553825596285,ElasticNet_log_target,price,coefficient,0.003432553825596285
+model_TUF Gaming,-0.002985541189705623,ElasticNet_log_target,price,coefficient,0.002985541189705623
+cpu_qualcomm_snapdragon_spec,-0.0029056059916958243,ElasticNet_log_target,price,coefficient,0.0029056059916958243
+cpu_brand_Qualcomm,0.0028806816589056795,ElasticNet_log_target,price,coefficient,0.0028806816589056795
+screen_size_level,0.0022838062062649454,ElasticNet_log_target,price,coefficient,0.0022838062062649454
+no_info_model,0.0019377048784300127,ElasticNet_log_target,price,coefficient,0.0019377048784300127
+model_Latitude 14 7000,0.0017514151028226476,ElasticNet_log_target,price,coefficient,0.0017514151028226476
+model_MacBook Pro M1,-0.0016940506274771955,ElasticNet_log_target,price,coefficient,0.0016940506274771955
+model_Vivobook 15,0.0016510488688053404,ElasticNet_log_target,price,coefficient,0.0016510488688053404
+model_Other,0.00161006953544094,ElasticNet_log_target,price,coefficient,0.00161006953544094
+model_Elitebook 800,0.001112693544069512,ElasticNet_log_target,price,coefficient,0.001112693544069512
+model_Pavilion 15,-0.0010698573728646185,ElasticNet_log_target,price,coefficient,0.0010698573728646185
+gpu_tier_ord_filled,-0.0009964632708279956,ElasticNet_log_target,price,coefficient,0.0009964632708279956
+model_ROG Strix,-0.0005319031743629086,ElasticNet_log_target,price,coefficient,0.0005319031743629086
+gpu_type_Missing_Info,-0.0005047285936683344,ElasticNet_log_target,price,coefficient,0.0005047285936683344
+brand_Gigabyte,-0.000482158450053581,ElasticNet_log_target,price,coefficient,0.000482158450053581
+cpu_suffix_power_ord_filled,-0.00013490140114653755,ElasticNet_log_target,price,coefficient,0.00013490140114653755
+no_info_brand,8.603056728559843e-05,ElasticNet_log_target,price,coefficient,8.603056728559843e-05
+brand_HP,-0.0,ElasticNet_log_target,price,coefficient,0.0
+model_is_rare,0.0,ElasticNet_log_target,price,coefficient,0.0
+model_Gaming Thin GF,0.0,ElasticNet_log_target,price,coefficient,0.0
+model_Latitude,-0.0,ElasticNet_log_target,price,coefficient,0.0
+gpu_type_Integrated,0.0,ElasticNet_log_target,price,coefficient,0.0
+model_Elitebook,0.0,ElasticNet_log_target,price,coefficient,0.0
+ram_level,0.27977460880488125,Random Forest_target,price,feature_importance,0.27977460880488125
+cpu_tier_encoded,0.16831543319192646,Random Forest_target,price,feature_importance,0.16831543319192646
+condition_score,0.12428392774091664,Random Forest_target,price,feature_importance,0.12428392774091664
+warranty_encoded,0.11190635287004604,Random Forest_target,price,feature_importance,0.11190635287004604
+storage_level,0.08028733134089691,Random Forest_target,price,feature_importance,0.08028733134089691
+cpu_family_ord_filled,0.055567352416115434,Random Forest_target,price,feature_importance,0.055567352416115434
+gpu_tier_ord_filled,0.020806333545459386,Random Forest_target,price,feature_importance,0.020806333545459386
+cpu_intel_generation_ord,0.01783883932094838,Random Forest_target,price,feature_importance,0.01783883932094838
+screen_size_level,0.016530070213162194,Random Forest_target,price,feature_importance,0.016530070213162194
+cpu_family_group_Apple Silicon,0.01272489656810878,Random Forest_target,price,feature_importance,0.01272489656810878
+cpu_brand_Apple,0.011317656666709659,Random Forest_target,price,feature_importance,0.011317656666709659
+cpu_suffix_power_ord_filled,0.00930791666022273,Random Forest_target,price,feature_importance,0.00930791666022273
+brand_Lenovo,0.008350711893169238,Random Forest_target,price,feature_importance,0.008350711893169238
+brand_Dell,0.007971668277431343,Random Forest_target,price,feature_importance,0.007971668277431343
+brand_HP,0.006169009943462099,Random Forest_target,price,feature_importance,0.006169009943462099
+gpu_type_Integrated,0.0055634131355215945,Random Forest_target,price,feature_importance,0.0055634131355215945
+cpu_family_group_Intel Core Ultra,0.004219078584255882,Random Forest_target,price,feature_importance,0.004219078584255882
+brand_ASUS,0.003885509242963573,Random Forest_target,price,feature_importance,0.003885509242963573
+gpu_type_Dedicated,0.0037723752093299485,Random Forest_target,price,feature_importance,0.0037723752093299485
+cpu_family_group_Intel Core i,0.003292565178560187,Random Forest_target,price,feature_importance,0.003292565178560187
+brand_Apple,0.0032665233222662357,Random Forest_target,price,feature_importance,0.0032665233222662357
+cpu_amd_generation_ord,0.003152040543021987,Random Forest_target,price,feature_importance,0.003152040543021987
+brand_Microsoft,0.0028546358118950255,Random Forest_target,price,feature_importance,0.0028546358118950255
+brand_MSI,0.002640863269046344,Random Forest_target,price,feature_importance,0.002640863269046344
+no_info_cpu_tier,0.002500832235060792,Random Forest_target,price,feature_importance,0.002500832235060792
+brand_Acer,0.0022791422360961358,Random Forest_target,price,feature_importance,0.0022791422360961358
+storage_ssd,0.0018896109528855052,Random Forest_target,price,feature_importance,0.0018896109528855052
+cpu_brand_Intel,0.0018214793295599774,Random Forest_target,price,feature_importance,0.0018214793295599774
+storage_hdd,0.0016476352768031652,Random Forest_target,price,feature_importance,0.0016476352768031652
+cpu_brand_Other,0.00156514539488031,Random Forest_target,price,feature_importance,0.00156514539488031
+cpu_brand_AMD,0.0015269921824576462,Random Forest_target,price,feature_importance,0.0015269921824576462
+no_info_model,0.001328905178294501,Random Forest_target,price,feature_importance,0.001328905178294501
+no_info_cpu_brand,0.0012854576915522094,Random Forest_target,price,feature_importance,0.0012854576915522094
+gpu_type_Missing_Info,0.0012360800771585073,Random Forest_target,price,feature_importance,0.0012360800771585073
+no_info_gpu,0.0012340938589297278,Random Forest_target,price,feature_importance,0.0012340938589297278
+model_Other,0.0012085683218172128,Random Forest_target,price,feature_importance,0.0012085683218172128
+no_info_brand,0.0010952271012018475,Random Forest_target,price,feature_importance,0.0010952271012018475
+brand_Other,0.0010819788909104619,Random Forest_target,price,feature_importance,0.0010819788909104619
+no_info_storage,0.0010489602544802262,Random Forest_target,price,feature_importance,0.0010489602544802262
+model_Precision,0.001000675977471059,Random Forest_target,price,feature_importance,0.001000675977471059
+cpu_family_group_AMD Ryzen,0.0009893045830266275,Random Forest_target,price,feature_importance,0.0009893045830266275
+ram_missing,0.0009362248445347585,Random Forest_target,price,feature_importance,0.0009362248445347585
+screen_missing,0.0009294032765804194,Random Forest_target,price,feature_importance,0.0009294032765804194
+brand_LG,0.0007749081768770559,Random Forest_target,price,feature_importance,0.0007749081768770559
+model_MacBook Pro,0.0007721099639996442,Random Forest_target,price,feature_importance,0.0007721099639996442
+model_is_rare,0.0007631326686000928,Random Forest_target,price,feature_importance,0.0007631326686000928
+brand_is_rare,0.0007504408132319046,Random Forest_target,price,feature_importance,0.0007504408132319046
+model_Legion 5,0.0006584900249802741,Random Forest_target,price,feature_importance,0.0006584900249802741
+storage_missing,0.0006103703265238085,Random Forest_target,price,feature_importance,0.0006103703265238085
+model_MacBook Air M1,0.00044565685755827635,Random Forest_target,price,feature_importance,0.00044565685755827635
+model_XPS 13,0.0004272445290705459,Random Forest_target,price,feature_importance,0.0004272445290705459
+cpu_apple_core_spec,0.00035229026875737736,Random Forest_target,price,feature_importance,0.00035229026875737736
+cpu_brand_Qualcomm,0.0003299636554821128,Random Forest_target,price,feature_importance,0.0003299636554821128
+model_Latitude,0.00031798534002183714,Random Forest_target,price,feature_importance,0.00031798534002183714
+gpu_type_Apple SoC,0.000264121132408991,Random Forest_target,price,feature_importance,0.000264121132408991
+model_Nitro 5,0.00024781931720990687,Random Forest_target,price,feature_importance,0.00024781931720990687
+model_Inspiron,0.0002388797115370757,Random Forest_target,price,feature_importance,0.0002388797115370757
+model_ThinkPad,0.00021355617847913967,Random Forest_target,price,feature_importance,0.00021355617847913967
+model_MacBook Air,0.00020399775262335085,Random Forest_target,price,feature_importance,0.00020399775262335085
+model_ThinkPad X1 Carbon,0.00020394611171575778,Random Forest_target,price,feature_importance,0.00020394611171575778
+model_Elitebook,0.000187903801331142,Random Forest_target,price,feature_importance,0.000187903801331142
+model_Macbook air m4,0.00016092423506133097,Random Forest_target,price,feature_importance,0.00016092423506133097
+brand_Gigabyte,0.00014886038660918128,Random Forest_target,price,feature_importance,0.00014886038660918128
+model_ROG Strix,0.00014855129308453035,Random Forest_target,price,feature_importance,0.00014855129308453035
+cpu_brand_Microsoft SQ,0.00012780620626575808,Random Forest_target,price,feature_importance,0.00012780620626575808
+model_TUF Gaming,0.00011325557225862768,Random Forest_target,price,feature_importance,0.00011325557225862768
+model_MacBook Pro M1,0.0001096115407736669,Random Forest_target,price,feature_importance,0.0001096115407736669
+model_Latitude E Series,0.00010874665614871147,Random Forest_target,price,feature_importance,0.00010874665614871147
+cpu_qualcomm_snapdragon_spec,0.00010543826646980468,Random Forest_target,price,feature_importance,0.00010543826646980468
+model_Legion,8.703621883576448e-05,Random Forest_target,price,feature_importance,8.703621883576448e-05
+model_TUF Gaming F15,8.619826094986004e-05,Random Forest_target,price,feature_importance,8.619826094986004e-05
+model_Gaming Thin GF,8.214368006931318e-05,Random Forest_target,price,feature_importance,8.214368006931318e-05
+cpu_family_group_Intel Low End,7.427318349121465e-05,Random Forest_target,price,feature_importance,7.427318349121465e-05
+model_Vostro,7.226325074083682e-05,Random Forest_target,price,feature_importance,7.226325074083682e-05
+model_IdeaPad,6.980917172663253e-05,Random Forest_target,price,feature_importance,6.980917172663253e-05
+model_ProBook,6.866218712608177e-05,Random Forest_target,price,feature_importance,6.866218712608177e-05
+model_MacBook Pro M2,5.178249069564547e-05,Random Forest_target,price,feature_importance,5.178249069564547e-05
+model_Pavilion 15,3.971687393479369e-05,Random Forest_target,price,feature_importance,3.971687393479369e-05
+model_Latitude 14 7000,3.6458445208483654e-05,Random Forest_target,price,feature_importance,3.6458445208483654e-05
+model_X Series,2.7958659074617265e-05,Random Forest_target,price,feature_importance,2.7958659074617265e-05
+model_MacBook Air M2,2.4675999011103988e-05,Random Forest_target,price,feature_importance,2.4675999011103988e-05
+model_Aspire,2.3232148151292277e-05,Random Forest_target,price,feature_importance,2.3232148151292277e-05
+model_Vivobook 15,2.1408349266770378e-05,Random Forest_target,price,feature_importance,2.1408349266770378e-05
+model_Elitebook 800,1.8324940549394237e-05,Random Forest_target,price,feature_importance,1.8324940549394237e-05
+brand_Sony,1.6828541348307387e-05,Random Forest_target,price,feature_importance,1.6828541348307387e-05
+brand_Toshiba,8.385398721860933e-06,Random Forest_target,price,feature_importance,8.385398721860933e-06
+ram_level,0.29441321186686625,Random Forest_log_target,price,feature_importance,0.29441321186686625
+condition_score,0.2735190935004375,Random Forest_log_target,price,feature_importance,0.2735190935004375
+storage_level,0.0991641852490541,Random Forest_log_target,price,feature_importance,0.0991641852490541
+warranty_encoded,0.05834696044353951,Random Forest_log_target,price,feature_importance,0.05834696044353951
+cpu_family_ord_filled,0.048974419542311284,Random Forest_log_target,price,feature_importance,0.048974419542311284
+cpu_tier_encoded,0.026824834717903912,Random Forest_log_target,price,feature_importance,0.026824834717903912
+cpu_brand_Apple,0.025806536145803808,Random Forest_log_target,price,feature_importance,0.025806536145803808
+screen_size_level,0.012948484740775418,Random Forest_log_target,price,feature_importance,0.012948484740775418
+gpu_tier_ord_filled,0.012132329592338781,Random Forest_log_target,price,feature_importance,0.012132329592338781
+storage_hdd,0.011125692535324885,Random Forest_log_target,price,feature_importance,0.011125692535324885
+cpu_family_group_Apple Silicon,0.010548349422784433,Random Forest_log_target,price,feature_importance,0.010548349422784433
+brand_Apple,0.008783960164591145,Random Forest_log_target,price,feature_importance,0.008783960164591145
+cpu_intel_generation_ord,0.0078710610596646,Random Forest_log_target,price,feature_importance,0.0078710610596646
+brand_Dell,0.006130947070653563,Random Forest_log_target,price,feature_importance,0.006130947070653563
+brand_Lenovo,0.006055521360264738,Random Forest_log_target,price,feature_importance,0.006055521360264738
+gpu_type_Dedicated,0.005234679304098279,Random Forest_log_target,price,feature_importance,0.005234679304098279
+cpu_suffix_power_ord_filled,0.0046548354771136224,Random Forest_log_target,price,feature_importance,0.0046548354771136224
+brand_HP,0.004455428243117599,Random Forest_log_target,price,feature_importance,0.004455428243117599
+no_info_cpu_tier,0.004047887071860243,Random Forest_log_target,price,feature_importance,0.004047887071860243
+cpu_family_group_Intel Core i,0.003907271979671529,Random Forest_log_target,price,feature_importance,0.003907271979671529
+brand_ASUS,0.003721887794888263,Random Forest_log_target,price,feature_importance,0.003721887794888263
+brand_Microsoft,0.0036314515565467544,Random Forest_log_target,price,feature_importance,0.0036314515565467544
+gpu_type_Integrated,0.0033829136094385977,Random Forest_log_target,price,feature_importance,0.0033829136094385977
+storage_ssd,0.0032646892442364374,Random Forest_log_target,price,feature_importance,0.0032646892442364374
+brand_Acer,0.003037910121453355,Random Forest_log_target,price,feature_importance,0.003037910121453355
+screen_missing,0.0029903458574651216,Random Forest_log_target,price,feature_importance,0.0029903458574651216
+cpu_brand_Intel,0.002887465595333137,Random Forest_log_target,price,feature_importance,0.002887465595333137
+cpu_brand_AMD,0.0026158202378483296,Random Forest_log_target,price,feature_importance,0.0026158202378483296
+no_info_model,0.002445936526986251,Random Forest_log_target,price,feature_importance,0.002445936526986251
+brand_MSI,0.0024287679810457985,Random Forest_log_target,price,feature_importance,0.0024287679810457985
+no_info_storage,0.002402374300886363,Random Forest_log_target,price,feature_importance,0.002402374300886363
+model_Other,0.002371657953168994,Random Forest_log_target,price,feature_importance,0.002371657953168994
+ram_missing,0.0021792533718385017,Random Forest_log_target,price,feature_importance,0.0021792533718385017
+cpu_family_group_Intel Core Ultra,0.001887834746001794,Random Forest_log_target,price,feature_importance,0.001887834746001794
+model_is_rare,0.0018533467282670975,Random Forest_log_target,price,feature_importance,0.0018533467282670975
+gpu_type_Missing_Info,0.0017719370017529605,Random Forest_log_target,price,feature_importance,0.0017719370017529605
+no_info_gpu,0.0017590116479116141,Random Forest_log_target,price,feature_importance,0.0017590116479116141
+model_MacBook Pro,0.001747241945572874,Random Forest_log_target,price,feature_importance,0.001747241945572874
+model_Latitude E Series,0.0016580848999049635,Random Forest_log_target,price,feature_importance,0.0016580848999049635
+model_Latitude,0.0016108957958893908,Random Forest_log_target,price,feature_importance,0.0016108957958893908
+cpu_amd_generation_ord,0.0015483621201162869,Random Forest_log_target,price,feature_importance,0.0015483621201162869
+storage_missing,0.0015251527498270278,Random Forest_log_target,price,feature_importance,0.0015251527498270278
+brand_is_rare,0.0013937351138251875,Random Forest_log_target,price,feature_importance,0.0013937351138251875
+model_Inspiron,0.0013444047893638865,Random Forest_log_target,price,feature_importance,0.0013444047893638865
+model_Precision,0.0013317399725186298,Random Forest_log_target,price,feature_importance,0.0013317399725186298
+cpu_family_group_AMD Ryzen,0.001214736100733013,Random Forest_log_target,price,feature_importance,0.001214736100733013
+no_info_brand,0.0011997332097297335,Random Forest_log_target,price,feature_importance,0.0011997332097297335
+brand_Other,0.0011669644230473686,Random Forest_log_target,price,feature_importance,0.0011669644230473686
+cpu_brand_Other,0.001053952113729738,Random Forest_log_target,price,feature_importance,0.001053952113729738
+model_MacBook Air,0.001043370795349278,Random Forest_log_target,price,feature_importance,0.001043370795349278
+no_info_cpu_brand,0.001007048578546911,Random Forest_log_target,price,feature_importance,0.001007048578546911
+model_XPS 13,0.0009824201442114205,Random Forest_log_target,price,feature_importance,0.0009824201442114205
+model_MacBook Air M1,0.000872956752385539,Random Forest_log_target,price,feature_importance,0.000872956752385539
+model_Vostro,0.000760896044319266,Random Forest_log_target,price,feature_importance,0.000760896044319266
+model_ThinkPad,0.0007408027919117272,Random Forest_log_target,price,feature_importance,0.0007408027919117272
+model_Nitro 5,0.0006940214185234756,Random Forest_log_target,price,feature_importance,0.0006940214185234756
+cpu_family_group_Intel Low End,0.0006802022461961909,Random Forest_log_target,price,feature_importance,0.0006802022461961909
+model_Elitebook,0.0006453841058942729,Random Forest_log_target,price,feature_importance,0.0006453841058942729
+model_Legion 5,0.0005677586660345265,Random Forest_log_target,price,feature_importance,0.0005677586660345265
+model_ProBook,0.0004989763820884229,Random Forest_log_target,price,feature_importance,0.0004989763820884229
+model_X Series,0.0004241511712650723,Random Forest_log_target,price,feature_importance,0.0004241511712650723
+model_Pavilion 15,0.0004062587246180923,Random Forest_log_target,price,feature_importance,0.0004062587246180923
+model_ThinkPad X1 Carbon,0.00039600380134055606,Random Forest_log_target,price,feature_importance,0.00039600380134055606
+brand_LG,0.0003920146671955271,Random Forest_log_target,price,feature_importance,0.0003920146671955271
+model_IdeaPad,0.00036853459451904245,Random Forest_log_target,price,feature_importance,0.00036853459451904245
+model_TUF Gaming F15,0.00036780939628476317,Random Forest_log_target,price,feature_importance,0.00036780939628476317
+brand_Sony,0.00033298466895570635,Random Forest_log_target,price,feature_importance,0.00033298466895570635
+model_TUF Gaming,0.0003266885443194149,Random Forest_log_target,price,feature_importance,0.0003266885443194149
+model_Gaming Thin GF,0.00025684492399171517,Random Forest_log_target,price,feature_importance,0.00025684492399171517
+model_ROG Strix,0.00021966027501140508,Random Forest_log_target,price,feature_importance,0.00021966027501140508
+model_Aspire,0.00021405448799068097,Random Forest_log_target,price,feature_importance,0.00021405448799068097
+model_Latitude 14 7000,0.0001681488844736852,Random Forest_log_target,price,feature_importance,0.0001681488844736852
+model_Macbook air m4,0.0001435991574933,Random Forest_log_target,price,feature_importance,0.0001435991574933
+cpu_brand_Microsoft SQ,0.0001354599029741668,Random Forest_log_target,price,feature_importance,0.0001354599029741668
+cpu_brand_Qualcomm,0.00012650678176750647,Random Forest_log_target,price,feature_importance,0.00012650678176750647
+model_MacBook Pro M1,0.0001229026646877011,Random Forest_log_target,price,feature_importance,0.0001229026646877011
+brand_Toshiba,0.00011657514291261643,Random Forest_log_target,price,feature_importance,0.00011657514291261643
+model_Vivobook 15,0.00011571751122443857,Random Forest_log_target,price,feature_importance,0.00011571751122443857
+model_Legion,0.00011340121586740214,Random Forest_log_target,price,feature_importance,0.00011340121586740214
+model_Elitebook 800,9.268178866559673e-05,Random Forest_log_target,price,feature_importance,9.268178866559673e-05
+cpu_apple_core_spec,7.079405033868385e-05,Random Forest_log_target,price,feature_importance,7.079405033868385e-05
+gpu_type_Apple SoC,6.68583861463051e-05,Random Forest_log_target,price,feature_importance,6.68583861463051e-05
+brand_Gigabyte,5.404364643629292e-05,Random Forest_log_target,price,feature_importance,5.404364643629292e-05
+model_MacBook Air M2,3.495238730791619e-05,Random Forest_log_target,price,feature_importance,3.495238730791619e-05
+model_MacBook Pro M2,3.445549729338401e-05,Random Forest_log_target,price,feature_importance,3.445549729338401e-05
+cpu_qualcomm_snapdragon_spec,3.176280395526131e-05,Random Forest_log_target,price,feature_importance,3.176280395526131e-05
+ram_level,0.20603860473998337,Extra Trees_target,price,feature_importance,0.20603860473998337
+warranty_encoded,0.1638554528017579,Extra Trees_target,price,feature_importance,0.1638554528017579
+cpu_tier_encoded,0.09639346512201014,Extra Trees_target,price,feature_importance,0.09639346512201014
+condition_score,0.09593539742193981,Extra Trees_target,price,feature_importance,0.09593539742193981
+storage_level,0.09423320792204058,Extra Trees_target,price,feature_importance,0.09423320792204058
+cpu_family_ord_filled,0.08782286141711641,Extra Trees_target,price,feature_importance,0.08782286141711641
+gpu_tier_ord_filled,0.028285032630424648,Extra Trees_target,price,feature_importance,0.028285032630424648
+cpu_suffix_power_ord_filled,0.027276294034537345,Extra Trees_target,price,feature_importance,0.027276294034537345
+cpu_family_group_Apple Silicon,0.020960402676952587,Extra Trees_target,price,feature_importance,0.020960402676952587
+screen_size_level,0.01767626875953261,Extra Trees_target,price,feature_importance,0.01767626875953261
+cpu_intel_generation_ord,0.017341072485552743,Extra Trees_target,price,feature_importance,0.017341072485552743
+gpu_type_Dedicated,0.017034612955603826,Extra Trees_target,price,feature_importance,0.017034612955603826
+brand_Lenovo,0.00986608053710582,Extra Trees_target,price,feature_importance,0.00986608053710582
+cpu_family_group_Intel Core Ultra,0.008212850269230548,Extra Trees_target,price,feature_importance,0.008212850269230548
+no_info_cpu_tier,0.00803324879432234,Extra Trees_target,price,feature_importance,0.00803324879432234
+brand_Dell,0.007973617769238026,Extra Trees_target,price,feature_importance,0.007973617769238026
+gpu_type_Apple SoC,0.007359984634029512,Extra Trees_target,price,feature_importance,0.007359984634029512
+brand_HP,0.006942190313932012,Extra Trees_target,price,feature_importance,0.006942190313932012
+cpu_brand_Apple,0.006930099417182141,Extra Trees_target,price,feature_importance,0.006930099417182141
+gpu_type_Integrated,0.006768624429793935,Extra Trees_target,price,feature_importance,0.006768624429793935
+brand_ASUS,0.004840189437631341,Extra Trees_target,price,feature_importance,0.004840189437631341
+storage_hdd,0.004206282818928329,Extra Trees_target,price,feature_importance,0.004206282818928329
+cpu_family_group_Intel Core i,0.004166466745043559,Extra Trees_target,price,feature_importance,0.004166466745043559
+brand_Apple,0.0040266020610953985,Extra Trees_target,price,feature_importance,0.0040266020610953985
+cpu_brand_Intel,0.0036046356403286366,Extra Trees_target,price,feature_importance,0.0036046356403286366
+brand_MSI,0.0032899694257127947,Extra Trees_target,price,feature_importance,0.0032899694257127947
+brand_Microsoft,0.002881701211540675,Extra Trees_target,price,feature_importance,0.002881701211540675
+brand_Acer,0.0025874220361673987,Extra Trees_target,price,feature_importance,0.0025874220361673987
+cpu_amd_generation_ord,0.0025651464259348012,Extra Trees_target,price,feature_importance,0.0025651464259348012
+storage_ssd,0.0023357613725642754,Extra Trees_target,price,feature_importance,0.0023357613725642754
+cpu_brand_AMD,0.0020369775886199385,Extra Trees_target,price,feature_importance,0.0020369775886199385
+ram_missing,0.0019181923501233984,Extra Trees_target,price,feature_importance,0.0019181923501233984
+cpu_family_group_AMD Ryzen,0.0016629790683171427,Extra Trees_target,price,feature_importance,0.0016629790683171427
+gpu_type_Missing_Info,0.0016121171367865133,Extra Trees_target,price,feature_importance,0.0016121171367865133
+no_info_gpu,0.0015057390042001934,Extra Trees_target,price,feature_importance,0.0015057390042001934
+screen_missing,0.0014285429505428548,Extra Trees_target,price,feature_importance,0.0014285429505428548
+cpu_brand_Other,0.0013271017836445924,Extra Trees_target,price,feature_importance,0.0013271017836445924
+no_info_model,0.0012573130998456401,Extra Trees_target,price,feature_importance,0.0012573130998456401
+model_Other,0.0012300465775078166,Extra Trees_target,price,feature_importance,0.0012300465775078166
+no_info_cpu_brand,0.0011929777880720024,Extra Trees_target,price,feature_importance,0.0011929777880720024
+cpu_apple_core_spec,0.0011914307826208868,Extra Trees_target,price,feature_importance,0.0011914307826208868
+no_info_brand,0.0011620980253998548,Extra Trees_target,price,feature_importance,0.0011620980253998548
+brand_Other,0.001161286258487179,Extra Trees_target,price,feature_importance,0.001161286258487179
+model_is_rare,0.0011142604208446301,Extra Trees_target,price,feature_importance,0.0011142604208446301
+no_info_storage,0.00107223458451857,Extra Trees_target,price,feature_importance,0.00107223458451857
+model_MacBook Pro,0.000838431259448019,Extra Trees_target,price,feature_importance,0.000838431259448019
+storage_missing,0.0007982959576781798,Extra Trees_target,price,feature_importance,0.0007982959576781798
+brand_is_rare,0.0007313656477357485,Extra Trees_target,price,feature_importance,0.0007313656477357485
+brand_LG,0.0007060294953121526,Extra Trees_target,price,feature_importance,0.0007060294953121526
+model_Precision,0.0006873407451265248,Extra Trees_target,price,feature_importance,0.0006873407451265248
+cpu_family_group_Intel Low End,0.0006389255004217045,Extra Trees_target,price,feature_importance,0.0006389255004217045
+model_XPS 13,0.0005763657455583549,Extra Trees_target,price,feature_importance,0.0005763657455583549
+cpu_brand_Qualcomm,0.0005241499622703015,Extra Trees_target,price,feature_importance,0.0005241499622703015
+model_MacBook Air M1,0.0004888578117307409,Extra Trees_target,price,feature_importance,0.0004888578117307409
+model_Legion 5,0.0003279850314737096,Extra Trees_target,price,feature_importance,0.0003279850314737096
+model_Latitude,0.00025937134545924627,Extra Trees_target,price,feature_importance,0.00025937134545924627
+model_Inspiron,0.0002236235458532171,Extra Trees_target,price,feature_importance,0.0002236235458532171
+model_Macbook air m4,0.00021450392998677726,Extra Trees_target,price,feature_importance,0.00021450392998677726
+brand_Gigabyte,0.00021111052597551336,Extra Trees_target,price,feature_importance,0.00021111052597551336
+model_ThinkPad,0.0002063916843945344,Extra Trees_target,price,feature_importance,0.0002063916843945344
+model_Nitro 5,0.00020518617698194881,Extra Trees_target,price,feature_importance,0.00020518617698194881
+model_ThinkPad X1 Carbon,0.00019570592242670033,Extra Trees_target,price,feature_importance,0.00019570592242670033
+model_MacBook Pro M1,0.00019160418304613056,Extra Trees_target,price,feature_importance,0.00019160418304613056
+model_MacBook Air,0.00017213910777980724,Extra Trees_target,price,feature_importance,0.00017213910777980724
+model_Elitebook,0.00016502305321590904,Extra Trees_target,price,feature_importance,0.00016502305321590904
+cpu_qualcomm_snapdragon_spec,0.00016464424192029283,Extra Trees_target,price,feature_importance,0.00016464424192029283
+model_ROG Strix,0.00015852020803275025,Extra Trees_target,price,feature_importance,0.00015852020803275025
+model_Gaming Thin GF,0.0001419715506274503,Extra Trees_target,price,feature_importance,0.0001419715506274503
+model_TUF Gaming F15,0.0001193031808824583,Extra Trees_target,price,feature_importance,0.0001193031808824583
+model_Latitude E Series,0.00010923105364957393,Extra Trees_target,price,feature_importance,0.00010923105364957393
+model_TUF Gaming,0.00010731824773664319,Extra Trees_target,price,feature_importance,0.00010731824773664319
+model_IdeaPad,6.9434949788486e-05,Extra Trees_target,price,feature_importance,6.9434949788486e-05
+model_ProBook,5.6884018351147424e-05,Extra Trees_target,price,feature_importance,5.6884018351147424e-05
+cpu_brand_Microsoft SQ,5.212817380500729e-05,Extra Trees_target,price,feature_importance,5.212817380500729e-05
+model_MacBook Pro M2,5.1288607214256145e-05,Extra Trees_target,price,feature_importance,5.1288607214256145e-05
+model_Legion,4.698718075327509e-05,Extra Trees_target,price,feature_importance,4.698718075327509e-05
+model_Pavilion 15,4.687885049342079e-05,Extra Trees_target,price,feature_importance,4.687885049342079e-05
+model_Vostro,4.3212913933924585e-05,Extra Trees_target,price,feature_importance,4.3212913933924585e-05
+model_Aspire,4.0863816018992725e-05,Extra Trees_target,price,feature_importance,4.0863816018992725e-05
+model_Vivobook 15,2.1786688486885776e-05,Extra Trees_target,price,feature_importance,2.1786688486885776e-05
+model_MacBook Air M2,2.146148257758607e-05,Extra Trees_target,price,feature_importance,2.146148257758607e-05
+model_X Series,1.8029402127719923e-05,Extra Trees_target,price,feature_importance,1.8029402127719923e-05
+brand_Sony,1.6058823803408832e-05,Extra Trees_target,price,feature_importance,1.6058823803408832e-05
+model_Latitude 14 7000,1.5183502612358688e-05,Extra Trees_target,price,feature_importance,1.5183502612358688e-05
+model_Elitebook 800,1.3338028214300964e-05,Extra Trees_target,price,feature_importance,1.3338028214300964e-05
+brand_Toshiba,6.224720329972274e-06,Extra Trees_target,price,feature_importance,6.224720329972274e-06
+condition_score,0.19114616901066067,Extra Trees_log_target,price,feature_importance,0.19114616901066067
+ram_level,0.18443194113591432,Extra Trees_log_target,price,feature_importance,0.18443194113591432
+storage_level,0.14276741019194403,Extra Trees_log_target,price,feature_importance,0.14276741019194403
+warranty_encoded,0.10138026738219952,Extra Trees_log_target,price,feature_importance,0.10138026738219952
+cpu_family_ord_filled,0.04309701283464404,Extra Trees_log_target,price,feature_importance,0.04309701283464404
+cpu_tier_encoded,0.039367101281407996,Extra Trees_log_target,price,feature_importance,0.039367101281407996
+cpu_family_group_Apple Silicon,0.029798275375785294,Extra Trees_log_target,price,feature_importance,0.029798275375785294
+cpu_suffix_power_ord_filled,0.023207123496541446,Extra Trees_log_target,price,feature_importance,0.023207123496541446
+cpu_intel_generation_ord,0.023140030527136323,Extra Trees_log_target,price,feature_importance,0.023140030527136323
+gpu_type_Dedicated,0.02062734878394503,Extra Trees_log_target,price,feature_importance,0.02062734878394503
+gpu_tier_ord_filled,0.016406301760764925,Extra Trees_log_target,price,feature_importance,0.016406301760764925
+cpu_brand_Apple,0.015192488853685543,Extra Trees_log_target,price,feature_importance,0.015192488853685543
+storage_hdd,0.015155090450958966,Extra Trees_log_target,price,feature_importance,0.015155090450958966
+cpu_brand_Intel,0.01397778742483701,Extra Trees_log_target,price,feature_importance,0.01397778742483701
+screen_size_level,0.01185365716114998,Extra Trees_log_target,price,feature_importance,0.01185365716114998
+brand_Apple,0.010706307507521497,Extra Trees_log_target,price,feature_importance,0.010706307507521497
+no_info_cpu_tier,0.009942026062292199,Extra Trees_log_target,price,feature_importance,0.009942026062292199
+brand_Dell,0.006284671755759847,Extra Trees_log_target,price,feature_importance,0.006284671755759847
+brand_Lenovo,0.006229631632265342,Extra Trees_log_target,price,feature_importance,0.006229631632265342
+cpu_family_group_Intel Core i,0.005081455870134501,Extra Trees_log_target,price,feature_importance,0.005081455870134501
+screen_missing,0.004648745172914152,Extra Trees_log_target,price,feature_importance,0.004648745172914152
+gpu_type_Integrated,0.00446476878918116,Extra Trees_log_target,price,feature_importance,0.00446476878918116
+brand_HP,0.004357375495732894,Extra Trees_log_target,price,feature_importance,0.004357375495732894
+brand_ASUS,0.0039581045271231425,Extra Trees_log_target,price,feature_importance,0.0039581045271231425
+ram_missing,0.003858146911998755,Extra Trees_log_target,price,feature_importance,0.003858146911998755
+brand_Microsoft,0.0038123874031560966,Extra Trees_log_target,price,feature_importance,0.0038123874031560966
+storage_ssd,0.0035904283033912354,Extra Trees_log_target,price,feature_importance,0.0035904283033912354
+cpu_brand_AMD,0.0035133439769090306,Extra Trees_log_target,price,feature_importance,0.0035133439769090306
+cpu_family_group_Intel Core Ultra,0.00307384441133558,Extra Trees_log_target,price,feature_importance,0.00307384441133558
+brand_Acer,0.002853178839112597,Extra Trees_log_target,price,feature_importance,0.002853178839112597
+cpu_family_group_Intel Low End,0.00256848057449923,Extra Trees_log_target,price,feature_importance,0.00256848057449923
+model_Other,0.0025354921049742236,Extra Trees_log_target,price,feature_importance,0.0025354921049742236
+no_info_storage,0.002458630049565726,Extra Trees_log_target,price,feature_importance,0.002458630049565726
+no_info_model,0.002438888556565622,Extra Trees_log_target,price,feature_importance,0.002438888556565622
+brand_MSI,0.0023992328073729487,Extra Trees_log_target,price,feature_importance,0.0023992328073729487
+storage_missing,0.0021009722650604714,Extra Trees_log_target,price,feature_importance,0.0021009722650604714
+no_info_cpu_brand,0.002092353091946496,Extra Trees_log_target,price,feature_importance,0.002092353091946496
+model_MacBook Pro,0.0020635657457051767,Extra Trees_log_target,price,feature_importance,0.0020635657457051767
+model_is_rare,0.0020562695084891066,Extra Trees_log_target,price,feature_importance,0.0020562695084891066
+no_info_gpu,0.0020556621062374934,Extra Trees_log_target,price,feature_importance,0.0020556621062374934
+gpu_type_Missing_Info,0.0020382800804829597,Extra Trees_log_target,price,feature_importance,0.0020382800804829597
+model_Latitude E Series,0.0017293703300564692,Extra Trees_log_target,price,feature_importance,0.0017293703300564692
+model_MacBook Air M1,0.0015951534494553694,Extra Trees_log_target,price,feature_importance,0.0015951534494553694
+model_Latitude,0.0015300433496658321,Extra Trees_log_target,price,feature_importance,0.0015300433496658321
+cpu_brand_Other,0.0015174813066340322,Extra Trees_log_target,price,feature_importance,0.0015174813066340322
+brand_is_rare,0.0015117757212896475,Extra Trees_log_target,price,feature_importance,0.0015117757212896475
+gpu_type_Apple SoC,0.0013327871853493103,Extra Trees_log_target,price,feature_importance,0.0013327871853493103
+model_Precision,0.0013099024978155435,Extra Trees_log_target,price,feature_importance,0.0013099024978155435
+cpu_amd_generation_ord,0.001281383270318591,Extra Trees_log_target,price,feature_importance,0.001281383270318591
+cpu_family_group_AMD Ryzen,0.00127613184623945,Extra Trees_log_target,price,feature_importance,0.00127613184623945
+brand_Other,0.0011755151113618148,Extra Trees_log_target,price,feature_importance,0.0011755151113618148
+model_XPS 13,0.001124203248210702,Extra Trees_log_target,price,feature_importance,0.001124203248210702
+model_Inspiron,0.0011096995484036962,Extra Trees_log_target,price,feature_importance,0.0011096995484036962
+no_info_brand,0.0011018080694232995,Extra Trees_log_target,price,feature_importance,0.0011018080694232995
+model_MacBook Air,0.001092452367776008,Extra Trees_log_target,price,feature_importance,0.001092452367776008
+model_ThinkPad,0.0007309050597338569,Extra Trees_log_target,price,feature_importance,0.0007309050597338569
+model_Vostro,0.0005991595477400502,Extra Trees_log_target,price,feature_importance,0.0005991595477400502
+model_Nitro 5,0.0005903116926709693,Extra Trees_log_target,price,feature_importance,0.0005903116926709693
+model_ProBook,0.0004928000788418536,Extra Trees_log_target,price,feature_importance,0.0004928000788418536
+model_Pavilion 15,0.00046985887799974986,Extra Trees_log_target,price,feature_importance,0.00046985887799974986
+model_Elitebook,0.0004444204271746175,Extra Trees_log_target,price,feature_importance,0.0004444204271746175
+brand_LG,0.0004024832988456265,Extra Trees_log_target,price,feature_importance,0.0004024832988456265
+model_Legion 5,0.000384375672276205,Extra Trees_log_target,price,feature_importance,0.000384375672276205
+model_ThinkPad X1 Carbon,0.00038123614833298356,Extra Trees_log_target,price,feature_importance,0.00038123614833298356
+cpu_brand_Qualcomm,0.0003631860045849269,Extra Trees_log_target,price,feature_importance,0.0003631860045849269
+brand_Sony,0.0003561891408104662,Extra Trees_log_target,price,feature_importance,0.0003561891408104662
+model_TUF Gaming,0.00034694659540517655,Extra Trees_log_target,price,feature_importance,0.00034694659540517655
+model_IdeaPad,0.0003341708746223606,Extra Trees_log_target,price,feature_importance,0.0003341708746223606
+model_TUF Gaming F15,0.0003297167687086602,Extra Trees_log_target,price,feature_importance,0.0003297167687086602
+model_MacBook Pro M1,0.0002806556763294378,Extra Trees_log_target,price,feature_importance,0.0002806556763294378
+model_X Series,0.00027455508355871773,Extra Trees_log_target,price,feature_importance,0.00027455508355871773
+model_Aspire,0.00024399617857795157,Extra Trees_log_target,price,feature_importance,0.00024399617857795157
+model_Gaming Thin GF,0.00024011544958837635,Extra Trees_log_target,price,feature_importance,0.00024011544958837635
+model_ROG Strix,0.00022281848546388362,Extra Trees_log_target,price,feature_importance,0.00022281848546388362
+cpu_apple_core_spec,0.0001896569191284495,Extra Trees_log_target,price,feature_importance,0.0001896569191284495
+model_Macbook air m4,0.00014916903284359985,Extra Trees_log_target,price,feature_importance,0.00014916903284359985
+model_Latitude 14 7000,0.00013808554122125879,Extra Trees_log_target,price,feature_importance,0.00013808554122125879
+model_Vivobook 15,0.00010605299275678426,Extra Trees_log_target,price,feature_importance,0.00010605299275678426
+model_Elitebook 800,9.819665108112728e-05,Extra Trees_log_target,price,feature_importance,9.819665108112728e-05
+brand_Toshiba,9.460043144657455e-05,Extra Trees_log_target,price,feature_importance,9.460043144657455e-05
+model_Legion,8.579766449273172e-05,Extra Trees_log_target,price,feature_importance,8.579766449273172e-05
+brand_Gigabyte,6.60331380544932e-05,Extra Trees_log_target,price,feature_importance,6.60331380544932e-05
+model_MacBook Air M2,5.0966565150340486e-05,Extra Trees_log_target,price,feature_importance,5.0966565150340486e-05
+cpu_brand_Microsoft SQ,4.8336433591902955e-05,Extra Trees_log_target,price,feature_importance,4.8336433591902955e-05
+cpu_qualcomm_snapdragon_spec,3.596236254206637e-05,Extra Trees_log_target,price,feature_importance,3.596236254206637e-05
+model_MacBook Pro M2,3.128468312253236e-05,Extra Trees_log_target,price,feature_importance,3.128468312253236e-05
+cpu_intel_generation_ord,1463.0,LightGBM_target,price,feature_importance,1463.0
+storage_level,1389.0,LightGBM_target,price,feature_importance,1389.0
+ram_level,1372.0,LightGBM_target,price,feature_importance,1372.0
+cpu_tier_encoded,1274.0,LightGBM_target,price,feature_importance,1274.0
+gpu_tier_ord_filled,1032.0,LightGBM_target,price,feature_importance,1032.0
+screen_size_level,932.0,LightGBM_target,price,feature_importance,932.0
+cpu_suffix_power_ord_filled,771.0,LightGBM_target,price,feature_importance,771.0
+cpu_family_ord_filled,752.0,LightGBM_target,price,feature_importance,752.0
+cpu_amd_generation_ord,478.0,LightGBM_target,price,feature_importance,478.0
+brand_Dell,340.0,LightGBM_target,price,feature_importance,340.0
+brand_Lenovo,277.0,LightGBM_target,price,feature_importance,277.0
+no_info_gpu,264.0,LightGBM_target,price,feature_importance,264.0
+gpu_type_Integrated,254.0,LightGBM_target,price,feature_importance,254.0
+condition_score,249.0,LightGBM_target,price,feature_importance,249.0
+warranty_encoded,240.0,LightGBM_target,price,feature_importance,240.0
+cpu_brand_Intel,237.0,LightGBM_target,price,feature_importance,237.0
+cpu_family_group_Intel Core i,235.0,LightGBM_target,price,feature_importance,235.0
+brand_HP,233.0,LightGBM_target,price,feature_importance,233.0
+cpu_family_group_Intel Core Ultra,225.0,LightGBM_target,price,feature_importance,225.0
+brand_ASUS,213.0,LightGBM_target,price,feature_importance,213.0
+no_info_model,206.0,LightGBM_target,price,feature_importance,206.0
+no_info_cpu_tier,195.0,LightGBM_target,price,feature_importance,195.0
+screen_missing,144.0,LightGBM_target,price,feature_importance,144.0
+brand_Apple,141.0,LightGBM_target,price,feature_importance,141.0
+brand_MSI,118.0,LightGBM_target,price,feature_importance,118.0
+brand_Microsoft,112.0,LightGBM_target,price,feature_importance,112.0
+storage_hdd,105.0,LightGBM_target,price,feature_importance,105.0
+ram_missing,103.0,LightGBM_target,price,feature_importance,103.0
+brand_Acer,100.0,LightGBM_target,price,feature_importance,100.0
+storage_missing,100.0,LightGBM_target,price,feature_importance,100.0
+no_info_brand,95.0,LightGBM_target,price,feature_importance,95.0
+brand_LG,93.0,LightGBM_target,price,feature_importance,93.0
+cpu_brand_Apple,84.0,LightGBM_target,price,feature_importance,84.0
+storage_ssd,84.0,LightGBM_target,price,feature_importance,84.0
+model_is_rare,79.0,LightGBM_target,price,feature_importance,79.0
+cpu_brand_AMD,66.0,LightGBM_target,price,feature_importance,66.0
+no_info_cpu_brand,62.0,LightGBM_target,price,feature_importance,62.0
+model_MacBook Pro,62.0,LightGBM_target,price,feature_importance,62.0
+cpu_family_group_Apple Silicon,56.0,LightGBM_target,price,feature_importance,56.0
+cpu_apple_core_spec,49.0,LightGBM_target,price,feature_importance,49.0
+no_info_storage,47.0,LightGBM_target,price,feature_importance,47.0
+brand_is_rare,47.0,LightGBM_target,price,feature_importance,47.0
+model_ThinkPad,45.0,LightGBM_target,price,feature_importance,45.0
+model_Latitude E Series,43.0,LightGBM_target,price,feature_importance,43.0
+model_XPS 13,43.0,LightGBM_target,price,feature_importance,43.0
+model_Legion 5,39.0,LightGBM_target,price,feature_importance,39.0
+model_Gaming Thin GF,37.0,LightGBM_target,price,feature_importance,37.0
+model_TUF Gaming F15,33.0,LightGBM_target,price,feature_importance,33.0
+model_MacBook Air M1,31.0,LightGBM_target,price,feature_importance,31.0
+model_Nitro 5,30.0,LightGBM_target,price,feature_importance,30.0
+model_MacBook Pro M1,29.0,LightGBM_target,price,feature_importance,29.0
+cpu_family_group_AMD Ryzen,28.0,LightGBM_target,price,feature_importance,28.0
+model_Precision,26.0,LightGBM_target,price,feature_importance,26.0
+model_ThinkPad X1 Carbon,25.0,LightGBM_target,price,feature_importance,25.0
+model_X Series,24.0,LightGBM_target,price,feature_importance,24.0
+model_Elitebook,23.0,LightGBM_target,price,feature_importance,23.0
+model_ProBook,23.0,LightGBM_target,price,feature_importance,23.0
+model_Vostro,19.0,LightGBM_target,price,feature_importance,19.0
+gpu_type_Apple SoC,17.0,LightGBM_target,price,feature_importance,17.0
+model_MacBook Air,16.0,LightGBM_target,price,feature_importance,16.0
+model_ROG Strix,15.0,LightGBM_target,price,feature_importance,15.0
+model_IdeaPad,14.0,LightGBM_target,price,feature_importance,14.0
+model_Inspiron,14.0,LightGBM_target,price,feature_importance,14.0
+model_MacBook Pro M2,12.0,LightGBM_target,price,feature_importance,12.0
+model_Aspire,12.0,LightGBM_target,price,feature_importance,12.0
+model_Elitebook 800,7.0,LightGBM_target,price,feature_importance,7.0
+model_Latitude,6.0,LightGBM_target,price,feature_importance,6.0
+model_Macbook air m4,5.0,LightGBM_target,price,feature_importance,5.0
+cpu_family_group_Intel Low End,5.0,LightGBM_target,price,feature_importance,5.0
+model_MacBook Air M2,1.0,LightGBM_target,price,feature_importance,1.0
+brand_Gigabyte,0.0,LightGBM_target,price,feature_importance,0.0
+gpu_type_Dedicated,0.0,LightGBM_target,price,feature_importance,0.0
+brand_Other,0.0,LightGBM_target,price,feature_importance,0.0
+brand_Sony,0.0,LightGBM_target,price,feature_importance,0.0
+brand_Toshiba,0.0,LightGBM_target,price,feature_importance,0.0
+cpu_qualcomm_snapdragon_spec,0.0,LightGBM_target,price,feature_importance,0.0
+model_Vivobook 15,0.0,LightGBM_target,price,feature_importance,0.0
+model_TUF Gaming,0.0,LightGBM_target,price,feature_importance,0.0
+model_Latitude 14 7000,0.0,LightGBM_target,price,feature_importance,0.0
+model_Legion,0.0,LightGBM_target,price,feature_importance,0.0
+cpu_brand_Qualcomm,0.0,LightGBM_target,price,feature_importance,0.0
+cpu_brand_Other,0.0,LightGBM_target,price,feature_importance,0.0
+cpu_brand_Microsoft SQ,0.0,LightGBM_target,price,feature_importance,0.0
+model_Other,0.0,LightGBM_target,price,feature_importance,0.0
+model_Pavilion 15,0.0,LightGBM_target,price,feature_importance,0.0
+gpu_type_Missing_Info,0.0,LightGBM_target,price,feature_importance,0.0
+storage_level,1303.0,LightGBM_log_target,price,feature_importance,1303.0
+ram_level,1157.0,LightGBM_log_target,price,feature_importance,1157.0
+cpu_tier_encoded,1071.0,LightGBM_log_target,price,feature_importance,1071.0
+cpu_family_ord_filled,943.0,LightGBM_log_target,price,feature_importance,943.0
+cpu_intel_generation_ord,823.0,LightGBM_log_target,price,feature_importance,823.0
+screen_size_level,729.0,LightGBM_log_target,price,feature_importance,729.0
+gpu_tier_ord_filled,590.0,LightGBM_log_target,price,feature_importance,590.0
+cpu_suffix_power_ord_filled,440.0,LightGBM_log_target,price,feature_importance,440.0
+brand_Dell,429.0,LightGBM_log_target,price,feature_importance,429.0
+no_info_model,429.0,LightGBM_log_target,price,feature_importance,429.0
+no_info_gpu,415.0,LightGBM_log_target,price,feature_importance,415.0
+condition_score,383.0,LightGBM_log_target,price,feature_importance,383.0
+screen_missing,338.0,LightGBM_log_target,price,feature_importance,338.0
+brand_Lenovo,332.0,LightGBM_log_target,price,feature_importance,332.0
+gpu_type_Integrated,326.0,LightGBM_log_target,price,feature_importance,326.0
+warranty_encoded,325.0,LightGBM_log_target,price,feature_importance,325.0
+brand_ASUS,260.0,LightGBM_log_target,price,feature_importance,260.0
+cpu_brand_Intel,254.0,LightGBM_log_target,price,feature_importance,254.0
+cpu_amd_generation_ord,231.0,LightGBM_log_target,price,feature_importance,231.0
+cpu_family_group_Intel Core i,226.0,LightGBM_log_target,price,feature_importance,226.0
+brand_HP,223.0,LightGBM_log_target,price,feature_importance,223.0
+brand_Apple,214.0,LightGBM_log_target,price,feature_importance,214.0
+storage_ssd,211.0,LightGBM_log_target,price,feature_importance,211.0
+storage_missing,206.0,LightGBM_log_target,price,feature_importance,206.0
+no_info_cpu_tier,170.0,LightGBM_log_target,price,feature_importance,170.0
+ram_missing,165.0,LightGBM_log_target,price,feature_importance,165.0
+cpu_brand_Apple,142.0,LightGBM_log_target,price,feature_importance,142.0
+model_is_rare,139.0,LightGBM_log_target,price,feature_importance,139.0
+cpu_brand_AMD,135.0,LightGBM_log_target,price,feature_importance,135.0
+cpu_family_group_Intel Core Ultra,129.0,LightGBM_log_target,price,feature_importance,129.0
+no_info_brand,128.0,LightGBM_log_target,price,feature_importance,128.0
+no_info_storage,121.0,LightGBM_log_target,price,feature_importance,121.0
+brand_Acer,116.0,LightGBM_log_target,price,feature_importance,116.0
+brand_Microsoft,110.0,LightGBM_log_target,price,feature_importance,110.0
+model_XPS 13,101.0,LightGBM_log_target,price,feature_importance,101.0
+brand_MSI,100.0,LightGBM_log_target,price,feature_importance,100.0
+model_MacBook Pro,97.0,LightGBM_log_target,price,feature_importance,97.0
+storage_hdd,92.0,LightGBM_log_target,price,feature_importance,92.0
+brand_LG,82.0,LightGBM_log_target,price,feature_importance,82.0
+brand_is_rare,80.0,LightGBM_log_target,price,feature_importance,80.0
+model_Nitro 5,78.0,LightGBM_log_target,price,feature_importance,78.0
+model_TUF Gaming F15,75.0,LightGBM_log_target,price,feature_importance,75.0
+model_Latitude E Series,72.0,LightGBM_log_target,price,feature_importance,72.0
+model_MacBook Air,70.0,LightGBM_log_target,price,feature_importance,70.0
+no_info_cpu_brand,69.0,LightGBM_log_target,price,feature_importance,69.0
+model_Vostro,62.0,LightGBM_log_target,price,feature_importance,62.0
+model_X Series,61.0,LightGBM_log_target,price,feature_importance,61.0
+model_Precision,54.0,LightGBM_log_target,price,feature_importance,54.0
+model_ThinkPad,51.0,LightGBM_log_target,price,feature_importance,51.0
+model_Inspiron,49.0,LightGBM_log_target,price,feature_importance,49.0
+model_Elitebook,46.0,LightGBM_log_target,price,feature_importance,46.0
+cpu_family_group_Apple Silicon,44.0,LightGBM_log_target,price,feature_importance,44.0
+model_Legion 5,44.0,LightGBM_log_target,price,feature_importance,44.0
+model_ProBook,43.0,LightGBM_log_target,price,feature_importance,43.0
+model_Gaming Thin GF,42.0,LightGBM_log_target,price,feature_importance,42.0
+model_MacBook Pro M1,39.0,LightGBM_log_target,price,feature_importance,39.0
+brand_Sony,38.0,LightGBM_log_target,price,feature_importance,38.0
+model_MacBook Air M1,35.0,LightGBM_log_target,price,feature_importance,35.0
+model_Macbook air m4,30.0,LightGBM_log_target,price,feature_importance,30.0
+model_ROG Strix,29.0,LightGBM_log_target,price,feature_importance,29.0
+cpu_family_group_AMD Ryzen,28.0,LightGBM_log_target,price,feature_importance,28.0
+model_IdeaPad,27.0,LightGBM_log_target,price,feature_importance,27.0
+model_TUF Gaming,22.0,LightGBM_log_target,price,feature_importance,22.0
+model_ThinkPad X1 Carbon,17.0,LightGBM_log_target,price,feature_importance,17.0
+model_MacBook Pro M2,17.0,LightGBM_log_target,price,feature_importance,17.0
+model_Latitude,17.0,LightGBM_log_target,price,feature_importance,17.0
+cpu_apple_core_spec,15.0,LightGBM_log_target,price,feature_importance,15.0
+cpu_family_group_Intel Low End,15.0,LightGBM_log_target,price,feature_importance,15.0
+model_MacBook Air M2,14.0,LightGBM_log_target,price,feature_importance,14.0
+model_Aspire,11.0,LightGBM_log_target,price,feature_importance,11.0
+model_Elitebook 800,8.0,LightGBM_log_target,price,feature_importance,8.0
+model_Vivobook 15,5.0,LightGBM_log_target,price,feature_importance,5.0
+model_Latitude 14 7000,5.0,LightGBM_log_target,price,feature_importance,5.0
+model_Pavilion 15,3.0,LightGBM_log_target,price,feature_importance,3.0
+model_Other,0.0,LightGBM_log_target,price,feature_importance,0.0
+cpu_brand_Qualcomm,0.0,LightGBM_log_target,price,feature_importance,0.0
+cpu_brand_Other,0.0,LightGBM_log_target,price,feature_importance,0.0
+brand_Toshiba,0.0,LightGBM_log_target,price,feature_importance,0.0
+model_Legion,0.0,LightGBM_log_target,price,feature_importance,0.0
+cpu_brand_Microsoft SQ,0.0,LightGBM_log_target,price,feature_importance,0.0
+cpu_qualcomm_snapdragon_spec,0.0,LightGBM_log_target,price,feature_importance,0.0
+brand_Other,0.0,LightGBM_log_target,price,feature_importance,0.0
+brand_Gigabyte,0.0,LightGBM_log_target,price,feature_importance,0.0
+gpu_type_Apple SoC,0.0,LightGBM_log_target,price,feature_importance,0.0
+gpu_type_Dedicated,0.0,LightGBM_log_target,price,feature_importance,0.0
+gpu_type_Missing_Info,0.0,LightGBM_log_target,price,feature_importance,0.0
+ram_level,21.31820672000042,CatBoost_target,price,feature_importance,21.31820672000042
+warranty_encoded,14.739172856168228,CatBoost_target,price,feature_importance,14.739172856168228
+condition_score,11.628043485745568,CatBoost_target,price,feature_importance,11.628043485745568
+storage_level,10.61956657408024,CatBoost_target,price,feature_importance,10.61956657408024
+cpu_tier_encoded,8.90792972361901,CatBoost_target,price,feature_importance,8.90792972361901
+cpu_family_ord_filled,6.9683723901218215,CatBoost_target,price,feature_importance,6.9683723901218215
+gpu_tier_ord_filled,3.756370981755762,CatBoost_target,price,feature_importance,3.756370981755762
+cpu_intel_generation_ord,3.5492239841565127,CatBoost_target,price,feature_importance,3.5492239841565127
+cpu_family_group_Apple Silicon,2.7451318543895002,CatBoost_target,price,feature_importance,2.7451318543895002
+cpu_suffix_power_ord_filled,2.1769928714435687,CatBoost_target,price,feature_importance,2.1769928714435687
+screen_size_level,2.0559992063342163,CatBoost_target,price,feature_importance,2.0559992063342163
+cpu_brand_Apple,1.5896807043983716,CatBoost_target,price,feature_importance,1.5896807043983716
+gpu_type_Dedicated,1.0857777059613016,CatBoost_target,price,feature_importance,1.0857777059613016
+cpu_brand_Intel,0.9022073437598128,CatBoost_target,price,feature_importance,0.9022073437598128
+cpu_family_group_Intel Core Ultra,0.891344372794756,CatBoost_target,price,feature_importance,0.891344372794756
+brand_Apple,0.6966369520348338,CatBoost_target,price,feature_importance,0.6966369520348338
+gpu_type_Integrated,0.6773382250682891,CatBoost_target,price,feature_importance,0.6773382250682891
+no_info_cpu_tier,0.4823562358933936,CatBoost_target,price,feature_importance,0.4823562358933936
+brand_Microsoft,0.4529447804367442,CatBoost_target,price,feature_importance,0.4529447804367442
+brand_Lenovo,0.4520108711862686,CatBoost_target,price,feature_importance,0.4520108711862686
+brand_Dell,0.4309757674065602,CatBoost_target,price,feature_importance,0.4309757674065602
+storage_hdd,0.38326899076783133,CatBoost_target,price,feature_importance,0.38326899076783133
+cpu_family_group_Intel Core i,0.3696217695430769,CatBoost_target,price,feature_importance,0.3696217695430769
+cpu_amd_generation_ord,0.36030324543596987,CatBoost_target,price,feature_importance,0.36030324543596987
+brand_ASUS,0.3198048965202799,CatBoost_target,price,feature_importance,0.3198048965202799
+brand_HP,0.3042018623734677,CatBoost_target,price,feature_importance,0.3042018623734677
+gpu_type_Missing_Info,0.2876447665185045,CatBoost_target,price,feature_importance,0.2876447665185045
+cpu_family_group_AMD Ryzen,0.20480641958296683,CatBoost_target,price,feature_importance,0.20480641958296683
+brand_Acer,0.18885729271752874,CatBoost_target,price,feature_importance,0.18885729271752874
+brand_LG,0.13818395682226142,CatBoost_target,price,feature_importance,0.13818395682226142
+ram_missing,0.12929995307263595,CatBoost_target,price,feature_importance,0.12929995307263595
+model_Legion 5,0.11540164459680646,CatBoost_target,price,feature_importance,0.11540164459680646
+cpu_apple_core_spec,0.09016311539890468,CatBoost_target,price,feature_importance,0.09016311539890468
+no_info_gpu,0.0864606347801339,CatBoost_target,price,feature_importance,0.0864606347801339
+no_info_model,0.08216719946672965,CatBoost_target,price,feature_importance,0.08216719946672965
+brand_MSI,0.07651166113892655,CatBoost_target,price,feature_importance,0.07651166113892655
+cpu_brand_Other,0.06078486122444607,CatBoost_target,price,feature_importance,0.06078486122444607
+model_MacBook Pro,0.06048970774551491,CatBoost_target,price,feature_importance,0.06048970774551491
+storage_missing,0.05565595068059359,CatBoost_target,price,feature_importance,0.05565595068059359
+brand_Other,0.050296814485144885,CatBoost_target,price,feature_importance,0.050296814485144885
+model_XPS 13,0.04954151913480632,CatBoost_target,price,feature_importance,0.04954151913480632
+screen_missing,0.04927905410115295,CatBoost_target,price,feature_importance,0.04927905410115295
+model_Other,0.0411697374425194,CatBoost_target,price,feature_importance,0.0411697374425194
+cpu_brand_AMD,0.03956761311108019,CatBoost_target,price,feature_importance,0.03956761311108019
+cpu_family_group_Intel Low End,0.039294657358070244,CatBoost_target,price,feature_importance,0.039294657358070244
+no_info_storage,0.037893209615204725,CatBoost_target,price,feature_importance,0.037893209615204725
+brand_is_rare,0.03327362222288496,CatBoost_target,price,feature_importance,0.03327362222288496
+no_info_brand,0.03230143007084041,CatBoost_target,price,feature_importance,0.03230143007084041
+cpu_brand_Qualcomm,0.02582274531919182,CatBoost_target,price,feature_importance,0.02582274531919182
+model_Precision,0.024135387511800614,CatBoost_target,price,feature_importance,0.024135387511800614
+model_MacBook Air M1,0.022326934379681373,CatBoost_target,price,feature_importance,0.022326934379681373
+model_Legion,0.019586408116374122,CatBoost_target,price,feature_importance,0.019586408116374122
+gpu_type_Apple SoC,0.019556178069013736,CatBoost_target,price,feature_importance,0.019556178069013736
+no_info_cpu_brand,0.014894941509835051,CatBoost_target,price,feature_importance,0.014894941509835051
+model_Latitude E Series,0.013008072292871974,CatBoost_target,price,feature_importance,0.013008072292871974
+model_ThinkPad,0.01296843913357867,CatBoost_target,price,feature_importance,0.01296843913357867
+model_ROG Strix,0.011874555572158496,CatBoost_target,price,feature_importance,0.011874555572158496
+brand_Gigabyte,0.007901438273884207,CatBoost_target,price,feature_importance,0.007901438273884207
+cpu_brand_Microsoft SQ,0.005009605087829167,CatBoost_target,price,feature_importance,0.005009605087829167
+model_ThinkPad X1 Carbon,0.003349336896773049,CatBoost_target,price,feature_importance,0.003349336896773049
+storage_ssd,0.002778808103226261,CatBoost_target,price,feature_importance,0.002778808103226261
+model_Macbook air m4,0.0018644935337730436,CatBoost_target,price,feature_importance,0.0018644935337730436
+model_Elitebook,0.0007180818474361802,CatBoost_target,price,feature_importance,0.0007180818474361802
+model_Gaming Thin GF,0.0006824326553777208,CatBoost_target,price,feature_importance,0.0006824326553777208
+brand_Sony,0.0004696091186223356,CatBoost_target,price,feature_importance,0.0004696091186223356
+model_MacBook Pro M2,0.00024214140424826878,CatBoost_target,price,feature_importance,0.00024214140424826878
+model_IdeaPad,0.00015715273321908528,CatBoost_target,price,feature_importance,0.00015715273321908528
+model_Vostro,0.0001240457576266493,CatBoost_target,price,feature_importance,0.0001240457576266493
+brand_Toshiba,0.0,CatBoost_target,price,feature_importance,0.0
+model_Aspire,0.0,CatBoost_target,price,feature_importance,0.0
+cpu_qualcomm_snapdragon_spec,0.0,CatBoost_target,price,feature_importance,0.0
+model_Elitebook 800,0.0,CatBoost_target,price,feature_importance,0.0
+model_MacBook Pro M1,0.0,CatBoost_target,price,feature_importance,0.0
+model_Inspiron,0.0,CatBoost_target,price,feature_importance,0.0
+model_Latitude,0.0,CatBoost_target,price,feature_importance,0.0
+model_Latitude 14 7000,0.0,CatBoost_target,price,feature_importance,0.0
+model_is_rare,0.0,CatBoost_target,price,feature_importance,0.0
+model_X Series,0.0,CatBoost_target,price,feature_importance,0.0
+model_Vivobook 15,0.0,CatBoost_target,price,feature_importance,0.0
+model_TUF Gaming F15,0.0,CatBoost_target,price,feature_importance,0.0
+model_TUF Gaming,0.0,CatBoost_target,price,feature_importance,0.0
+model_ProBook,0.0,CatBoost_target,price,feature_importance,0.0
+model_Pavilion 15,0.0,CatBoost_target,price,feature_importance,0.0
+model_MacBook Air M2,0.0,CatBoost_target,price,feature_importance,0.0
+model_Nitro 5,0.0,CatBoost_target,price,feature_importance,0.0
+model_MacBook Air,0.0,CatBoost_target,price,feature_importance,0.0
+ram_level,21.767801625848644,CatBoost_log_target,price,feature_importance,21.767801625848644
+condition_score,16.5757733491244,CatBoost_log_target,price,feature_importance,16.5757733491244
+warranty_encoded,16.208164157613695,CatBoost_log_target,price,feature_importance,16.208164157613695
+storage_level,12.864331679148982,CatBoost_log_target,price,feature_importance,12.864331679148982
+cpu_family_ord_filled,4.448966656317636,CatBoost_log_target,price,feature_importance,4.448966656317636
+cpu_tier_encoded,4.322987317419052,CatBoost_log_target,price,feature_importance,4.322987317419052
+cpu_brand_Apple,3.6720091900693994,CatBoost_log_target,price,feature_importance,3.6720091900693994
+cpu_intel_generation_ord,1.9882801124249554,CatBoost_log_target,price,feature_importance,1.9882801124249554
+gpu_tier_ord_filled,1.9261864853136414,CatBoost_log_target,price,feature_importance,1.9261864853136414
+cpu_family_group_Apple Silicon,1.6783862713228423,CatBoost_log_target,price,feature_importance,1.6783862713228423
+storage_hdd,1.579394975161543,CatBoost_log_target,price,feature_importance,1.579394975161543
+cpu_brand_Intel,1.499301519963748,CatBoost_log_target,price,feature_importance,1.499301519963748
+brand_Apple,1.4887709020904,CatBoost_log_target,price,feature_importance,1.4887709020904
+cpu_suffix_power_ord_filled,1.2263820843458397,CatBoost_log_target,price,feature_importance,1.2263820843458397
+screen_size_level,1.1058929579314618,CatBoost_log_target,price,feature_importance,1.1058929579314618
+gpu_type_Dedicated,0.8312310323831528,CatBoost_log_target,price,feature_importance,0.8312310323831528
+cpu_family_group_Intel Core i,0.5879523881916349,CatBoost_log_target,price,feature_importance,0.5879523881916349
+gpu_type_Integrated,0.4752029274797246,CatBoost_log_target,price,feature_importance,0.4752029274797246
+brand_Microsoft,0.47299837194634614,CatBoost_log_target,price,feature_importance,0.47299837194634614
+screen_missing,0.3981928953733427,CatBoost_log_target,price,feature_importance,0.3981928953733427
+brand_Dell,0.2763160152123204,CatBoost_log_target,price,feature_importance,0.2763160152123204
+gpu_type_Missing_Info,0.274066187524221,CatBoost_log_target,price,feature_importance,0.274066187524221
+storage_missing,0.261850219250146,CatBoost_log_target,price,feature_importance,0.261850219250146
+storage_ssd,0.25448804993583196,CatBoost_log_target,price,feature_importance,0.25448804993583196
+no_info_cpu_tier,0.2442574513922,CatBoost_log_target,price,feature_importance,0.2442574513922
+brand_Lenovo,0.2353121372395187,CatBoost_log_target,price,feature_importance,0.2353121372395187
+ram_missing,0.2289831780525964,CatBoost_log_target,price,feature_importance,0.2289831780525964
+brand_Acer,0.20675781930431547,CatBoost_log_target,price,feature_importance,0.20675781930431547
+model_Latitude E Series,0.20558551040425313,CatBoost_log_target,price,feature_importance,0.20558551040425313
+cpu_brand_AMD,0.19920450379607005,CatBoost_log_target,price,feature_importance,0.19920450379607005
+cpu_family_group_Intel Core Ultra,0.1681762277075894,CatBoost_log_target,price,feature_importance,0.1681762277075894
+no_info_storage,0.16686539360337874,CatBoost_log_target,price,feature_importance,0.16686539360337874
+model_Legion 5,0.13528995075640027,CatBoost_log_target,price,feature_importance,0.13528995075640027
+cpu_family_group_AMD Ryzen,0.13339686736533263,CatBoost_log_target,price,feature_importance,0.13339686736533263
+brand_is_rare,0.13264133478349693,CatBoost_log_target,price,feature_importance,0.13264133478349693
+brand_HP,0.11679315691954614,CatBoost_log_target,price,feature_importance,0.11679315691954614
+model_XPS 13,0.11392398340061227,CatBoost_log_target,price,feature_importance,0.11392398340061227
+model_MacBook Pro,0.10900325408856304,CatBoost_log_target,price,feature_importance,0.10900325408856304
+brand_MSI,0.09529168610413594,CatBoost_log_target,price,feature_importance,0.09529168610413594
+cpu_amd_generation_ord,0.08940515014292998,CatBoost_log_target,price,feature_importance,0.08940515014292998
+brand_ASUS,0.08770734060226,CatBoost_log_target,price,feature_importance,0.08770734060226
+brand_LG,0.07926369095672198,CatBoost_log_target,price,feature_importance,0.07926369095672198
+model_ThinkPad,0.07872151788248202,CatBoost_log_target,price,feature_importance,0.07872151788248202
+no_info_brand,0.07759988421872875,CatBoost_log_target,price,feature_importance,0.07759988421872875
+model_Nitro 5,0.07362392552315611,CatBoost_log_target,price,feature_importance,0.07362392552315611
+cpu_brand_Other,0.07355269721456854,CatBoost_log_target,price,feature_importance,0.07355269721456854
+brand_Sony,0.07180976136929466,CatBoost_log_target,price,feature_importance,0.07180976136929466
+model_MacBook Air,0.05214143201742924,CatBoost_log_target,price,feature_importance,0.05214143201742924
+model_Other,0.05092657945802911,CatBoost_log_target,price,feature_importance,0.05092657945802911
+model_MacBook Air M1,0.0456496543249415,CatBoost_log_target,price,feature_importance,0.0456496543249415
+no_info_cpu_brand,0.044006254885214056,CatBoost_log_target,price,feature_importance,0.044006254885214056
+model_X Series,0.04312589224058895,CatBoost_log_target,price,feature_importance,0.04312589224058895
+model_Precision,0.042841275696689364,CatBoost_log_target,price,feature_importance,0.042841275696689364
+no_info_model,0.03704403928963144,CatBoost_log_target,price,feature_importance,0.03704403928963144
+brand_Other,0.03489038431725836,CatBoost_log_target,price,feature_importance,0.03489038431725836
+model_TUF Gaming F15,0.0348731953823607,CatBoost_log_target,price,feature_importance,0.0348731953823607
+no_info_gpu,0.03231230317485143,CatBoost_log_target,price,feature_importance,0.03231230317485143
+model_Inspiron,0.027913591820098352,CatBoost_log_target,price,feature_importance,0.027913591820098352
+cpu_family_group_Intel Low End,0.02466971297060248,CatBoost_log_target,price,feature_importance,0.02466971297060248
+brand_Toshiba,0.023219181113558616,CatBoost_log_target,price,feature_importance,0.023219181113558616
+model_Legion,0.022698005998251433,CatBoost_log_target,price,feature_importance,0.022698005998251433
+model_TUF Gaming,0.02248187306693329,CatBoost_log_target,price,feature_importance,0.02248187306693329
+model_ROG Strix,0.021994930239576244,CatBoost_log_target,price,feature_importance,0.021994930239576244
+model_ThinkPad X1 Carbon,0.01835708198493821,CatBoost_log_target,price,feature_importance,0.01835708198493821
+model_Latitude,0.01715115289139894,CatBoost_log_target,price,feature_importance,0.01715115289139894
+model_Gaming Thin GF,0.01591612775576944,CatBoost_log_target,price,feature_importance,0.01591612775576944
+model_Elitebook,0.014016405489899506,CatBoost_log_target,price,feature_importance,0.014016405489899506
+cpu_brand_Qualcomm,0.013379597100266661,CatBoost_log_target,price,feature_importance,0.013379597100266661
+model_ProBook,0.013149435643036401,CatBoost_log_target,price,feature_importance,0.013149435643036401
+model_Vostro,0.007726505070821021,CatBoost_log_target,price,feature_importance,0.007726505070821021
+model_is_rare,0.006185409249460814,CatBoost_log_target,price,feature_importance,0.006185409249460814
+model_MacBook Pro M2,0.005207075978622685,CatBoost_log_target,price,feature_importance,0.005207075978622685
+cpu_apple_core_spec,0.004926011085989998,CatBoost_log_target,price,feature_importance,0.004926011085989998
+cpu_brand_Microsoft SQ,0.004022655615131401,CatBoost_log_target,price,feature_importance,0.004022655615131401
+model_Aspire,0.0034351418912603815,CatBoost_log_target,price,feature_importance,0.0034351418912603815
+model_MacBook Air M2,0.0025998756860451376,CatBoost_log_target,price,feature_importance,0.0025998756860451376
+model_Pavilion 15,0.0023381915313132914,CatBoost_log_target,price,feature_importance,0.0023381915313132914
+model_IdeaPad,0.002252357332603865,CatBoost_log_target,price,feature_importance,0.002252357332603865
+gpu_type_Apple SoC,0.00045487547633760677,CatBoost_log_target,price,feature_importance,0.00045487547633760677
+model_Latitude 14 7000,0.0,CatBoost_log_target,price,feature_importance,0.0
+model_Elitebook 800,0.0,CatBoost_log_target,price,feature_importance,0.0
+model_MacBook Pro M1,0.0,CatBoost_log_target,price,feature_importance,0.0
+cpu_qualcomm_snapdragon_spec,0.0,CatBoost_log_target,price,feature_importance,0.0
+brand_Gigabyte,0.0,CatBoost_log_target,price,feature_importance,0.0
+model_Macbook air m4,0.0,CatBoost_log_target,price,feature_importance,0.0
+model_Vivobook 15,0.0,CatBoost_log_target,price,feature_importance,0.0

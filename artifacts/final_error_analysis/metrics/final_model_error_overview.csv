@@ -1,0 +1,2 @@
+model_label,n_samples,mae,rmse,median_ae,mape_pct,max_abs_error,mean_residual,median_residual,underprediction_count,overprediction_count
+CatBoost_tuned,1460,3.372625966955601,5.912733148042646,1.942894396058339,32.25401622283682,56.17132184801251,-0.06439613719291566,-0.24896027981353686,665,795

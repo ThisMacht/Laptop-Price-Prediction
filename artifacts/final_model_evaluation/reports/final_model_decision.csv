@@ -1,0 +1,2 @@
+kfold_selected_model,best_holdout_model,recommended_final_model,decision_status,decision_reason,holdout_rmse_tolerance_pct,selected_holdout_rmse,best_holdout_rmse,rmse_gap_pct
+CatBoost_tuned,LightGBM_baseline,CatBoost_tuned,keep_kfold_selected_model,"Selected model is not best on holdout RMSE, but the gap is within tolerance. Keep KFold-selected model because it is more stable across folds.",3.0,5.912733148042646,5.7848789171213095,2.210145324613979

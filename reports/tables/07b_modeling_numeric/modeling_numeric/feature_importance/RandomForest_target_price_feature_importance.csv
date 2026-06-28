@@ -1,0 +1,87 @@
+feature,importance,model_name,target_used,importance_type,abs_importance
+ram_gb,0.2511674937927656,Random Forest_target,price,feature_importance,0.2511674937927656
+cpu_tier_encoded,0.1529639923793502,Random Forest_target,price,feature_importance,0.1529639923793502
+storage_gb,0.125410109188024,Random Forest_target,price,feature_importance,0.125410109188024
+condition_score,0.12469132403356338,Random Forest_target,price,feature_importance,0.12469132403356338
+warranty_encoded,0.1101580268128802,Random Forest_target,price,feature_importance,0.1101580268128802
+cpu_family_ord_filled,0.054465029510889496,Random Forest_target,price,feature_importance,0.054465029510889496
+screen_size_inch,0.024863210199656878,Random Forest_target,price,feature_importance,0.024863210199656878
+gpu_tier_ord_filled,0.020784364092966388,Random Forest_target,price,feature_importance,0.020784364092966388
+cpu_intel_generation_ord,0.01694091657659428,Random Forest_target,price,feature_importance,0.01694091657659428
+cpu_family_group_Apple Silicon,0.014929930742437527,Random Forest_target,price,feature_importance,0.014929930742437527
+cpu_brand_Apple,0.010138971605640576,Random Forest_target,price,feature_importance,0.010138971605640576
+cpu_suffix_power_ord_filled,0.007771178617889414,Random Forest_target,price,feature_importance,0.007771178617889414
+brand_Dell,0.00768638375675757,Random Forest_target,price,feature_importance,0.00768638375675757
+brand_Lenovo,0.00708876644301371,Random Forest_target,price,feature_importance,0.00708876644301371
+brand_HP,0.005738824942681179,Random Forest_target,price,feature_importance,0.005738824942681179
+gpu_type_Integrated,0.005524457695671804,Random Forest_target,price,feature_importance,0.005524457695671804
+cpu_family_group_Intel Core Ultra,0.003993872399763209,Random Forest_target,price,feature_importance,0.003993872399763209
+brand_ASUS,0.003492500264193271,Random Forest_target,price,feature_importance,0.003492500264193271
+gpu_type_Dedicated,0.003474183600983097,Random Forest_target,price,feature_importance,0.003474183600983097
+brand_Apple,0.0034019871136652456,Random Forest_target,price,feature_importance,0.0034019871136652456
+cpu_family_group_Intel Core i,0.0030382445396614955,Random Forest_target,price,feature_importance,0.0030382445396614955
+cpu_amd_generation_ord,0.0029228806363040907,Random Forest_target,price,feature_importance,0.0029228806363040907
+no_info_cpu_tier,0.0024125264013962937,Random Forest_target,price,feature_importance,0.0024125264013962937
+brand_MSI,0.0023852423045714896,Random Forest_target,price,feature_importance,0.0023852423045714896
+brand_Acer,0.002276558477270013,Random Forest_target,price,feature_importance,0.002276558477270013
+brand_Microsoft,0.0022184013418413014,Random Forest_target,price,feature_importance,0.0022184013418413014
+storage_ssd,0.001776267310640864,Random Forest_target,price,feature_importance,0.001776267310640864
+cpu_brand_Intel,0.0016834069678762476,Random Forest_target,price,feature_importance,0.0016834069678762476
+ram_missing,0.0015212402410068706,Random Forest_target,price,feature_importance,0.0015212402410068706
+cpu_brand_AMD,0.0014114492287843631,Random Forest_target,price,feature_importance,0.0014114492287843631
+no_info_cpu_brand,0.0013774682630299086,Random Forest_target,price,feature_importance,0.0013774682630299086
+cpu_brand_Other,0.0013070120374883921,Random Forest_target,price,feature_importance,0.0013070120374883921
+model_is_rare,0.001231804166486519,Random Forest_target,price,feature_importance,0.001231804166486519
+no_info_model,0.001222096573584744,Random Forest_target,price,feature_importance,0.001222096573584744
+storage_hdd,0.0011865287727084088,Random Forest_target,price,feature_importance,0.0011865287727084088
+no_info_gpu,0.0011619227754007186,Random Forest_target,price,feature_importance,0.0011619227754007186
+model_Other,0.0011507048325117228,Random Forest_target,price,feature_importance,0.0011507048325117228
+gpu_type_Missing_Info,0.0011295190241603628,Random Forest_target,price,feature_importance,0.0011295190241603628
+brand_Other,0.0010433356942969076,Random Forest_target,price,feature_importance,0.0010433356942969076
+no_info_storage,0.000986448004918754,Random Forest_target,price,feature_importance,0.000986448004918754
+model_Precision,0.0009259093301392633,Random Forest_target,price,feature_importance,0.0009259093301392633
+no_info_brand,0.0009129637427605848,Random Forest_target,price,feature_importance,0.0009129637427605848
+cpu_family_group_AMD Ryzen,0.0009009538286952049,Random Forest_target,price,feature_importance,0.0009009538286952049
+brand_is_rare,0.0007615938411337246,Random Forest_target,price,feature_importance,0.0007615938411337246
+screen_missing,0.0007367049223463294,Random Forest_target,price,feature_importance,0.0007367049223463294
+model_MacBook Pro,0.0007113404910098969,Random Forest_target,price,feature_importance,0.0007113404910098969
+brand_LG,0.0006786911875512718,Random Forest_target,price,feature_importance,0.0006786911875512718
+model_Legion 5,0.0006282722741089956,Random Forest_target,price,feature_importance,0.0006282722741089956
+storage_missing,0.0005178956370854858,Random Forest_target,price,feature_importance,0.0005178956370854858
+model_XPS 13,0.00046159710335714126,Random Forest_target,price,feature_importance,0.00046159710335714126
+gpu_type_Apple SoC,0.0004204929556793192,Random Forest_target,price,feature_importance,0.0004204929556793192
+cpu_brand_Qualcomm,0.0003408203680127226,Random Forest_target,price,feature_importance,0.0003408203680127226
+cpu_apple_core_spec,0.00032525842758251473,Random Forest_target,price,feature_importance,0.00032525842758251473
+model_MacBook Air M1,0.0002996038516386836,Random Forest_target,price,feature_importance,0.0002996038516386836
+model_Latitude,0.00029569579506268773,Random Forest_target,price,feature_importance,0.00029569579506268773
+model_Nitro 5,0.00024089867724255346,Random Forest_target,price,feature_importance,0.00024089867724255346
+model_Inspiron,0.00023608276038726678,Random Forest_target,price,feature_importance,0.00023608276038726678
+model_ThinkPad,0.00020958534555740076,Random Forest_target,price,feature_importance,0.00020958534555740076
+model_ThinkPad X1 Carbon,0.00019577750983258124,Random Forest_target,price,feature_importance,0.00019577750983258124
+model_Macbook air m4,0.00017864694390131653,Random Forest_target,price,feature_importance,0.00017864694390131653
+model_Elitebook,0.0001666851482921231,Random Forest_target,price,feature_importance,0.0001666851482921231
+model_MacBook Air,0.0001640202353442657,Random Forest_target,price,feature_importance,0.0001640202353442657
+model_ROG Strix,0.00015253884670381838,Random Forest_target,price,feature_importance,0.00015253884670381838
+model_TUF Gaming F15,0.0001454862642486263,Random Forest_target,price,feature_importance,0.0001454862642486263
+brand_Gigabyte,0.00011568060785196997,Random Forest_target,price,feature_importance,0.00011568060785196997
+cpu_brand_Microsoft SQ,0.00011271970884793608,Random Forest_target,price,feature_importance,0.00011271970884793608
+model_MacBook Pro M1,0.00010679607758622852,Random Forest_target,price,feature_importance,0.00010679607758622852
+model_TUF Gaming,0.00010462697378438155,Random Forest_target,price,feature_importance,0.00010462697378438155
+cpu_qualcomm_snapdragon_spec,7.883565304568159e-05,Random Forest_target,price,feature_importance,7.883565304568159e-05
+cpu_family_group_Intel Low End,7.417402232757597e-05,Random Forest_target,price,feature_importance,7.417402232757597e-05
+model_Latitude E Series,7.291616538879144e-05,Random Forest_target,price,feature_importance,7.291616538879144e-05
+model_Legion,7.251594807862507e-05,Random Forest_target,price,feature_importance,7.251594807862507e-05
+model_Gaming Thin GF,7.248557248184815e-05,Random Forest_target,price,feature_importance,7.248557248184815e-05
+model_IdeaPad,7.067405852683046e-05,Random Forest_target,price,feature_importance,7.067405852683046e-05
+model_MacBook Pro M2,6.776583723311293e-05,Random Forest_target,price,feature_importance,6.776583723311293e-05
+model_Vostro,6.073478582614967e-05,Random Forest_target,price,feature_importance,6.073478582614967e-05
+model_ProBook,5.4360630166924564e-05,Random Forest_target,price,feature_importance,5.4360630166924564e-05
+model_Latitude 14 7000,3.8766822067068004e-05,Random Forest_target,price,feature_importance,3.8766822067068004e-05
+model_Pavilion 15,3.391552569787163e-05,Random Forest_target,price,feature_importance,3.391552569787163e-05
+model_MacBook Air M2,2.7371305767986125e-05,Random Forest_target,price,feature_importance,2.7371305767986125e-05
+model_Aspire,2.462568209255676e-05,Random Forest_target,price,feature_importance,2.462568209255676e-05
+model_Vivobook 15,2.1893501469428044e-05,Random Forest_target,price,feature_importance,2.1893501469428044e-05
+model_Elitebook 800,1.571059066201213e-05,Random Forest_target,price,feature_importance,1.571059066201213e-05
+brand_Sony,1.5463544108471777e-05,Random Forest_target,price,feature_importance,1.5463544108471777e-05
+model_X Series,1.5037673574139794e-05,Random Forest_target,price,feature_importance,1.5037673574139794e-05
+brand_Toshiba,6.8324624140799265e-06,Random Forest_target,price,feature_importance,6.8324624140799265e-06

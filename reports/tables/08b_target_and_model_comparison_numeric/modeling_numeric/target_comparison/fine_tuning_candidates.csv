@@ -1,0 +1,6 @@
+candidate_rank,model_name,target_used,reason_for_selection,priority,tuning_status
+1,LightGBM,target_price,"Primary baseline for tuning: best RMSE and R², with MAE within the 2% close band of the best MAE result.",High,Selected for tuning
+2,LightGBM,log_target_price,Best MAE and best MAPE; key alternative if typical or relative error is prioritized over RMSE.,High,Selected for tuning
+3,CatBoost,target_price,Strong secondary boosting candidate: second-best RMSE/R² and stable price-scale behavior.,Medium-High,Selected for tuning
+4,CatBoost,log_target_price,Secondary log_target_price boosting check; improves MAPE but loses RMSE/R² versus target_price.,Medium,Selected for tuning
+5,Extra Trees,log_target_price,Optional diversity candidate; not a leading model under the updated numeric ranking.,Low,Optional

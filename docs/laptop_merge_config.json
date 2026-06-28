@@ -1,0 +1,423 @@
+{
+  "input_paths": {
+    "chotot": "Y:\\Python\\Laptop-Price-Prediction\\data\\intern\\chotot_laptop_cleaned_full.csv",
+    "websach": "Y:\\Python\\Laptop-Price-Prediction\\data\\intern\\websach_cleaned_full.csv"
+  },
+  "output_paths": {
+    "merged": "Y:\\Python\\Laptop-Price-Prediction\\data\\intern\\laptop_merged_cleaned.csv",
+    "report": "Y:\\Python\\Laptop-Price-Prediction\\docs\\laptop_merged_report.csv",
+    "config": "Y:\\Python\\Laptop-Price-Prediction\\docs\\laptop_merge_config.json"
+  },
+  "canonical_columns": [
+    "source",
+    "source_row_id",
+    "merged_row_id",
+    "url",
+    "title",
+    "target_price",
+    "log_target_price",
+    "target_price_source",
+    "target_price_is_outlier",
+    "target_price_missing",
+    "brand_clean",
+    "brand_grouped",
+    "brand_is_rare",
+    "model_clean",
+    "model_grouped",
+    "model_is_rare",
+    "ram_gb",
+    "storage_gb",
+    "screen_size_inch",
+    "cpu_name_raw",
+    "cpu_type",
+    "cpu_model_clean",
+    "cpu_brand",
+    "cpu_tier",
+    "gpu_tier",
+    "gpu_tier_v2",
+    "storage_type_clean",
+    "condition_clean",
+    "warranty_months",
+    "warranty_status",
+    "has_warranty",
+    "origin_clean",
+    "ram_missing",
+    "storage_missing",
+    "screen_missing",
+    "cpu_missing",
+    "gpu_missing",
+    "ram_suspicious",
+    "storage_suspicious",
+    "screen_suspicious",
+    "potential_dedicated_gpu",
+    "repair_mismatch",
+    "price_spread_clean_pct",
+    "flag_price_spread_warn",
+    "flag_price_spread_critical",
+    "is_soft_duplicate_spec",
+    "merged_spec_key",
+    "is_cross_source_soft_duplicate"
+  ],
+  "label_columns": [
+    "target_price",
+    "log_target_price"
+  ],
+  "audit_columns": [
+    "source",
+    "source_row_id",
+    "merged_row_id",
+    "url",
+    "title",
+    "target_price_source",
+    "target_price_is_outlier",
+    "target_price_missing",
+    "merged_spec_key",
+    "is_cross_source_soft_duplicate"
+  ],
+  "feature_exclusion_recommendation": {
+    "always_exclude": [
+      "target_price",
+      "log_target_price",
+      "source",
+      "source_row_id",
+      "merged_row_id",
+      "url",
+      "title",
+      "target_price_source",
+      "target_price_is_outlier",
+      "target_price_missing",
+      "merged_spec_key",
+      "is_cross_source_soft_duplicate"
+    ],
+    "optional_exclude": [
+      "source"
+    ],
+    "notes": [
+      "Do not use target_price/log_target_price as features.",
+      "Do not include source in baseline unless running a source-aware experiment.",
+      "Use target_price_source only for audit."
+    ]
+  },
+  "source_mappings": {
+    "chotot": {
+      "_price": "target_price",
+      "is_price_outlier": "target_price_is_outlier",
+      "is_price_missing": "target_price_missing",
+      "brand_clean": "brand_clean",
+      "brand_grouped": "brand_grouped",
+      "brand_is_rare": "brand_is_rare",
+      "model_clean": "model_clean",
+      "model_grouped": "model_grouped",
+      "model_is_rare": "model_is_rare",
+      "_ram_gb_filled": "ram_gb",
+      "_storage_gb_filled": "storage_gb",
+      "_screen_size_inch_filled": "screen_size_inch",
+      "_title_cpu": "cpu_name_raw",
+      "cpu_brand": "cpu_brand",
+      "cpu_tier": "cpu_tier",
+      "gpu_tier": "gpu_tier",
+      "storage_type_clean": "storage_type_clean",
+      "condition_clean": "condition_clean",
+      "warranty_months": "warranty_months",
+      "warranty_status": "warranty_status",
+      "has_warranty": "has_warranty",
+      "origin_clean": "origin_clean",
+      "ram_missing": "ram_missing",
+      "storage_capacity_missing": "storage_missing",
+      "screen_missing": "screen_missing",
+      "cpu_missing": "cpu_missing",
+      "gpu_missing": "gpu_missing",
+      "ram_suspicious": "ram_suspicious",
+      "potential_dedicated_gpu": "potential_dedicated_gpu",
+      "repair_mismatch": "repair_mismatch",
+      "url": "url",
+      "title": "title"
+    },
+    "websach": {
+      "price_median": "target_price",
+      "log_price_median": "log_target_price",
+      "brand_clean": "brand_clean",
+      "brand_grouped": "brand_grouped",
+      "brand_is_rare": "brand_is_rare",
+      "ram_gb_clean": "ram_gb",
+      "storage_gb_clean": "storage_gb",
+      "screen_size_clean": "screen_size_inch",
+      "Công nghệ CPU": "cpu_name_raw",
+      "Loại CPU": "cpu_type",
+      "cpu_model_clean": "cpu_model_clean",
+      "cpu_brand": "cpu_brand",
+      "cpu_tier": "cpu_tier",
+      "gpu_tier_v2": "gpu_tier",
+      "gpu_tier_v2_raw": "gpu_tier_v2",
+      "storage_type_clean": "storage_type_clean",
+      "price_spread_clean_pct": "price_spread_clean_pct",
+      "flag_price_spread_warn": "flag_price_spread_warn",
+      "flag_price_spread_critical": "flag_price_spread_critical",
+      "is_soft_duplicate_spec": "is_soft_duplicate_spec"
+    }
+  },
+  "defaults": {
+    "chotot": {
+      "source": "chotot",
+      "target_price_source": "listing_price",
+      "price_spread_clean_pct": null,
+      "flag_price_spread_warn": false,
+      "flag_price_spread_critical": false,
+      "storage_suspicious": false,
+      "screen_suspicious": false,
+      "is_soft_duplicate_spec": false
+    },
+    "websach": {
+      "source": "websach",
+      "target_price_source": "shop_price_median",
+      "target_price_is_outlier": false,
+      "model_clean": "Unknown",
+      "model_grouped": "Unknown",
+      "model_is_rare": null,
+      "condition_clean": "Unknown",
+      "warranty_months": null,
+      "warranty_status": "Unknown",
+      "has_warranty": null,
+      "origin_clean": "Unknown",
+      "url": null,
+      "title": null,
+      "ram_suspicious": false,
+      "storage_suspicious": false,
+      "screen_suspicious": false,
+      "potential_dedicated_gpu": false,
+      "repair_mismatch": false
+    }
+  },
+  "leakage_columns": {
+    "chotot": [
+      "_price",
+      "price",
+      "price_segment",
+      "is_price_missing",
+      "is_price_outlier",
+      "new_low_price"
+    ],
+    "websach": [
+      "shop_1_price",
+      "shop_2_price",
+      "shop_3_price",
+      "shop_1_price_clean",
+      "shop_2_price_clean",
+      "shop_3_price_clean",
+      "shop_1_price_domain",
+      "shop_2_price_domain",
+      "shop_3_price_domain",
+      "price_row_median_domain",
+      "price_median",
+      "price_min_clean",
+      "price_max_clean",
+      "log_price_median",
+      "price_segment"
+    ],
+    "canonical_target": [
+      "target_price",
+      "log_target_price"
+    ]
+  },
+  "source_specific_leakage_columns_flat": [
+    "_price",
+    "price",
+    "price_segment",
+    "is_price_missing",
+    "is_price_outlier",
+    "new_low_price",
+    "shop_1_price",
+    "shop_2_price",
+    "shop_3_price",
+    "shop_1_price_clean",
+    "shop_2_price_clean",
+    "shop_3_price_clean",
+    "shop_1_price_domain",
+    "shop_2_price_domain",
+    "shop_3_price_domain",
+    "price_row_median_domain",
+    "price_median",
+    "price_min_clean",
+    "price_max_clean",
+    "log_price_median",
+    "price_segment"
+  ],
+  "leakage_notes": [
+    "Source-specific target/leakage columns are excluded from the merged canonical dataframe.",
+    "target_price and log_target_price are labels, not modeling features.",
+    "target_price_source is audit-only and should not be used as a baseline feature.",
+    "source is retained for audit and later bias/source-split evaluation; it should not be included in the default baseline feature set.",
+    "source may be used in a separate source-aware modeling experiment to quantify source bias and deployment assumptions."
+  ],
+  "soft_duplicate_key_columns": [
+    "brand_grouped",
+    "model_grouped",
+    "cpu_brand",
+    "cpu_tier",
+    "ram_gb",
+    "storage_gb",
+    "screen_size_inch",
+    "gpu_tier"
+  ],
+  "row_counts_before_filtering": [
+    {
+      "source": "chotot",
+      "rows_before_filtering": 5866
+    },
+    {
+      "source": "websach",
+      "rows_before_filtering": 4384
+    }
+  ],
+  "row_counts_after_filtering": [
+    {
+      "source": "chotot",
+      "rows_after_filtering": 5698
+    },
+    {
+      "source": "websach",
+      "rows_after_filtering": 4384
+    }
+  ],
+  "filter_audit": [
+    {
+      "source": "chotot",
+      "removed_rows": 1,
+      "reason": "target_price_missing"
+    },
+    {
+      "source": "chotot",
+      "removed_rows": 167,
+      "reason": "chotot_target_price_outlier"
+    }
+  ],
+  "exact_duplicate_removed_count": 2,
+  "url_duplicate_removed_count": 0,
+  "soft_duplicate_count": 6882,
+  "cross_source_soft_duplicate_count": 0,
+  "websach_price_diagnostics": {
+    "price_spread_warn_rows": 583,
+    "price_spread_critical_rows": 142,
+    "price_spread_warn_rate": 0.1330442720219078,
+    "price_spread_critical_rate": 0.03240529438612506
+  },
+  "final_shape": [
+    10080,
+    48
+  ],
+  "target_summary_by_source": [
+    {
+      "source": "chotot",
+      "count": 5698,
+      "mean": 10078167.951737452,
+      "median": 7890000.0,
+      "std": 7922539.147128769,
+      "min": 1000000.0,
+      "p05": 1900000.0,
+      "p25": 4700000.0,
+      "p75": 13000000.0,
+      "p95": 25990000.0,
+      "max": 59900000.0
+    },
+    {
+      "source": "websach",
+      "count": 4382,
+      "mean": 26036207.52647193,
+      "median": 21195000.0,
+      "std": 17395915.145072088,
+      "min": 3470000.0,
+      "p05": 9790000.0,
+      "p25": 15200000.0,
+      "p75": 30990000.0,
+      "p95": 57588549.99999996,
+      "max": 179400000.0
+    }
+  ],
+  "validation_results": [
+    {
+      "check": "all canonical columns exist",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "canonical columns are unique",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "source only contains chotot and websach",
+      "passed": true,
+      "detail": "['chotot', 'websach']"
+    },
+    {
+      "check": "each source has more than 0 rows",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "target_price is numeric",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "all target_price > 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "log_target_price finite",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "log_target_price equals log1p(target_price)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no infinite values in numeric canonical columns",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "merged_row_id is unique",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "merged_row_id is sequential",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "source_row_id is not missing",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "target_price_source is not missing",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "new CPU/GPU merge columns exist",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "check": "Chợ Tốt cpu_type is NaN",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Chợ Tốt cpu_model_clean is NaN",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Chợ Tốt gpu_tier_v2 is NaN",
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}
