@@ -1,0 +1,47 @@
+{
+  "api_version": 2,
+  "raw_laptop_fields": [
+    "brand",
+    "model",
+    "ram_gb",
+    "storage_gb",
+    "storage_type",
+    "screen_size_inch",
+    "cpu_text",
+    "cpu_brand",
+    "cpu_family",
+    "cpu_generation",
+    "cpu_suffix",
+    "gpu_text",
+    "condition",
+    "warranty_status"
+  ],
+  "critical_fields": ["brand", "model", "ram_gb", "storage_gb", "cpu_text", "gpu_text"],
+  "segment_rmse": {
+    "Q1_low": 2.805,
+    "Q2": 2.575,
+    "Q3": 3.927,
+    "Q4": 4.234,
+    "Q5_high": 11.268
+  },
+  "segment_upper_bounds": [4.725, 8.407, 13.576, 27.362],
+  "missing_field_weights": {
+    "brand": 0.18,
+    "model": 0.14,
+    "ram_gb": 0.16,
+    "storage_gb": 0.14,
+    "cpu_text": 0.16,
+    "gpu_text": 0.12,
+    "storage_type": 0.06,
+    "screen_size_inch": 0.05,
+    "condition": 0.04,
+    "warranty_status": 0.03,
+    "cpu_brand": 0.03,
+    "cpu_family": 0.03,
+    "cpu_generation": 0.02,
+    "cpu_suffix": 0.02
+  },
+  "no_info_flag_weight": 0.04,
+  "max_uncertainty_multiplier": 2.6,
+  "min_price_million": 0.5
+}

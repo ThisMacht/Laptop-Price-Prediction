@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260704c" />
   </head>
   <body>
     <main class="page-shell">
@@ -28,7 +28,7 @@
           <p class="eyebrow">Gemini 2.5 Flash · Encoder · CatBoost</p>
           <h1>
             Nhập cấu hình
-            nhận giá dự đoán.
+            nhận khoảng giá dự đoán.
           </h1>
           <div class="hero-actions">
             <a class="primary-link" href="#input">Bắt đầu nhập</a>
@@ -38,11 +38,21 @@
       </header>
 
       <section id="input" class="studio-grid">
-        <form id="predictForm" class="input-panel">
+        <form id="predictForm" class="input-panel" data-active-task="predict">
           <div class="panel-heading">
             <div>
               <p class="panel-kicker">Đầu vào</p>
               <h2>Chọn cách nhập thông tin máy.</h2>
+            </div>
+            <div class="mode-toggle text-mode-only" role="radiogroup" aria-label="Loại tác vụ">
+              <label>
+                <input type="radio" name="task" value="predict" checked />
+                <span>1 máy</span>
+              </label>
+              <label>
+                <input type="radio" name="task" value="compare" />
+                <span>So sánh</span>
+              </label>
             </div>
             <div class="mode-toggle" role="radiogroup" aria-label="Chế độ dự đoán">
               <label>
@@ -57,10 +67,10 @@
           </div>
 
           <label class="field wide text-mode-only">
-            <span>Mô tả tự nhiên</span>
+            <span id="descriptionLabel">Mô tả tự nhiên</span>
             <textarea
               id="description"
-              rows="6"
+              rows="8"
               placeholder="Dell Inspiron 15, Intel Core i5-1235U, RAM 16GB, SSD 512GB, màn 15.6 inch, card Intel Integrated, đã sử dụng chưa sửa chữa, hết bảo hành"
             ></textarea>
           </label>
@@ -150,20 +160,25 @@
           </div>
 
           <div class="actions">
-            <button class="primary-button" type="submit">Dự đoán giá</button>
+            <button class="primary-button" id="submitButton" type="submit">Dự đoán giá</button>
             <button class="ghost-button" type="button" id="clearForm">Xóa form</button>
           </div>
         </form>
 
-        <aside id="result" class="result-panel">
+        <aside id="result" class="result-panel" data-task="predict">
           <div class="result-head">
             <span>Kết quả</span>
             <strong id="runState">Chưa chạy</strong>
           </div>
-            <div class="price-box">
-              <span>Giá dự đoán</span>
-              <strong id="predictedPrice">--</strong>
+          <div class="price-box">
+            <span>Khoảng giá dự đoán</span>
+            <strong id="predictedPriceRange">--</strong>
+            <small id="predictedPricePoint">Giá trung tâm: --</small>
+            <div class="price-meta">
+              <span id="completenessBadge" class="meta-badge">--</span>
+              <span id="uncertaintyBadge" class="meta-badge">--</span>
             </div>
+          </div>
           <div class="validation-box">
             <h3>Trạng thái xử lý</h3>
             <ul id="validationList">
@@ -171,6 +186,46 @@
             </ul>
           </div>
         </aside>
+      </section>
+
+      <section id="compareResults" class="compare-results-section" hidden>
+        <div class="compare-results-head">
+          <div>
+            <p class="panel-kicker">Bài toán 3</p>
+            <h2>So sánh & xếp hạng đáng mua</h2>
+          </div>
+          <strong id="compareRunState">Chưa chạy</strong>
+        </div>
+        <div class="compare-box">
+          <span>Kết luận so sánh</span>
+          <strong id="compareBestPick">--</strong>
+          <small id="compareSummary">Chưa có dữ liệu so sánh.</small>
+          <div class="compare-table-wrap">
+            <table class="compare-table">
+              <thead>
+                <tr>
+                  <th>Hạng</th>
+                  <th>Laptop</th>
+                  <th>Giá thực tế</th>
+                  <th>Giá dự đoán</th>
+                  <th>Chênh lệch</th>
+                  <th>Nhận xét</th>
+                </tr>
+              </thead>
+              <tbody id="compareTableBody">
+                <tr>
+                  <td colspan="6">Chưa có kết quả.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="validation-box">
+          <h3>Trạng thái xử lý</h3>
+          <ul id="compareValidationList">
+            <li>Chờ dữ liệu so sánh.</li>
+          </ul>
+        </div>
       </section>
 
       <section class="interest-grid" aria-label="Luồng xử lý">
@@ -190,7 +245,7 @@
         </article>
         <article class="process-card">
           <h3>Dự đoán</h3>
-          <p>Model trả về giá tham khảo dựa trên cấu hình và tình trạng máy.</p>
+          <p>Model trả về khoảng giá tham khảo; khoảng rộng hơn khi thiếu thông tin cấu hình.</p>
         </article>
       </section>
 
@@ -217,18 +272,19 @@
 
       <section class="reveal-section">
         <p class="scrub-text">
-          Giá dự đoán là mức tham khảo theo dữ liệu huấn luyện; hãy đối chiếu thêm ngoại hình, pin, bảo hành và độ uy tín người bán trước khi quyết định.
+          Khoảng giá phản ánh sai số holdout và mức độ hoàn thiện thông tin nhập vào. Hãy đối chiếu thêm ngoại hình, pin, bảo hành và độ uy tín người bán trước khi quyết định.
         </p>
       </section>
 
       <footer class="footer-cta">
-        <p>Mode LLM cần GEMINI_API_KEY. Mode thủ công không gọi API ngoài.</p>
+        <p>Mode LLM hỗ trợ dự đoán 1 máy hoặc so sánh nhiều laptop (cần GEMINI_API_KEY). Mode thủ công không gọi API ngoài.</p>
         <a href="#input">Quay lại nhập liệu</a>
       </footer>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="./app.js?v=20260601-health-fallback"></script>
+    <script src="./price-interval.js?v=20260704c"></script>
+    <script src="./app.js?v=20260704c"></script>
   </body>
 </html>

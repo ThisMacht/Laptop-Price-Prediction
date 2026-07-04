@@ -14,6 +14,12 @@ from dotenv import load_dotenv
 
 from src.encoder import LaptopFeatureEncoder
 from src.encoder.encoder_validation import validate_input_rows
+from src.prediction import (
+    build_comparison_row,
+    build_price_prediction,
+    rank_comparison_rows,
+    summarize_comparison,
+)
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -131,6 +137,43 @@ Warranty parsing:
 - If warranty information is absent, use null.
 """.strip()
 
+MIN_COMPARE_LAPTOPS = 2
+MAX_COMPARE_LAPTOPS = 10
+
+COMPARE_EXTRACTION_PROMPT = f"""
+You are a strict laptop comparison extraction assistant for a production laptop price ranking system.
+
+Your job is to read free-form Vietnamese or English text that describes MULTIPLE laptops for sale.
+Each laptop has configuration details and an actual asking/selling price.
+
+Return exactly one JSON object with this shape:
+{{ "laptops": [ laptop_object, ... ] }}
+
+Each laptop_object MUST contain:
+- label: short name from the user text, such as "Laptop A", "Máy 1", "Dell Inspiron", "Option 2"
+- actual_price_million_vnd: the listed selling price converted to million VND
+- brand, model, ram_gb, storage_gb, storage_type, screen_size_inch,
+  cpu_text, cpu_brand, cpu_family, cpu_generation, cpu_suffix,
+  gpu_text, condition, warranty_status
+
+Price conversion rules for actual_price_million_vnd:
+- 12.000.000 VND -> 12.0
+- 14 triệu -> 14.0
+- 9.5tr -> 9.5
+- Always output million VND as a JSON number, never as a formatted string.
+
+Comparison extraction rules:
+- Extract every distinct laptop listing in the text.
+- Require at least {MIN_COMPARE_LAPTOPS} laptops and at most {MAX_COMPARE_LAPTOPS}.
+- Every laptop MUST include actual_price_million_vnd. If a laptop has no price, omit it.
+- Keep laptops in the same order as the user wrote them before ranking happens later.
+- Do not merge two laptops into one object.
+- Do not output engineered model features or one-hot columns.
+
+Apply the same per-field parsing rules as the single-laptop extractor:
+{DETAILED_EXTRACTION_PROMPT}
+""".strip()
+
 
 def load_environment() -> None:
     if load_dotenv is not None:
@@ -190,6 +233,48 @@ def gemini_response_schema() -> dict[str, Any]:
     }
 
 
+def gemini_compare_response_schema() -> dict[str, Any]:
+    string_field = {"type": "STRING", "nullable": True}
+    number_field = {"type": "NUMBER", "nullable": True}
+    integer_field = {"type": "INTEGER", "nullable": True}
+
+    laptop_schema = {
+        "type": "OBJECT",
+        "properties": {
+            "label": {"type": "STRING"},
+            "actual_price_million_vnd": {"type": "NUMBER"},
+            "brand": string_field,
+            "model": string_field,
+            "ram_gb": number_field,
+            "storage_gb": number_field,
+            "storage_type": string_field,
+            "screen_size_inch": number_field,
+            "cpu_text": string_field,
+            "cpu_brand": string_field,
+            "cpu_family": string_field,
+            "cpu_generation": integer_field,
+            "cpu_suffix": string_field,
+            "gpu_text": string_field,
+            "condition": string_field,
+            "warranty_status": string_field,
+        },
+        "required": ["label", "actual_price_million_vnd", *RAW_LAPTOP_FIELDS],
+        "propertyOrdering": ["label", "actual_price_million_vnd", *RAW_LAPTOP_FIELDS],
+    }
+
+    return {
+        "type": "OBJECT",
+        "properties": {
+            "laptops": {
+                "type": "ARRAY",
+                "items": laptop_schema,
+            }
+        },
+        "required": ["laptops"],
+        "propertyOrdering": ["laptops"],
+    }
+
+
 def call_gemini_json_api(user_input: str, api_key: str) -> dict[str, Any]:
     model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
     payload = {
@@ -214,6 +299,35 @@ def call_gemini_json_api(user_input: str, api_key: str) -> dict[str, Any]:
         headers={"Content-Type": "application/json"},
         json=payload,
         timeout=60,
+    )
+    response.raise_for_status()
+    return response.json()
+
+
+def call_gemini_compare_api(user_input: str, api_key: str) -> dict[str, Any]:
+    model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+    payload = {
+        "systemInstruction": {
+            "parts": [{"text": COMPARE_EXTRACTION_PROMPT}],
+        },
+        "contents": [
+            {
+                "role": "user",
+                "parts": [{"text": user_input}],
+            }
+        ],
+        "generationConfig": {
+            "temperature": 0,
+            "responseMimeType": "application/json",
+            "responseSchema": gemini_compare_response_schema(),
+        },
+    }
+    response = requests.post(
+        f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+        params={"key": api_key},
+        headers={"Content-Type": "application/json"},
+        json=payload,
+        timeout=90,
     )
     response.raise_for_status()
     return response.json()
@@ -246,6 +360,44 @@ def parse_llm_json_content(raw_content: str) -> dict[str, Any]:
     return parsed
 
 
+def parse_llm_compare_content(raw_content: str) -> list[dict[str, Any]]:
+    parsed = parse_llm_json_content(raw_content)
+    laptops = parsed.get("laptops")
+    if not isinstance(laptops, list):
+        raise ValueError("LLM compare output must include a laptops array.")
+    if len(laptops) < MIN_COMPARE_LAPTOPS:
+        raise ValueError(f"Cần ít nhất {MIN_COMPARE_LAPTOPS} laptop để so sánh.")
+    if len(laptops) > MAX_COMPARE_LAPTOPS:
+        raise ValueError(f"Chỉ hỗ trợ tối đa {MAX_COMPARE_LAPTOPS} laptop mỗi lần so sánh.")
+
+    normalized: list[dict[str, Any]] = []
+    for index, laptop in enumerate(laptops, start=1):
+        if not isinstance(laptop, dict):
+            raise TypeError(f"Laptop #{index} must be a JSON object.")
+
+        label = str(laptop.get("label") or f"Laptop {index}").strip() or f"Laptop {index}"
+        actual_price = laptop.get("actual_price_million_vnd")
+        if actual_price is None:
+            raise ValueError(f"{label} thiếu actual_price_million_vnd.")
+        try:
+            actual_price_value = float(actual_price)
+        except (TypeError, ValueError) as exc:
+            raise ValueError(f"{label} có actual_price_million_vnd không hợp lệ.") from exc
+        if actual_price_value <= 0:
+            raise ValueError(f"{label} phải có giá bán lớn hơn 0.")
+
+        raw_features = {field: laptop.get(field) for field in RAW_LAPTOP_FIELDS}
+        validate_encoder_ready_json(raw_features)
+        normalized.append(
+            {
+                "label": label,
+                "actual_price_million_vnd": actual_price_value,
+                "raw_features": raw_features,
+            }
+        )
+    return normalized
+
+
 def validate_encoder_ready_json(raw_features: dict[str, Any]) -> None:
     if not isinstance(raw_features, dict):
         raise TypeError(f"LLM output must be a dict, got {type(raw_features).__name__}.")
@@ -266,6 +418,12 @@ def extract_laptop_features(user_input: str, api_key: str) -> dict[str, Any]:
     raw_features = parse_llm_json_content(raw_content)
     validate_encoder_ready_json(raw_features)
     return raw_features
+
+
+def extract_compare_laptops(user_input: str, api_key: str) -> list[dict[str, Any]]:
+    response_data = call_gemini_compare_api(user_input, api_key)
+    raw_content = gemini_content_text(response_data)
+    return parse_llm_compare_content(raw_content)
 
 
 def normalize_manual_features(raw_features: dict[str, Any]) -> dict[str, Any]:
@@ -293,6 +451,23 @@ def predict_price(raw_features: dict[str, Any]) -> float:
     return float(model.predict(encoded)[0])
 
 
+def build_prediction_response(
+    raw_features: dict[str, Any],
+    encoded_features: dict[str, float | int],
+    active_features: list[str],
+    validation: list[str],
+) -> dict[str, Any]:
+    prediction = predict_price(raw_features)
+    price_payload = build_price_prediction(prediction, raw_features, encoded_features)
+    return {
+        "raw_features": raw_features,
+        "encoded_features": encoded_features,
+        "active_features": active_features,
+        **price_payload,
+        "validation": validation,
+    }
+
+
 def predict_from_text(description: str) -> dict[str, Any]:
     load_environment()
     api_key = os.getenv("GEMINI_API_KEY")
@@ -300,31 +475,68 @@ def predict_from_text(description: str) -> dict[str, Any]:
         raise RuntimeError("GEMINI_API_KEY is not configured.")
     raw_features = extract_laptop_features(description, api_key)
     encoded_features, active_features = encode_features(raw_features)
-    prediction = predict_price(raw_features)
-    return {
-        "raw_features": raw_features,
-        "encoded_features": encoded_features,
-        "active_features": active_features,
-        "predicted_price": prediction,
-        "validation": [
+    return build_prediction_response(
+        raw_features,
+        encoded_features,
+        active_features,
+        validation=[
             "LLM JSON passed encoder_validation.py input checks.",
             "Encoded output matches the final 86-feature model schema.",
         ],
-    }
+    )
 
 
 def predict_from_raw(raw_features: dict[str, Any]) -> dict[str, Any]:
     raw_features = normalize_manual_features(raw_features)
     validate_encoder_ready_json(raw_features)
     encoded_features, active_features = encode_features(raw_features)
-    prediction = predict_price(raw_features)
-    return {
-        "raw_features": raw_features,
-        "encoded_features": encoded_features,
-        "active_features": active_features,
-        "predicted_price": prediction,
-        "validation": [
+    return build_prediction_response(
+        raw_features,
+        encoded_features,
+        active_features,
+        validation=[
             "Manual JSON passed encoder_validation.py input checks.",
             "Encoded output matches the final 86-feature model schema.",
+        ],
+    )
+
+
+def compare_from_text(description: str) -> dict[str, Any]:
+    load_environment()
+    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key:
+        raise RuntimeError("GEMINI_API_KEY is not configured.")
+
+    laptops = extract_compare_laptops(description, api_key)
+    comparison_rows: list[dict[str, Any]] = []
+
+    for laptop in laptops:
+        raw_features = laptop["raw_features"]
+        encoded_features, _active_features = encode_features(raw_features)
+        prediction = predict_price(raw_features)
+        prediction_payload = build_price_prediction(prediction, raw_features, encoded_features)
+        prediction_payload["raw_features"] = raw_features
+        comparison_rows.append(
+            build_comparison_row(
+                laptop["label"],
+                laptop["actual_price_million_vnd"],
+                prediction_payload,
+                rank=0,
+            )
+        )
+
+    rankings = rank_comparison_rows(comparison_rows)
+    summary = summarize_comparison(rankings)
+
+    return {
+        "task": "compare",
+        "laptop_count": len(rankings),
+        "best_pick": summary["best_pick"],
+        "summary": summary["summary"],
+        "rankings": rankings,
+        "validation": [
+            f"Gemini trích xuất {len(rankings)} laptop kèm giá bán thực tế.",
+            "Mỗi laptop đã qua encoder_validation và model dự đoán giá.",
+            "Xếp hạng theo value_score = giá dự đoán - giá thực tế.",
         ],
     }

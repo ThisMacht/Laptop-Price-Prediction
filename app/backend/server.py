@@ -10,14 +10,21 @@ from urllib.parse import unquote, urlparse
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 FRONTEND_DIR = PROJECT_ROOT / "app" / "frontend"
+INTERVAL_CONFIG_PATH = PROJECT_ROOT / "models" / "price_interval_config.json"
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from app.backend.predictor_service import MODEL_PATH, predict_from_raw, predict_from_text
+from app.backend.predictor_service import (
+    MODEL_PATH,
+    compare_from_text,
+    predict_from_raw,
+    predict_from_text,
+)
+from src.prediction import API_VERSION, load_interval_config
 
 
 class LaptopPriceHandler(BaseHTTPRequestHandler):
-    server_version = "LaptopPriceBackend/1.0"
+    server_version = "LaptopPriceBackend/2.0"
 
     def do_GET(self) -> None:
         path = urlparse(self.path).path
@@ -25,29 +32,49 @@ class LaptopPriceHandler(BaseHTTPRequestHandler):
             self.write_json(
                 {
                     "ok": True,
+                    "api_version": API_VERSION,
+                    "supports_price_range": True,
+                    "supports_compare": True,
                     "model_available": MODEL_PATH.exists(),
                     "model_path": str(MODEL_PATH),
                 }
             )
             return
+        if path == "/api/price-interval-config":
+            self.write_json(load_interval_config(INTERVAL_CONFIG_PATH))
+            return
         self.serve_static(path)
 
     def do_POST(self) -> None:
         path = urlparse(self.path).path
-        if path != "/api/predict":
+        if path not in {"/api/predict", "/api/compare"}:
             self.write_json({"error": "Not found"}, status=404)
             return
 
         try:
             payload = self.read_json()
-            mode = payload.get("mode", "text")
-            if mode == "manual":
-                result = predict_from_raw(payload.get("raw_features") or {})
-            else:
+            if path == "/api/compare":
                 description = str(payload.get("description") or "").strip()
                 if not description:
-                    raise ValueError("description is required for text mode.")
-                result = predict_from_text(description)
+                    raise ValueError("description is required for compare mode.")
+                result = compare_from_text(description)
+            else:
+                mode = payload.get("mode", "text")
+                task = payload.get("task", "predict")
+                if task == "compare":
+                    if mode != "text":
+                        raise ValueError("Compare task is only available in Gemini text mode.")
+                    description = str(payload.get("description") or "").strip()
+                    if not description:
+                        raise ValueError("description is required for compare mode.")
+                    result = compare_from_text(description)
+                elif mode == "manual":
+                    result = predict_from_raw(payload.get("raw_features") or {})
+                else:
+                    description = str(payload.get("description") or "").strip()
+                    if not description:
+                        raise ValueError("description is required for text mode.")
+                    result = predict_from_text(description)
         except Exception as exc:
             self.write_json({"error": str(exc)}, status=400)
             return
@@ -70,7 +97,7 @@ class LaptopPriceHandler(BaseHTTPRequestHandler):
         return parsed
 
     def write_json(self, payload: dict, status: int = 200) -> None:
-        body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+        body = json.dumps(payload, ensure_ascii=False, default=self._json_default).encode("utf-8")
         self.send_response(status)
         self.send_cors_headers()
         self.send_header("Content-Type", "application/json; charset=utf-8")
@@ -102,6 +129,12 @@ class LaptopPriceHandler(BaseHTTPRequestHandler):
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
+
+    @staticmethod
+    def _json_default(value: object) -> float | int | str:
+        if hasattr(value, "item"):
+            return value.item()
+        raise TypeError(f"Object of type {type(value).__name__} is not JSON serializable")
 
     def log_message(self, format: str, *args) -> None:
         print(f"{self.address_string()} - {format % args}")

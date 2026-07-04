@@ -18,6 +18,14 @@ const fields = [
 const example = {
   description:
     "Dell Inspiron 15, Intel Core i5-1235U, RAM 16GB, SSD 512GB, màn 15.6 inch, card Intel Integrated, đã sử dụng chưa sửa chữa, hết bảo hành",
+  compareDescription: `Laptop A:
+RAM 8GB, SSD 512GB, CPU Intel Core i5, đã sử dụng, giá 12.000.000 VND
+
+Laptop B:
+RAM 16GB, SSD 512GB, CPU Intel Core i5, đã sử dụng, giá 14.000.000 VND
+
+Laptop C:
+RAM 16GB, SSD 1TB, CPU Intel Core i7, đã sử dụng, giá 18.000.000 VND`,
   raw_features: {
     brand: "Dell",
     model: "Inspiron",
@@ -38,10 +46,23 @@ const example = {
 
 const form = document.querySelector("#predictForm");
 const runState = document.querySelector("#runState");
-const predictedPrice = document.querySelector("#predictedPrice");
-const validationList = document.querySelector("#validationList");
+const submitButton = document.querySelector("#submitButton");
+const descriptionLabel = document.querySelector("#descriptionLabel");
+const descriptionInput = document.querySelector("#description");
+const predictedPriceRange = document.querySelector("#predictedPriceRange");
+const predictedPricePoint = document.querySelector("#predictedPricePoint");
+const completenessBadge = document.querySelector("#completenessBadge");
+const uncertaintyBadge = document.querySelector("#uncertaintyBadge");
+const compareBestPick = document.querySelector("#compareBestPick");
+const compareSummary = document.querySelector("#compareSummary");
+const compareTableBody = document.querySelector("#compareTableBody");
+const compareValidationList = document.querySelector("#compareValidationList");
+const compareResultsSection = document.querySelector("#compareResults");
+const compareRunState = document.querySelector("#compareRunState");
 const healthStatus = document.querySelector("#healthStatus");
 const inputPanel = document.querySelector(".input-panel");
+const resultPanel = document.querySelector(".result-panel");
+const studioGrid = document.querySelector("#input");
 let activeApiBase = null;
 
 function setHealth(status) {
@@ -77,13 +98,13 @@ async function fetchWithTimeout(url, options = {}, timeoutMs = 5000) {
   }
 }
 
-async function apiRequest(path, options = {}) {
+async function apiRequest(path, options = {}, timeoutMs = 60000) {
   const bases = activeApiBase === null ? apiBaseCandidates() : [activeApiBase, ...apiBaseCandidates()];
   const errors = [];
 
   for (const base of [...new Set(bases)]) {
     try {
-      const response = await fetchWithTimeout(`${base}${path}`, options);
+      const response = await fetchWithTimeout(`${base}${path}`, options, timeoutMs);
       if (!response.ok) {
         const body = await response.text();
         throw new Error(`${response.status} ${response.statusText}${body ? `: ${body}` : ""}`);
@@ -102,8 +123,57 @@ function getMode() {
   return document.querySelector('input[name="mode"]:checked')?.value || "text";
 }
 
+function getTask() {
+  const checked = document.querySelector('input[name="task"]:checked');
+  if (checked) return checked.value;
+  return form?.dataset.activeTask || "predict";
+}
+
+function isCompareTask() {
+  return getMode() === "text" && getTask() === "compare";
+}
+
+function isCompareResponse(data) {
+  return data?.task === "compare" || Array.isArray(data?.rankings);
+}
+
 function syncModeVisibility() {
-  inputPanel.dataset.mode = getMode();
+  const mode = getMode();
+  const task = getTask();
+  const compareMode = mode === "text" && task === "compare";
+
+  form.dataset.activeTask = compareMode ? "compare" : "predict";
+  inputPanel.dataset.mode = mode;
+  inputPanel.dataset.task = compareMode ? "compare" : "predict";
+  studioGrid.dataset.task = compareMode ? "compare" : "predict";
+
+  if (mode !== "text" && document.querySelector('input[name="task"][value="compare"]')?.checked) {
+    document.querySelector('input[name="task"][value="predict"]').checked = true;
+    form.dataset.activeTask = "predict";
+    inputPanel.dataset.task = "predict";
+    studioGrid.dataset.task = "predict";
+  }
+
+  if (compareResultsSection) {
+    compareResultsSection.hidden = !compareMode;
+  }
+
+  if (descriptionLabel) {
+    descriptionLabel.textContent = isCompareTask()
+      ? "Danh sách laptop cần so sánh"
+      : "Mô tả tự nhiên";
+  }
+
+  if (descriptionInput) {
+    descriptionInput.placeholder = isCompareTask()
+      ? example.compareDescription
+      : example.description;
+    descriptionInput.rows = isCompareTask() ? 12 : 8;
+  }
+
+  if (submitButton) {
+    submitButton.textContent = isCompareTask() ? "So sánh & xếp hạng" : "Dự đoán giá";
+  }
 }
 
 function nullableValue(id) {
@@ -120,32 +190,165 @@ function collectRawFeatures() {
   return Object.fromEntries(fields.map((field) => [field, nullableValue(field)]));
 }
 
-function setValidation(items) {
-  validationList.innerHTML = "";
+function setValidation(items, target = "predict") {
+  const list = target === "compare" ? compareValidationList : document.querySelector("#validationList");
+  if (!list) return;
+  list.innerHTML = "";
   items.forEach((item) => {
     const li = document.createElement("li");
     li.textContent = item;
-    validationList.appendChild(li);
+    list.appendChild(li);
   });
 }
 
+function coerceNumber(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
 function formatPrice(value) {
-  if (typeof value !== "number" || Number.isNaN(value)) return "--";
-  const valueInVnd = Math.round(value * 1_000_000);
+  const number = coerceNumber(value);
+  if (number === null) return "--";
+  const valueInVnd = Math.round(number * 1_000_000);
   return `${valueInVnd.toLocaleString("vi-VN")}<sup>đ</sup>`;
 }
 
-function setLoading(isLoading) {
-  form.querySelector(".primary-button").disabled = isLoading;
+function formatPriceRange(range) {
+  const low = coerceNumber(range?.low);
+  const high = coerceNumber(range?.high);
+  if (low === null || high === null) return "--";
+  return `${formatPrice(low)} – ${formatPrice(high)}`;
+}
+
+function uncertaintyLabel(level) {
+  if (level === "low") return "Độ tin cậy: cao";
+  if (level === "medium") return "Độ tin cậy: trung bình";
+  if (level === "high") return "Độ tin cậy: thấp";
+  return "Độ tin cậy: --";
+}
+
+function resetPriceDisplay() {
+  predictedPriceRange.textContent = "--";
+  predictedPricePoint.textContent = "Giá trung tâm: --";
+  completenessBadge.textContent = "--";
+  uncertaintyBadge.textContent = "--";
+}
+
+function resetCompareDisplay() {
+  compareBestPick.textContent = "--";
+  compareSummary.textContent = "Chưa có dữ liệu so sánh.";
+  compareTableBody.innerHTML = '<tr><td colspan="6">Chưa có kết quả.</td></tr>';
+}
+
+function resetResultDisplay() {
+  resetPriceDisplay();
+  resetCompareDisplay();
+}
+
+function formatGap(gapMillion, gapPct) {
+  const gap = coerceNumber(gapMillion);
+  if (gap === null) return "--";
+  const sign = gap > 0 ? "+" : "";
+  const pct = coerceNumber(gapPct);
+  const pctText = pct === null ? "" : ` (${sign}${pct}%)`;
+  return `${sign}${formatPrice(gap)}${pctText}`;
+}
+
+function verdictClass(verdict) {
+  if (!verdict) return "";
+  if (verdict.includes("Đáng mua")) return "verdict-good";
+  if (verdict === "Hợp lý") return "verdict-fair";
+  if (verdict.includes("đắt") || verdict.includes("Đắt")) return "verdict-bad";
+  return "";
+}
+
+function renderCompareResult(data) {
+  const rows = data.rankings || [];
+  if (!rows.length) {
+    resetCompareDisplay();
+    return data;
+  }
+
+  compareBestPick.textContent = data.best_pick || "--";
+  compareSummary.textContent = data.summary || "Chưa có dữ liệu so sánh.";
+  compareRunState.textContent = "Hoàn tất";
+
+  compareTableBody.innerHTML = rows
+    .map((row) => {
+      const verdict = row.verdict || "--";
+      return `
+        <tr class="${row.rank === 1 ? "compare-top-pick" : ""}">
+          <td>#${row.rank}</td>
+          <td>${row.label}</td>
+          <td>${formatPrice(row.actual_price_million_vnd)}</td>
+          <td>${formatPrice(row.predicted_price)}</td>
+          <td>${formatGap(row.price_gap_million_vnd, row.price_gap_pct)}</td>
+          <td><span class="verdict-pill ${verdictClass(verdict)}">${verdict}</span></td>
+        </tr>
+      `;
+    })
+    .join("");
+
+  if (compareResultsSection) {
+    compareResultsSection.hidden = false;
+    compareResultsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  return data;
+}
+
+function compareMismatchMessage(data) {
+  const messages = [
+    "Backend trả về kết quả 1 máy trong khi bạn đang ở chế độ So sánh.",
+    "Hãy restart server: .venv/bin/python app/backend/server.py",
+  ];
+  if (data?.predicted_price != null) {
+    messages.push(`Giá trung tâm nhận được: ${formatPrice(data.predicted_price).replace(/<[^>]+>/g, "")}.`);
+  }
+  return messages;
+}
+
+function renderPriceResult(data) {
+  const enriched = window.PriceInterval?.enrichPrediction
+    ? window.PriceInterval.enrichPrediction(data)
+    : data;
+
+  predictedPriceRange.innerHTML = formatPriceRange(enriched.price_range);
+  predictedPricePoint.innerHTML = `Giá trung tâm: ${formatPrice(enriched.predicted_price)}`;
+  completenessBadge.textContent = `Hoàn thiện input: ${enriched.input_completeness_pct ?? "--"}%`;
+  uncertaintyBadge.textContent = uncertaintyLabel(enriched.uncertainty?.level);
+  uncertaintyBadge.dataset.level = enriched.uncertainty?.level || "";
+
+  return enriched;
+}
+
+function setLoading(isLoading, task = "predict") {
+  submitButton.disabled = isLoading;
+  if (task === "compare") {
+    compareRunState.textContent = isLoading ? "Đang chạy" : "Hoàn tất";
+    return;
+  }
   runState.textContent = isLoading ? "Đang chạy" : "Hoàn tất";
 }
 
 function fillExample() {
-  document.querySelector("#description").value = example.description;
+  if (isCompareTask()) {
+    descriptionInput.value = example.compareDescription;
+    return;
+  }
+
+  descriptionInput.value = example.description;
   fields.forEach((field) => {
     const element = document.querySelector(`#${field}`);
     element.value = example.raw_features[field] ?? "";
   });
+}
+
+function compareStatus(data) {
+  const items = [...(data.validation || [])];
+  if (data.summary) items.push(data.summary);
+  if (data.best_pick) items.push(`Lựa chọn tốt nhất hiện tại: ${data.best_pick}.`);
+  return items;
 }
 
 function userFriendlyStatus(data, mode) {
@@ -154,14 +357,22 @@ function userFriendlyStatus(data, mode) {
   items.push("Đã kiểm tra các giá trị nhập vào.");
   items.push("Đã chuẩn hóa cấu hình cho model dự đoán.");
 
-  const missing = Object.entries(data.raw_features || {})
+  if (data.range_source === "client_fallback") {
+    items.push("Backend chưa cập nhật khoảng giá; UI đã tự tính khoảng giá từ giá trung tâm.");
+  }
+
+  if (data.uncertainty?.reason) {
+    items.push(data.uncertainty.reason);
+  }
+
+  const missing = data.missing_fields || Object.entries(data.raw_features || {})
     .filter(([, value]) => value === null || value === "")
     .map(([key]) => key);
 
   if (missing.length) {
-    items.push(`Một số thông tin còn thiếu, kết quả có thể kém chính xác hơn: ${missing.slice(0, 4).join(", ")}${missing.length > 4 ? "..." : ""}.`);
+    items.push(`Thông tin còn thiếu: ${missing.slice(0, 5).join(", ")}${missing.length > 5 ? "..." : ""}.`);
   } else {
-    items.push("Thông tin chính đã đủ để tham khảo giá.");
+    items.push("Thông tin chính đã đủ để tham khảo khoảng giá.");
   }
 
   return items;
@@ -171,66 +382,115 @@ async function checkHealth() {
   try {
     const response = await apiRequest("/api/health");
     const data = await response.json();
-    setHealth(data.ok && data.model_available ? "Sẵn sàng" : "Có lỗi");
+    const ready = data.ok && data.model_available;
+    const staleBackend =
+      ready && (data.supports_price_range !== true || data.supports_compare !== true);
+    setHealth(ready ? (staleBackend ? "Cần restart backend" : "Sẵn sàng") : "Có lỗi");
   } catch (error) {
     setHealth("Không kết nối");
   }
 }
 
+async function loadPriceIntervalConfig() {
+  if (!window.PriceInterval?.setConfig) return;
+  try {
+    const response = await apiRequest("/api/price-interval-config");
+    const config = await response.json();
+    window.PriceInterval.setConfig(config);
+  } catch (error) {
+    // Keep built-in defaults when config endpoint is unavailable.
+  }
+}
+
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  document.querySelector(".result-panel").classList.remove("is-error");
-  setLoading(true);
-  setValidation(["Đang gửi dữ liệu tới backend."]);
-  predictedPrice.textContent = "--";
+  resultPanel.classList.remove("is-error");
+  if (compareResultsSection) compareResultsSection.classList.remove("is-error");
+
+  const task = form.dataset.activeTask === "compare" || isCompareTask() ? "compare" : "predict";
+  setLoading(true, task);
+  setValidation(task === "compare" ? ["Đang gọi Gemini và model cho từng laptop..."] : ["Đang gửi dữ liệu tới backend."], task);
+  resetResultDisplay();
 
   const mode = getMode();
+  const description = descriptionInput.value.trim();
+  const endpoint = task === "compare" ? "/api/compare" : "/api/predict";
   const payload =
-    mode === "manual"
-      ? { mode, raw_features: collectRawFeatures() }
-      : { mode, description: document.querySelector("#description").value.trim() };
+    task === "compare"
+      ? { description }
+      : mode === "manual"
+        ? { mode, raw_features: collectRawFeatures() }
+        : { mode, task: "predict", description };
 
   try {
-    const response = await apiRequest("/api/predict", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+    const response = await apiRequest(
+      endpoint,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      },
+      task === "compare" ? 120000 : 60000,
+    );
     const data = await response.json();
 
+    if (task === "compare" || isCompareResponse(data)) {
+      if (!isCompareResponse(data)) {
+        if (compareResultsSection) compareResultsSection.classList.add("is-error");
+        setValidation(compareMismatchMessage(data), "compare");
+        compareRunState.textContent = "Lỗi";
+        return;
+      }
+
+      const compared = renderCompareResult(data);
+      setValidation(compareStatus(compared), "compare");
+      return;
+    }
+
     runState.textContent = "Hoàn tất";
-    predictedPrice.innerHTML = formatPrice(data.predicted_price);
-    setValidation(userFriendlyStatus(data, mode));
+    const enriched = renderPriceResult(data);
+    setValidation(userFriendlyStatus(enriched, mode), "predict");
 
     fields.forEach((field) => {
       const element = document.querySelector(`#${field}`);
-      if (element && data.raw_features && data.raw_features[field] !== null) {
-        element.value = data.raw_features[field];
+      if (element && enriched.raw_features && enriched.raw_features[field] !== null) {
+        element.value = enriched.raw_features[field];
       }
     });
   } catch (error) {
-    document.querySelector(".result-panel").classList.add("is-error");
-    runState.textContent = "Lỗi";
-    setValidation([error.message]);
+    if (task === "compare") {
+      if (compareResultsSection) compareResultsSection.classList.add("is-error");
+      compareRunState.textContent = "Lỗi";
+      setValidation([error.message], "compare");
+    } else {
+      resultPanel.classList.add("is-error");
+      runState.textContent = "Lỗi";
+      setValidation([error.message], "predict");
+    }
   } finally {
-    form.querySelector(".primary-button").disabled = false;
+    submitButton.disabled = false;
   }
 });
 
 document.querySelector("#fillExample").addEventListener("click", fillExample);
 
-document.querySelectorAll('input[name="mode"]').forEach((input) => {
-  input.addEventListener("change", syncModeVisibility);
+document.querySelectorAll('input[name="mode"], input[name="task"]').forEach((input) => {
+  input.addEventListener("change", () => {
+    syncModeVisibility();
+    form.dataset.activeTask = getTask();
+  });
 });
 
 document.querySelector("#clearForm").addEventListener("click", () => {
-  document.querySelector("#description").value = "";
+  descriptionInput.value = "";
   fields.forEach((field) => {
     document.querySelector(`#${field}`).value = "";
   });
-  predictedPrice.textContent = "--";
+  resetResultDisplay();
   runState.textContent = "Chưa chạy";
-  setValidation(["Chờ dữ liệu đầu vào."]);
+  compareRunState.textContent = "Chưa chạy";
+  setValidation(["Chờ dữ liệu đầu vào."], "predict");
+  setValidation(["Chờ dữ liệu so sánh."], "compare");
 });
 
 document.querySelectorAll(".accordion-item").forEach((item) => {
@@ -242,6 +502,7 @@ document.querySelectorAll(".accordion-item").forEach((item) => {
 
 fillExample();
 syncModeVisibility();
+loadPriceIntervalConfig();
 checkHealth();
 
 if (window.gsap && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
