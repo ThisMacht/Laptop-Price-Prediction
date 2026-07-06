@@ -19,6 +19,7 @@ from src.prediction import (
     build_price_prediction,
     rank_comparison_rows,
     summarize_comparison,
+    sweep_ram_by_storage,
 )
 
 
@@ -480,8 +481,8 @@ def predict_from_text(description: str) -> dict[str, Any]:
         encoded_features,
         active_features,
         validation=[
-            "LLM JSON passed encoder_validation.py input checks.",
-            "Encoded output matches the final 86-feature model schema.",
+            "Đã trích xuất thông tin cấu hình từ mô tả.",
+            "Dữ liệu đã sẵn sàng để ước tính giá.",
         ],
     )
 
@@ -495,10 +496,25 @@ def predict_from_raw(raw_features: dict[str, Any]) -> dict[str, Any]:
         encoded_features,
         active_features,
         validation=[
-            "Manual JSON passed encoder_validation.py input checks.",
-            "Encoded output matches the final 86-feature model schema.",
+            "Đã kiểm tra thông tin nhập từ form.",
+            "Dữ liệu đã sẵn sàng để ước tính giá.",
         ],
     )
+
+
+def sweep_from_raw(raw_features: dict[str, Any]) -> dict[str, Any]:
+    raw_features = normalize_manual_features(raw_features)
+    validate_encoder_ready_json(raw_features)
+    result = sweep_ram_by_storage(
+        raw_features,
+        predict_fn=predict_price,
+        encode_fn=encode_features,
+    )
+    result["validation"] = [
+        "Giữ nguyên cấu hình gốc, chỉ thay đổi RAM và dung lượng ổ cứng.",
+        f"Đã dự đoán {len(result['ram_values']) * len(result['storage_values'])} cấu hình.",
+    ]
+    return result
 
 
 def compare_from_text(description: str) -> dict[str, Any]:
@@ -535,8 +551,8 @@ def compare_from_text(description: str) -> dict[str, Any]:
         "summary": summary["summary"],
         "rankings": rankings,
         "validation": [
-            f"Gemini trích xuất {len(rankings)} laptop kèm giá bán thực tế.",
-            "Mỗi laptop đã qua encoder_validation và model dự đoán giá.",
-            "Xếp hạng theo value_score = giá dự đoán - giá thực tế.",
+            f"Đã phân tích {len(rankings)} laptop kèm giá bán.",
+            "Mỗi máy đã được ước tính giá tham khảo.",
+            "Xếp hạng theo mức chênh lệch giữa giá dự đoán và giá rao bán.",
         ],
     }

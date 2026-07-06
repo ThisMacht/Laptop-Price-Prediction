@@ -132,7 +132,7 @@ def build_price_prediction(
 
 def _uncertainty_reason(level: str, missing: list[str]) -> str:
     if not missing:
-        return "Đủ thông tin chính; khoảng giá dựa trên sai số holdout theo phân khúc giá."
+        return "Đủ thông tin chính; khoảng giá dựa trên độ chính xác theo phân khúc giá."
 
     critical_missing = [field for field in missing if field in CRITICAL_FIELDS]
     if level == "high":

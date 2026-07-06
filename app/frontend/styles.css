@@ -847,3 +847,157 @@ h1 {
     padding: 16px;
   }
 }
+
+.config-chart-section {
+  width: min(1380px, calc(100vw - 44px));
+  margin: 18px auto 0;
+  padding: 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 16px 54px rgba(0, 0, 0, 0.24);
+}
+
+.config-chart-head {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.config-chart-head h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.config-chart-status {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.config-chart-head strong.config-chart-status.is-ready {
+  color: var(--acid);
+}
+
+.config-chart-panel {
+  min-height: 620px;
+}
+
+.config-chart-root {
+  display: grid;
+  gap: 14px;
+}
+
+.config-chart-canvas {
+  position: relative;
+  min-height: 620px;
+  padding: 16px 12px 8px;
+  background:
+    linear-gradient(135deg, rgba(231, 255, 101, 0.08), rgba(114, 216, 255, 0.05)),
+    rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.config-chart-canvas svg {
+  display: block;
+  width: 100%;
+  min-height: 580px;
+  height: auto;
+}
+
+.config-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.config-chart-legend-item {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 12px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.config-chart-legend-item span {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(248, 243, 232, 0.35);
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.config-chart-legend-item.is-active,
+.config-chart-legend-item:hover {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(231, 255, 101, 0.45);
+}
+
+.config-chart-tooltip {
+  position: fixed;
+  z-index: 10000;
+  min-width: 220px;
+  max-width: min(320px, calc(100vw - 24px));
+  padding: 12px 14px;
+  color: var(--ink);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  pointer-events: none;
+  background: rgba(9, 11, 16, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+}
+
+.config-chart-tooltip strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--acid);
+}
+
+.config-chart-tooltip span {
+  display: block;
+  color: var(--muted);
+}
+
+.config-chart-error {
+  margin: 0;
+  color: var(--coral);
+}
+
+@media (max-width: 760px) {
+  .config-chart-section {
+    width: calc(100vw - 24px);
+    padding: 16px;
+  }
+
+  .config-chart-head {
+    flex-direction: column;
+  }
+
+  .config-chart-panel,
+  .config-chart-canvas {
+    min-height: 460px;
+  }
+
+  .config-chart-canvas svg {
+    min-height: 420px;
+  }
+}

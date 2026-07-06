@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260704c" />
+    <link rel="stylesheet" href="./styles.css?v=20260706c" />
   </head>
   <body>
     <main class="page-shell">
@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="hero-copy">
-          <p class="eyebrow">Gemini 2.5 Flash · Encoder · CatBoost</p>
+          <p class="eyebrow">Định giá laptop · So sánh cấu hình</p>
           <h1>
             Nhập cấu hình
             nhận khoảng giá dự đoán.
@@ -57,7 +57,7 @@
             <div class="mode-toggle" role="radiogroup" aria-label="Chế độ dự đoán">
               <label>
                 <input type="radio" name="mode" value="text" checked />
-                <span>LLM</span>
+                <span>Mô tả</span>
               </label>
               <label>
                 <input type="radio" name="mode" value="manual" />
@@ -180,7 +180,7 @@
             </div>
           </div>
           <div class="validation-box">
-            <h3>Trạng thái xử lý</h3>
+            <h3>Chi tiết</h3>
             <ul id="validationList">
               <li>Chờ dữ liệu đầu vào.</li>
             </ul>
@@ -191,8 +191,7 @@
       <section id="compareResults" class="compare-results-section" hidden>
         <div class="compare-results-head">
           <div>
-            <p class="panel-kicker">Bài toán 3</p>
-            <h2>So sánh & xếp hạng đáng mua</h2>
+            <h2>So sánh & xếp hạng</h2>
           </div>
           <strong id="compareRunState">Chưa chạy</strong>
         </div>
@@ -221,70 +220,81 @@
           </div>
         </div>
         <div class="validation-box">
-          <h3>Trạng thái xử lý</h3>
+          <h3>Chi tiết</h3>
           <ul id="compareValidationList">
             <li>Chờ dữ liệu so sánh.</li>
           </ul>
         </div>
       </section>
 
-      <section class="interest-grid" aria-label="Luồng xử lý">
+      <section id="configChartSection" class="config-chart-section" hidden>
+        <div class="config-chart-head">
+          <div>
+            <h2>Giá theo RAM & ổ cứng</h2>
+          </div>
+          <strong id="configChartState" class="config-chart-status">Chưa chạy</strong>
+        </div>
+        <div id="configChartPanel" class="config-chart-panel" aria-live="polite"></div>
+      </section>
+
+      <section class="interest-grid" aria-label="Cách hoạt động">
         <article class="process-card process-wide">
           <div>
-            <h2>Một luồng nhập liệu, hai cách kiểm soát.</h2>
-            <p>LLM trích xuất raw JSON từ mô tả; nhập thủ công bỏ qua API ngoài và chạy thẳng encoder local.</p>
+            <h2>Nhập thông tin theo cách bạn muốn.</h2>
+            <p>Mô tả tự nhiên hoặc điền form chi tiết — hệ thống sẽ phân tích cấu hình và đưa ra mức giá tham khảo.</p>
           </div>
         </article>
         <article class="process-card">
           <h3>Kiểm tra</h3>
-          <p>Hệ thống kiểm tra các giá trị quan trọng như RAM, ổ cứng và kích thước màn hình.</p>
+          <p>RAM, ổ cứng, màn hình và các thông số quan trọng được xác minh trước khi ước tính.</p>
         </article>
         <article class="process-card">
           <h3>Chuẩn hóa</h3>
-          <p>Thông tin máy được chuyển về dạng mà model dự đoán giá có thể đọc được.</p>
+          <p>Cấu hình được đồng nhất để so sánh và dự đoán chính xác hơn.</p>
         </article>
         <article class="process-card">
           <h3>Dự đoán</h3>
-          <p>Model trả về khoảng giá tham khảo; khoảng rộng hơn khi thiếu thông tin cấu hình.</p>
+          <p>Nhận khoảng giá tham khảo; khoảng rộng hơn khi thiếu thông tin cấu hình.</p>
         </article>
       </section>
 
-      <section class="accordion-band" aria-label="Các tín hiệu chính">
+      <section class="accordion-band" aria-label="Yếu tố ảnh hưởng giá">
         <article class="accordion-item active">
           <div>
-            <h3>RAM · Storage</h3>
-            <p>Dung lượng được chuẩn hóa về GB trước khi tính interaction.</p>
+            <h3>RAM · Ổ cứng</h3>
+            <p>Dung lượng bộ nhớ và lưu trữ là hai yếu tố ảnh hưởng rõ đến mức giá.</p>
           </div>
         </article>
         <article class="accordion-item">
           <div>
             <h3>CPU · GPU</h3>
-            <p>Text phần cứng được parse thành brand, family, generation, suffix và tier.</p>
+            <p>Chip xử lý và card đồ họa được phân tích để tinh chỉnh ước tính.</p>
           </div>
         </article>
         <article class="accordion-item">
           <div>
             <h3>Tình trạng</h3>
-            <p>New và unknown được đưa về score 3; like new và máy tốt về score 2.</p>
+            <p>Tình trạng máy và bảo hành được tính vào mức giá tham khảo.</p>
           </div>
         </article>
       </section>
 
       <section class="reveal-section">
         <p class="scrub-text">
-          Khoảng giá phản ánh sai số holdout và mức độ hoàn thiện thông tin nhập vào. Hãy đối chiếu thêm ngoại hình, pin, bảo hành và độ uy tín người bán trước khi quyết định.
+          Khoảng giá phản ánh độ tin cậy của ước tính và mức độ đầy đủ thông tin. Hãy đối chiếu thêm ngoại hình, pin, bảo hành và uy tín người bán trước khi quyết định.
         </p>
       </section>
 
       <footer class="footer-cta">
-        <p>Mode LLM hỗ trợ dự đoán 1 máy hoặc so sánh nhiều laptop (cần GEMINI_API_KEY). Mode thủ công không gọi API ngoài.</p>
+        <p>Ước tính giá một máy, so sánh nhiều laptop, hoặc xem biểu đồ thay đổi giá theo cấu hình.</p>
         <a href="#input">Quay lại nhập liệu</a>
       </footer>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="./price-interval.js?v=20260704c"></script>
-    <script src="./app.js?v=20260704c"></script>
+    <script src="./price-interval.js?v=20260706a"></script>
+    <script src="./config-chart.js?v=20260706e"></script>
+    <script src="./app.js?v=20260706c"></script>
   </body>
 </html>

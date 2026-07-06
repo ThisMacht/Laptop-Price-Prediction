@@ -105,7 +105,7 @@
 
   function uncertaintyReason(level, missing) {
     if (!missing.length) {
-      return "Đủ thông tin chính; khoảng giá dựa trên sai số holdout theo phân khúc giá.";
+      return "Đủ thông tin chính; khoảng giá dựa trên độ chính xác theo phân khúc giá.";
     }
 
     const criticalMissing = missing.filter((field) => config.critical_fields.includes(field));

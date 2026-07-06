@@ -59,6 +59,9 @@ const compareTableBody = document.querySelector("#compareTableBody");
 const compareValidationList = document.querySelector("#compareValidationList");
 const compareResultsSection = document.querySelector("#compareResults");
 const compareRunState = document.querySelector("#compareRunState");
+const configChartSection = document.querySelector("#configChartSection");
+const configChartPanel = document.querySelector("#configChartPanel");
+const configChartState = document.querySelector("#configChartState");
 const healthStatus = document.querySelector("#healthStatus");
 const inputPanel = document.querySelector(".input-panel");
 const resultPanel = document.querySelector(".result-panel");
@@ -158,6 +161,10 @@ function syncModeVisibility() {
     compareResultsSection.hidden = !compareMode;
   }
 
+  if (configChartSection && compareMode) {
+    configChartSection.hidden = true;
+  }
+
   if (descriptionLabel) {
     descriptionLabel.textContent = isCompareTask()
       ? "Danh sách laptop cần so sánh"
@@ -240,9 +247,19 @@ function resetCompareDisplay() {
   compareTableBody.innerHTML = '<tr><td colspan="6">Chưa có kết quả.</td></tr>';
 }
 
+function resetConfigChartDisplay() {
+  if (configChartState) {
+    configChartState.textContent = "Chưa chạy";
+    configChartState.classList.remove("is-ready");
+  }
+  if (window.ConfigChart?.destroy) window.ConfigChart.destroy(configChartPanel);
+  if (configChartSection) configChartSection.hidden = true;
+}
+
 function resetResultDisplay() {
   resetPriceDisplay();
   resetCompareDisplay();
+  resetConfigChartDisplay();
 }
 
 function formatGap(gapMillion, gapPct) {
@@ -299,11 +316,10 @@ function renderCompareResult(data) {
 
 function compareMismatchMessage(data) {
   const messages = [
-    "Backend trả về kết quả 1 máy trong khi bạn đang ở chế độ So sánh.",
-    "Hãy restart server: .venv/bin/python app/backend/server.py",
+    "Không nhận được kết quả so sánh. Vui lòng thử lại.",
   ];
   if (data?.predicted_price != null) {
-    messages.push(`Giá trung tâm nhận được: ${formatPrice(data.predicted_price).replace(/<[^>]+>/g, "")}.`);
+    messages.push(`Giá ước tính: ${formatPrice(data.predicted_price).replace(/<[^>]+>/g, "")}.`);
   }
   return messages;
 }
@@ -320,6 +336,39 @@ function renderPriceResult(data) {
   uncertaintyBadge.dataset.level = enriched.uncertainty?.level || "";
 
   return enriched;
+}
+
+async function loadConfigChart(rawFeatures) {
+  if (!configChartSection || !configChartPanel || !rawFeatures) return;
+
+  configChartState.textContent = "Đang tính";
+  configChartSection.hidden = false;
+
+  try {
+    const response = await apiRequest(
+      "/api/config-sweep",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ raw_features: rawFeatures }),
+      },
+      120000,
+    );
+    const data = await response.json();
+    if (!data?.series?.length || !window.ConfigChart?.render) {
+      configChartState.textContent = "Không có dữ liệu";
+      return;
+    }
+
+    window.ConfigChart.render(configChartPanel, data);
+    configChartState.textContent = "Sẵn sàng";
+    configChartState.classList.add("is-ready");
+    configChartSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  } catch (error) {
+    configChartState.textContent = "Lỗi";
+    if (window.ConfigChart?.destroy) window.ConfigChart.destroy(configChartPanel);
+    configChartPanel.innerHTML = `<p class="config-chart-error">${error.message}</p>`;
+  }
 }
 
 function setLoading(isLoading, task = "predict") {
@@ -353,12 +402,12 @@ function compareStatus(data) {
 
 function userFriendlyStatus(data, mode) {
   const items = [];
-  items.push(mode === "manual" ? "Đã nhận thông tin từ form." : "Đã đọc mô tả và rút thông tin cấu hình.");
+  items.push(mode === "manual" ? "Đã nhận thông tin từ form." : "Đã phân tích mô tả và trích xuất cấu hình.");
   items.push("Đã kiểm tra các giá trị nhập vào.");
-  items.push("Đã chuẩn hóa cấu hình cho model dự đoán.");
+  items.push("Đã chuẩn bị dữ liệu để ước tính giá.");
 
   if (data.range_source === "client_fallback") {
-    items.push("Backend chưa cập nhật khoảng giá; UI đã tự tính khoảng giá từ giá trung tâm.");
+    items.push("Khoảng giá được tính từ giá trung tâm.");
   }
 
   if (data.uncertainty?.reason) {
@@ -384,8 +433,11 @@ async function checkHealth() {
     const data = await response.json();
     const ready = data.ok && data.model_available;
     const staleBackend =
-      ready && (data.supports_price_range !== true || data.supports_compare !== true);
-    setHealth(ready ? (staleBackend ? "Cần restart backend" : "Sẵn sàng") : "Có lỗi");
+      ready &&
+      (data.supports_price_range !== true ||
+        data.supports_compare !== true ||
+        data.supports_config_sweep !== true);
+    setHealth(ready ? (staleBackend ? "Cần làm mới" : "Sẵn sàng") : "Có lỗi");
   } catch (error) {
     setHealth("Không kết nối");
   }
@@ -409,7 +461,7 @@ form.addEventListener("submit", async (event) => {
 
   const task = form.dataset.activeTask === "compare" || isCompareTask() ? "compare" : "predict";
   setLoading(true, task);
-  setValidation(task === "compare" ? ["Đang gọi Gemini và model cho từng laptop..."] : ["Đang gửi dữ liệu tới backend."], task);
+  setValidation(task === "compare" ? ["Đang phân tích và so sánh từng laptop..."] : ["Đang xử lý yêu cầu..."], task);
   resetResultDisplay();
 
   const mode = getMode();
@@ -457,6 +509,8 @@ form.addEventListener("submit", async (event) => {
         element.value = enriched.raw_features[field];
       }
     });
+
+    await loadConfigChart(enriched.raw_features || data.raw_features);
   } catch (error) {
     if (task === "compare") {
       if (compareResultsSection) compareResultsSection.classList.add("is-error");

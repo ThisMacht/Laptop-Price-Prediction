@@ -19,6 +19,7 @@ from app.backend.predictor_service import (
     compare_from_text,
     predict_from_raw,
     predict_from_text,
+    sweep_from_raw,
 )
 from src.prediction import API_VERSION, load_interval_config
 
@@ -35,6 +36,7 @@ class LaptopPriceHandler(BaseHTTPRequestHandler):
                     "api_version": API_VERSION,
                     "supports_price_range": True,
                     "supports_compare": True,
+                    "supports_config_sweep": True,
                     "model_available": MODEL_PATH.exists(),
                     "model_path": str(MODEL_PATH),
                 }
@@ -47,13 +49,16 @@ class LaptopPriceHandler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:
         path = urlparse(self.path).path
-        if path not in {"/api/predict", "/api/compare"}:
+        if path not in {"/api/predict", "/api/compare", "/api/config-sweep"}:
             self.write_json({"error": "Not found"}, status=404)
             return
 
         try:
             payload = self.read_json()
-            if path == "/api/compare":
+            if path == "/api/config-sweep":
+                raw_features = payload.get("raw_features") or {}
+                result = sweep_from_raw(raw_features)
+            elif path == "/api/compare":
                 description = str(payload.get("description") or "").strip()
                 if not description:
                     raise ValueError("description is required for compare mode.")
