@@ -476,6 +476,9 @@ document.querySelector("#fillExample").addEventListener("click", fillExample);
 
 document.querySelectorAll('input[name="mode"], input[name="task"]').forEach((input) => {
   input.addEventListener("change", () => {
+    if (input.name === "task") {
+      descriptionInput.value = "";
+    }
     syncModeVisibility();
     form.dataset.activeTask = getTask();
   });
