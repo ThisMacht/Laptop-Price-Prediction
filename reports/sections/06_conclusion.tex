@@ -1,0 +1,46 @@
+\section{Kết luận}
+\label{sec:conclusion}
+
+\subsection{Tóm tắt kết quả}
+
+Đồ án đã xây dựng hệ thống học máy dự đoán và phân tích giá niêm yết laptop từ dữ liệu Chợ Tốt và Websosanh, tương ứng chủ yếu với thị trường laptop đã qua sử dụng và laptop mới. Dữ liệu được làm sạch, chuẩn hóa và hợp nhất để phục vụ phân tích, nhưng kết quả không được xem là thước đo giá trị thị trường chung cho toàn bộ laptop tại Việt Nam.
+
+Sau quá trình xử lý và trích xuất các thông tin cấu hình như thương hiệu, CPU, GPU, RAM, lưu trữ, màn hình, tình trạng và bảo hành, tập mô hình hóa gồm 7.296 mẫu với 86 đặc trưng. Nhiều mô hình hồi quy đã được thử nghiệm; CatBoost sau tinh chỉnh được lựa chọn với RMSE CV trung bình khoảng 5,226 triệu VND. Trên tập holdout, mô hình đạt RMSE 5,913 triệu VND và $R^2$ xấp xỉ 0,85. Đây là các metric nội bộ của pipeline hiện tại và được dùng làm tham chiếu trước khi mô hình ứng dụng được huấn luyện lại trên toàn bộ dữ liệu.
+
+Nhóm cũng xây dựng ứng dụng web \textit{Laptop Price Studio} chạy local, hỗ trợ nhập cấu hình hoặc mô tả tự nhiên, dự đoán giá và khoảng giá tham khảo, so sánh tin rao, đồng thời khảo sát sự thay đổi dự đoán theo RAM và dung lượng lưu trữ. Các kết quả này chỉ mang tính hỗ trợ phân tích, không được diễn giải như quan hệ nhân quả hoặc kết luận chắc chắn về mức độ đáng mua. Qua đó, đồ án đã hoàn thành quy trình từ thu thập dữ liệu, xây dựng mô hình đến triển khai sản phẩm minh họa.
+
+\subsection{Hạn chế}
+
+Hạn chế rõ nhất của mô hình là sai số tăng mạnh ở phân khúc giá cao. Biểu đồ residual cho thấy phương sai sai số tăng theo mức giá, tức hiện tượng phương sai không đồng nhất. Mô hình có xu hướng dự đoán cao hơn thực tế đối với các sản phẩm giá thấp và dự đoán thấp hơn thực tế đối với các sản phẩm cao cấp. Mẫu này nhất quán với giả thuyết co về vùng giá phổ biến, nhưng cũng có thể phát sinh từ việc thiếu đại diện và thiếu đặc trưng ở phân khúc cao; thí nghiệm hiện tại chưa phân biệt được các cơ chế này.
+
+Một nguyên nhân quan trọng là quy mô dữ liệu còn hạn chế, đặc biệt ở các nhóm laptop cao cấp, workstation và gaming. Sau các bước làm sạch và lọc, tập mô hình hóa gồm 7.296 mẫu; trong đánh giá holdout, chỉ 5.836 mẫu được dùng để huấn luyện, còn artifact ứng dụng được fit lại trên cả 7.296 mẫu. Các tập này chưa bao phủ đầy đủ sự đa dạng của thương hiệu, dòng máy, thế hệ linh kiện, tình trạng sản phẩm và các phân khúc giá trên thị trường.
+
+Các đặc trưng có ảnh hưởng mạnh như CPU và GPU cũng chưa được khai thác triệt để. Dữ liệu từ các nguồn web thường thiếu tên linh kiện đầy đủ, không thống nhất cách mô tả hoặc chỉ cung cấp thông tin ở mức tổng quát. Một số dòng CPU/GPU xuất hiện quá ít nên mô hình khó học được xu hướng giá đáng tin cậy. Vì vậy, những khác biệt quan trọng như thế hệ CPU, hậu tố dòng chip, hiệu năng GPU, công suất thiết kế hoặc phân khúc linh kiện chưa được phản ánh đầy đủ.
+
+Việc tinh chỉnh siêu tham số không tạo ra cải thiện holdout nhất quán trong lần chia hiện tại: RMSE của LightGBM tăng từ 5,785 lên 5,842 và của CatBoost tăng từ 5,819 lên 5,913 triệu VND sau tinh chỉnh. CatBoost tuned vẫn được giữ vì được chọn trước theo RMSE CV thấp nhất; chênh lệch holdout với LightGBM baseline là 2,21\%. Quyết định này bảo toàn quy tắc lựa chọn đã định, nhưng báo cáo không tuyên bố CatBoost vượt trội tuyệt đối.
+
+Ngoài ra, giá laptop có thể thay đổi nhanh theo thời gian. Sự xuất hiện của thế hệ CPU/GPU mới, thay đổi nguồn cung, chương trình khuyến mãi, tỷ giá, chi phí nhập khẩu và các biến động kinh tế có thể làm mặt bằng giá thực tế khác đáng kể so với thời điểm thu thập dữ liệu. Do đó, mô hình có nguy cơ suy giảm hiệu năng khi được sử dụng lâu dài nếu dữ liệu không được cập nhật thường xuyên.
+
+Phép chia ngẫu nhiên có phân tầng theo giá chỉ ước lượng khả năng dự đoán các quan sát cùng bối cảnh thu thập; nó chưa kiểm tra khả năng tổng quát sang thời điểm tương lai. Khi có timestamp đáng tin cậy, cần bổ sung phép chia theo thời gian hoặc theo đợt thu thập.
+
+Khoảng giá tham khảo của ứng dụng hiện được xây dựng từ RMSE theo phân khúc và mức độ thiếu thông tin. Phân khúc sai số trong phân tích được tạo theo giá thực tế, còn ứng dụng phải chọn phân khúc theo giá dự đoán; vì vậy một mẫu cao cấp bị dự đoán thấp có thể nhận biên sai số của phân khúc thấp hơn. Đây là quy tắc thực nghiệm chưa được đánh giá coverage, không phải khoảng dự đoán được hiệu chỉnh với bảo đảm xác suất. Ứng dụng cũng chưa quan sát đầy đủ các yếu tố như tình trạng pin, ngoại hình, chất lượng hoàn thiện, phụ kiện, chính sách bảo hành và uy tín người bán. Vì vậy, kết quả chỉ nên được xem là thông tin hỗ trợ, không phải kết luận tuyệt đối về giá trị hoặc mức độ đáng mua của sản phẩm.
+
+Dữ liệu hợp nhất hai cơ chế giá khác nhau. Mô hình sử dụng \texttt{condition\_score} để biểu diễn máy đã sửa chữa, đã sử dụng và máy mới khi thông tin này có sẵn. Riêng Websosanh không có trường tình trạng và được mã hóa ở mức trung tính 2; đây là giới hạn dữ liệu được chấp nhận trong phạm vi mô hình hợp nhất hiện tại.
+
+Huấn luyện lại trên toàn bộ dữ liệu sau khi cố định pipeline và siêu tham số là bước triển khai được chọn cho đồ án. Mô hình trong ứng dụng được fit trên toàn bộ 7.296 mẫu, nên không có metric test riêng cho chính artifact này. Các metric CV và holdout ở Chương 3--4 được dùng làm tham chiếu cho cấu hình CatBoost tuned trước khi retrain; chúng không phải phép đo trực tiếp artifact cuối.
+
+\subsection{Hướng phát triển}
+
+Trong tương lai, hướng cải thiện quan trọng nhất là mở rộng và cập nhật dữ liệu. Dữ liệu nên được thu thập định kỳ từ nhiều cửa hàng, sàn thương mại điện tử và thị trường máy đã qua sử dụng để tăng độ phủ và giảm ảnh hưởng của biến động theo thời gian. Các bản ghi cũng nên lưu thời điểm thu thập để mô hình có thể học xu hướng thay đổi giá.
+
+Nhóm có thể xây dựng bộ từ điển linh kiện chi tiết hơn cho CPU và GPU, bao gồm hãng, dòng, thế hệ, hậu tố, phân khúc hiệu năng và thời điểm ra mắt. Các nguồn tham chiếu về benchmark hoặc thông số kỹ thuật có thể được dùng để tạo thêm đặc trưng định lượng, giúp mô hình hiểu quan hệ giữa hiệu năng phần cứng và giá thay vì chỉ học từ tên danh mục.
+
+Đối với các cấu hình xuất hiện nhiều lần, pipeline hiện tại giữ nguyên quy tắc loại 2.514/10.080 quan sát theo cờ Websosanh để bảo đảm khả năng tái lập các kết quả đã báo cáo. Cờ này không tách hoàn toàn các nhóm theo \texttt{merged\_spec\_key}; đây là giới hạn được chấp nhận trong phạm vi đồ án thay vì mở rộng sang một quy trình group split mới.
+
+Trong phạm vi hiện tại, nhóm giữ schema, cách gom nhóm hiếm và cách chia CV để tránh mở rộng thí nghiệm. Khi dự đoán, \texttt{condition\_score} tiếp tục là biến chính mô tả tình trạng mới, đã sử dụng hoặc đã sửa chữa; giá trị thiếu/không nhận diện được mã hóa ở mức trung tính 2, nhất quán giữa notebook huấn luyện và encoder ứng dụng.
+
+Để xử lý phương sai không đồng nhất, nhóm có thể thử các hàm mất mát bền vững hơn như Huber loss, Quantile loss hoặc huấn luyện riêng theo từng phân khúc giá. Các phương pháp quantile regression hoặc conformal prediction cũng có thể được nghiên cứu để tạo khoảng giá có cơ sở thống kê tốt hơn.
+
+Về triển khai, hệ thống có thể được bổ sung cơ chế thu thập dữ liệu mới, huấn luyện lại theo lịch và theo dõi sai số sau triển khai. Khi mặt bằng giá thay đổi vượt một ngưỡng nhất định, hệ thống có thể cảnh báo dữ liệu hoặc mô hình đã lỗi thời và cần cập nhật. Nếu triển khai công khai, backend cũng cần được chuyển sang hạ tầng phù hợp hơn, bổ sung HTTPS, giới hạn truy cập, giám sát, ghi log và cơ chế bảo vệ khóa API.
+
+Tóm lại, đồ án cho thấy pipeline học máy end-to-end có thể được xây dựng và chạy để dự đoán giá niêm yết tham chiếu trong mẫu dữ liệu hợp nhất. Các giới hạn đã nêu được giữ minh bạch nhưng không làm thay đổi phạm vi thực nghiệm đã chốt của đồ án.

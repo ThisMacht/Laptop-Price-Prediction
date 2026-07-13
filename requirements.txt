@@ -6,6 +6,7 @@ missingno==0.5.2
 matplotlib==3.8.4
 seaborn==0.13.2
 scikit-learn==1.4.2
+joblib==1.4.2
 lightgbm==4.5.0
 catboost==1.2.8
 shap==0.47.2

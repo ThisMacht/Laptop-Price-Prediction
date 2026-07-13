@@ -228,10 +228,10 @@ function formatPriceRange(range) {
 }
 
 function uncertaintyLabel(level) {
-  if (level === "low") return "Độ tin cậy: cao";
-  if (level === "medium") return "Độ tin cậy: trung bình";
-  if (level === "high") return "Độ tin cậy: thấp";
-  return "Độ tin cậy: --";
+  if (level === "low") return "Mức độ không chắc chắn: thấp";
+  if (level === "medium") return "Mức độ không chắc chắn: trung bình";
+  if (level === "high") return "Mức độ không chắc chắn: cao";
+  return "Mức độ không chắc chắn: --";
 }
 
 function resetPriceDisplay() {

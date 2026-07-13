@@ -1,0 +1,128 @@
+\section{Xây dựng và Triển khai Ứng dụng}
+\label{sec:application-deployment}
+
+Sau khi lựa chọn mô hình ở Phần~\ref{sec:model-selection} và đánh giá ở Phần~\ref{sec:results-discussion}, nhóm xây dựng ứng dụng web \textit{Laptop Price Studio} để đưa mô hình vào sử dụng. Ứng dụng nhận cấu hình laptop, trả về giá ước tính theo triệu VND kèm khoảng giá tham khảo, đồng thời hỗ trợ so sánh nhiều tin rao và khảo sát phản ứng dự đoán khi thay đổi RAM và dung lượng lưu trữ. Phiên bản hiện tại được triển khai cục bộ (local); do đó không có URL cloud công khai.
+
+\subsection{Kiến trúc hệ thống và tích hợp mô hình}
+
+Hệ thống sử dụng kiến trúc client--server đơn giản, gồm giao diện web, API dự đoán và các thành phần mô hình. Frontend được xây dựng bằng HTML, CSS và JavaScript thuần; backend dùng Python với \texttt{ThreadingHTTPServer}. Khi chạy \texttt{app/backend/server.py}, cùng một tiến trình vừa cung cấp các tệp tĩnh của frontend, vừa cung cấp API tại cổng 8000. Do frontend và API được phục vụ từ cùng host và cổng, ứng dụng không cần cấu hình CORS cho luồng sử dụng local mặc định.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{figures/application/application_architecture.png}
+\caption{Kiến trúc và luồng xử lý của ứng dụng Laptop Price Studio.}
+\label{fig:application-architecture}
+\end{figure}
+
+Luồng xử lý chính được mô tả như sau:
+
+\begin{enumerate}[label=\arabic*.]
+    \item Người dùng nhập cấu hình bằng biểu mẫu thủ công hoặc mô tả tự nhiên trên trình duyệt.
+    \item JavaScript gửi yêu cầu JSON đến API \texttt{/api/predict}. Với biểu mẫu thủ công, dữ liệu được gửi trực tiếp; với mô tả tự nhiên, backend gọi Gemini API để trích xuất 14 trường cấu hình thô.
+    \item Backend kiểm tra dữ liệu, chuẩn hóa và mã hóa bằng \texttt{LaptopFeatureEncoder}. Bộ mã hóa chuyển 14 trường đầu vào thành đúng 86 đặc trưng số theo thứ tự mà mô hình yêu cầu.
+    \item Sau khi kiến trúc và siêu tham số được cố định từ quy trình đánh giá, CatBoost được huấn luyện lại trên toàn bộ 7.296 mẫu để tạo artifact chạy trong ứng dụng local. Artifact được lưu tại \texttt{models/final\_laptop\_price\_model\_full\_data.joblib}, được nạp một lần bằng \texttt{joblib} khi server khởi động và tái sử dụng cho các yêu cầu dự đoán. Các chỉ số MAE/RMSE/$R^2$ ở Phần~\ref{sec:results-discussion} được đo trên phiên bản CatBoost huấn luyện với 5.836 mẫu, trong khi artifact đang chạy được huấn luyện trên toàn bộ 7.296 mẫu, bao gồm cả 1.460 mẫu holdout. Do đó, \emph{không có metric ngoài mẫu nào đánh giá trực tiếp artifact đang chạy}; không được gắn RMSE 5,913 hay $R^2\approx0,85$ cho đầu ra của ứng dụng. Các metric holdout chỉ cung cấp bằng chứng gián tiếp về một phiên bản huấn luyện khác; learning curve cũng không thay thế được đánh giá độc lập. Vì vậy từ ``production'' trong tên tệp/quy trình chỉ mô tả vai trò kỹ thuật, không hàm ý artifact đã đủ điều kiện vận hành thực tế.
+    \item Mô-đun tạo khoảng giá tham khảo sử dụng RMSE theo phân khúc, mức độ đầy đủ của đầu vào và các cờ thiếu thông tin để điều chỉnh độ rộng quanh giá dự đoán điểm. Khoảng này được xây dựng theo quy tắc thực nghiệm, không được diễn giải như khoảng tin cậy hoặc khoảng dự đoán có bảo đảm xác suất.
+    \item API trả JSON; frontend hiển thị giá trung tâm, khoảng giá tham khảo, tỷ lệ hoàn thiện dữ liệu, mức cảnh báo theo quy tắc và các thông báo kiểm tra dữ liệu.
+\end{enumerate}
+
+Các API bổ sung gồm \texttt{/api/compare} để so sánh 2--10 laptop, \texttt{/api/config-sweep} để tạo dữ liệu biểu đồ RAM--dung lượng lưu trữ, \texttt{/api/price-interval-config} để đọc cấu hình khoảng giá và \texttt{/api/health} để kiểm tra trạng thái dịch vụ. Các tệp mô hình, schema 86 đặc trưng và cấu hình khoảng giá được đặt tách biệt trong thư mục \texttt{models/}; vì vậy có thể thay mô hình mới mà không cần sửa giao diện, miễn là duy trì cùng hợp đồng đặc trưng.
+
+\texttt{ThreadingHTTPServer} được lựa chọn để đơn giản hóa việc chạy local và trình diễn sản phẩm. Kiến trúc hiện tại chưa hướng đến tải truy cập lớn, quản lý nhiều tiến trình hoặc triển khai Internet công khai. Khi chuyển sang môi trường production, backend cần được đặt sau một máy chủ ứng dụng (\textit{application server}) và reverse proxy phù hợp, đồng thời bổ sung HTTPS, giới hạn yêu cầu, xác thực và giám sát.
+
+\begin{table}[H]
+\centering
+\caption{Các thành phần chính của ứng dụng.}
+\label{tab:application-components}
+\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}p{0.27\textwidth} X}
+\toprule
+\textbf{Thành phần} & \textbf{Vai trò} \\
+\midrule
+Frontend & Thu nhận dữ liệu, gọi API và hiển thị kết quả dự đoán, bảng so sánh, biểu đồ. \\
+Backend API & Phục vụ tệp tĩnh, xác thực yêu cầu, điều phối mã hóa, dự đoán và trả JSON. \\
+Feature encoder & Chuẩn hóa thông số laptop và tạo 86 đặc trưng số đúng schema mô hình. \\
+CatBoost model & Ước tính giá trung tâm từ vector đặc trưng đã mã hóa. \\
+Mô-đun khoảng giá tham khảo & Điều chỉnh độ rộng khoảng giá theo RMSE phân khúc và mức thiếu thông tin; không cung cấp bảo đảm xác suất. \\
+Gemini API (tùy chọn) & Trích xuất cấu hình có cấu trúc từ mô tả tự nhiên; không cần cho chế độ nhập thủ công. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Giao diện và chức năng}
+
+Giao diện được thiết kế theo hướng một trang, ưu tiên thao tác nhanh. Khu vực đầu vào cho phép chuyển giữa chế độ \textit{Mô tả} và \textit{Thủ công}. Chế độ mô tả phù hợp khi người dùng có nội dung tin rao; chế độ thủ công cho phép điền trực tiếp hãng, dòng máy, RAM, dung lượng lưu trữ, màn hình, CPU, GPU, tình trạng và bảo hành. Chế độ thủ công không yêu cầu khóa Gemini API.
+
+Sau khi dự đoán, ứng dụng hiển thị khoảng giá tham khảo, giá trung tâm, tỷ lệ hoàn thiện dữ liệu và mức cảnh báo theo quy tắc. Độ rộng được tính từ RMSE của phân khúc giá và hệ số phạt thông tin thiếu; cả RMSE và các ngưỡng phân khúc trong \texttt{price\_interval\_config.json} được tạo từ phân tích holdout. Vì holdout đã tham gia cấu hình đầu ra này, nó không còn là tập đánh giá độc lập cho toàn bộ hệ thống. Ngoài ra, phân khúc khi suy luận được chọn theo giá dự đoán, trong khi bảng RMSE được tính theo phân khúc giá thực tế. Do sự khác nhau này và do chưa đo tỷ lệ bao phủ trên một tập khác, khoảng trên không phải prediction interval đã hiệu chỉnh và các nhãn thấp/trung bình/cao không mang nghĩa xác suất.
+
+Ngoài dự đoán một máy, người dùng có thể nhập nhiều tin rao trong chế độ \textit{So sánh}; hệ thống trích xuất từng máy, dự đoán giá tham khảo và tính tỷ lệ chênh lệch giữa giá rao và giá dự đoán:
+\begin{equation}
+    d =
+    \frac{P_{\text{listed}}-P_{\text{predicted}}}
+         {P_{\text{predicted}}}
+    \times 100\%.
+\end{equation}
+Giá trị $d$ âm cho thấy giá rao thấp hơn mức mô hình ước lượng, trong khi $d$ dương cho thấy giá rao cao hơn. Phiên bản triển khai hiện tại xếp hạng chính theo chênh lệch tuyệt đối $P_{\text{predicted}}-P_{\text{listed}}$ (triệu VND); $d$ được dùng để mô tả chênh lệch tương đối và gắn nhãn. Vì vậy, thứ hạng có thể ưu tiên một laptop đắt tiền có mức tiết kiệm tuyệt đối lớn hơn, ngay cả khi tỷ lệ tiết kiệm thấp hơn một laptop rẻ. Các ngưỡng nhãn là quy tắc sản phẩm, chưa được validation như một bài toán quyết định và không tính trực tiếp độ bất định vào thứ hạng. Kết quả chỉ là tham khảo vì mô hình không quan sát đầy đủ ngoại hình, tình trạng pin, bảo hành thực tế, phụ kiện, uy tín người bán và chất lượng hoàn thiện của từng máy.
+
+Hệ thống tính mức độ đầy đủ và gắn cảnh báo cho dữ liệu thiếu, nhưng code xếp hạng hiện tại không loại, hạ bậc hay điều chỉnh điểm theo cảnh báo và độ bất định. Mọi sản phẩm vẫn được sắp xếp theo chênh lệch tuyệt đối; cảnh báo chỉ được hiển thị kèm kết quả.
+
+Với một cấu hình nhập thủ công hợp lệ, biểu đồ RAM--dung lượng lưu trữ tính dự đoán trên các mức định nghĩa trước, trong khi giữ nguyên các thuộc tính còn lại. Biểu đồ mô tả phản ứng của mô hình, không ước lượng tác động nhân quả của nâng cấp. Hệ thống hiện chưa kiểm tra khả năng tương thích phần cứng hoặc cảnh báo đầy đủ cấu hình ngoài phân phối, nên người dùng không nên diễn giải mọi điểm sinh tự động là một sản phẩm khả thi trên thị trường.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/application/dashboard.png}
+\caption{Màn hình chính của ứng dụng: nhập mô tả tự nhiên và hiển thị kết quả dự đoán.}
+\label{fig:ui-dashboard}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{figures/application/comparison_laptop.png}
+\caption{Chức năng so sánh và xếp hạng nhiều laptop theo giá rao và giá dự đoán.}
+\label{fig:ui-comparison}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{figures/application/ram_storage_size.png}
+\caption{Biểu đồ khảo sát giá dự đoán theo RAM và dung lượng lưu trữ.}
+\label{fig:ui-config-sweep}
+\end{figure}
+
+\subsection{Triển khai local và hướng dẫn sử dụng}
+
+Ứng dụng được triển khai local trên máy phát triển, với địa chỉ mặc định \url{http://127.0.0.1:8000}. Yêu cầu môi trường là Python 3.10 trở lên và \texttt{pip}. Khóa Gemini chỉ cần khi dùng nhập mô tả tự nhiên hoặc so sánh; người dùng vẫn có thể dự đoán từ biểu mẫu thủ công mà không gọi Gemini.
+
+Khi sử dụng chế độ mô tả tự nhiên hoặc so sánh, nội dung người dùng nhập được gửi đến Gemini API để trích xuất cấu hình. Vì vậy, người dùng không nên nhập thông tin cá nhân hoặc dữ liệu nhạy cảm. Chế độ nhập thủ công không gửi dữ liệu đến dịch vụ bên ngoài.
+
+Trước khi khởi động, cần bảo đảm các tệp mô hình, schema đặc trưng và cấu hình khoảng giá tồn tại trong thư mục \texttt{models/}. Cụ thể, backend cần tệp \texttt{final\_laptop\_price\_model\_full\_data.joblib}, \texttt{final\_laptop\_price\_feature\_schema.json} và \texttt{price\_interval\_config.json}. Nếu tệp mô hình thiếu, endpoint health sẽ trả \texttt{model\_available: false}; khi đó chức năng dự đoán không thể thực hiện.
+
+Từ thư mục gốc của dự án, thực hiện các lệnh sau trên Linux/macOS:
+
+\begin{lstlisting}[language=bash,caption={Cài đặt môi trường và phụ thuộc.}]
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install --upgrade pip
+python3 -m pip install -r requirements.txt
+\end{lstlisting}
+
+Trên Windows PowerShell, thay lệnh kích hoạt bằng:
+
+\begin{lstlisting}[language=bash]
+.venv\Scripts\Activate.ps1
+\end{lstlisting}
+
+Các thư viện có ảnh hưởng trực tiếp đến khả năng nạp mô hình, gồm \texttt{catboost} và \texttt{joblib}, đã được khóa phiên bản trong \texttt{requirements.txt}. Chức năng Gemini dùng REST API thông qua \texttt{requests}, cũng đã được khóa phiên bản, nên không cần cài một SDK Gemini riêng.
+
+Để bật các chức năng ngôn ngữ tự nhiên, sao chép tệp cấu hình và điền khóa API cá nhân. Không đưa tệp \texttt{.env} chứa khóa lên kho mã nguồn.
+
+\begin{lstlisting}[language=bash,caption={Cấu hình tùy chọn cho Gemini API.}]
+cp app/backend/.env.example app/backend/.env
+# Sửa app/backend/.env: GEMINI_API_KEY=<khoa_API_cua_ban>
+\end{lstlisting}
+
+Khởi động ứng dụng bằng một lệnh:
+
+\begin{lstlisting}[language=bash,caption={Chạy ứng dụng local.}]
+python3 app/backend/server.py
+\end{lstlisting}
+
+Sau đó mở \url{http://127.0.0.1:8000} trên trình duyệt. Có thể kiểm tra nhanh backend bằng lệnh \texttt{curl http://127.0.0.1:8000/api/health}; phản hồi \texttt{ok: true} cùng \texttt{model\_available: true} cho biết backend đang hoạt động và tệp mô hình đã được nạp thành công. Dừng server bằng tổ hợp \texttt{Ctrl+C}. Để kiểm thử hồi quy trước khi sử dụng hoặc phát hành bản mới, chạy \texttt{pytest -q} tại thư mục gốc dự án.

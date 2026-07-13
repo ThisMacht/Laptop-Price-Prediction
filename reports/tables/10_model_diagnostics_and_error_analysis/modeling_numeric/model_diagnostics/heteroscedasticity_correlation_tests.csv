@@ -1,3 +1,0 @@
-model_name,rho_abs_error,p_value,heteroscedasticity_flag
-LightGBM,0.49903931367126897,8.820854824644433e-93,True
-CatBoost,0.4530880852939252,8.227335686649213e-75,True

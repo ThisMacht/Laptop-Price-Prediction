@@ -141,8 +141,9 @@ CONDITION_SCORE_MAP: dict[str, int] = {
     "da su dung chua sua chua": 2,
     "new": 3,
     "moi": 3,
-    "unknown": 3,
-    "unknow": 3,
+    # Training feature engineering fills missing/unrecognized condition with 2.
+    "unknown": 2,
+    "unknow": 2,
 }
 
 FINAL_BRANDS: tuple[str, ...] = (

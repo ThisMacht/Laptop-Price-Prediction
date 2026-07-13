@@ -1,7 +1,0 @@
-Candidate,Vai trò,Lý do
-LightGBM + target_price,Primary candidate,"Cân bằng tốt nhất giữa MAE, RMSE và R² trên thang giá thật. MAE gần best, trong khi RMSE/R² tốt hơn log target."
-LightGBM + log_target_price,MAE/MAPE alternative,"Có thể cho MAE/MAPE tốt hơn nhẹ, nhưng RMSE/R² thường kém hơn sau inverse-transform."
-CatBoost + target_price,Secondary boosting baseline,"Có hiệu năng mạnh và ổn định, đặc biệt đáng giữ nếu RMSE cạnh tranh với LightGBM."
-CatBoost + log_target_price,Target-strategy check,"Dùng để kiểm tra tác động của log target trên CatBoost, không phải candidate chính."
-Random Forest / Extra Trees,Optional baseline,"Có thể giữ để so sánh, nhưng thường kém hơn boosting."
-Linear models,Reference baseline only,Chỉ dùng làm baseline giải thích; không ưu tiên tuning.

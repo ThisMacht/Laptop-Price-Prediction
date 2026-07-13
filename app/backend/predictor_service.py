@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import re
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -443,11 +444,19 @@ def encode_features(raw_features: dict[str, Any]) -> tuple[dict[str, float | int
     return row, active[:32]
 
 
-def predict_price(raw_features: dict[str, Any]) -> float:
+@lru_cache(maxsize=1)
+def load_prediction_model() -> Any:
+    """Load the production model once and reuse it for subsequent requests."""
     import joblib
 
+    if not MODEL_PATH.is_file():
+        raise FileNotFoundError(f"Production model not found at: {MODEL_PATH}")
+    return joblib.load(MODEL_PATH)
+
+
+def predict_price(raw_features: dict[str, Any]) -> float:
     encoder = LaptopFeatureEncoder()
-    model = joblib.load(MODEL_PATH)
+    model = load_prediction_model()
     encoded = encoder.encode_one(raw_features)
     return float(model.predict(encoded)[0])
 

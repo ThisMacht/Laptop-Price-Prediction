@@ -115,7 +115,7 @@
     const svg = createSvgEl("svg", {
       viewBox: `0 0 ${width} ${height}`,
       role: "img",
-      "aria-label": "Biểu đồ giá dự đoán theo RAM và dung lượng ổ cứng",
+      "aria-label": "Biểu đồ giá dự đoán theo RAM và dung lượng lưu trữ",
     });
 
     const defs = createSvgEl("defs");

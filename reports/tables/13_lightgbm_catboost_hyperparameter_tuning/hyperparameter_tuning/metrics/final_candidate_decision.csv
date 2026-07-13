@@ -1,5 +1,0 @@
-model_name,version,rmse,mae,r2,mape_pct,candidate_status,note
-LightGBM,baseline,5.7848789171213095,3.3665951590801564,0.8559314565739385,31.900376065081794,primary_candidate_on_holdout,Best model by holdout RMSE.
-CatBoost,tuned,5.912733148042646,3.372625966955601,0.8494928344487745,32.25401622283682,secondary_candidate_on_holdout,Shows a metric trade-off on holdout; keep for diagnostics or ensemble experiments.
-CatBoost,baseline,5.819254610376691,3.4741048022045398,0.8542141619835899,33.508767379905336,baseline_reference_on_holdout,Useful as a holdout comparison reference.
-LightGBM,tuned,5.842258051447849,3.3702743528992913,0.8530593047103583,31.66580161335539,rejected_on_holdout,Tuned version does not provide enough holdout evidence to replace its baseline.

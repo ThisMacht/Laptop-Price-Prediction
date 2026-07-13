@@ -17,6 +17,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from app.backend.predictor_service import (
     MODEL_PATH,
     compare_from_text,
+    load_prediction_model,
     predict_from_raw,
     predict_from_text,
     sweep_from_raw,
@@ -146,6 +147,7 @@ class LaptopPriceHandler(BaseHTTPRequestHandler):
 
 
 def run(host: str = "127.0.0.1", port: int = 8000) -> None:
+    load_prediction_model()
     server = ThreadingHTTPServer((host, port), LaptopPriceHandler)
     print(f"Serving laptop price app at http://{host}:{port}")
     server.serve_forever()

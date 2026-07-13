@@ -1,0 +1,69 @@
+\section{Phụ lục}
+\subsection{Phân công công việc}
+
+Bảng~\ref{tab:work-division} trình bày phân công công việc của các thành viên
+trong nhóm.
+
+\begin{table}[H]
+\centering
+\caption{Phân công công việc trong nhóm}
+\label{tab:work-division}
+\begin{tabular}{p{0.18\textwidth}p{0.28\textwidth}p{0.44\textwidth}}
+\toprule
+\textbf{MSSV} & \textbf{Họ và tên} & \textbf{Nhiệm vụ} \\
+\midrule
+23120245 & Nguyễn Quang Duy & Huấn luyện mô hình và phân tích kết quả. \\
+23120258 & Lưu Trọng Hiếu & Tiền xử lí dữ liệu. \\
+23120260 & Văn Đình Hiếu & Thu thập dữ liệu; xây dựng ứng dụng web. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Cấu trúc và tổ chức thư mục dự án}
+\label{app:project-structure}
+
+Dự án được tổ chức theo nguyên tắc tách biệt dữ liệu, mã nguồn xử lý, mô hình đã huấn luyện, ứng dụng web và tài liệu báo cáo. Cấu trúc ở mức chính được trình bày dưới đây; các tệp sinh tự động như \texttt{\_\_pycache\_\_} không được liệt kê.
+
+\begin{lstlisting}[
+    caption={Cấu trúc thư mục chính của dự án.},
+    label={lst:project-structure},
+    basicstyle=\ttfamily\small,
+    columns=fullflexible,
+    keepspaces=true,
+    breaklines=true,
+    frame=single,
+    showstringspaces=false
+]
+Laptop-Price-Prediction/
+|-- app/
+|   |-- backend/        # HTTP API, dich vu du doan, cau hinh moi truong
+|   |-- frontend/       # HTML, CSS, JavaScript va bieu do
+|-- artifacts/          # Metrics, du doan, bieu do va model thu nghiem
+|-- config/             # Cau hinh thu thap du lieu
+|-- data/
+|   |-- raw/            # Du lieu goc
+|   |-- intern/         # Du lieu lam sach va trung gian
+|   |-- processed/      # Du lieu dung cho mo hinh hoa
+|-- docs/               # Bao cao du lieu, EDA va cau hinh dac trung
+|-- models/             # Mo hinh trien khai va schema dac trung
+|-- pipeline/           # Pipeline thu thap va lam sach
+|-- reports/
+|   |-- sections/       # Cac phan LaTeX
+|   |-- tables/         # Bang dung trong bao cao
+|   |-- figures/        # Bieu do, anh giao dien va so do
+|-- scripts/            # Script thuc thi pipeline
+|-- src/
+|   |-- clean/          # Quy tac lam sach theo nguon
+|   |-- data/           # Thanh phan thu thap du lieu
+|   |-- encoder/        # Parser CPU/GPU va bo ma hoa
+|   |-- features/       # Xay dung dac trung
+|   |-- models/         # Huan luyen va thu nghiem
+|   |-- prediction/     # Khoang gia va so sanh cau hinh
+|-- tests/              # Kiem thu encoder, model va API
+|-- requirements.txt
+|-- README.md
+\end{lstlisting}
+
+Trong luồng triển khai, frontend trong \texttt{app/frontend} gửi yêu cầu đến backend trong \texttt{app/backend}. Backend sử dụng các module từ \texttt{src/encoder} và \texttt{src/prediction} để chuẩn hóa đầu vào, tạo đặc trưng và xây dựng kết quả trả về. Các tệp trong \texttt{models} là artifact cần thiết khi chạy ứng dụng, gồm mô hình CatBoost đã huấn luyện lại trên toàn bộ dữ liệu, schema 86 đặc trưng và cấu hình khoảng giá tham khảo. Ngược lại, \texttt{data}, \texttt{artifacts} và \texttt{docs} chủ yếu phục vụ khả năng tái lập quy trình thu thập, làm sạch, huấn luyện và đánh giá.
+
+Sự phân tách này giúp thay đổi giao diện mà không tác động đến mô hình, thay mô hình mà vẫn giữ hợp đồng đầu vào/đầu ra của API, và truy vết được nguồn gốc của các kết quả báo cáo. Tệp \texttt{app/backend/.env} chứa khóa Gemini API, nếu được tạo, chỉ dùng tại máy local và không được đưa vào hệ thống quản lý mã nguồn.

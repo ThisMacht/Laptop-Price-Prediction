@@ -180,7 +180,9 @@ class LaptopFeatureEncoder:
     @staticmethod
     def _encode_condition(raw_condition: Any, features: dict[str, float | int]) -> None:
         key = normalize_key(raw_condition)
-        features["condition_score"] = CONDITION_SCORE_MAP.get(key, 0)
+        # Match notebook training semantics: missing/unrecognized condition is
+        # imputed to the neutral/used level rather than treated as a new class.
+        features["condition_score"] = CONDITION_SCORE_MAP.get(key, 2)
 
     @staticmethod
     def _encode_warranty(raw_warranty: Any, features: dict[str, float | int]) -> None:

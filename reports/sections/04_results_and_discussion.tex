@@ -1,0 +1,86 @@
+\section{Kết quả và Thảo luận}
+\label{sec:results-discussion}
+
+Phần này đánh giá các phiên bản mô hình huấn luyện trên 5.836 mẫu phát triển và dự đoán tập holdout gồm 1.460 mẫu. Các phiên bản này khác artifact đang chạy trong ứng dụng, vốn được fit lại trên cả 7.296 mẫu; do đó không metric nào trong chương được gán trực tiếp cho artifact đang chạy. Vì bài toán là hồi quy dự đoán giá liên tục, các chỉ số Accuracy, Precision, Recall, F1-score và ma trận nhầm lẫn không phù hợp; chúng chỉ có ý nghĩa khi nhãn thuộc các lớp rời rạc. Thay vào đó, nhóm dùng MAE, RMSE, $R^2$, MAPE, residual và sai số theo phân khúc giá. Toàn bộ giá trị sai số trong chương được tính theo triệu VND.
+
+Residual của quan sát thứ $i$ được định nghĩa là:
+\begin{equation}
+    e_i = y_i - \hat{y}_i,
+\end{equation}
+trong đó $y_i$ là giá thực tế và $\hat{y}_i$ là giá dự đoán. Vì vậy, residual âm biểu thị dự đoán cao hơn thực tế, còn residual dương biểu thị dự đoán thấp hơn thực tế.
+
+\subsection{Kết quả thực nghiệm}
+
+\subsubsection{Learning curves và khả năng tổng quát hóa}
+
+Do các mô hình được chọn là ensemble cây thay vì mạng neural huấn luyện theo epoch, nhóm sử dụng learning curve theo kích thước tập huấn luyện để đánh giá khả năng tổng quát hóa. Đường cong thể hiện RMSE trung bình trên phần huấn luyện và validation khi số lượng mẫu huấn luyện tăng dần.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.49\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/15_final_error_analysis_and_production_retrain/final_error_analysis/plots/learning_curve_CatBoost_tuned.png}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/15_final_error_analysis_and_production_retrain/final_error_analysis/plots/learning_curve_LightGBM_baseline.png}
+\end{minipage}
+\caption{Learning curve RMSE của CatBoost sau tinh chỉnh (trái) và LightGBM baseline (phải).}
+\label{fig:learning-curves}
+\end{figure}
+
+Khi số mẫu train tăng từ 933 lên 4.668, validation RMSE của CatBoost giảm từ 6,534 xuống 5,243 triệu VND (cải thiện 19,76\%); LightGBM giảm từ 6,983 xuống 5,476 triệu VND (21,58\%). Cả hai đường validation vẫn tiếp tục giảm ở kích thước lớn nhất, nên kết quả nhất quán với khả năng mô hình hưởng lợi từ dữ liệu bổ sung. Khoảng cách đáng kể giữa train và validation là dấu hiệu của overfitting/phương sai, nhưng learning curve này không đủ để xác định đó là nguyên nhân duy nhất hay chính yếu, vì nhiễu nhãn và thiếu đặc trưng cũng có thể làm tăng sai số validation.
+
+Tuy nhiên, khoảng cách train--validation ở kích thước lớn nhất vẫn lần lượt là 2,201 triệu VND với CatBoost và 1,970 triệu VND với LightGBM. Đây là khoảng cách đáng kể về mặt thực tiễn, đặc biệt khi so với mức giá trung vị 7,89 triệu VND của Chợ Tốt; tuy nhiên, không nên quy đổi trực tiếp chênh lệch giữa hai RMSE thành phần trăm sai số của từng sản phẩm. Kết quả cho thấy nhu cầu cải thiện khả năng tổng quát thay vì gắn nhãn định tính ``nhẹ'' hay ``nặng''. Các hướng cần kiểm tra gồm bổ sung dữ liệu, regularization, early stopping và đưa toàn bộ preprocessing vào pipeline của từng fold.
+
+\subsubsection{Đánh giá trên tập holdout}
+
+Bảng~\ref{tab:final-holdout-metrics} so sánh bốn ứng viên sau khi cố định quy trình ở Chương 3. LightGBM baseline có RMSE thấp nhất (5,785 triệu VND), trong khi CatBoost sau tinh chỉnh có MAE gần tương đương (3,373 triệu VND) nhưng RMSE cao hơn 5,913 triệu VND. $R^2$ của các ứng viên nằm trong khoảng 0,849--0,856, cho thấy mô hình mô tả được khoảng 85\% biến thiên của giá trên tập holdout. Kết quả này không hàm ý rằng các đặc trưng có quan hệ nhân quả với giá.
+
+\input{tables/report_final_holdout_metrics}
+
+Mặc dù LightGBM baseline đạt RMSE holdout thấp hơn, CatBoost sau tinh chỉnh vẫn là mô hình được lựa chọn theo quy trình CV đã định trước. Việc đổi mô hình sau khi quan sát holdout sẽ dùng tập này như một tập validation bổ sung và làm tăng nguy cơ lựa chọn theo nhiễu của một lần chia dữ liệu. Tuy nhiên, kết quả holdout không cho thấy CatBoost vượt trội LightGBM baseline; hai mô hình nên được xem là các ứng viên có hiệu năng gần nhau trong phạm vi biến động của phép chia hiện tại. MAPE của các mô hình khoảng 31,67--33,51\%; chỉ số này cần đọc thận trọng vì những laptop giá thấp có thể làm tỷ lệ sai số tăng mạnh.
+
+Hai nguồn đại diện chủ yếu cho hai cơ chế giá khác nhau, nhưng mô hình không dùng trực tiếp tên website. Thay vào đó, \texttt{condition\_score} biểu diễn tình trạng theo thứ tự: 1 cho máy kém/đã sửa chữa, 2 cho máy đã sử dụng hoặc không rõ tình trạng, và 3 cho máy mới. Biến này cho phép mô hình phân biệt trạng thái khi thông tin được cung cấp. Trong dữ liệu hiện tại, toàn bộ 4.382 dòng Websosanh có \texttt{condition\_clean=Unknown} và được điền ở mức 2; vì vậy \texttt{condition\_score} không tự nó phân biệt hoàn hảo hai nguồn. Phạm vi báo cáo chỉ đánh giá tập hợp nhất và không mở rộng thêm metric riêng theo nguồn.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.49\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/14_final_model_evaluation/final_model_evaluation/plots/actual_vs_predicted_CatBoost_tuned.png}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/14_final_model_evaluation/final_model_evaluation/plots/residual_vs_actual_CatBoost_tuned.png}
+\end{minipage}
+\caption{Giá thực tế so với dự đoán (trái) và residual theo giá thực tế (phải) của CatBoost sau tinh chỉnh trên holdout.}
+\label{fig:catboost-holdout-diagnostics}
+\end{figure}
+
+Các điểm ở vùng giá thấp--trung bình tập trung tương đối sát đường lý tưởng $y=\hat{y}$. Khi giá tăng, độ phân tán quanh đường này lớn hơn rõ rệt; biểu đồ residual xác nhận phương sai sai số tăng theo giá (heteroscedasticity). Do đó, một chỉ số tổng thể không đủ mô tả chất lượng dự đoán ở mọi phân khúc.
+
+\subsection{So sánh và thảo luận}
+
+\subsubsection{Sai số theo phân khúc giá}
+
+\input{tables/report_error_by_segment}
+
+Bảng~\ref{tab:error-by-segment} làm rõ hai dạng sai lệch. Ở Q1, MAPE cao nhất (69,82\%) dù MAE chỉ 1,826 triệu VND, vì mẫu số giá thực tế nhỏ; đây là lý do MAPE không được dùng làm tiêu chí chọn chính. Ngược lại, Q5 có MAE 7,567 và RMSE 11,268 triệu VND, cao nhất trong các phân khúc, phản ánh khó khăn khi định giá laptop cao cấp có cấu hình và định vị sản phẩm đa dạng.
+
+Residual trung bình âm ở Q1--Q4 cho thấy xu hướng dự đoán cao hơn giá thực tế ở phần lớn thị trường phổ thông. Ở Q5, residual trung bình dương 2,649 triệu VND cho thấy mô hình có xu hướng dự đoán thấp hơn giá thực tế ở phân khúc cao. Mẫu sai lệch này nhất quán với giả thuyết dự đoán bị co về vùng giá phổ biến, nhưng không đủ để xác lập cơ chế đó. Các giải thích cùng phù hợp khác gồm Q5 có ít quan sát hơn trong từng nhóm cấu hình, thiếu đặc trưng phân biệt sản phẩm cao cấp và nhiễu nhãn lớn hơn ở phân khúc này.
+
+\subsubsection{Các trường hợp sai số điển hình}
+
+\input{tables/report_top_error_cases}
+
+Các lỗi tuyệt đối lớn nhất đều xuất hiện ở Q5. Một số mẫu có RAM 16--64GB và lưu trữ 512GB--2TB vẫn có giá thực tế chênh nhiều so với dự đoán, ví dụ quan sát có \texttt{sample\_index=6739} có giá thực tế 76,900 triệu VND nhưng được dự đoán 24,711 triệu VND. Điều này cho thấy cấu hình phần cứng cơ bản chưa mô tả đầy đủ các yếu tố định giá ở laptop cao cấp, như thế hệ CPU/GPU cụ thể, màn hình, thương hiệu cao cấp, đặc tính workstation/gaming, thời điểm niêm yết và chính sách bán hàng.
+
+Ở chiều ngược lại, quan sát có \texttt{sample\_index=5913} có giá thực tế 62,000 triệu VND nhưng dự đoán 118,171 triệu VND. Thông số RAM/lưu trữ rất cao có thể làm mô hình liên hệ với nhóm sản phẩm cao cấp hơn; các khả năng khác gồm khuyến mãi, khác biệt cấu hình chi tiết, lỗi phân tích chuỗi hoặc nhiễu thu thập. Do dữ liệu đã loại toàn bộ nhóm cấu hình lặp mềm khỏi tập mô hình, khả năng tham chiếu nhiều quan sát giá cho cấu hình tương tự cũng giảm. Các mẫu sai số lớn chưa được audit thủ công bằng tiêu đề và URL gốc, nên các nguyên nhân trên chỉ là giả thuyết chẩn đoán, không phải kết luận đã được kiểm chứng.
+
+Tổng quan, trong 1.460 mẫu holdout, CatBoost sau tinh chỉnh có 665 trường hợp dự đoán thấp và 795 trường hợp dự đoán cao; residual trung bình là $-0,064$ triệu VND. Residual trung bình gần 0 không có nghĩa mô hình không có sai lệch hệ thống: xu hướng dự đoán cao ở các phân khúc thấp và dự đoán thấp ở phân khúc cao có thể triệt tiêu nhau khi tính trung bình trên toàn bộ holdout. Các hướng cải thiện trong phạm vi hiện tại là bổ sung dữ liệu premium và đặc trưng CPU/GPU, tình trạng sản phẩm chi tiết hơn.
+
+Tóm lại, các mô hình boosting cho hiệu năng tốt trên dữ liệu bảng đa nguồn. LightGBM baseline đạt RMSE thấp nhất trên tập holdout, trong khi CatBoost sau tinh chỉnh là mô hình được lựa chọn theo quy trình CV đã định trước. Kết quả hiện tại không đủ để khẳng định một trong hai mô hình vượt trội tuyệt đối.
+
+Sai số không phân bố đồng đều giữa các mức giá. Mô hình có MAE và RMSE tuyệt đối thấp hơn ở các phân khúc phổ thông, đồng thời có xu hướng dự đoán cao đối với sản phẩm giá thấp và dự đoán thấp đối với sản phẩm cao cấp. Các trường hợp sai số lớn gợi ý các đặc trưng hiện tại chưa phản ánh đầy đủ thế hệ CPU/GPU, định vị sản phẩm, chất lượng màn hình, tình trạng máy, thời điểm niêm yết và chính sách bán hàng; các nguyên nhân cụ thể chưa được audit trực tiếp.
+
+Các hạn chế chính gồm khoảng cách train--validation còn đáng kể, dữ liệu phân khúc cao cấp còn hạn chế, quy tắc lọc lặp mềm không hoàn toàn trùng với khóa hợp nhất và schema/gom nhóm hiếm được xác định trước khi chia fold. Các điểm này được ghi nhận để giới hạn phạm vi diễn giải kết quả.

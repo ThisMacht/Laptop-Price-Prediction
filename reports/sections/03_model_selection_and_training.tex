@@ -1,0 +1,72 @@
+\section{Lựa chọn và Huấn luyện Mô hình}
+\label{sec:model-selection}
+
+Sau bước làm sạch và xây dựng đặc trưng, tập dữ liệu dùng cho mô hình gồm 7.296 mẫu. Từ 10.080 quan sát hợp lệ sau hợp nhất, pipeline feature engineering loại 2.514 dòng mang cờ \texttt{is\_soft\_duplicate\_spec} được tạo trong pipeline Websosanh. Cờ này không đồng nhất với phép lặp trên \texttt{merged\_spec\_key}: tập hợp nhất có 6.882 dòng thuộc 1.530 khóa hợp nhất xuất hiện nhiều lần. Do đó, việc loại 2.514 dòng làm mất một phần quan sát Websosanh phổ biến nhưng không bảo đảm mọi khóa hợp nhất được tách giữa train và validation. Nhóm giữ nguyên quy tắc này để bảo toàn tập dữ liệu và kết quả thực nghiệm đã chốt; giới hạn được ghi nhận thay vì thay đổi sang group split. Sau khi tạo và mã hóa đặc trưng, 270 dòng trùng hoàn toàn còn lại cũng được loại. Sau toàn bộ bước xây dựng và mã hóa đặc trưng, bộ đặc trưng chuẩn của tập đã xử lý gồm 86 biến. Bài toán được biểu diễn là hồi quy có giám sát với biến mục tiêu chính \texttt{target\_price}, tính theo triệu VND. Biến \texttt{log\_target\_price} vẫn được giữ để kiểm tra ảnh hưởng của phân bố lệch phải đã quan sát ở Chương 2.
+
+\begin{table}[H]
+\centering
+\caption{Quy mô dữ liệu qua bước chuẩn bị mô hình}
+\label{tab:modeling-data-filter}
+\begin{tabular}{lrr}
+\toprule
+Giai đoạn & Số mẫu bị loại & Số mẫu còn lại \\
+\midrule
+Sau hợp nhất và làm sạch & -- & 10.080 \\
+Loại dòng mang cờ lặp mềm Websosanh & 2.514 & 7.566 \\
+Loại dòng trùng hoàn toàn sau feature engineering & 270 & 7.296 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Chuẩn bị dữ liệu cho mô hình}
+
+\subsubsection{Chia dữ liệu và nguyên tắc đánh giá}
+
+Tập dữ liệu được chia cố định theo tỷ lệ 80/20, sử dụng \texttt{random\_state}=42 để bảo đảm khả năng tái lập. Hai mươi phần trăm dữ liệu được giữ lại làm tập holdout đánh giá (\textit{evaluation holdout}), sau đây gọi là \textit{tập holdout}; tập này không được dùng để \textit{fit} point model hoặc tìm siêu tham số. Phần 80\% còn lại, sau đây gọi là \textit{tập phát triển}, được dùng cho huấn luyện, đánh giá chéo và tinh chỉnh. Do phân phối giá lệch phải, phép chia chỉ được phân tầng theo năm nhóm phân vị giá, không phân tầng theo nguồn. Holdout sau đó được dùng để báo cáo nhiều ứng viên và để tạo RMSE/ngưỡng phân khúc cho quy tắc khoảng giá của ứng dụng. Vì vậy, tập này không còn là tập test độc lập cho toàn bộ hệ thống và không nên được dùng cho thêm bất kỳ quyết định nào.
+
+Không tách riêng một validation set cố định. Vì \texttt{StratifiedKFold} không áp dụng trực tiếp cho biến mục tiêu liên tục, giá được tạm chia thành năm nhóm phân vị \emph{chỉ để tạo chỉ mục các fold}; mô hình vẫn học trên giá liên tục ban đầu và các nhóm này không phải biến đầu vào. Trên tập phát triển, \textit{Stratified KFold} 5-fold tạo lần lượt năm tập validation. Mỗi vòng dùng xấp xỉ 4.669 mẫu để huấn luyện và 1.167 mẫu để validation; kết quả trung bình và độ lệch chuẩn qua năm fold là cơ sở đánh giá độ ổn định. Cách làm này tận dụng tốt dữ liệu huấn luyện và giảm phụ thuộc vào một lần chia ngẫu nhiên.
+
+\input{tables/report_split_summary}
+
+\subsubsection{Biểu diễn đặc trưng và kiểm soát leakage}
+
+Các biến số gồm RAM, dung lượng lưu trữ, kích thước màn hình và các đặc trưng tương tác giữa RAM--lưu trữ. Các biến phân loại như hãng, dòng máy, CPU, GPU, loại ổ cứng và bảo hành được làm sạch, gom nhóm hiếm khi cần thiết, rồi mã hóa one-hot hoặc ordinal tùy thuộc bản chất có/không có thứ tự. Các cờ \textit{missing}/\textit{no-info} được giữ để biểu diễn mức độ đầy đủ của thông tin.
+
+Các biến định danh, biến mục tiêu, biến dẫn xuất trực tiếp từ giá và các cột audit có nguy cơ leakage đã bị loại khỏi ma trận đầu vào. Bộ đặc trưng sau feature engineering gồm 86 biến, được xác định bằng các quy tắc không sử dụng biến mục tiêu. Trong lần chạy hiện tại, schema mã hóa, vocabulary và nhóm danh mục hiếm được tạo trước khi chia dữ liệu. Đây không phải \textit{target leakage} vì không dùng giá trị nhãn, nhưng validation fold đã đóng góp thông tin về vocabulary/tần suất. Nhóm giữ quy trình này cho phạm vi đồ án và diễn giải RMSE CV như metric nội bộ của pipeline hiện tại, không như một ước lượng độc lập hoàn toàn. Với các mô hình tuyến tính, \texttt{StandardScaler} vẫn được \textit{fit} trên phần huấn luyện của từng fold; các mô hình cây sử dụng trực tiếp đặc trưng số đã mã hóa.
+
+\input{tables/report_preprocessing_steps}
+
+Hai target được đánh giá trên cùng một cách chia mẫu. Khi mô hình học \texttt{log\_target\_price}, dự đoán được biến đổi ngược về đơn vị triệu VND trước khi tính các chỉ số. Điều này bảo đảm MAE, RMSE, $R^2$ và MAPE có thể so sánh công bằng với mô hình học trực tiếp trên giá gốc.
+
+\subsection{Lựa chọn và đặc điểm mô hình}
+
+Nhóm khảo sát baseline tuyến tính (Linear Regression, Ridge, Lasso, Elastic Net), ensemble bagging (Random Forest, Extra Trees) và gradient boosting (LightGBM, CatBoost). Hai mô hình boosting được tinh chỉnh tiếp vì phù hợp với dữ liệu bảng có nhiều tương tác phi tuyến.
+
+Bảng~\ref{tab:model-comparison} cho thấy các mô hình boosting dẫn đầu trong thí nghiệm cuối. CatBoost học trực tiếp giá đạt RMSE 5,314 triệu VND và $R^2=0,894$; LightGBM học giá trực tiếp đạt RMSE 5,360 triệu VND và $R^2=0,892$. LightGBM học biến mục tiêu log có MAE thấp nhất trong bảng (3,192 triệu VND), nhưng RMSE cao hơn một chút. Random Forest và Extra Trees cho kết quả cạnh tranh nhưng thấp hơn hai mô hình boosting. LightGBM và CatBoost được đưa vào tinh chỉnh vì thuộc nhóm có RMSE thấp nhất, $R^2$ cao nhất và kết quả ổn định qua các fold; các mô hình tuyến tính được giữ làm baseline, không phải ứng viên tinh chỉnh chính.
+
+\input{tables/report_model_comparison}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/12_modeling_final/figures/modeling_final/target_comparison_rmse.png}
+\caption{So sánh RMSE giữa biến mục tiêu giá gốc và biến mục tiêu log theo từng mô hình.}
+\label{fig:target-comparison-rmse}
+\end{figure}
+
+Với tiêu chí RMSE trên thang giá thực, \texttt{target\_price} được chọn làm mục tiêu chính; target log được giữ làm đối chứng cho sai số tương đối. Chênh lệch RMSE giữa CatBoost và LightGBM trên giá gốc chỉ khoảng 0,9\%, nên cả hai được giữ lại để tinh chỉnh.
+
+\subsection{Cấu hình huấn luyện và tinh chỉnh siêu tham số}
+
+Hàm mất mát chính của LightGBM là hồi quy bình phương (\texttt{objective=regression}); CatBoost dùng \texttt{loss\_function=RMSE}. Hai hàm này đều phạt mạnh sai số lớn, phù hợp với mục tiêu giảm các dự đoán lệch nhiều ở phân khúc giá cao. Các chỉ số báo cáo gồm MAE để phản ánh sai số điển hình, RMSE để nhạy với sai số lớn, $R^2$ để đo phần biến thiên được giải thích và MAPE để theo dõi sai số tương đối. Do MAPE nhạy với các quan sát có giá nhỏ, chỉ số này chỉ được dùng bổ sung, không phải tiêu chí chính để lựa chọn mô hình.
+
+Cấu hình baseline của LightGBM dùng 500 cây, \texttt{learning\_rate}=0,05 và \texttt{num\_leaves}=31. CatBoost baseline dùng 500 vòng boosting, \texttt{learning\_rate}=0,05 và độ sâu cây bằng 6. Cả hai sử dụng seed 42. Các tham số này tạo điểm xuất phát có độ phức tạp vừa phải trước khi mở rộng không gian tìm kiếm.
+
+Việc tinh chỉnh dùng \texttt{RandomizedSearchCV} thay vì Grid Search để khảo sát hiệu quả không gian tham số lớn. Mỗi mô hình thử 40 cấu hình trên 5 fold được phân tầng theo năm nhóm phân vị giá, dùng \texttt{neg\_root\_mean\_squared\_error} làm scoring; tập holdout không tham gia quá trình này. Với LightGBM, không gian tìm kiếm gồm số cây (500--1.600), learning rate (0,01--0,08), số lá, độ sâu, \texttt{min\_child\_samples}, tỷ lệ lấy mẫu hàng/cột và hệ số regularization $L_1/L_2$. Với CatBoost, các tham số gồm số vòng lặp (500--1.600), learning rate, độ sâu (4--10), \texttt{l2\_leaf\_reg}, \texttt{bagging\_temperature} và \texttt{random\_strength}.
+
+LightGBM tốt nhất có 1.600 cây, learning rate 0,03, 15 lá, độ sâu 10 và \texttt{reg\_alpha}=1, đạt RMSE CV 5,365 triệu VND. CatBoost tốt nhất dùng 1.600 vòng, learning rate 0,08, depth 7, \texttt{l2\_leaf\_reg}=10, \texttt{bagging\_temperature}=5 và \texttt{random\_strength}=2, đạt RMSE CV 5,226 triệu VND.
+
+Kết quả \texttt{RandomizedSearchCV} cho thấy CatBoost sau tinh chỉnh đạt RMSE CV trung bình thấp nhất, $5,226 \pm 0,263$ triệu VND, nên được lựa chọn theo quy trình CV đã định trước khi quan sát tập holdout. Các cấu hình baseline cũng được tính trên cùng bộ fold để so sánh nhất quán. Đây không phải nested CV, do đó chỉ số CV sau search được dùng cho lựa chọn cấu hình chứ không được diễn giải như một ước lượng độc lập hoàn toàn của sai số tổng quát hóa.
+
+Trên tập holdout, LightGBM baseline (chưa tinh chỉnh) đạt RMSE 5,785 triệu VND, trong khi CatBoost sau tinh chỉnh đạt 5,913 triệu VND, tương ứng chênh lệch 2,21\%. Nhóm giữ CatBoost vì đây là cấu hình được chọn trước bằng RMSE CV, đồng thời chênh lệch holdout giữa hai ứng viên nhỏ. Quyết định này nhằm giữ nhất quán quy trình, không hàm ý CatBoost vượt trội LightGBM trên mọi phép chia. Holdout được xem là \textit{evaluation holdout} dùng để tham chiếu hiệu năng của cấu hình trước khi huấn luyện lại trên toàn bộ dữ liệu.
+
+\input{tables/report_tuned_comparison}

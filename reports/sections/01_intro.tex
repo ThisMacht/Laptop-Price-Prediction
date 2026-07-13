@@ -1,0 +1,126 @@
+\section{Giới thiệu}
+
+\subsection{Phân tích vấn đề}
+
+Laptop là thiết bị quan trọng đối với học sinh, sinh viên, nhân viên văn phòng và người dùng phổ thông tại Việt Nam. Tuy nhiên, việc xác định một mẫu laptop có mức giá hợp lý hay không vẫn tương đối khó đối với những người chưa có nhiều kinh nghiệm về phần cứng và thị trường máy tính.
+
+Giá laptop phụ thuộc vào nhiều yếu tố như thương hiệu, dòng sản phẩm, bộ vi xử lý, card đồ họa, dung lượng RAM, dung lượng lưu trữ, màn hình và hệ điều hành. Ngay cả các phiên bản thuộc cùng một dòng sản phẩm nhưng khác RAM hoặc dung lượng lưu trữ cũng có thể có mức giá chênh lệch đáng kể. Vì vậy, người dùng khó đánh giá mức giá do cửa hàng hoặc người bán cung cấp có phù hợp với mặt bằng thị trường hay không.
+
+Trong thực tế, người mua thường phải tìm kiếm và so sánh nhiều sản phẩm trên các trang bán lẻ khác nhau. Quá trình này tốn thời gian và dễ dẫn đến đánh giá thiếu chính xác, đặc biệt khi người dùng chỉ tập trung vào một số thông số dễ nhận biết như RAM hoặc dung lượng lưu trữ mà chưa xem xét đầy đủ CPU, GPU, thương hiệu và dòng sản phẩm.
+
+Bên cạnh đó, các hệ thống được xây dựng từ dữ liệu quốc tế có thể không phản ánh chính xác bối cảnh Việt Nam do sự khác biệt về nguồn hàng, chính sách phân phối, thuế và mức độ phổ biến của từng thương hiệu. Vì vậy, nhóm xây dựng một hệ thống học máy dự đoán giá niêm yết tham chiếu từ hai nguồn dữ liệu Chợ Tốt và Websosanh. Phạm vi này không đồng nghĩa với việc mô hình đã ước lượng được một ``giá trị thị trường'' duy nhất cho mọi laptop tại Việt Nam.
+
+Hệ thống được thiết kế với hai cơ chế định giá chính.
+
+\subsubsection{Dự đoán khoảng giá từ cấu hình}
+
+Ở cơ chế thứ nhất, người dùng cung cấp mô tả về chiếc laptop cần định giá, bao gồm một số thông tin như thương hiệu, dòng máy, CPU, GPU, RAM, dung lượng lưu trữ và màn hình.
+
+Hệ thống trả về một giá trị dự đoán điểm kèm khoảng giá tham khảo. Khoảng này được tạo bằng quy tắc thực nghiệm dựa trên RMSE quan sát và mức độ thiếu thông tin; đây không phải khoảng tin cậy hay \textit{prediction interval} có mức bao phủ xác suất xác định. Khi người dùng cung cấp đầy đủ hơn các thuộc tính quan trọng, thành phần độ rộng do thiếu thông tin được giảm; độ rộng cuối cùng vẫn phụ thuộc vào sai số quan sát của phân khúc giá tương ứng.
+
+Ngoài kết quả chính, ứng dụng tự động tạo các biến thể cấu hình bằng cách thay đổi RAM và dung lượng lưu trữ, trong khi giữ nguyên các thuộc tính còn lại. Ví dụ, hệ thống có thể tính lại dự đoán cho các mức lưu trữ 256~GB, 512~GB, 1~TB và 2~TB. Đây là khảo sát phản ứng của mô hình, không phải ước lượng nhân quả về chi phí nâng cấp. Một số tổ hợp sinh tự động có thể hiếm gặp, không tương thích hoặc nằm ngoài miền dữ liệu huấn luyện, nên chỉ được dùng để tham khảo xu hướng dự đoán.
+
+\subsubsection{Đánh giá mức độ đáng mua}
+
+Ở cơ chế thứ hai, người dùng cung cấp cấu hình laptop cùng với mức giá đang được chào bán. Hệ thống dự đoán mức giá niêm yết tham chiếu theo dữ liệu huấn luyện và so sánh với giá do người dùng nhập vào.
+
+Mức chênh lệch tương đối được xác định theo công thức:
+
+\begin{equation}
+    \Delta =
+    \frac{P_{\text{user}} - P_{\text{pred}}}
+    {P_{\text{pred}}}
+    \times 100\%,
+\end{equation}
+
+trong đó $P_{\text{user}}$ là giá do người dùng cung cấp và
+$P_{\text{pred}}$ là giá do mô hình dự đoán.
+
+Nếu giá bán cao hơn đáng kể so với mức dự đoán, hệ thống gắn nhãn mô tả giá rao cao so với mức mô hình ước lượng. Ngược lại, giá bán gần với hoặc thấp hơn giá dự đoán được gắn nhãn thuận lợi hơn. Các nhãn này chưa được đánh giá như một bài toán ra quyết định độc lập và không tự thân chứng minh sản phẩm ``đáng mua''.
+
+Kết quả này chủ yếu dựa trên cấu hình và mặt bằng giá trong dữ liệu. Các yếu tố như chất lượng hoàn thiện, thời lượng pin, tình trạng sản phẩm, chính sách bảo hành và uy tín người bán chưa được phản ánh đầy đủ. Vì vậy, hệ thống đóng vai trò hỗ trợ thay vì thay thế hoàn toàn quyết định của người dùng.
+
+\subsection{Mục tiêu của đồ án}
+
+Mục tiêu tổng quát của đồ án là xây dựng và triển khai một hệ thống học máy dự đoán giá niêm yết tham chiếu trong phạm vi dữ liệu thu thập từ Chợ Tốt và Websosanh, đồng thời cung cấp các chức năng phân tích dễ hiểu cho người dùng phổ thông.
+
+Các mục tiêu cụ thể bao gồm:
+
+\begin{itemize}
+    \item Thu thập dữ liệu laptop từ nhiều nguồn bán hàng tại Việt Nam, bảo đảm sự đa dạng về thương hiệu, cấu hình và phân khúc giá.
+    
+    \item Chuẩn hóa, làm sạch và chuyển dữ liệu từ nhiều nguồn về một cấu trúc thống nhất.
+    
+    \item Trích xuất, làm giàu và biểu diễn các đặc trưng có ảnh hưởng đến giá laptop.
+    
+    \item Xây dựng và so sánh nhiều mô hình hồi quy với các phương pháp mã hóa đặc trưng khác nhau.
+    
+    \item Lựa chọn, tinh chỉnh và phân tích sai số của các ứng viên có metric tốt trong quy trình thử nghiệm hiện tại.
+    
+    \item Xây dựng ứng dụng web cho phép dự đoán khoảng giá, mô phỏng thay đổi RAM và dung lượng lưu trữ.
+    
+    \item So sánh giá do người dùng cung cấp với giá dự đoán để hỗ trợ đánh giá mức độ đáng mua.
+    
+    \item Đóng gói mô hình và tích hợp vào hệ thống thông qua API.
+\end{itemize}
+
+Bên cạnh các metric dự đoán, đồ án còn xem xét khoảng cách train--validation, phân tích sai số và khả năng tích hợp mô hình vào ứng dụng minh họa.
+
+\subsection{Tổng quan về phương pháp}
+
+Quy trình thực hiện đồ án gồm các giai đoạn chính: thu thập dữ liệu, tiền xử lý, xây dựng đặc trưng, huấn luyện mô hình, đánh giá và triển khai ứng dụng.
+
+\subsubsection{Thu thập và tiền xử lý dữ liệu}
+
+Dữ liệu được thu thập từ nhiều nguồn bán laptop tại Việt Nam nhằm bao phủ nhiều thương hiệu, dòng máy, cấu hình và phân khúc giá. Do mỗi nguồn có cách đặt tên và mô tả sản phẩm khác nhau, dữ liệu cần được chuẩn hóa trước khi sử dụng.
+
+Các bước tiền xử lý gồm loại bỏ bản ghi trùng lặp, xử lý giá trị thiếu, thống nhất đơn vị đo, chuẩn hóa tên thương hiệu và linh kiện, trích xuất thông số từ tên sản phẩm, đồng thời loại bỏ các bản ghi không phù hợp hoặc có mức giá bất thường.
+
+\subsubsection{Xây dựng và biểu diễn đặc trưng}
+
+Từ dữ liệu đã làm sạch, nhóm giữ lại các thuộc tính có ý nghĩa đối với bài toán và tạo thêm các đặc trưng giúp mô tả tốt hơn cấu hình laptop. Các biến phân loại được thử nghiệm với nhiều phương pháp mã hóa khác nhau để đánh giá cách biểu diễn phù hợp nhất.
+
+Quá trình thí nghiệm tập trung vào ảnh hưởng của từng nhóm đặc trưng, phương pháp mã hóa và việc bổ sung hoặc loại bỏ thuộc tính đối với sai số dự đoán.
+
+\subsubsection{Lựa chọn và huấn luyện mô hình}
+
+Nhóm thử nghiệm các mô hình hồi quy từ tuyến tính đến phi tuyến, bao gồm:
+
+\begin{itemize}
+    \item Linear Regression, Ridge, Lasso và Elastic Net;
+    \item Random Forest và Extra Trees;
+    \item LightGBM và CatBoost.
+\end{itemize}
+
+Các mô hình được huấn luyện và đánh giá trên cùng cách chia dữ liệu và cùng bộ chỉ số. Sự nhất quán này hỗ trợ so sánh, nhưng không loại bỏ preprocessing leakage. LightGBM và CatBoost được tinh chỉnh bằng \texttt{RandomizedSearchCV} trên tập phát triển.
+
+Hiệu năng các phiên bản đánh giá được mô tả chủ yếu bằng MAE, RMSE và $R^2$. Ngoài kết quả tổng thể, nhóm phân tích sai số theo phân khúc giá và kiểm tra một số trường hợp sai số lớn.
+
+\subsubsection{Triển khai ứng dụng}
+
+CatBoost tuned được huấn luyện lại và tích hợp vào ứng dụng thông qua API. Backend dùng encoder để tạo đúng schema 86 đặc trưng và cùng quy ước \texttt{condition\_score} với preprocessing huấn luyện.
+
+Ứng dụng cung cấp hai chức năng chính:
+
+\begin{itemize}
+    \item Dự đoán khoảng giá và tự động sinh các phương án thay đổi RAM hoặc dung lượng lưu trữ;
+    \item So sánh giá rao với giá dự đoán và gắn nhãn theo quy tắc tham khảo chưa được validation như một quyết định mua.
+\end{itemize}
+
+Pipeline tổng thể của hệ thống được tóm tắt như sau:
+
+\begin{equation}
+\begin{split}
+    \text{Thu thập dữ liệu}
+    &\rightarrow
+    \text{Tiền xử lý và chuẩn hóa} \\
+    &\rightarrow
+    \text{Xây dựng đặc trưng}
+    \rightarrow
+    \text{Huấn luyện mô hình} \\
+    &\rightarrow
+    \text{Tinh chỉnh và phân tích sai số}
+    \rightarrow
+    \text{Triển khai ứng dụng}.
+\end{split}
+\end{equation}

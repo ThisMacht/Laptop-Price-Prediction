@@ -1,0 +1,149 @@
+\section{Thu thập và Phân tích Dữ liệu}
+
+\subsection{Nguồn và phương pháp thu thập}
+
+Dữ liệu được xây dựng từ hai nguồn web bổ sung cho nhau. Nguồn \textit{Chợ Tốt} là các tin rao laptop, phản ánh mạnh thị trường máy đã qua sử dụng; mỗi bản ghi có đường dẫn tin, tiêu đề, giá do người bán đăng và các thông số người bán khai báo. Nguồn \textit{Websosanh} là catalog sản phẩm/giá từ nhiều cửa hàng trực tuyến, phản ánh chủ yếu thị trường laptop mới. Không sử dụng API; dữ liệu được thu thập theo hình thức trích xuất web và lưu ở dạng CSV để có thể kiểm tra lại từng lần chạy pipeline.
+
+Quy trình xử lý dữ liệu được cài đặt bằng Python trong notebook, với \texttt{pandas} và \texttt{numpy} cho thao tác dữ liệu, biểu thức chính quy để phân tích chuỗi thông số, và \texttt{matplotlib}/\texttt{seaborn} cho trực quan hóa. Mỗi nguồn được lưu riêng ở trạng thái thô, trạng thái đã làm sạch và trạng thái sẵn sàng mô hình hóa; kèm theo đó là bảng liệt kê vấn đề, báo cáo tóm tắt và nhật ký JSON. Cách tổ chức này cho phép đối chiếu lại một giá trị đã biến đổi với bản ghi gốc và chạy lặp lại toàn bộ pipeline.
+
+\begin{table}[H]
+\centering
+\caption{Các nguồn dữ liệu và quy mô qua các giai đoạn chính}
+\label{tab:data-sources}
+\begin{tabular}{p{2.4cm}p{4.5cm}r r}
+\toprule
+Nguồn & Đặc điểm và trường thông tin chính & Dữ liệu thô & Dữ liệu hợp lệ \\
+\midrule
+Chợ Tốt & Tin rao; URL, tiêu đề, giá, hãng, dòng máy, tình trạng, bảo hành, màn hình, CPU, RAM, GPU, lưu trữ & 5.866 & 5.698 \\
+Websosanh & Catalog sản phẩm; thông số kỹ thuật và tối đa ba mức giá/cửa hàng cho một sản phẩm & 4.384 & 4.382 \\
+\midrule
+Tổng & Tập dữ liệu chuẩn hóa phục vụ EDA và mô hình hóa & 10.250 & 10.080 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Với Chợ Tốt, giá ban đầu là chuỗi như \texttt{9.990.000 đ}; các thuộc tính kỹ thuật cũng thường ở dạng văn bản bán cấu trúc. Với Websosanh, ba cột giá chỉ là các vị trí giá thu thập được cùng sản phẩm, không được xem là ba cửa hàng cố định. Do đó, chúng được chuẩn hóa thành giá trị số, kiểm tra độc lập, rồi tổng hợp bằng trung vị để tạo giá tham chiếu. Hình~\ref{fig:source-composition} cho thấy hai nguồn đóng góp tương đối cân bằng, nhưng khác biệt về bản chất dữ liệu cần được giữ lại trong quá trình kiểm tra và đánh giá mô hình.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{figures/eda/source_row_count.png}
+\caption{Cơ cấu tập dữ liệu hợp nhất theo nguồn.}
+\label{fig:source-composition}
+\end{figure}
+
+\subsection{Tiền xử lý và làm sạch}
+
+Pipeline được tách riêng theo nguồn vì cấu trúc và rủi ro chất lượng dữ liệu khác nhau, sau đó mới đưa về một schema chung. Các trường đích cuối cùng là \texttt{target\_price} và \texttt{log\_target\_price}; các trường mô tả cấu hình cốt lõi gồm hãng/dòng máy, CPU, GPU, RAM (GB), lưu trữ (GB), kích thước màn hình và các cờ thiếu/bất thường.
+
+Trình tự xử lý chung gồm năm bước: (1) đọc dữ liệu CSV và kiểm tra số dòng, kiểu dữ liệu, miền giá trị và khóa định danh; (2) chuẩn hóa văn bản, đơn vị đo và các giá trị thiếu; (3) trích xuất thông số định lượng/tạo các nhóm cấu hình; (4) kiểm tra trùng lặp, ngoại lệ và tính nhất quán giữa các trường; (5) lưu dữ liệu đã làm sạch cùng các cờ audit, rồi ánh xạ hai nguồn sang schema chuẩn để hợp nhất. Cờ audit được tách khỏi biến mô hình hóa nếu nó được sinh ra từ giá hoặc chỉ có ý nghĩa ở một nguồn.
+
+\subsubsection{Làm sạch dữ liệu Chợ Tốt}
+
+Đầu tiên, văn bản được chuẩn hóa về khoảng trắng, chữ hoa/thường và các biểu diễn đơn vị (chẳng hạn \texttt{8 GB}, \texttt{8GB} được đưa về cùng dạng). Giá được tách từ chuỗi tiền tệ sang VND; hãng, dòng máy và thông số được đối chiếu giữa các trường có cấu trúc và tiêu đề. Các biểu thức mẫu được dùng để trích xuất RAM, dung lượng lưu trữ, kích thước màn hình, hãng/phân khúc CPU và phân khúc GPU. Khi một thông số trong trường riêng không hợp lệ nhưng có thể nhận diện đáng tin cậy từ tiêu đề, giá trị suy luận được lưu tách biệt; nếu không, biến số được để thiếu và gắn cờ. Các danh mục quá hiếm được gom vào nhóm \textit{Other} để giảm phân mảnh.
+
+Dữ liệu Chợ Tốt giữ nguyên 5.866 dòng sau làm sạch cơ bản để phục vụ audit, tăng từ 15 lên 60 cột bao gồm đặc trưng dẫn xuất và cờ kiểm tra. Không có dòng trùng hoàn toàn hoặc URL trùng. Khi tạo tập hợp nhất, 168 dòng không đạt điều kiện về biến mục tiêu bị loại: một dòng thiếu giá được đưa vào vùng cách ly và 167 dòng có giá ngoài miền cuối cùng không được đưa vào tập mô hình. Vì vậy, số bản ghi Chợ Tốt hợp lệ ở Bảng~\ref{tab:data-sources} là 5.698. Các cảnh báo ở cấp thuộc tính như RAM, màn hình hoặc cấu hình/sửa chữa chỉ được gắn cờ, không làm mất cả bản ghi; với thông số không thể tin cậy, giá trị số được đặt thiếu để mô hình không học từ một phép tách sai.
+
+\subsubsection{Làm sạch dữ liệu Websosanh}
+
+Đối với mỗi sản phẩm, ba giá quan sát được trước hết chuyển sang số VND và đếm số giá khả dụng. Từng ô giá được kiểm tra trong miền 3--200 triệu VND. Bốn ô giá ngoài miền bị làm rỗng; tiếp theo, một giá nhỏ hơn 0,5 lần hoặc lớn hơn 2 lần trung vị của các giá hợp lệ cùng sản phẩm được xem là ngoại lệ tương đối. Bước này làm rỗng thêm 53 ô, nhưng không làm mất toàn bộ giá của sản phẩm nào. Từ các giá sạch, pipeline tạo giá nhỏ nhất, lớn nhất, trung vị, số nguồn giá hợp lệ và phần trăm chênh lệch giá. Giá tham chiếu được chọn là trung vị các giá sạch còn lại. Với đủ ba quan sát, trung vị có thể hạn chế ảnh hưởng của một giá cực trị; nhưng với hai quan sát, trung vị bằng trung bình của hai giá, còn với một quan sát thì không có khả năng kháng ngoại lệ. Do đó, lựa chọn này chỉ có độ bền hạn chế và không thay thế cho việc xác minh nguồn giá.
+
+Các giá trị màn hình không hợp lý được xử lý ở cấp trường (85 giá trị), tương tự với hai giá trị RAM bất thường. Các bản ghi lặp hoàn toàn không xuất hiện. Trong tập Websosanh hợp lệ, 2.514 dòng mang cờ \texttt{is\_soft\_duplicate\_spec}; cờ này được tính trong pipeline riêng của Websosanh theo \texttt{spec\_key} gồm hãng, CPU, RAM, lưu trữ và màn hình. Các dòng được giữ ở tầng làm sạch vì có thể là nhiều mức giá/cửa hàng hợp lệ của cùng cấu hình.
+
+\begin{table}[H]
+\centering
+\caption{Các sự kiện làm sạch và kiểm tra chất lượng đáng chú ý}
+\label{tab:cleaning-audit}
+\begin{tabular}{p{3.2cm}p{2.8cm}r p{4.0cm}}
+\toprule
+Nguồn & Hạng mục & Số lượng & Cách xử lý \\
+\midrule
+Chợ Tốt & Giá thiếu & 1 dòng & Cách ly khỏi tập mô hình \\
+Chợ Tốt & Giá ngoài miền cuối cùng & 167 & Giữ trong dữ liệu audit; loại khi hợp nhất \\
+Chợ Tốt & Màn hình thiếu & 1.037 & Cờ thiếu; giữ thông tin còn lại \\
+Chợ Tốt & GPU thiếu & 1.421 & Cờ thiếu/nhãn \textit{Missing} \\
+Websosanh & Giá ngoài miền & 4 ô & Làm rỗng ở cấp ô giá \\
+Websosanh & Giá lệch tương đối & 53 ô & Làm rỗng ở cấp ô giá \\
+Websosanh & Cảnh báo spread giá & 583 dòng & Chỉ dùng để audit, không làm đặc trưng \\
+Websosanh & Lặp mềm cấu hình & 2.514 dòng & Giữ lại và gắn cờ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Giá trị thiếu không được điền đồng loạt vì nguyên nhân thiếu khác nhau giữa nguồn và thuộc tính. Với biến phân loại, giá trị thiếu được biểu diễn tường minh bằng \textit{Unknown}/\textit{Missing}; với biến số, giá trị thiếu và cờ thiếu được giữ trong dữ liệu đã làm sạch. Trong lần chạy hiện tại, một số bước như xây dựng schema mã hóa và gom nhóm danh mục được thực hiện trước khi chia dữ liệu, trong khi các phép biến đổi cần ước lượng như chuẩn hóa biến số được \textit{fit} trên phần huấn luyện. Hạn chế này và nguy cơ \textit{preprocessing leakage} được trình bày chi tiết ở chương mô hình hóa.
+
+Cuối cùng, hai nguồn được ánh xạ về cùng tên cột và cùng đơn vị, sau đó nối theo hàng. Các cột định danh/metadata (URL, tiêu đề, khóa cấu hình, mã dòng) được giữ cho truy vết nhưng không dùng làm biến đầu vào. Các biến tạo trực tiếp từ giá như \texttt{price\_spread\_clean\_pct} và các cờ spread cũng bị loại khỏi bộ đặc trưng cơ sở để tránh leakage.
+
+\subsection{Phân tích khám phá dữ liệu}
+
+\subsubsection{Phân bố nhãn và khác biệt giữa nguồn}
+
+Phân bố giá có đuôi phải rõ rệt (skewness 2,75; tỷ lệ phân vị 95\% trên trung vị là 3,37). Vì vậy, ngoài giá gốc, nhóm giữ biến $\log(\text{price})$ để so sánh trong giai đoạn mô hình hóa. Bảng~\ref{tab:price-by-source} cho thấy sự khác biệt lớn giữa hai nguồn: Chợ Tốt tập trung ở phân khúc đã qua sử dụng, trong khi Websosanh có mức giá và độ phân tán cao hơn. Đây là khác biệt thị trường thực tế, không phải lỗi cần xóa. Lần chạy hiện tại đánh giá tập hợp nhất và phân tầng phép chia theo khoảng giá.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.49\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/eda/target_price_hist_p01_p99.png}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/eda/log_target_price_hist.png}
+\end{minipage}
+\caption{Phân bố giá gốc (trái, giới hạn từ P1 đến P99 để dễ quan sát) và giá sau biến đổi log (phải).}
+\label{fig:price-distribution}
+\end{figure}
+
+Hình~\ref{fig:price-distribution} cho thấy phần lớn quan sát tập trung ở vùng giá thấp--trung bình và giảm dần về phía giá cao. Biến đổi log nén phần đuôi phải, nhờ đó phân bố phù hợp hơn để thử nghiệm các mô hình nhạy với độ lệch của biến mục tiêu.
+
+\begin{table}[H]
+\centering
+\caption{Thống kê mô tả của nhãn giá sau khi hợp nhất (triệu VND)}
+\label{tab:price-by-source}
+\begin{tabular}{l r r r r r r}
+\toprule
+Nguồn & $n$ & Trung bình & Trung vị & Q1 & Q3 & P95 \\
+\midrule
+Chợ Tốt & 5.698 & 10,08 & 7,89 & 4,70 & 13,00 & 25,99 \\
+Websosanh & 4.382 & 26,04 & 21,20 & 15,20 & 30,99 & 57,59 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{figures/eda/target_price_box_by_source_p01_p99.png}
+\caption{Phân bố giá theo nguồn, hiển thị trong khoảng P1--P99.}
+\label{fig:price-box-source}
+\end{figure}
+
+Hình~\ref{fig:price-box-source} trực quan hóa chênh lệch về trung vị và khoảng tứ phân vị giữa hai nguồn, nhất quán với Bảng~\ref{tab:price-by-source}. Các mức giá thấp nhất của Chợ Tốt quanh 1 triệu VND có thể bao gồm máy lỗi, máy thiếu linh kiện hoặc tin rao đặc biệt; các giá cao của Websosanh (tối đa 179,4 triệu VND) thường thuộc phân khúc cao cấp. Các điểm này được giữ khi còn hợp lý về miền giá, vì chúng là một phần của bài toán dự đoán, nhưng phân phối lệch là lý do cần kiểm tra cả mục tiêu log và các chỉ số sai số theo phân khúc.
+
+\subsubsection{Mối quan hệ giữa cấu hình và giá}
+
+Các biến số cấu hình có quan hệ dương với giá, mạnh nhất là lưu trữ và RAM. Tương quan Pearson với giá gốc lần lượt là 0,680 và 0,676; kích thước màn hình chỉ đạt 0,175. Do Pearson chỉ đo mức liên hệ tuyến tính và nhạy với quan sát cực trị, các hệ số trên thang giá gốc cần được diễn giải thận trọng. Khi tính lại trên $\log(\text{price})$, tương quan với RAM và lưu trữ đều tăng nhẹ, cho thấy mối liên hệ trong mẫu trở nên tuyến tính hơn trên thang log. Riêng kết quả này chưa đủ để kết luận quan hệ có dạng nhân hoặc mang tính nhân quả; nó chỉ hỗ trợ việc giữ song song hai target để so sánh ở Chương 3. Nhìn chung, dù tính trên thang nào, RAM và lưu trữ vẫn là tín hiệu quan trọng trong các biến số, nhưng không đủ để định giá độc lập vì cùng một mức RAM/lưu trữ vẫn có thể thuộc nhiều phân khúc CPU, GPU và thương hiệu khác nhau.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{figures/eda/median_price_by_ram_bucket_eda_source.png}
+\caption{Giá trung vị theo nhóm RAM và nguồn dữ liệu.}
+\label{fig:median-price-ram}
+\end{figure}
+
+Hình~\ref{fig:median-price-ram} cho thấy giá trung vị nhìn chung tăng theo mức RAM trong từng nguồn, nhưng mức giá tuyệt đối vẫn khác biệt đáng kể giữa hai nguồn. Trong dữ liệu Websosanh, trung vị giá tăng từ khoảng 12,17 triệu VND ở nhóm RAM không quá 4GB lên 25,00 triệu ở 16GB và 84,52 triệu ở 64GB. Theo lưu trữ, trung vị tăng từ 14,99 triệu VND ở nhóm không quá 256GB lên 30,88 triệu ở 1TB và 56,50 triệu ở 2TB. Phân tích theo nhóm cũng cho thấy giá có xu hướng khác biệt giữa các phân khúc CPU, GPU và thương hiệu; các nhóm có ít quan sát được gom nhóm trước khi mã hóa để tránh kết luận hay học quá mức từ một vài cấu hình hiếm.
+
+\subsubsection{Chất lượng dữ liệu và hàm ý mô hình hóa}
+
+Thiếu dữ liệu có cấu trúc theo nguồn. Trên toàn bộ 5.866 dòng Chợ Tốt ở tầng làm sạch và audit, màn hình thiếu khoảng 17,7\% (1.037/5.866) và GPU thiếu khoảng 24,2\% (1.421/5.866). Hình~\ref{fig:missing-by-source} được tạo từ tập hợp nhất gồm 5.698 dòng Chợ Tốt hợp lệ; trên tầng này, số thiếu tương ứng là 892 dòng màn hình (15,7\%) và 1.307 dòng GPU (22,9\%). Ở Websosanh, các tỷ lệ trên tập hợp nhất lần lượt khoảng 2,2\% và 4,7\%. Vì thế, cờ thiếu được giữ như một tín hiệu về chất lượng tin rao thay vì chỉ thay thế bằng một giá trị trung bình. Các thuộc tính như xuất xứ, bảo hành và dòng máy không có độ phủ đồng đều giữa hai nguồn, nên được kiểm soát khi chọn biến.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{figures/eda/missing_like_by_source_key_columns.png}
+\caption{Tỷ lệ thiếu của các thuộc tính quan trọng theo nguồn.}
+\label{fig:missing-by-source}
+\end{figure}
+
+Hình~\ref{fig:missing-by-source} xác nhận dữ liệu thiếu không phân bố đồng đều theo nguồn. Các trường chỉ được thu thập ở một nguồn, như tình trạng, bảo hành hoặc dòng máy, không được diễn giải là ``thiếu ngẫu nhiên'' và cần được xử lý thận trọng khi so sánh mô hình giữa hai nguồn.
+
+Sau hợp nhất, phép kiểm tra trên \texttt{merged\_spec\_key} ghi nhận 6.882 dòng thuộc 1.530 khóa xuất hiện nhiều hơn một lần; không có khóa lặp chéo giữa hai nguồn. Con số này khác 2.514 dòng mang cờ \texttt{is\_soft\_duplicate\_spec}, vì cờ được tạo trước khi hợp nhất bằng khóa riêng của Websosanh. Bước feature engineering cuối loại 2.514 dòng theo cờ nguồn này, chứ không loại toàn bộ 6.882 dòng lặp theo khóa hợp nhất. Vì vậy, bước lọc hiện tại không bảo đảm một cấu hình hợp nhất chỉ xuất hiện ở một fold. Bộ đặc trưng cơ sở gồm 26 biến cấu hình, danh mục đã gom nhóm và cờ chất lượng; phép kiểm tra tự động không phát hiện biến cấm hay biến dẫn xuất từ nhãn trong bộ này.
+
+Tóm lại, tập dữ liệu sau xử lý giữ được 10.080 quan sát có giá hợp lệ và các cờ về thiếu dữ liệu, ngoại lệ và độ tin cậy. Các cờ hỗ trợ audit, nhưng không tự bảo đảm đã kiểm soát hết trùng lặp hay leakage; khóa lặp không thống nhất và preprocessing trước khi chia dữ liệu vẫn là hai hạn chế của lần chạy hiện tại.

@@ -391,7 +391,8 @@ def test_condition_score_mapping_for_new_unknown_and_like_new() -> None:
 
     assert encoder.encode_one({"condition": "new"}).loc[0, "condition_score"] == 3
     assert encoder.encode_one({"condition": "moi"}).loc[0, "condition_score"] == 3
-    assert encoder.encode_one({"condition": "unknown"}).loc[0, "condition_score"] == 3
-    assert encoder.encode_one({"condition": "unknow"}).loc[0, "condition_score"] == 3
+    assert encoder.encode_one({"condition": "unknown"}).loc[0, "condition_score"] == 2
+    assert encoder.encode_one({"condition": "unknow"}).loc[0, "condition_score"] == 2
+    assert encoder.encode_one({"condition": None}).loc[0, "condition_score"] == 2
     assert encoder.encode_one({"condition": "like new"}).loc[0, "condition_score"] == 2
     assert encoder.encode_one({"condition": "da mua"}).loc[0, "condition_score"] == 2

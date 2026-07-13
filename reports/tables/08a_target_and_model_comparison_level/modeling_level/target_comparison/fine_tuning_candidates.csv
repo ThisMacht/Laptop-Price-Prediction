@@ -1,6 +1,0 @@
-candidate_rank,model_name,target_used,reason_for_selection,priority,tuning_status
-1,LightGBM,target_price,"Best balanced candidate: MAE is within the 2% close band of the best MAE result, while RMSE and R² remain near the overall best.",High,Selected for tuning
-2,CatBoost,target_price,Best RMSE and best R² in this notebook; strongest option when large-error control on the price scale is the priority.,High,Selected for tuning
-3,LightGBM,log_target_price,Best MAE and strong MAPE; useful to test whether the typical-error advantage persists after tuning.,Medium-High,Selected for tuning
-4,CatBoost,log_target_price,"Competitive MAPE/MAE alternative, but weaker RMSE than CatBoost target_price; keep as a secondary target-strategy check.",Medium,Selected for tuning
-5,Extra Trees,log_target_price,Optional diversity candidate; improves MAE/MAPE but does not lead the main ranking.,Low,Optional

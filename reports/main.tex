@@ -1,0 +1,181 @@
+\documentclass[12pt,a4paper]{article}
+
+% ================== PACKAGES ==================
+\usepackage[margin=2.54cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[vietnamese]{babel}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{xurl}
+\usepackage{float}
+\usepackage{tocloft}
+\usepackage{csquotes}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+
+% ================== REFERENCES ==================
+\usepackage[
+    backend=biber,
+    style=ieee,
+    sorting=none
+]{biblatex}
+
+\addbibresource{references.bib}
+
+% ================== FONT & SPACING ==================
+\onehalfspacing
+
+% ================== PARAGRAPH FORMAT ==================
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+
+% ================== HYPERREF SETUP ==================
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=cyan,
+    pdftitle={Dự đoán giá laptop tại thị trường Việt Nam},
+    pdfauthor={Group 06}
+}
+
+% ================== HEADER & FOOTER ==================
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Học Máy}
+\rhead{Regression}
+\rfoot{Trang \thepage}
+
+% ================== TITLE FORMAT ==================
+\titleformat{\section}
+    {\Large\bfseries}
+    {\thesection}
+    {1em}
+    {}
+
+\titleformat{\subsection}
+    {\large\bfseries}
+    {\thesubsection}
+    {1em}
+    {}
+
+\titleformat{\subsubsection}
+    {\normalsize\bfseries}
+    {\thesubsubsection}
+    {1em}
+    {}
+
+% ================== LISTING SETUP ==================
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red}
+}
+
+% ================== CUSTOM COMMANDS ==================
+\newcommand{\abbr}[2]{#1 & #2 \\}
+
+% ================== DOCUMENT ==================
+\begin{document}
+
+% ================== TITLE PAGE ==================
+\begin{titlepage}
+\begin{center}
+
+{\large
+ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH\\
+TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN\\
+KHOA CÔNG NGHỆ THÔNG TIN
+}\\[3.0cm]
+
+\includegraphics[width=4cm]{logo-khtn.png}\\[1.5cm]
+
+{\color{blue}\LARGE \textbf{ĐỒ ÁN MÔN HỌC}}\\[0.5cm]
+{\LARGE \textbf{DỰ ĐOÁN GIÁ LAPTOP TẠI THỊ TRƯỜNG VIỆT NAM}}\\[0.8cm]
+
+\begin{tabular}{ll}
+\textbf{Mã số sinh viên} & \textbf{Họ và tên} \\[0.2cm]
+23120245 & NGUYỄN QUANG DUY \\
+23120258 & LƯU TRỌNG HIẾU \\
+23120260 & VĂN ĐÌNH HIẾU \\
+\end{tabular}
+
+\vfill
+
+\begin{tabular}{ll}
+\textbf{Giảng viên hướng dẫn} & TS. Bùi Tiến Lên \\
+                              & Th.S Lê Nhựt Nam \\
+\end{tabular}
+
+\vfill
+
+\begin{tabular}{ll}
+\textbf{Môn học} & Nhập môn Học Máy\\
+\end{tabular}
+
+\vspace{0.3cm}
+
+\textbf{Thành phố Hồ Chí Minh -- 2026}
+
+\end{center}
+\end{titlepage}
+
+% ================== FRONT MATTER ==================
+\pagenumbering{roman}
+
+\newpage
+
+% ================== LIST OF FIGURES ==================
+\listoffigures
+\addcontentsline{toc}{section}{Danh mục hình vẽ}
+\newpage
+
+% ================== LIST OF TABLES ==================
+\listoftables
+\addcontentsline{toc}{section}{Danh mục bảng biểu}
+\newpage
+
+% ================== TABLE OF CONTENTS ==================
+\tableofcontents
+\newpage
+
+% ================== MAIN MATTER ==================
+\pagenumbering{arabic}
+
+\input{sections/01_intro}
+\input{sections/02_data_collection_and_analysis}
+\input{sections/03_model_selection_and_training}
+\input{sections/04_results_and_discussion}
+\input{sections/05_application_deployment}
+\input{sections/06_conclusion}
+
+% ================== REFERENCES ==================
+\newpage
+\addcontentsline{toc}{section}{Tài liệu tham khảo}
+
+\nocite{*}
+\printbibliography[title={Tài liệu tham khảo}]
+% ================== APPENDIX ==================
+\newpage
+\appendix
+\input{sections/appendix}
+
+\end{document}

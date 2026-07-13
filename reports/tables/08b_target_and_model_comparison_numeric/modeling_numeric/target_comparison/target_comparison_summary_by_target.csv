@@ -1,3 +1,0 @@
-target_used,rmse_mean,rmse_median,mae_mean,mae_median,r2_mean,mape_mean,rmse_wins,mae_wins,n_models,rmse_weighted_wins,mae_weighted_wins
-log_target_price,13.6577,13.6575,4.3046,4.3322,0.0621,0.3159,0,3,8,0.0,2.5
-target_price,6.2108,6.3437,3.8075,3.8536,0.8532,0.3403,8,5,8,4.5,2.0

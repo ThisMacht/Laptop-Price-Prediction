@@ -1,5 +1,0 @@
-rank,model_name,encoding_type,target_used,evaluation_scale,rmse,mae,mape,r2,role,reason
-1,LightGBM,numeric,target_price,target_price,5.336465796362892,3.2245794645382704,0.2733688741989442,0.8929515591928825,primary_candidate,Balanced candidate: near-best MAE with stronger RMSE/R² on original price scale
-2,LightGBM,numeric,log_target_price,target_price,5.506857406165535,3.2177689985050764,0.2516603703020449,0.8860063793764152,mae_mape_alternative,Alternative to test whether log target improves MAE/MAPE after tuning
-3,CatBoost,numeric,target_price,target_price,5.413634812220809,3.3103716012606914,0.2911762554346475,0.8898331839339132,secondary_boosting_baseline,Strong boosting baseline on the primary target
-4,CatBoost,numeric,log_target_price,target_price,5.72753126880468,3.3061872265264243,0.2543586623828555,0.8766872953504098,target_strategy_check,Checks whether CatBoost benefits from log target without making it primary
