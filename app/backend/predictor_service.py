@@ -278,7 +278,7 @@ def gemini_compare_response_schema() -> dict[str, Any]:
 
 
 def call_gemini_json_api(user_input: str, api_key: str) -> dict[str, Any]:
-    model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+    model = os.getenv("GEMINI_MODEL", "gemini-flash-latest")
     payload = {
         "systemInstruction": {
             "parts": [{"text": DETAILED_EXTRACTION_PROMPT}],
@@ -307,7 +307,7 @@ def call_gemini_json_api(user_input: str, api_key: str) -> dict[str, Any]:
 
 
 def call_gemini_compare_api(user_input: str, api_key: str) -> dict[str, Any]:
-    model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+    model = os.getenv("GEMINI_MODEL", "gemini-flash-latest")
     payload = {
         "systemInstruction": {
             "parts": [{"text": COMPARE_EXTRACTION_PROMPT}],
